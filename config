@@ -1,0 +1,49 @@
+# -*- mode: makefile -*-
+
+TEMPLATES = site.tmpl
+SOURCE = src
+OUTPUT = site
+
+
+*.tag: blog/*.md
+	rename *.html
+	directorify
+	template tag
+	markdown
+	template page
+
+*.md:
+	config
+	rename *.html
+	directorify
+	tags tag
+	inner-template
+	markdown
+	template page
+
+blog/index.md: blog/*.md
+	config
+	rename *.html
+	directorify
+	inner-template
+	markdown
+	template
+
+index.md: blog/index.md
+	config
+	rename *.html
+	directorify
+	inner-template
+	markdown
+	template
+
+*.html:
+	directorify
+	template page
+
+static/bootstrap/*.less:
+	ignore
+
+static/style.less:
+	rename static/style.css
+	:lessc -
