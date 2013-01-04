@@ -17,21 +17,19 @@ OUTPUT = site
 	rename *.html
 	directorify
 	tags tag
-	inner-template
 	markdown
 	template page
 
 blog/index.md: blog/*.md
 	config
-	rename *.html
-	directorify
+	rename blog/index.html
 	inner-template
 	markdown
 	template
 
 index.md: blog/index.md
 	config
-	rename *.html
+	rename index.html
 	directorify
 	inner-template
 	markdown

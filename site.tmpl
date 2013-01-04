@@ -49,7 +49,14 @@
 
 
 {{ define "page" }}{{ template "header" . }}
-  {{ .GetContent }}
+
+<ul>
+{{ range .Tags }}
+  <li>{{ . }}</li>
+{{ end }}
+</ul>
+
+  {{ .Content }}
   {{ template "footer" . }}
 {{ end }}
 
