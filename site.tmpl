@@ -7,9 +7,9 @@
   <meta name="author" content="Alexander Solovyov">
   <meta name="keywords" content="alexander solovyov, piranha, python, mercurial, django, emacs, golang">
   <meta name="description" content="Alexander Solovyov, piranha">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" type="text/css" href="/static/style.css">
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular&subset=Latin,Cyrillic">
   <link rel="alternate" type="application/atom+xml"
         title="solovyov.net russian posts" href="http://feeds.feedburner.com/AmazonByteflow">
   <link rel="alternate" type="application/atom+xml"
@@ -34,14 +34,14 @@
 </head>
 <body>
   <header>
-    <h1 id="site-title"><a href="/">solovyov.net</a></h1>
+    <h2 id="site-title"><a href="/">solovyov.net</a></h2>
   </header>
 {{ end }}
 
 
 {{ define "footer" }}
   <footer>
-    &#169; 2006&ndash;2012 Alexander Solovyov (<a href="/about/">about</a>)
+    &#169; 2006&ndash;2013 Alexander Solovyov (<a href="/about/">about</a>)
   </footer>
 </body>
 </html>
@@ -49,16 +49,27 @@
 
 
 {{ define "page" }}{{ template "header" . }}
+<article>
+  <h1>{{ .Title }}</h1>
 
-<ul>
-{{ range .Tags }}
-  <li>{{ . }}</li>
-{{ end }}
-</ul>
+  <div class="details">
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+      {{ .Date.Format "2006, January 02" }}
+    </time>
+
+    in
+
+    {{ range .Tags }}
+    <a href="/tags/{{ . }}/">{{ . }}</a>,
+    {{ end }}
+  </div>
+
+  <ul>
+  </ul>
 
   {{ .Content }}
-  {{ template "footer" . }}
-{{ end }}
+</article>
+{{ template "footer" . }}{{ end }}
 
 
 {{define "tag"}}
