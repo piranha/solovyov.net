@@ -3,7 +3,7 @@ title: Блог
 ----
 
 {{ range .Site.Pages.Children .Url }}
-{{ if HasChanged "year" .Date.Year }}
+{{ if changed "year" .Date.Year }}
  - {{ .Date.Year }}
 {{ end }}
  - [{{ .Title }}]({{ $.UrlTo . }})

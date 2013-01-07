@@ -3,8 +3,8 @@ title: Alexander Solovyov
 
 # Online presence
 
-<div class="row">
-  <div class="span8">
+<div class="row-fluid">
+  <div class="span10">
     <div class="icon">
       <a href="http://feeds.feedburner.com/AmazonByteflow">
         <img src="static/services/rss_32.png">
@@ -12,7 +12,7 @@ title: Alexander Solovyov
     </div>
     <a href="blog/">Blog in Russian</a>
   </div>
-  <div class="span4">
+  <div class="span2">
     <a class="readers" href="http://feeds.feedburner.com/AmazonByteflow">
       <img src="http://feeds.feedburner.com/~fc/AmazonByteflow">
     </a>

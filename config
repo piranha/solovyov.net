@@ -3,10 +3,13 @@
 TEMPLATES = site.tmpl
 SOURCE = src
 OUTPUT = site
+TITLE = solovyov.net
+URL = http://solovyov.net/
+AUTHOR = Alexander Solovyov
 
 
 *.tag: blog/*/*.md
-	rename *.html
+	ext .html
 	directorify
 	template tag
 	markdown
@@ -14,22 +17,31 @@ OUTPUT = site
 
 *.md:
 	config
-	rename *.html
+	ext .html
 	directorify
 	tags tags/*.tag
 	markdown
 	template page
 
+blog/*/*.md:
+	config
+	ext .html
+	directorify
+	tags tags/*.tag
+	markdown
+	template post
+	template page
+
 blog/index.md: blog/*/*.md
 	config
-	rename blog/index.html
+	ext .html
 	inner-template
 	markdown
 	template page
 
 index.md: blog/index.md
 	config
-	rename index.html
+	ext .html
 	inner-template
 	markdown
 	template page
@@ -42,7 +54,7 @@ static/bootstrap/*.less:
 	ignore
 
 static/style.less:
-	rename static/style.css
+	ext .css
 	:lessc -
 
 \#*:

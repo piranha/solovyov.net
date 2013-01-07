@@ -17,7 +17,12 @@
   <category term="{{ . }}"></category>
   {{ end }}
   <link href="http://solovyov.net/{{ .Url }}" rel="alternate"></link>
-  <content type="html">{{ html .Process.Content }}</content>
+  <content type="html">
+    {{/* .Process here in case only feed changed */}}
+    {{ with cut .Process.Content "<section>" "</section>" }}
+      {{ html . }}
+    {{ end }}
+  </content>
 </entry>
 {{ end }}
 </feed>

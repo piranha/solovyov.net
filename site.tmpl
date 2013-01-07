@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="author" content="Alexander Solovyov">
+  <meta name="author" content="{{ .Site.Other.Author }}">
   <meta name="keywords" content="alexander solovyov, piranha, python, mercurial, django, emacs, golang">
   <meta name="description" content="Alexander Solovyov, piranha">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
         title="solovyov.net russian posts" href="http://feeds.feedburner.com/AmazonByteflow">
   <link rel="alternate" type="application/atom+xml"
         title="solovyov.net english posts" href="http://feeds.feedburner.com/BloggingSpree">
-  <title>solovyov.net{{ if .Title }}: {{ .Title }}{{ end }}</title>
+  <title>{{ .Site.Other.Title }}{{ if .Title }}: {{ .Title }}{{ end }}</title>
 
   <link rel="openid.server" href="http://www.myopenid.com/server">
   <link rel="openid.delegate" href="http://alexander.solovyov.myopenid.com/">
@@ -32,10 +32,11 @@
   }(document, 'script'));
   </script>
 </head>
-<body>
+<body class="container">
   <header>
     <h2 id="site-title"><a href="/">solovyov.net</a></h2>
   </header>
+
 {{ end }}
 
 
@@ -47,8 +48,11 @@
 </html>
 {{ end }}
 
-
 {{ define "page" }}{{ template "header" . }}
+  {{ .Content }}
+{{ end }}
+
+{{ define "post" }}
 <article>
   <h1>{{ .Title }}</h1>
 
@@ -64,12 +68,11 @@
     {{ end }}
   </div>
 
-  <ul>
-  </ul>
-
+  <section>
   {{ .Content }}
+  </section>
 </article>
-{{ template "footer" . }}{{ end }}
+{{ end }}
 
 
 {{define "tag"}}
