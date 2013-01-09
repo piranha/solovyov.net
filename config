@@ -1,6 +1,6 @@
 # -*- mode: makefile -*-
 
-TEMPLATES = site.tmpl
+TEMPLATES = site.tmpl utils.tmpl
 SOURCE = src
 OUTPUT = site
 TITLE = solovyov.net

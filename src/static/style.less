@@ -15,3 +15,55 @@
 
 // Responsive
 @import "src/static/bootstrap/responsive.less";
+
+.container {
+    max-width: 40em;
+}
+
+#site-title {
+    background: black;
+    display: inline-block;
+    font-size: 1.3em;
+
+    &:hover {
+        background: @linkColorHover;
+    }
+
+    a {
+        color: white;
+        display: inline-block;
+        padding: 0 0.3em;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+time {
+    color: @grayLight;
+}
+
+footer {
+    text-align: center;
+}
+
+// index page
+.presence {
+    dd {
+        padding-left: 2em;
+    }
+
+    .icon {
+        float: left;
+        padding: 0.5em 0.3em 0 0;
+    }
+
+    .right {
+        float: right;
+    }
+}
+
+dd + dt {
+    padding-top: .5em;
+}

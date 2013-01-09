@@ -22,6 +22,7 @@
   <link rel="openid2.provider" href="http://www.myopenid.com/server">
   <meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=alexander.solovyov.myopenid.com">
 
+  <script type="text/javascript" src="{{ .Rel "/static/main.js" }}"></script>
   <script type="text/javascript">
   var _gaq = [['_setAccount', 'UA-317760-3'], ['_trackPageview']];
   (function(d, t) {
@@ -50,7 +51,7 @@
 
 {{ define "page" }}{{ template "header" . }}
   {{ .Content }}
-{{ end }}
+{{ template "footer" . }}{{ end }}
 
 {{ define "post" }}
 <article>
