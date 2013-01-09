@@ -9,7 +9,6 @@
   <meta name="description" content="Alexander Solovyov, piranha">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" type="text/css" href="/static/style.css">
   <link rel="alternate" type="application/atom+xml"
         title="solovyov.net russian posts" href="http://feeds.feedburner.com/AmazonByteflow">
   <link rel="alternate" type="application/atom+xml"
@@ -22,6 +21,7 @@
   <link rel="openid2.provider" href="http://www.myopenid.com/server">
   <meta http-equiv="X-XRDS-Location" content="http://www.myopenid.com/xrds?username=alexander.solovyov.myopenid.com">
 
+  <link rel="stylesheet" type="text/css" href="{{ .Rel "/static/style.css" }}">
   <script type="text/javascript" src="{{ .Rel "/static/main.js" }}"></script>
   <script type="text/javascript">
   var _gaq = [['_setAccount', 'UA-317760-3'], ['_trackPageview']];
@@ -43,7 +43,8 @@
 
 {{ define "footer" }}
   <footer>
-    &#169; 2006&ndash;2013 Alexander Solovyov (<a href="/about/">about</a>)
+    &#169; 2006&ndash;2013 Alexander Solovyov
+    (<a href="{{ .Rel "/about/" }}">about</a>)
   </footer>
 </body>
 </html>
@@ -55,19 +56,20 @@
 
 {{ define "post" }}
 <article>
-  <h1>{{ .Title }}</h1>
+  <header>
+    <h1>{{ .Title }}</h1>
 
-  <div class="details">
-    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-      {{ .Date.Format "2006, January 02" }}
-    </time>
+    <div class="details">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        {{ .Date.Format "2006, January 02" }}
+      </time>
 
-    in
+      in
 
-    {{ range .Tags }}
-    <a href="/tags/{{ . }}/">{{ . }}</a>,
-    {{ end }}
-  </div>
+      {{ range $i, $t := .Tags }}{{if $i}},{{end}}
+      <a href="/tags/{{ $t }}/">{{ $t }}</a>{{ end }}
+    </div>
+  </header>
 
   <section>
   {{ .Content }}

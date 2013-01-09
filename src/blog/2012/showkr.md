@@ -1,4 +1,4 @@
-tags: javascript, programming, project, showkr
+tags: javascript, programming, project
 title:  Showkr - приложение в браузере
 date: 2012-01-13
 ----
