@@ -9,7 +9,8 @@
   <link href="http://solovyov.net/" rel="alternate"></link>
   <generator uri="http://github.com/piranha/gostatic/">gostatic</generator>
 
-{{ range .Site.Pages.Slice 0 5 }}
+{{ with .Site.Pages.Children "blog/" }}
+{{ range .Slice 0 5 }}
 <entry>
   <id>{{ .Url }}</id>
   <author><name>Alexander Solovyov</name></author>
@@ -26,5 +27,6 @@
     {{ end }}
   </content>
 </entry>
+{{ end }}
 {{ end }}
 </feed>

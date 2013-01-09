@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0">
+  <id>http://solovyov.net/</id>
+  <title>solovyov.net english</title>
+  {{ with .Site.Pages.Children "en/" }}
+  <updated>{{ .First.Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
+  {{ end }}
+  <author><name>Alexander Solovyov</name></author>
+  <link href="http://solovyov.net/" rel="alternate"></link>
+  <generator uri="http://github.com/piranha/gostatic/">gostatic</generator>
+
+{{ with .Site.Pages.Children "en/" }}
+{{ range .Slice 0 5 }}
+<entry>
+  <id>{{ .Url }}</id>
+  <author><name>Alexander Solovyov</name></author>
+  <title type="html">{{ html .Title }}</title>
+  <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</published>
+  {{ range .Tags }}
+  <category term="{{ . }}"></category>
+  {{ end }}
+  <link href="http://solovyov.net/{{ .Url }}" rel="alternate"></link>
+  <content type="html">
+    {{/* .Process here in case only feed changed */}}
+    {{ with cut .Process.Content "<section>" "</section>" }}
+      {{ html . }}
+    {{ end }}
+  </content>
+</entry>
+{{ end }}
+{{ end }}
+</feed>

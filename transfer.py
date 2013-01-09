@@ -37,7 +37,7 @@ def fixtags(s):
 def setdate(s, fn):
     if 'date:' in s:
         return s
-    date = re.search('(\d{4}/\d\d-\d\d)-', fn)
+    date = re.search('(\d{4}[/\-]\d\d-\d\d)-', fn)
     if not date:
         print 'Unknown date for %s' % fn
         return s
@@ -51,9 +51,13 @@ def escape(body):
 def trytransfer(srcdir, tgtdir, fn):
     try:
         tgtfn = re.split('^\d\d-\d\d-', fn)[1]
-        tgtfn = op.splitext(tgtfn)[0] + '.md'
     except IndexError:
-        return # only interested in blog posts right now
+        try:
+            tgtfn = re.split('^\d\d\d\d-\d\d-\d\d-', fn)[1]
+            tgtdir = op.join(tgtdir, fn.split('-')[0])
+        except IndexError:
+            return # only interested in blog posts right now
+    tgtfn = op.splitext(tgtfn)[0] + '.md'
     src = op.join(srcdir, fn)
     tgt = op.join(tgtdir, tgtfn)
 
@@ -69,6 +73,10 @@ def trytransfer(srcdir, tgtdir, fn):
     head = setdate(head, src)
     body = escape(body)
 
+    try:
+        os.makedirs(tgtdir)
+    except OSError:
+        pass
     with file(tgt, 'w') as f:
         f.write(head.strip())
         f.write('\n----\n\n')

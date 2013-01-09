@@ -32,14 +32,26 @@ blog/*/*.md:
 	template post
 	template page
 
-blog/index.md: blog/*/*.md
+en/*/*.md:
 	config
 	ext .html
-	inner-template
+	directorify
+	tags tags/*.tag
 	markdown
+	template post
 	template page
 
-index.md: blog/index.md
+blog/index.html: blog/*/*.md
+	config
+	inner-template
+	template page
+
+en/index.html: en/*/*.md
+	config
+	inner-template
+	template page
+
+index.md: blog/index.html en/index.html
 	config
 	ext .html
 	inner-template
@@ -47,7 +59,9 @@ index.md: blog/index.md
 	template page
 
 *.html:
+	config
 	directorify
+	inner-template
 	template page
 
 static/bootstrap/*.less:
@@ -60,5 +74,8 @@ static/style.less:
 \#*:
 	ignore
 
-feed.atom: blog/*/*.md
+blog.atom: blog/*/*.md
+	inner-template
+
+en.atom: blog/*/*.md
 	inner-template

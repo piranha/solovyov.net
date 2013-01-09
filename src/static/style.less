@@ -17,7 +17,7 @@
 @import "src/static/bootstrap/responsive.less";
 
 .container {
-    max-width: 40em;
+    // max-width: 40em;
 }
 
 #site-title {
@@ -40,7 +40,7 @@
     }
 }
 
-time {
+time, .note {
     color: @grayLight;
 }
 
@@ -69,8 +69,29 @@ dd + dt {
     padding-top: .5em;
 }
 
+// post listing
+
+.post-list {
+    line-height: 28px;
+
+    .span12 {
+        text-align: center;
+    }
+    @media (min-width: 768px) {
+        .span4 {
+            text-align: right;
+        }
+    }
+}
+
 // posts
 
 article > header {
     margin-bottom: 1em;
+}
+
+// about
+
+.photo {
+    float: right;
 }

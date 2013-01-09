@@ -17,7 +17,9 @@ title: Alexander Solovyov
   </dt>
   <dd>
   {{ with .Site.Pages.Children "blog/" }}
-  Last entry: {{ template "post-date" .First }} {{ template "post-link" .First }}
+  Last entry:
+    {{ template "post-date" .First }}
+    <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
   {{ end }}
   </dd>
 
@@ -32,11 +34,11 @@ title: Alexander Solovyov
     </a>
     <a href="en/">Blog in English</a>
   </dt>
-  <dd>ololo
+  <dd>
   {{ with .Site.Pages.Children "en/" }}
-  {{/*
-  Last entry: {{ template "post-date" .First }} {{ template "post-link" .First }}
-  */}}
+  Last entry:
+    {{ template "post-date" .First }}
+    <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
   {{ end }}
   </dd>
 

@@ -1,9 +1,5 @@
 {{/* -*- mode: go-template -*- */}}
 
-{{define "post-link"}}
-<a href="{{ .Url }}">{{ .Title }}</a>
-{{end}}
-
 {{define "post-date"}}
 <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Date.Format "2006, Jan 2" }}
