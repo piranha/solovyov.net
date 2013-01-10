@@ -8,14 +8,14 @@ URL = http://solovyov.net/
 AUTHOR = Alexander Solovyov
 
 
-*.tag: blog/*/*.md
+*.tag: blog/*/*.md static/style.less
 	ext .html
 	directorify
 	template tag
 	markdown
 	template page
 
-*.md:
+*.md: static/style.less
 	config
 	ext .html
 	directorify
@@ -23,16 +23,7 @@ AUTHOR = Alexander Solovyov
 	markdown
 	template page
 
-blog/*/*.md:
-	config
-	ext .html
-	directorify
-	tags tags/*.tag
-	markdown
-	template post
-	template page
-
-en/*/*.md:
+blog/*/*.md: static/style.less
 	config
 	ext .html
 	directorify
@@ -41,24 +32,33 @@ en/*/*.md:
 	template post
 	template page
 
-blog/index.html: blog/*/*.md
+en/*/*.md: static/style.less
+	config
+	ext .html
+	directorify
+	tags tags/*.tag
+	markdown
+	template post
+	template page
+
+blog/index.html: blog/*/*.md static/style.less
 	config
 	inner-template
 	template page
 
-en/index.html: en/*/*.md
+en/index.html: en/*/*.md static/style.less
 	config
 	inner-template
 	template page
 
-index.md: blog/index.html en/index.html
+index.md: blog/index.html en/index.html static/style.less
 	config
 	ext .html
 	inner-template
 	markdown
 	template page
 
-*.html:
+*.html: static/style.less
 	config
 	directorify
 	inner-template
