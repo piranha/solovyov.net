@@ -74,6 +74,15 @@
   <section>
   {{ .Content }}
   </section>
+
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    (function(d, t) {
+      var e = d.createElement(t);
+      e.src = 'http://solovyovnet.disqus.com/embed.js';
+      d.getElementsByTagName('head')[0].appendChild(e);
+    })(document, 'script');
+  </script>
 </article>
 {{ end }}
 
