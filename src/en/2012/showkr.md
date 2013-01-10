@@ -55,7 +55,13 @@ them in JavaScript: nobody wants to include CS on client-side - that
 just makes your site slower. Let's start with definition that we have
 those files:
 
+    SOURCE = $(wildcard app/*.coffee)
+
 And a rule to compile them:
+
+    build/%.js: app/%.coffee
+        @mkdir -p $(@D)
+        coffee -pc $< > $@
 
 This can look quite nasty, but I'll explain syntax and it's not
 impossible to live with it - it's useful and dense DSL (though you
@@ -91,6 +97,8 @@ everywhere I write something to a file.
 
 And a final (intermediate final) chord: rule which will make this work:
 
+    all: $(patsubst app/%.coffee, build/%.js, $(SOURCE))
+
 This rule is the first so that running just `make` will start it, it
 tells us that rule `all` depends on some files and we have already
 defined a rule for building those files. Which exactly files -
@@ -114,8 +122,20 @@ it's not only about CoffeeScript! But let's not get ahead of ourselves.
 
 We have first incarnation of make file:
 
+    SOURCE = $(wildcard app/*.coffee)
+
+    all: $(patsubst app/%.coffee, build/%.js, $(SOURCE))
+
+    build/%.js: app/%.coffee
+        @mkdir -p $(@D)
+        coffee -pc $< > $@
+
 What can we clean up? Well, we don't need a list of source files, only
 results, so let's change beginning of file this way:
+
+    SOURCE = $(patsubst app/%.coffee, build/%.js, $(wildcard app/*.coffee))
+
+    all: $(SOURCE)
 
 ### More
 
@@ -130,11 +150,30 @@ but I believe right now it's a good excuse to write more rules.
 
 So, our main rule wants `index.html`:
 
+    all: $(SOURCE) build/index.html
+
 How do we generate it? I decided to do the right thing and take `awk` to
 process it. Now index look like that:
 
+    ...
+    <head>
+    ...
+    <!-- js-deps -->
+    </head>
+    ...
+
 And then I have an `awk` script, which takes `DEPS` environment variable
 and puts it into html:
+
+    /<!-- js-deps -->/ {
+        split(ENVIRON["DEPS"], DEPS)
+        # this way it goes from 1 to 9 instead of random ordering
+        for (i = 1; DEPS[i]; i++)
+            printf("<script type=\"text/javascript\" src=\"%s\"></script>\n", DEPS[i])
+        next
+    }
+
+    1 # print everything else
 
 I don't want to make this article long with an explanation of make, but
 you can read some [manual](http://www.grymoire.com/Unix/Awk.html) or
@@ -142,6 +181,10 @@ you can read some [manual](http://www.grymoire.com/Unix/Awk.html) or
 documentation.
 
 Rule for building index looks herewith:
+
+    build/index.html: index.html $(SOURCE)
+        @mkdir -p $(@D)
+        DEPS="$(SOURCE:build/%=%)" awk -f build.awk $< > $@
 
 What's new here? We remove directory name, referring to a variable [with
 substitution](http://www.gnu.org/software/make/manual/make.html#Substitution-Refs)
@@ -158,6 +201,16 @@ Now `make` will compile (if necessary) CoffeeScript and then
 Now we have to compile version for deployment - single JavaScript file.
 Okay:
 
+    prod: all prod/app.js prod/index.html
+
+    prod/index.html: index.html
+        @mkdir -p $(@D)
+        DEPS="app.js" awk -f build.awk $< > $@
+
+    prod/app.js: $(SOURCE:build/%=prod/%)
+        @mkdir -p $(@D)
+        cat $^ | uglifyjs > $@
+
 Here `make prod` will take all dependencies of `prod/app.js` (`$^` is
 another automatic variable and contains all dependencies of the rule)
 and minify them in target location. And will compile `index.html`.
@@ -166,11 +219,45 @@ I should say that all those directory name replacements in variable
 names annoy me a bit, so I will clean them up. That's what I got in the
 end:
 
+    SOURCE = $(patsubst app/%.coffee, %.js, $(wildcard app/*.coffee))
+
+    all: $(addprefix build/, $(SOURCE) index.html)
+
+    build/%.js: app/%.coffee
+        @mkdir -p $(@D)
+        coffee -pc $< > $@
+
+    build/index.html: index.html $(addprefix build/, $(SOURCE))
+        @mkdir -p $(@D)
+        DEPS="$(SOURCE:build/%=%)" awk -f build.awk $< > $@
+
+    prod: all $(addprefix prod/, app.js index.html)
+
+    prod/index.html: index.html
+        @mkdir -p $(@D)
+        DEPS="app.js" awk -f build.awk $< > $@
+
+    prod/app.js: $(addprefix prod/, $(SOURCE))
+        @mkdir -p $(@D)
+        cat $^ | uglifyjs > $@
+
 ### Another else?
 
 We have a nice Makefile already. Let's add templates! I have some in
 `app/templates` directory with `.eco` extension and I'd like to see them
 with extension `.eco.js` (to be differentiable from just `.js`).
+
+    TEMPLATES = $(patsubst app/%, %.js, $(wildcard app/templates/*.eco))
+
+    all: $(addprefix build/, $(TEMPLATES) $(SOURCE) index.html)
+
+    build/templates/%.js: app/templates/%
+        @mkdir -p $(@D)
+        ./eco.js $< $(<:app/%=%) > $@
+
+    prod/app.js: $(addprefix prod/, $(TEMPLATES) $(SOURCE))
+        @mkdir -p $(@D)
+        cat $^ | uglifyjs > $@
 
 Here `./eco.js` is a custom script to run Eco templates compiler, which
 applies necessary wrapper to results (ender module boilerplate). It
@@ -182,6 +269,8 @@ with the application.
 
 JS file order is important to me (because Ender modules are
 synchronous), so I just set them directly:
+
+    SOURCE = $(patsubst %,%.js,util api models viewing browsing showkr)
 
 Article describes a situation when it's ok to have default sorting (f.e.
 for [AMD](http://requirejs.org/docs/whyamd.html#amd)).

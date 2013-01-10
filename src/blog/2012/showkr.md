@@ -57,7 +57,13 @@ Make
 имхо, зачем нам лишние тормоза). Начнëм с того, что у нас есть эти самые
 файлы:
 
+    SOURCE = $(wildcard app/*.coffee)
+
 И правило, чтоб их скомпилить:
+
+    build/%.js: app/%.coffee
+        @mkdir -p $(@D)
+        coffee -pc $< > $@
 
 Всë это выглядит немного стрëмно, но я сейчас объясню, а с внешним видом
 можно жить - это на самом деле довольно неплохой DSL, хотя можно и
@@ -95,6 +101,8 @@ Make
 
 И теперь мажорный аккорд, правило, которое заставит это работать:
 
+    all: $(patsubst app/%.coffee, build/%.js, $(SOURCE))
+
 Это правило идëт первым, чтоб запуск просто `make` запускал его, и
 говорит нам, что правило `all` зависит от таких-то файлов (а правило для
 постройки этих файлов мы определили выше по тексту). От каких файлов -
@@ -118,8 +126,20 @@ Make
 
 Итак, у нас есть первая инкарнация мейк-файла:
 
+    SOURCE = $(wildcard app/*.coffee)
+
+    all: $(patsubst app/%.coffee, build/%.js, $(SOURCE))
+
+    build/%.js: app/%.coffee
+        @mkdir -p $(@D)
+        coffee -pc $< > $@
+
 Что тут неплохо бы подчистить? Ну, нам не нужен список исходных файлов.
 Только результатов, поэтому заменим начало на такое:
+
+    SOURCE = $(patsubst app/%.coffee, build/%.js, $(wildcard app/*.coffee))
+
+    all: $(SOURCE)
 
 ### Ещëëë
 
@@ -136,26 +156,48 @@ Make
 
 Для начала наше главное правило захочет еще `index.html`:
 
+    all: $(SOURCE) build/index.html
+
 Что делать с индексом? Я решил не ломать себе мозги, а взять `awk` (еще
 одна штука, про которую стоит знать) и... В общем, индекс выглядит
 как-то так:
 
+    ...
+    <head>
+    ...
+    <!-- js-deps -->
+    </head>
+    ...
+
 И у меня есть прекрасный скрипт на `awk`, который берëт переменную
 `DEPS` из окружения (со списком зависимостей) и влепляет в хтмл:
 
+    /<!-- js-deps -->/ {
+        split(ENVIRON["DEPS"], DEPS)
+        # this way it goes from 1 to 9 instead of random ordering
+        for (i = 1; DEPS[i]; i++)
+            printf("<script type=\"text/javascript\" src=\"%s\"></script>\n", DEPS[i])
+        next
+    }
+
+    1 # print everything else
+
 Я мог бы расписывать, как работает авк, но давайте вы лучше почитаете
-[на английском](http://www.grymoire.com/Unix/Awk.html), [на
-русском](http://www.lissyara.su/doc/programming/awk/), или вообще
+[на английском](http://www.grymoire.com/Unix/Awk.html),
+[на русском](http://www.lissyara.su/doc/programming/awk/), или вообще
 [что-нибудь еще](http://www.google.com.ua/search?q=awk+basics).
 
 Правило при этом для постройки индекса выглядит так:
 
+    build/index.html: index.html $(SOURCE)
+        @mkdir -p $(@D)
+        DEPS="$(SOURCE:build/%=%)" awk -f build.awk $< > $@
+
 Что у нас новенького? Ну, убираем имя директории, ссылаясь на переменную
-[с
-заменой](http://www.gnu.org/software/make/manual/make.html#Substitution-Refs)
-(аналогично тому `$(patsubst ...)`, что мы использовали раньше). Вроде
-всë, создали директорию, авк прочитал файл, изменил, мы его направили в
-нашу цель (`$@ == build/index.html`). Красота.
+[с заменой](http://www.gnu.org/software/make/manual/make.html#Substitution-Refs)
+(аналогично тому `$(patsubst ...)`, что мы использовали раньше). Вроде всë,
+создали директорию, авк прочитал файл, изменил, мы его направили в нашу цель
+(`$@ == build/index.html`). Красота.
 
 Теперь `make` при запуске сначала скомпилирует наш кофескрипт (если
 надо), а потом `index.html`. Ура.
@@ -165,6 +207,16 @@ Make
 А теперь надо собрать версию для сайта - один джаваскриптовый файл.
 Отлично:
 
+    prod: all prod/app.js prod/index.html
+
+    prod/index.html: index.html
+        @mkdir -p $(@D)
+        DEPS="app.js" awk -f build.awk $< > $@
+
+    prod/app.js: $(SOURCE:build/%=prod/%)
+        @mkdir -p $(@D)
+        cat $^ | uglifyjs > $@
+
 Теперь `make prod` возьмëт все зависимости `prod/app.js` (вспомните,
 `$^` - это все зависимости правила) и минифицирует их в нужный нам
 файлик. И скомпилирует еще `index.html`.
@@ -173,11 +225,45 @@ Make
 раздражают, поэтому мы сейчас этот момент зачистим. Итак, результат
 трудов вместе с зачисткой:
 
+    SOURCE = $(patsubst app/%.coffee, %.js, $(wildcard app/*.coffee))
+
+    all: $(addprefix build/, $(SOURCE) index.html)
+
+    build/%.js: app/%.coffee
+        @mkdir -p $(@D)
+        coffee -pc $< > $@
+
+    build/index.html: index.html $(addprefix build/, $(SOURCE))
+        @mkdir -p $(@D)
+        DEPS="$(SOURCE:build/%=%)" awk -f build.awk $< > $@
+
+    prod: all $(addprefix prod/, app.js index.html)
+
+    prod/index.html: index.html
+        @mkdir -p $(@D)
+        DEPS="app.js" awk -f build.awk $< > $@
+
+    prod/app.js: $(addprefix prod/, $(SOURCE))
+        @mkdir -p $(@D)
+        cat $^ | uglifyjs > $@
+
 ### Может, еще немножко?
 
 Вот такой отличный мейкфайл. А теперь добавим сюда темплейты! Они лежат
 в директории `app/templates` и имеют расширение `.eco`, а результаты
 будут иметь расширение `.eco.js` (чтоб отличать от просто `.js`).
+
+    TEMPLATES = $(patsubst app/%, %.js, $(wildcard app/templates/*.eco))
+
+    all: $(addprefix build/, $(TEMPLATES) $(SOURCE) index.html)
+
+    build/templates/%.js: app/templates/%
+        @mkdir -p $(@D)
+        ./eco.js $< $(<:app/%=%) > $@
+
+    prod/app.js: $(addprefix prod/, $(TEMPLATES) $(SOURCE))
+        @mkdir -p $(@D)
+        cat $^ | uglifyjs > $@
 
 Здесь `./eco.js` - самописный скрипт для вызова компиляции
 эко-темплейтов, который применяет к результату нужную мне обëртку.
@@ -189,6 +275,8 @@ Make
 
 У меня важен порядок файлов джаваскриптовых, поэтому я просто задаю их
 руками:
+
+    SOURCE = $(patsubst %,%.js,util api models viewing browsing showkr)
 
 А выше показан вариант относительно того, когда устраивает сортировка по
 алфавиту.

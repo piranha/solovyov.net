@@ -61,6 +61,17 @@ mainline
 
 Пример из реального проекта (имена и мессаги я заменил на выдуманные):
 
+    piranha@gto ~/dev/work/trunk> bzr slog -l 3
+    873: Coder 2011-01-19 * Applied some patch
+    872: GK 2011-01-19 [merge] Merged release
+    871: Gk 2011-01-19 [merge] Merged release
+
+    piranha@gto ~/dev/work/trunk> bzr slog -l 3 -n0
+    873: Coder 2011-01-19 * Applied some patch
+    1776: GK 2011-01-19 [merge] Merged release
+      1644.81.11: GK 2011-01-19 [merge] Merged old release
+
+
 Ветки
 -----
 
@@ -75,6 +86,9 @@ mainline
 моментов в DVCS.
 
 Базар выше всего этого. У него ветка - это отдельный репозиторий.
+
+    piranha@gto ~> bzr help branch | grep Aliases
+    Aliases:  get, clone
 
 Это - одна из самых феерических жоп. Как только нужно сделать какое-то
 изменение, которое ответвляется от текущего, нужно клонировать
