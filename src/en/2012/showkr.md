@@ -3,9 +3,6 @@ title:  Showkr - an in-browser application
 date: 2012-02-11
 ----
 
-Showkr - an in-browser application
-==================================
-
 Some time ago I made quite simple, but (I hope) useful web application
 called [Showkr](http://showkr.org/). And now I decided to tell a story
 about why and how I did that - I think that could be useful considering

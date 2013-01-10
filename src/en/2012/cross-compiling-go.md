@@ -3,9 +3,6 @@ title:  Cross-compiling Go
 date: 2012-03-09
 ----
 
-Cross-compiling Go
-==================
-
 I saw a [thread on
 cross-compilation](https://groups.google.com/forum/#!topic/golang-nuts/dQxQ9O7u11g)
 in golang-nuts group recently and decided to replicate information here

@@ -3,9 +3,6 @@ title:  SQLAlchemy: how to start
 date: 2011-04-23
 ----
 
-SQLAlchemy: how to start
-========================
-
 SQLAlchemy right now is an obvious leader of ORM solutions in Python,
 but it has a problem: you will need to read quite a bit of documentation
 to start using it. Which is why I've decided to write small introductory
