@@ -8,7 +8,7 @@ URL = http://solovyov.net/
 AUTHOR = Alexander Solovyov
 
 
-*.tag: blog/*/*.md static/style.less
+*.tag: blog/*/*.md en/*/*.md static/style.less
 	ext .html
 	directorify
 	template tag
