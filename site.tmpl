@@ -55,6 +55,9 @@
 {{ template "footer" . }}{{ end }}
 
 {{ define "post" }}
+<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 <article>
   <header>
     <h1>{{ .Title }}</h1>

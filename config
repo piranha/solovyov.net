@@ -67,6 +67,9 @@ index.md: blog/index.html en/index.html static/style.less
 static/bootstrap/*.less:
 	ignore
 
+static/higlight-*.less:
+	ignore
+
 static/style.less:
 	ext .css
 	:lessc -

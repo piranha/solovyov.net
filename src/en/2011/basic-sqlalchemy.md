@@ -21,8 +21,10 @@ First step is obtaining a connection to a database:
 
 If you want to use named parameters, there is `text()`:
 
-    >>> from sqlalchemy import text
-    >>> result = e.execute(text('select * from table where id < :id'), {'id': 2})
+```python
+>>> from sqlalchemy import text
+>>> result = e.execute(text('select * from table where id < :id'), {'id': 2})
+```
 
 From objects that you receive by iterating over result - `RowProxy` -
 data can be obtained by index, by key or by attribute:
@@ -32,10 +34,12 @@ data can be obtained by index, by key or by attribute:
 
 Transaction wanted?
 
-    >>> c = e.connect()
-    >>> c.begin()
-    >>> # work work work
-    >>> c.commit() # try/except: c.rollback() optionally :)
+```python
+>>> c = e.connect()
+>>> c.begin()
+>>> # work work work
+>>> c.commit() # try/except: c.rollback() optionally :)
+```
 
 That's already better than using raw DB API, especially given that
 parameters are escaped.
