@@ -115,10 +115,12 @@ title: Alexander Solovyov
 function renderTweet(amount) {
     var tmpl = '<time datetime="{iso}">{time}</time> ' +
         '<a href="http://twitter.com/asolovyov/status/{id}">{text}</a>';
-    // 2 because 1 often returns nothing
-    amount = amount || 2;
+    // note: amount accords to total amount of tweets, even those excluded,
+    // that's why there is so much requested.
+    amount = amount || 5;
     JSONP.get("http://api.twitter.com/1/statuses/user_timeline.json",
-              {screen_name: "asolovyov", count: amount},
+              {screen_name: "asolovyov", count: amount, trim_user: true,
+               exclude_replies: true, include_rts: false},
               function (tweets) {
                   if (!tweets.length) {
                       return renderTweet(amount + 1);
