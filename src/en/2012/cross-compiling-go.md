@@ -9,8 +9,8 @@ in golang-nuts group recently and decided to replicate information here
 so I won't forget and (maybe/hopefully) it'll make it easier to discover
 for others how to cross-compile go applications.
 
-I'm on OS X and my Go installation resides in `~/var/go`. In this case
-what I do is:
+I'm on OS X and my Go source code resides in `~/var/go`. In this case what I do
+is:
 
     > cd ~/var/go/src
     > CGO_ENABLED=0 GOOS=linux GOARCH=amd64 ./make.bash
