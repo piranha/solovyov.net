@@ -26,6 +26,10 @@ are using CGo. In particular this means applications importing package
 `net`. Which is a shame, but still, cross-compilation has never been
 easier. :)
 
-UPD. Also see
-[this](http://www.reddit.com/r/golang/comments/qowak/crosscompiling_go_code/c3zcriv)
-comment on reddit for more.
+UPD. Also see [comment on reddit][1] for more.
+
+UPD. In case you miss something, there is a [question on StackOverflow][2] with
+different wording, which may help.
+
+[1]: http://www.reddit.com/r/golang/comments/qowak/crosscompiling_go_code/c3zcriv
+[2]: http://stackoverflow.com/questions/12168873/cross-compile-go-on-osx
