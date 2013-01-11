@@ -48,8 +48,8 @@ tags: news, blog
 том же репозитории в README есть ссылки на бинарные сборки. Если вдруг у кого
 проснëтся желание улучшать, я буду вообще счастлив, так что велкам.
 
-[1]: github.com/piranha/gostatic
-[2]: github.com/piranha/cyrax
+[1]: https://github.com/piranha/gostatic
+[2]: https://github.com/piranha/cyrax
 [Stog]: http://zoggy.github.com/stog/
 [Hakyll]: http://jaspervdj.be/hakyll/
 [3]: https://github.com/piranha/solovyov.net
