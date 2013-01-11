@@ -12,14 +12,18 @@ for others how to cross-compile go applications.
 I'm on OS X and my Go source code resides in `~/var/go`. In this case what I do
 is:
 
-    > cd ~/var/go/src
-    > CGO_ENABLED=0 GOOS=linux GOARCH=amd64 ./make.bash
-    > CGO_ENABLED=0 GOOS=windows GOARCH=amd64 ./make.bash
+```bash
+> cd ~/var/go/src
+> CGO_ENABLED=0 GOOS=linux GOARCH=amd64 ./make.bash
+> CGO_ENABLED=0 GOOS=windows GOARCH=amd64 ./make.bash
+```
 
 And afterwards in different directory:
 
-    > CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o gr-linux64 goreplace
-    > CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o gr-win64 goreplace
+```bash
+> CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o gr-linux64 goreplace
+> CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -o gr-win64 goreplace
+```
 
 This has some limitations - you can't cross-compile applications, which
 are using CGo. In particular this means applications importing package
