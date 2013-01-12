@@ -6,7 +6,7 @@ date: 2011-04-23
 SQLAlchemy right now is an obvious leader of ORM solutions in Python,
 but it has a problem: you will need to read quite a bit of documentation
 to start using it. Which is why I've decided to write small introductory
-article.
+tutorial.
 
 Level 1: hand-written SQL
 -------------------------
