@@ -7,13 +7,13 @@ title: Блог
 
   {{ if changed "year" .Date.Year }}
   <div class="row">
-    <div class="span12"><h2>{{ .Date.Year }}</h2></div>
+    <div class="span8"><h2>{{ .Date.Year }}</h2></div>
   </div>
   {{ end }}
 
   <div class="row">
-    <div class="span4">{{ template "post-date" . }}</div>
-    <div class="span8">
+    <div class="span2">{{ template "post-date" . }}</div>
+    <div class="span6">
       <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
     </div>
   </div>
