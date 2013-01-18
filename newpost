@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+   echo "Supply post slug as first parameter"
+   exit 0
+fi
+
+NAME="$(dirname $0)/src/blog/$(date +%Y)/$1.md"
+DATE="$(date +%Y-%m-%d)"
+
+cat > $NAME <<EOF
+title: 
+date: $DATE
+tags: 
+----
+
+
+EOF
+
+emacsclient --no-wait +1:8 "$NAME"
