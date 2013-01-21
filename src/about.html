@@ -3,23 +3,26 @@ title: about
 
 <h2>Who am I?</h2>
 
-<article itemscope itemtype="http://data-vocabulary.org/Person">
-  <img itemprop="photo" class="photo" src="{{ .Rel "static/avatar_fb.jpg" }}">
+<article itemscope itemtype="http://schema.org/Person">
+  <img itemprop="image" class="photo" src="{{ .Rel "static/avatar_fb.jpg" }}">
 
   <p class="note">This page is marked as HTML5 microdata</p>
 
   <p class="lead">
     My name is <span itemprop="name">Alexander Solovyov</span>, and
-    <a itemprop="url" href="{{ .Rel "/" }}">that's</a> my site. </p><p>I usually use
-    nickname "<span itemprop="nickname">piranha</span>" everywhere (though lately I
-    began to use "<span itemprop="nickname">asolovyov</span>" as
-    well). 
+    that's <a itemprop="url" href="{{ .Rel "/" }}">my site</a>.
   </p>
 
   <p>
-    <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">I live
-    in <span itemprop="locality">Kiev</span>, <span itemprop="country-name">Ukraine</span></span>,
-    working as <span itemprop="title">software developer</span>. Lately I switched to
+    I usually use nickname &ldquo;<span itemprop="nickname">piranha</span>&rdquo; everywhere
+    (though lately I began to use &ldquo;<span itemprop="nickname">asolovyov</span>&rdquo;
+    as well).
+  </p>
+
+  <p>
+    <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">I live
+    in <span itemprop="addressLocality">Kiev</span>, <span itemprop="addressCountry">Ukraine</span></span>,
+    working as <span itemprop="jobTitle">software developer</span>. Lately I switched to
     writing in-browser applications and before that it was mostly web back-end
     stuff in Python.
   </p>
