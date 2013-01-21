@@ -5,15 +5,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="author" content="{{ .Site.Other.Author }}">
-  <meta name="keywords" content="alexander solovyov, piranha, python, mercurial, django, emacs, golang">
+  <meta name="keywords" content="alexander solovyov, piranha, python, mercurial, django, emacs, golang, sqlalchemy">
   <meta name="description" content="Alexander Solovyov, piranha">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="alternate" type="application/atom+xml"
-        title="solovyov.net russian posts" href="http://feeds.feedburner.com/AmazonByteflow">
+        title="{{ .Site.Other.Title }} russian posts" href="http://feeds.feedburner.com/AmazonByteflow">
   <link rel="alternate" type="application/atom+xml"
-        title="solovyov.net english posts" href="http://feeds.feedburner.com/BloggingSpree">
+        title="{{ .Site.Other.Title }} english posts" href="http://feeds.feedburner.com/BloggingSpree">
   <title>{{ .Site.Other.Title }}{{ if .Title }}: {{ .Title }}{{ end }}</title>
+
+  <link rel="author" href="http://solovyov.net/about/">
+  <link rel="me" href="https://plus.google.com/117696497748245979543">
 
   <link rel="openid.server" href="http://www.myopenid.com/server">
   <link rel="openid.delegate" href="http://alexander.solovyov.myopenid.com/">
@@ -43,7 +46,7 @@
 
 {{ define "footer" }}
   <footer>
-    &#169; 2006&ndash;2013 Alexander Solovyov
+    &#169; 2006&ndash;2013 {{ .Site.Other.Author }}
     (<a href="{{ .Rel "/about/" }}">about</a>)
   </footer>
 </body>
