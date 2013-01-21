@@ -1,8 +1,13 @@
-all:
-	gostatic config
+GOSTATIC ?= gostatic
+
+compile:
+	$(GOSTATIC) config
 
 w:
-	gostatic -w config
+	$(GOSTATIC) -w config
 
-open: all
+update: compile
+	curl "http://www.feedburner.com/fb/a/pingSubmit?bloglink=http://feeds.feedburner.com/AmazonByteflow" > /dev/null
+
+open: compile
 	open site/index.html
