@@ -74,6 +74,9 @@ static/style.less:
 	ext .css
 	:lessc -
 
+static/stuff.js:
+	:uglifyjs
+
 \#*:
 	ignore
 
