@@ -80,6 +80,16 @@ title: Alexander Solovyov
     <a href="http://www.linkedin.com/in/asolovyov">Linkedin page</a>
   </dt>
   <dd>Biggest social network of professionals.</dd>
+
+
+  <dt>
+    <div class="icon">
+      <a href="http://piranha.github.com/slides/"><img src="static/services/email_32.png"></a>
+    </div>
+    <a href="http://piranha.github.com/slides/">Slides from my talks</a>
+  </dt>
+  <dd>So that they can be referenced.</dd>
+
 </dl>
 
 <br>
