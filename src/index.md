@@ -84,9 +84,9 @@ title: Alexander Solovyov
 
   <dt>
     <div class="icon">
-      <a href="http://piranha.github.com/slides/"><img src="static/services/email_32.png"></a>
+      <a href="http://piranha.github.io/slides/"><img src="static/services/email_32.png"></a>
     </div>
-    <a href="http://piranha.github.com/slides/">Slides from my talks</a>
+    <a href="http://piranha.github.io/slides/">Slides from my talks</a>
   </dt>
   <dd>So that they can be referenced.</dd>
 
@@ -102,7 +102,7 @@ title: Alexander Solovyov
 
 <dl class="presence">
   <dt><a href="http://github.com/piranha/keymage/">keymage</a></dt>
-  <dd>Simple and small JS keybinding library</dd>
+  <dd>Simple and small, but featureful enough JS keybinding library</dd>
 
   <dt><a href="http://showkr.org/">Showkr</a></dt>
   <dd>Minimalistic viewer for Flickr</dd>
