@@ -64,15 +64,6 @@ title: Alexander Solovyov
   </dt>
   <dd>It&apos;s nice to capture a moment occasionally.</dd>
 
-
-  <dt>
-    <div class="icon">
-      <a href="http://www.last.fm/user/p1r4nh4"><img src="static/services/lastfm_32.png"></a>
-    </div>
-    <a href="http://www.last.fm/user/p1r4nh4">Last.fm profile</a>
-  </dt>
-  <dd id="lastfm-title">Do you like music? I certainly do!</dd>
-
   <dt>
     <div class="icon">
       <a href="http://www.linkedin.com/in/asolovyov"><img src="static/services/linkedin_32.png"></a>
@@ -165,26 +156,5 @@ function renderTweet(amount) {
                       s: photo.media.m
                   });
               }, "jsoncallback");
-
-    JSONP.get("http://ws.audioscrobbler.com/2.0/",
-              {method: "user.getRecentTracks", user: "p1r4nh4", limit: 1,
-               api_key: "3ab11bf68138eac2ad58a101a91da500", format: "json"},
-              function(response) {
-                  var t, song = response.recenttracks.track;
-                  if (song[0]) {
-                      song = song[0];
-                      t = 'Now playing';
-                  } else {
-                      t = song.date['#text'];
-                  }
-
-                  byId('lastfm-title').innerHTML = (
-                      '<time>{t}</time> <a href="{u}">{a} - {n}</a>').format({
-                          t: t,
-                          a: song.artist['#text'],
-                          n: song.name,
-                          u: song.url
-                      });
-              });
 })();
 </script>
