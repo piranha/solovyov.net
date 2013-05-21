@@ -68,6 +68,43 @@ var anchorify = (function() {
         return id;
     }
 
+    function getText(el) {
+        var node;
+        for (var i = 0; i < el.childNodes.length; i++) {
+            node = el.childNodes[i];
+            if (node.nodeType === Node.TEXT_NODE) {
+                return node.nodeValue;
+            }
+        }
+    }
+
+    return function(options) {
+        options = options || {};
+        var text = options.text || '¶',
+            className = options.className || 'anchor-link',
+            processExisting = options.processExisting,
+            sel = options.sel || 'h1, h2, h3, h4, h5',
+            els = document.querySelectorAll(sel);
+
+        var el, id, anchor;
+
+        for (var i = 0; i < els.length; i++) {
+            el = els[i];
+            console.log(el);
+            if (el.id && !processExisting) {
+                continue;
+            }
+            el.id = el.id || uniqId(generateId(getText(el)));
+
+            anchor = document.createElement('a');
+            anchor.className = className;
+            anchor.href = '#' + el.id;
+            anchor.innerHTML = text;
+
+            el.appendChild(anchor);
+        }
+    };
+
 })();
 
 /*

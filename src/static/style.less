@@ -104,3 +104,13 @@ article > header {
 .photo {
     float: right;
 }
+
+h1, h2, h3, h4, h5 {
+    .anchor-link {
+        display: none;
+        color: grey;
+    }
+    &:hover .anchor-link {
+        display: inline;
+    }
+}
