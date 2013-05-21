@@ -22,7 +22,7 @@ can, and that's the whole deal:
     # and replacing
     $ gr what-is-it -r here-you-go
 
-Press key `up` and add replacement line and here you indeed go.
+Press key `up` and add replacement line and here you go indeed!
 
 Long story short: it's easy to write in Go, applications are fast and
 beautiful. :) Other things being equal it's usually around 1.5x-2x of speed of
