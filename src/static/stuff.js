@@ -41,6 +41,36 @@ Date.prototype.format = function(s) {
 };
 
 /*
+* Anchorify without jQuery
+* Rewritten from https://github.com/willdurand/anchorify.js/
+*/
+
+var anchorify = (function() {
+    var specialCharsRe = /[ ;,.'?!_]/g;
+
+    function generateId(text) {
+        return text
+            .trim()
+            .replace(specialCharsRe, '-')
+            .replace(/[\-]+/g, '-')
+            .replace(/-$/, '')
+            .toLowerCase();
+    }
+
+    function uniqId(id) {
+        var inc = 1,
+            original = id;
+
+        while (document.getElementById(id)) {
+            id = original + '-' + inc++;
+        }
+
+        return id;
+    }
+
+})();
+
+/*
 * Lightweight JSONP fetcher
 * Copyright 2010-2012 Erik Karlsson. All rights reserved.
 * BSD licensed

@@ -29,7 +29,7 @@ beautiful. :) Other things being equal it's usually around 1.5x-2x of speed of
 GNU grep (it's not recent test but I'm not really worried about such speed
 difference). But it uses patterns from `.hgignore` and `.gitignore` of your
 repository to skip files and skips binaries, so usually it's faster. :) And you
-get normal regexp syntax instead of POSIX' variety of grep/sed.
+get normal regexp syntax instead of POSIX' kind of grep/sed.
 
 Plus you don't need to compile anything! Just download and enjoy: for [OS X][1],
 [Linux][2] and [Windows][3]. It's just a binary and it has absolutely no
