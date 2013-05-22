@@ -32,14 +32,14 @@ repository to skip files and skips binaries, so usually it's faster. :) And you
 get normal regexp syntax instead of POSIX' kind of grep/sed.
 
 Plus you don't need to compile anything! Just download and enjoy: for [OS X][1],
-[Linux][2] and [Windows][3]. It's just a binary and it has absolutely no
-dependencies.
+[Linux][2] and [Windows][3] (seek for 32 bit builds on gr's page). It's just a
+binary and it has absolutely no dependencies.
 
 [Go]: http://golang.org/
 [sr]: https://bitbucket.org/lorien/sr
 [Go Replace]: https://github.com/piranha/goreplace
 [ack]: http://beyondgrep.com/
 [the_silver_searcher]: https://github.com/ggreer/the_silver_searcher
-[1]: http://solovyov.net/files/gr-latest-osx
-[2]: http://solovyov.net/files/gr-latest-linux
-[3]: http://solovyov.net/files/gr-latest-win.exe
+[1]: http://solovyov.net/files/gr-latest-64-osx
+[2]: http://solovyov.net/files/gr-latest-64-linux
+[3]: http://solovyov.net/files/gr-latest-64-win.exe

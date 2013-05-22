@@ -29,14 +29,14 @@ grep сам по себе, или [ack][], или, вот, [the_silver_searcher]
 регекспов нормальный, а не POSIX'овый из grep/sed.
 
 Плюс его не нужно компилировать! Качайте и пользуйтесь: для [макоси][1],
-[линукса][2] и [винды][3]. Это простой бинарник, у которого нет никаких
-зависимостей ни на что.
+[линукса][2] и [винды][3] (ищите ссылки на 32-битные сборки в ридми на
+гитхабе). Это простой бинарник, у которого нет никаких зависимостей ни на что.
 
 [Go]: http://golang.org/
 [sr]: https://bitbucket.org/lorien/sr
 [Go Replace]: https://github.com/piranha/goreplace
 [ack]: http://beyondgrep.com/
 [the_silver_searcher]: https://github.com/ggreer/the_silver_searcher
-[1]: http://solovyov.net/files/gr-latest-osx
-[2]: http://solovyov.net/files/gr-latest-linux
-[3]: http://solovyov.net/files/gr-latest-win.exe
+[1]: http://solovyov.net/files/gr-latest-64-osx
+[2]: http://solovyov.net/files/gr-latest-64-linux
+[3]: http://solovyov.net/files/gr-latest-64-win.exe
