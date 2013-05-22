@@ -104,7 +104,6 @@ var anchorify = (function() {
             el.appendChild(anchor);
         }
     };
-
 })();
 
 /*

@@ -25,7 +25,7 @@ can, and that's the whole deal:
 Press key `up` and add replacement line and here you go indeed!
 
 Long story short: it's easy to write in Go, applications are fast and
-beautiful. :) Other things being equal it's usually around 1.5x-2x of speed of
+beautiful. :) Other things being equal it's usually around 1.5x-2x slower than
 GNU grep (it's not recent test but I'm not really worried about such speed
 difference). But it uses patterns from `.hgignore` and `.gitignore` of your
 repository to skip files and skips binaries, so usually it's faster. :) And you
