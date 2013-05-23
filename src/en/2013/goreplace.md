@@ -32,8 +32,8 @@ repository to skip files and skips binaries, so usually it's faster. :) And you
 get normal regexp syntax instead of POSIX' kind of grep/sed.
 
 Plus you don't need to compile anything! Just download and enjoy: for [OS X][1],
-[Linux][2] and [Windows][3] (seek for 32 bit builds on gr's page). It's just a
-binary and it has absolutely no dependencies.
+[Linux][2] and [Windows][3] (seek for links to 32 bit builds in README). It's
+just a binary and it has absolutely no dependencies.
 
 [Go]: http://golang.org/
 [sr]: https://bitbucket.org/lorien/sr

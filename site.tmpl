@@ -46,8 +46,7 @@
 
 {{ define "footer" }}
   <footer>
-    &#169; 2006&ndash;2013 {{ .Site.Other.Author }}
-    (<a href="{{ .Rel "/about/" }}">about</a>)
+    &#169; 2006&ndash;2013 <a href="{{ .Rel "/about/" }}">{{ .Site.Other.Author }}</a>
   </footer>
 </body>
 </html>
@@ -65,12 +64,14 @@
   <header>
     <h1>{{ .Title }}</h1>
 
-    <div class="note">
-      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-        {{ .Date.Format "2006, January 02" }}
-      </time>
+    <div class="info">
+	  {{ template "date" .Date }}
 
-      in
+	  &mdash;
+
+	  <a href="{{ .Rel "/about/" }}">{{ or .Other.Author .Site.Other.Author }}</a>
+
+	  &mdash;
 
       {{ range $i, $t := .Tags }}{{if $i}},{{end}}
       <a href="/tags/{{ $t }}/">{{ $t }}</a>{{ end }}
@@ -89,7 +90,7 @@
       e.src = 'http://solovyovnet.disqus.com/embed.js';
       d.getElementsByTagName('head')[0].appendChild(e);
     })(document, 'script');
-	anchorify();
+	anchorify({sel: 'h2, h3, h4, h5'});
   </script>
 </article>
 {{ end }}
@@ -101,4 +102,10 @@
 {{ range .Site.Pages.WithTag .Title }}
 - [{{ .Title }}](../../{{ .Url }})
 {{ end }}
+{{end}}
+
+{{define "date"}}
+<time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ .Format "2006, January 02" }}
+</time>
 {{end}}
