@@ -101,7 +101,11 @@ var anchorify = (function() {
             anchor.href = '#' + el.id;
             anchor.innerHTML = text;
 
-            el.appendChild(anchor);
+            if (options.position == 'prepend') {
+                el.insertBefore(anchor, el.firstChild);
+            } else {
+                el.appendChild(anchor);
+            }
         }
     };
 })();

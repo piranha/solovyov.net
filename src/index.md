@@ -95,21 +95,27 @@ title: Alexander Solovyov
   <dt><a href="http://github.com/piranha/keymage/">keymage</a></dt>
   <dd>Simple and small, but featureful enough JS keybinding library</dd>
 
-  <dt><a href="http://showkr.org/">Showkr</a></dt>
-  <dd>Minimalistic viewer for Flickr</dd>
-
   <dt><a href="http://github.com/piranha/goreplace/">goreplace</a></dt>
   <dd>grep/ack alternative with ability to replace (a-la sed) and support for
       .hgignore/.gitignore</dd>
 
-  <dt><a href="project-root/">project-root</a></dt>
-  <dd>Emacs project management tool</dd>
+  <dt><a href="http://github.com/piranha/gostatic/">gostatic</a></dt>
+  <dd>Static site generator (engine of this site)</dd>
 
   <dt><a href="http://github.com/piranha/opster/">opster</a></dt>
   <dd>Dead simple (yet powerful) command line parser</dd>
 
-  <dt><a href="http://github.com/piranha/gostatic/">gostatic</a></dt>
-  <dd>Static site generator (engine of this site)</dd>
+  <dt><a href="project-root/">project-root</a></dt>
+  <dd>Emacs project management tool</dd>
+
+  <dt><a href="http://showkr.org/">Showkr</a></dt>
+  <dd>Minimalistic viewer for Flickr</dd>
+
+  <dt><a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a></dt>
+  <dd>JS implementation of <a href="http://tnetstrings.org">tnetstrings</a></dd>
+
+  <dt><a href="https://github.com/piranha/adium-inline-images">Adium Inline Images</a></dt>
+  <dd>Show images inline in Adium</dd>
 </dl>
 
 <script type="text/javascript">
