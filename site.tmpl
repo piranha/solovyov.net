@@ -69,7 +69,7 @@
 
 	  &mdash;
 
-	  <a href="{{ .Rel "/about/" }}">{{ or .Other.Author .Site.Other.Author }}</a>
+	  <a href="{{ or .Other.Authorlink (.Rel "/about/") }}">{{ or .Other.Author .Site.Other.Author }}</a>
 
 	  &mdash;
 
