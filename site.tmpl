@@ -28,6 +28,7 @@
   <script type="text/javascript" src="{{ version . "static/stuff.js" }}"></script>
   <script type="text/javascript">
   var _gaq = [['_setAccount', 'UA-317760-3'], ['_trackPageview']];
+  setTimeout("_gaq.push(['_trackEvent', '15_seconds', 'read'])", 15000);
   (function(d, t) {
     var g = d.createElement(t),
         s = d.getElementsByTagName(t)[0];
