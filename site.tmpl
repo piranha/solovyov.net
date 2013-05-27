@@ -104,9 +104,3 @@
 - [{{ .Title }}](../../{{ .Url }})
 {{ end }}
 {{end}}
-
-{{define "date"}}
-<time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
-  {{ .Format "2006, January 02" }}
-</time>
-{{end}}

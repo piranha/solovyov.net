@@ -90,7 +90,6 @@ var anchorify = (function() {
 
         for (var i = 0; i < els.length; i++) {
             el = els[i];
-            console.log(el);
             if (el.id && !processExisting) {
                 continue;
             }
