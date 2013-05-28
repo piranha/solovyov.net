@@ -100,7 +100,11 @@ title: Alexander Solovyov
       .hgignore/.gitignore</dd>
 
   <dt><a href="http://github.com/piranha/gostatic/">gostatic</a></dt>
-  <dd>Static site generator (engine of this site)</dd>
+  <dd>Fast static site generator (engine of this site)</dd>
+
+  <dt><a href="http://github.com/piranha/cyrax/">cyrax</a></dt>
+  <dd>Extremely extensible static site generator
+    (powers <a href="http://osgameclones.com">Open Source Game Clones</a>)</dd>
 
   <dt><a href="http://github.com/piranha/opster/">opster</a></dt>
   <dd>Dead simple (yet powerful) command line parser</dd>
@@ -110,6 +114,9 @@ title: Alexander Solovyov
 
   <dt><a href="http://showkr.org/">Showkr</a></dt>
   <dd>Minimalistic viewer for Flickr</dd>
+
+  <dt><a href="http://osgameclones.com/">Open Source Game Clones</a></dt>
+  <dd>List of open source clones of (old) popular games</dd>
 
   <dt><a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a></dt>
   <dd>JS implementation of <a href="http://tnetstrings.org">tnetstrings</a></dd>
