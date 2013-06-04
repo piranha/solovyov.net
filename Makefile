@@ -6,7 +6,9 @@ compile:
 w:
 	$(GOSTATIC) -w config
 
-update: compile
+update:
+	git pull
+	$(GOSTATIC) config
 	curl -s "http://www.feedburner.com/fb/a/pingSubmit?bloglink=http://feeds.feedburner.com/AmazonByteflow" > /dev/null
 
 open: compile
