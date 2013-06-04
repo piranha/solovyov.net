@@ -210,7 +210,7 @@ function renderTweet(amount) {
 })();
 
 (function() {
-    var tmpl = '<a href="{stargazers_url}">' +
+    var tmpl = '<a href="https://github.com/{full_name}/stargazers">' +
         '<img src="static/star.png" style="height: 20px; width: 20px">' +
         ' {watchers_count}</a>';
     JSONP.get("https://api.github.com/users/piranha/repos",
