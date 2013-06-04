@@ -51,11 +51,9 @@ en/index.html: en/*/*.md static/style.less
 	inner-template
 	template page
 
-index.md: blog/index.html en/index.html static/style.less
+index.html: blog/index.html en/index.html static/style.less
 	config
-	ext .html
 	inner-template
-	markdown
 	template page
 
 *.html: static/style.less

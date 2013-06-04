@@ -1,7 +1,7 @@
 title: Alexander Solovyov
 ----
 
-## Online presence
+<h2>Online presence</h1>
 
 <dl class="presence">
   <dt>
@@ -91,39 +91,77 @@ title: Alexander Solovyov
   </span>
 </h2>
 
-<dl class="presence">
-  <dt><a href="http://github.com/piranha/keymage/">keymage</a></dt>
-  <dd>Simple and small, but featureful enough JS keybinding library</dd>
+<div class="row projects">
+  <div class="span4">
+    <h4 class="row" data-repo="keymage">
+      <a href="http://github.com/piranha/keymage/">keymage</a>
+    </h4>
+    <span>Simple and small, but featureful enough JS keybinding library</span>
+  </div>
 
-  <dt><a href="http://github.com/piranha/goreplace/">goreplace</a></dt>
-  <dd>grep/ack alternative with ability to replace (a-la sed) and support for
-      .hgignore/.gitignore</dd>
+  <div class="span4">
+    <h4 class="row" data-repo="goreplace">
+      <a href="http://github.com/piranha/goreplace/">goreplace</a>
+    </h4>
+    <span>grep/ack alternative with ability to replace (a-la sed)
+      and support for .hgignore/.gitignore</span>
+  </div>
 
-  <dt><a href="http://github.com/piranha/gostatic/">gostatic</a></dt>
-  <dd>Fast static site generator (engine of this site)</dd>
+  <div class="span4">
+    <h4 class="row" data-repo="gostatic">
+      <a href="http://github.com/piranha/gostatic/">gostatic</a>
+    </h4>
+    <span>Fast static site generator (engine of this site)</span>
+  </div>
 
-  <dt><a href="http://github.com/piranha/cyrax/">cyrax</a></dt>
-  <dd>Extremely extensible static site generator
-    (powers <a href="http://osgameclones.com">Open Source Game Clones</a>)</dd>
+  <div class="span4">
+    <h4 class="row" data-repo="cyrax">
+      <a href="http://github.com/piranha/cyrax/">cyrax</a>
+    </h4>
+    <span>Extremely extensible static site generator
+      (powers <a href="http://osgameclones.com">Open Source Game Clones</a>)</span>
+  </div>
 
-  <dt><a href="http://github.com/piranha/opster/">opster</a></dt>
-  <dd>Dead simple (yet powerful) command line parser</dd>
+  <div class="span4">
+    <h4 class="row" data-repo="opster">
+      <a href="http://github.com/piranha/opster/">opster</a>
+    </h4>
+    <span>Dead simple (yet powerful) command line parser</span>
+  </div>
 
-  <dt><a href="project-root/">project-root</a></dt>
-  <dd>Emacs project management tool</dd>
+  <div class="span4">
+    <h4 class="row"><a href="project-root/">project-root</a></h4>
+    <span>Emacs project management tool</span>
+  </div>
 
-  <dt><a href="http://showkr.org/">Showkr</a></dt>
-  <dd>Minimalistic viewer for Flickr</dd>
+  <div class="span4">
+    <h4 class="row" data-repo="showkr">
+      <a href="http://showkr.org/">Showkr</a>
+    </h4>
+    <span>Minimalistic viewer for Flickr</span>
+  </div>
 
-  <dt><a href="http://osgameclones.com/">Open Source Game Clones</a></dt>
-  <dd>List of open source clones of (old) popular games</dd>
+  <div class="span4">
+    <h4 class="row" data-repo="osgameclones">
+      <a href="http://osgameclones.com/">OSGC</a>
+    </h4>
+    <span>List of open source clones of (old) popular games</span>
+  </div>
 
-  <dt><a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a></dt>
-  <dd>JS implementation of <a href="http://tnetstrings.org">tnetstrings</a></dd>
+  <div class="span4">
+    <h4 class="row" data-repo="tnetstrings.js">
+      <a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a>
+    </h4>
+    <span>JS implementation of <a href="http://tnetstrings.org">tnetstrings</a></span>
+  </div>
 
-  <dt><a href="https://github.com/piranha/adium-inline-images">Adium Inline Images</a></dt>
-  <dd>Show images inline in Adium</dd>
-</dl>
+  <div class="span4">
+    <h4 class="row" data-repo="adium-inline-images">
+      <a href="https://github.com/piranha/adium-inline-images">Adium Inline Images</a>
+    </h4>
+    <span>Show images inline in Adium</span>
+  </div>
+</div>
 
 <script type="text/javascript">
 function renderTweet(amount) {
@@ -169,5 +207,26 @@ function renderTweet(amount) {
                       s: photo.media.m
                   });
               }, "jsoncallback");
+})();
+
+(function() {
+    var tmpl = '<a href="{stargazers_url}">' +
+        '<img src="static/star.png" style="height: 20px; width: 20px">' +
+        ' {watchers_count}</a>';
+    JSONP.get("https://api.github.com/users/piranha/repos",
+              {type: 'owner', per_page: 100},
+              function(repos) {
+                  for (var i = 0; i < repos.data.length; i++) {
+                      var repo = repos.data[i],
+                          sel = '[data-repo="{name}"]'.format(repo),
+                          parent = document.querySelector(sel);
+
+                      if (!parent) continue;
+
+                      var el = document.createElement('span');
+                      el.innerHTML = tmpl.format(repo);
+                      parent.appendChild(el);
+                  };
+              });
 })();
 </script>
