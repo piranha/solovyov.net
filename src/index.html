@@ -93,18 +93,18 @@ title: Alexander Solovyov
 
 <div class="row projects">
   <div class="span4">
-    <h4 class="row" data-repo="keymage">
-      <a href="http://github.com/piranha/keymage/">keymage</a>
-    </h4>
-    <span>Simple and small, but featureful enough JS keybinding library</span>
-  </div>
-
-  <div class="span4">
     <h4 class="row" data-repo="goreplace">
       <a href="http://github.com/piranha/goreplace/">goreplace</a>
     </h4>
     <span>grep/ack alternative with ability to replace (a-la sed)
       and support for .hgignore/.gitignore</span>
+  </div>
+
+  <div class="span4">
+    <h4 class="row" data-repo="adium-inline-images">
+      <a href="https://github.com/piranha/adium-inline-images">Adium Inline Images</a>
+    </h4>
+    <span>Show images inline in Adium</span>
   </div>
 
   <div class="span4">
@@ -130,6 +130,37 @@ title: Alexander Solovyov
   </div>
 
   <div class="span4">
+    <h4 class="row" data-repo="webhooker">
+      <a href="http://github.com/piranha/webhooker/">webhooker</a>
+    </h4>
+    <span>Github webhook handler - runs a command on push</span>
+  </div>
+
+  <div class="span4">
+    <h4 class="row" data-repo="keymage">
+      <a href="http://github.com/piranha/keymage/">keymage</a>
+    </h4>
+    <span>Simple and small, but featureful enough JS keybinding library</span>
+  </div>
+
+  <div class="span4">
+    <h4 class="row" data-repo="tnetstrings.js">
+      <a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a>
+    </h4>
+    <span>JS implementation of <a href="http://tnetstrings.org">tnetstrings</a></span>
+  </div>
+
+  <div class="span4">
+    <h4 class="row" data-repo="nomad">
+      <a href="http://github.com/piranha/nomad/">nomad</a>
+    </h4>
+    <span>
+      Simplest database (idea was to support any db) migration tool I could
+      imagine
+    </span>
+  </div>
+
+  <div class="span4">
     <h4 class="row"><a href="project-root/">project-root</a></h4>
     <span>Emacs project management tool</span>
   </div>
@@ -146,20 +177,6 @@ title: Alexander Solovyov
       <a href="http://osgameclones.com/">OSGC</a>
     </h4>
     <span>List of open source clones of (old) popular games</span>
-  </div>
-
-  <div class="span4">
-    <h4 class="row" data-repo="tnetstrings.js">
-      <a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a>
-    </h4>
-    <span>JS implementation of <a href="http://tnetstrings.org">tnetstrings</a></span>
-  </div>
-
-  <div class="span4">
-    <h4 class="row" data-repo="adium-inline-images">
-      <a href="https://github.com/piranha/adium-inline-images">Adium Inline Images</a>
-    </h4>
-    <span>Show images inline in Adium</span>
   </div>
 </div>
 
@@ -211,7 +228,7 @@ function renderTweet(amount) {
 
 (function() {
     var tmpl = '<a href="https://github.com/{full_name}/stargazers">' +
-        '<img src="static/star.png" style="height: 20px; width: 20px">' +
+        '<img src="static/star.png" class="star">' +
         ' {watchers_count}</a>';
     JSONP.get("https://api.github.com/users/piranha/repos",
               {type: 'owner', per_page: 100},
