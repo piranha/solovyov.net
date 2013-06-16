@@ -46,13 +46,10 @@ title: Alexander Solovyov
     <div class="icon">
       <a href="http://twitter.com/asolovyov"><img src="static/services/twitter_32.png"></a>
     </div>
-    <a class="right" href="http://twitter.com/asolovyov">
-      <span id="twitter-readers">Determining</span> followers
-    </a>
     <a href="http://twitter.com/asolovyov">Twitter</a>
   </dt>
   <dd>
-    Last tweet: <span id="tweet">determining...</span>
+    I'm chirping at Twitter a bit, but their API doesn't like me.
   </dd>
 
   <dt>
@@ -181,30 +178,6 @@ title: Alexander Solovyov
 </div>
 
 <script type="text/javascript">
-function renderTweet(amount) {
-    var tmpl = '<time datetime="{iso}">{time}</time> ' +
-        '<a href="http://twitter.com/asolovyov/status/{id}">{text}</a>';
-    // note: amount accords to total amount of tweets, even those excluded,
-    // that's why there is so much requested.
-    amount = amount || 5;
-    JSONP.get("http://api.twitter.com/1/statuses/user_timeline.json",
-              {screen_name: "asolovyov", count: amount, trim_user: true,
-               exclude_replies: true, include_rts: false},
-              function (tweets) {
-                  if (!tweets.length) {
-                      return renderTweet(amount + 1);
-                  }
-                  var tweet = tweets[0];
-
-                  var date = new Date(tweet.created_at);
-                  var data = {iso: date.toISOString(),
-                              time: date.format('{FullYear}, {MonthShort} {Date}'),
-                              id: tweet.id_str,
-                              text: tweet.text};
-                  byId('tweet').innerHTML = tmpl.format(data);
-              });
-}
-
 (function() {
     renderTweet();
 
