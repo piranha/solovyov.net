@@ -179,14 +179,6 @@ title: Alexander Solovyov
 
 <script type="text/javascript">
 (function() {
-    renderTweet();
-
-    JSONP.get("http://api.twitter.com/1/users/show.json",
-              {screen_name: "asolovyov"},
-              function(info) {
-                  byId('twitter-readers').innerHTML = info.followers_count;
-              });
-
     JSONP.get("http://api.flickr.com/services/feeds/photos_public.gne",
               {id: "8226209@N04", format: "json"},
               function(feed) {
