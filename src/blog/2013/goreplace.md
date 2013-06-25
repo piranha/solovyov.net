@@ -37,6 +37,6 @@ grep сам по себе, или [ack][], или, вот, [the_silver_searcher]
 [Go Replace]: https://github.com/piranha/goreplace
 [ack]: http://beyondgrep.com/
 [the_silver_searcher]: https://github.com/ggreer/the_silver_searcher
-[1]: http://solovyov.net/files/gr-latest-64-osx
-[2]: http://solovyov.net/files/gr-latest-64-linux
-[3]: http://solovyov.net/files/gr-latest-64-win.exe
+[1]: http://solovyov.net/files/gr-64-osx
+[2]: http://solovyov.net/files/gr-64-linux
+[3]: http://solovyov.net/files/gr-64-win.exe
