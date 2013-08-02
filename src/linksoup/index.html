@@ -1,0 +1,16 @@
+title: Link Soup
+----
+
+<p class="info">
+  This is a link and image collecting resource, expect few links a day.
+</p>
+
+{{ range .Site.Pages.Children .Url }}
+<div class="row">
+  <div class="span8">
+    {{ with cut .Process.Content "<article>" "</article>" }}
+      {{ . }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}

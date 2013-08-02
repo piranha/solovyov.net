@@ -104,3 +104,10 @@
 - [{{ .Title }}](../../{{ .Url }})
 {{ end }}
 {{end}}
+
+{{define "one-link"}}
+<article>
+<dt>{{ .Title }} <a href="{{ .Rel .Url }}"><span class="info">-> {{ template "date" .Date }}</span></a></dt>
+<dd>{{ .Content }}</dd>
+</article>
+{{end}}
