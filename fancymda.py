@@ -1,15 +1,14 @@
 #!/usr/bin/env python
 
 import re
-import asyncore
+import sys
 import os, os.path as op
 import email, email.utils, email.header
 import urllib
 import shlex
 from datetime import datetime
-from smtpd import SMTPServer
 from HTMLParser import HTMLParser
-from subprocess import Popen
+from subprocess import call
 
 from opster import command
 import jinja2
@@ -108,34 +107,6 @@ def parse_payload(m, payload):
         'desc': '' if desc in (link, subject) else desc,
         }
 
-# Epic mail server
-
-class FancyServer(SMTPServer):
-    def __init__(self, base, after, *args, **kwargs):
-        self.base = base
-        self.after = shlex.split(after)
-        SMTPServer.__init__(self, *args, **kwargs)
-
-    def process_message(self, peer, mailfrom, mailto, data):
-        # if mailfrom != 'alexander@solovyov.net':
-        #     return
-
-        m = email.message_from_string(data)
-        m.set_unixfrom(mailfrom)
-
-        payload = get_best_payload(m)
-        if payload:
-            payload = payload.decode('utf-8')
-        else:
-            payload = decode_header(m['subject'])
-
-        data = parse_payload(m, payload)
-        fn = make_post(self.base, data)
-        url = fn
-        tweet(data, url)
-
-        Popen(self.after)
-
 
 # Actions
 
@@ -167,21 +138,22 @@ def run(dest,
         template=('t', '', 'Path to Jinja2 template')):
     '''Fancy Mail Processing Agent
     '''
-    # if not template:
-    #     print >> sys.stderr, 'Supply template since I have no idea what to do'
-    #     sys.exit(1)
-    host, port = address.split(':')
-    s = FancyServer(dest, after, (host or 'localhost', int(port)), None)
+    data = sys.stdin.read()
+    m = email.message_from_string(data)
 
-    # global TEMPLATE
-    # TEMPLATE = jinja2.Template(file(template).read())
+    payload = get_best_payload(m)
+    if payload:
+        payload = payload.decode('utf-8')
+    else:
+        payload = decode_header(m['subject'])
 
-    print 'Listening to %s:%d...' % s.addr
-    try:
-        asyncore.loop()
-    except KeyboardInterrupt:
-        pass
+    data = parse_payload(m, payload)
+    fn = make_post(dest, data)
+    url = fn
+    tweet(data, url)
 
+    if after:
+        sys.exit(call(shlex.split(after)))
 
 if __name__ == '__main__':
     run.command()
