@@ -15,8 +15,9 @@ import jinja2
 
 # haha this is damned global and I don't care :P
 TEMPLATE = jinja2.Template(u'''
-title: <a href="{{ link }}">{{ subject }}</a>
-date: {{ date.strftime("%Y-%m-%d %H:%m:%s") }}
+title: {{ subject }}
+link: {{ link }}
+date: {{ date.strftime("%Y-%m-%d %H:%M:%S") }}
 ----
 
 {{ desc }}
