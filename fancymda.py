@@ -1,5 +1,37 @@
 #!/usr/bin/env python
 
+'''
+This is a script indended to work as an MDA for your mail server, for example
+Exim could be configured like so:
+
+    # somewhere after 'begin transports'
+
+    fancymda_pipe:
+      debug_print = "T: fancymda_pipe for $local_part@$domain"
+      driver = pipe
+      path = "/bin:/usr/bin:/usr/local/bin"
+      command = "/home/piranha/web/solovyov.net/fancymda.py /home/piranha/web/solovyov.net/src/linksoup --after '/home/piranha/web/files/gostatic-linux /home/piranha/web/solovyov.net/config'"
+      user = piranha
+      return_path_add
+      delivery_date_add
+      envelope_to_add
+
+    # somewhere after 'begin routers'
+
+    redirect_links:
+        debug_print = "R: redirect_links for $local_part@$domain"
+        local_parts = whatever-name-you-want-for-local-part
+        senders = your-email
+        driver = accept
+        transport = fancymda_pipe
+
+After that you send an email, which will be parsed and then rendered with one of
+templates depending on that email content: it tries to get a link from email and
+then determine if it's an image.
+
+Improvement to follow... I hope. :)
+'''
+
 import re
 import sys
 import os, os.path as op
