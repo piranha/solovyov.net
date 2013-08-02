@@ -4,8 +4,8 @@ import re
 import sys
 import os, os.path as op
 import email, email.utils, email.header
-import urllib
 import shlex
+from urllib2 import urlopen
 from datetime import datetime
 from HTMLParser import HTMLParser
 from subprocess import call
@@ -100,15 +100,20 @@ def decode_header(s):
 
 
 def fetch_title(url):
-    data = urllib.urlopen(url).read()
+    data = urlopen(url).read()
     try:
         return re.search('<title>([^<]+)</title>', data).group(1)
     except (AttributeError, IndexError):
         return url
 
+def fetch_type(url):
+    r = urlopen(url)
+    ct = r.info().get('Content-Type')
+    if ct.startswith('image/'):
+        return 'image'
+    return 'link'
 
 LINK_RE = re.compile('https?://[^ \r\n]+')
-IMAGE_RE = re.compile('\.(gif|jpg|png)$')
 
 def parse_payload(m, payload):
     link = LINK_RE.search(payload).group(0)
@@ -121,7 +126,7 @@ def parse_payload(m, payload):
         'date': parse_dt(m['date']),
         'subject': subject,
         'link': link,
-        'type': 'image' if IMAGE_RE.search(link) else 'link',
+        'type': fetch_type(link),
         'desc': '' if desc in (link, subject) else desc,
         }
 
