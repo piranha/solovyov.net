@@ -13,17 +13,30 @@ from subprocess import call
 from opster import command
 import jinja2
 
-# haha this is damned global and I don't care :P
-TEMPLATE = jinja2.Template(u'''
+t = lambda x: jinja2.Template(x.strip())
+
+TEMPLATES = dict(
+    link = t(u'''
 title: {{ subject }}
 link: {{ link }}
 date: {{ date.strftime("%Y-%m-%d %H:%M:%S") }}
+tag: link
 ----
 
 {{ desc }}
-''')
+'''),
 
-LINK_RE = re.compile('https?://[^ \r\n]+')
+    image = t(u'''
+title: {{ subject }}
+link: {{ link }}
+date: {{ date.strftime("%Y-%m-%d %H:%M:%S") }}
+tag: image
+----
+
+<img src="{{ link }}">
+
+{{ desc }}
+'''))
 
 # tag stripper
 
@@ -94,6 +107,9 @@ def fetch_title(url):
         return url
 
 
+LINK_RE = re.compile('https?://[^ \r\n]+')
+IMAGE_RE = re.compile('\.(gif|jpg|png)$')
+
 def parse_payload(m, payload):
     link = LINK_RE.search(payload).group(0)
     desc = payload.replace(link, '').strip()
@@ -105,6 +121,7 @@ def parse_payload(m, payload):
         'date': parse_dt(m['date']),
         'subject': subject,
         'link': link,
+        'type': 'image' if IMAGE_RE.search(link) else 'link',
         'desc': '' if desc in (link, subject) else desc,
         }
 
@@ -120,15 +137,10 @@ def make_post(base, data):
 
     fn = op.join(path, '%d-%d.md' % (now.day, n))
 
-    result = TEMPLATE.render(data).lstrip()
+    result = TEMPLATES[data['type']].render(data)
     with file(fn, 'w') as f:
         f.write(result.encode('utf-8'))
 
-    return fn
-
-
-def tweet(data, url):
-    pass
 
 # Interface
 
@@ -149,9 +161,7 @@ def run(dest,
         payload = decode_header(m['subject'])
 
     data = parse_payload(m, payload)
-    fn = make_post(dest, data)
-    url = fn
-    tweet(data, url)
+    make_post(dest, data)
 
     if after:
         sys.exit(call(shlex.split(after)))
