@@ -6,7 +6,8 @@
   <updated>{{ .First.Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
   {{ end }}
   <author><name>{{ .Site.Other.Author }}</name></author>
-  <link href="{{ .Site.Other.Url }}" rel="alternate"></link>
+  <link href="{{ .Site.Other.Url }}en/" rel="alternate"></link>
+  <link href="{{ .Site.Other.Url }}{{ .Url }}"></link>
   <generator uri="http://github.com/piranha/gostatic/">gostatic</generator>
 
 {{ with .Site.Pages.Children "en/" }}
@@ -16,16 +17,17 @@
   <author><name>{{ or .Other.Author .Site.Other.Author }}</name></author>
   <title type="html">{{ html .Title }}</title>
   <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</published>
+  <updated>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
   {{ range .Tags }}
   <category term="{{ . }}"></category>
   {{ end }}
   <link href="{{ .Site.Other.Url }}{{ .Url }}" rel="alternate"></link>
-  <content type="html">
+  <content type="html"><![CDATA[
     {{/* .Process runs here in case only feed changed */}}
     {{ with cut .Process.Content "<section>" "</section>" }}
-      {{ html . }}
+      {{ . }}
     {{ end }}
-  </content>
+  ]]></content>
 </entry>
 {{ end }}
 {{ end }}

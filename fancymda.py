@@ -10,7 +10,7 @@ Exim could be configured like so:
       debug_print = "T: fancymda_pipe for $local_part@$domain"
       driver = pipe
       path = "/bin:/usr/bin:/usr/local/bin"
-      command = "/home/piranha/web/solovyov.net/fancymda.py /home/piranha/web/solovyov.net/src/linksoup --after '/home/piranha/web/files/gostatic-linux /home/piranha/web/solovyov.net/config'"
+      command = "/home/piranha/web/solovyov.net/fancymda.py /home/piranha/web/solovyov.net/src/links --after '/home/piranha/web/files/gostatic-linux /home/piranha/web/solovyov.net/config'"
       user = piranha
       return_path_add
       delivery_date_add

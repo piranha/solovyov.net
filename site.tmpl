@@ -14,7 +14,7 @@
   <link rel="alternate" type="application/atom+xml"
         title="{{ .Site.Other.Title }} english posts" href="http://feeds.feedburner.com/BloggingSpree">
   <link rel="alternate" type="application/atom+xml"
-        title="{{ .Site.Other.Title }} linksoup" href="{{ .Rel "/linksoup.atom" }}">
+        title="{{ .Site.Other.Title }} linkroll" href="{{ .Rel "/links.atom" }}">
   <title>{{ .Site.Other.Title }}{{ if .Title }}: {{ .Title }}{{ end }}</title>
 
   <link rel="author" href="http://solovyov.net/about/">
@@ -107,11 +107,12 @@
 {{ end }}
 {{end}}
 
-{{define "one-link"}}
+{{define "link-html"}}
 <article>
 <dt>
   <a href="{{ .Other.Link }}">{{ .Title }}</a>
-  <a href="{{ .Rel .Url }}"><span class="info">-> {{ template "date" .Date }}</span></a>
+  <a href="{{ .Rel .Url }}"><span class="info">&#9997;</span></a>
+  {{ template "date" .Date }}
 </dt>
 <dd>{{ .Content }}</dd>
 </article>

@@ -2,30 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0">
   <id>{{ .Site.Other.Url }}</id>
   <title>{{ .Site.Other.Title }}</title>
-  {{ with .Site.Pages.Children "linksoup/" }}
+  {{ with .Site.Pages.Children "links/" }}
   <updated>{{ .First.Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
   {{ end }}
   <author><name>{{ .Site.Other.Author }}</name></author>
-  <link href="{{ .Site.Other.Url }}" rel="alternate"></link>
+  <link href="{{ .Site.Other.Url }}links/"></link>
+  <link href="{{ .Site.Other.Url }}{{ .Url }}" rel="self"></link>
   <generator uri="http://github.com/piranha/gostatic/">gostatic</generator>
 
-{{ with .Site.Pages.Children "linksoup/" }}
-{{ range .Slice 0 5 }}
+{{ with .Site.Pages.Children "links/" }}
+{{ range .Slice 0 20 }}
 <entry>
-  <id>{{ .Url }}</id>
+  <id>{{ .Site.Other.Url }}{{ .Url }}</id>
   <author><name>{{ or .Other.Author .Site.Other.Author }}</name></author>
   <title type="html">{{ html .Title }}</title>
   <published>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</published>
+  <updated>{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
   {{ range .Tags }}
   <category term="{{ . }}"></category>
   {{ end }}
-  <link href="{{ .Site.Other.Url }}{{ .Url }}" rel="alternate"></link>
-  <content type="html">
-    {{/* .Process runs here in case only feed changed */}}
-    {{ with cut .Process.Content "<dd>" "</dd>" }}
-      {{ html . }}
-    {{ end }}
-  </content>
+  <link href="{{ .Other.Link }}"></link>
+  <content type="html"><![CDATA[
+    {{ cut .Process.Content "<dd>" "</dd>" }}
+    <div><a title="Permanent link to entry" href="{{ .Site.Other.Url }}{{ .Url }}">&#9997;</a></div>
+  ]]></content>
 </entry>
 {{ end }}
 {{ end }}
