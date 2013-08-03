@@ -94,5 +94,8 @@ static/stuff.js:
 blog.atom: blog/*/*.md
 	inner-template
 
-en.atom: blog/*/*.md
+en.atom: en/*/*.md
+	inner-template
+
+linksoup.atom: linksoup/*/*.md
 	inner-template
