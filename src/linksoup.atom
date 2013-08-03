@@ -22,7 +22,7 @@
   <link href="{{ .Site.Other.Url }}{{ .Url }}" rel="alternate"></link>
   <content type="html">
     {{/* .Process runs here in case only feed changed */}}
-    {{ with cut .Process.Content "<section>" "</section>" }}
+    {{ with cut .Process.Content "<article>" "</article>" }}
       {{ html . }}
     {{ end }}
   </content>
