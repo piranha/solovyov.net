@@ -31,7 +31,8 @@ title: Link Roll
 (function() {
     toArray(byId('menu').children).forEach(function(el) {
         var dt = el.getAttribute('data-type');
-        el.firstChild.addEventListener('click', function() {
+        el.firstChild.addEventListener('click', function(e) {
+            e.preventDefault();
             toArray(qsa('div[data-type]')).forEach(function(x) {
                 console.log(x.getAttribute('data-type'), dt);
                 if (~x.getAttribute('data-type').indexOf(dt)) {
