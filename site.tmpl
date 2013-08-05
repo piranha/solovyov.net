@@ -109,9 +109,9 @@
 
 {{define "link-html"}}
 <article>
-<dt>
+<dt class="link-title">
+  <a href="{{ .Rel .Url }}" class="dropcap"><span class="info">&#9997;</span></a>
   <a href="{{ .Other.Link }}">{{ .Title }}</a>
-  <a href="{{ .Rel .Url }}"><span class="info">&#9997;</span></a>
   {{ template "date" .Date }}
 </dt>
 <dd>{{ .Content }}</dd>

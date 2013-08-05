@@ -6,6 +6,9 @@ compile:
 w:
 	$(GOSTATIC) -w config
 
+f:
+	$(GOSTATIC) -f config
+
 update:
 	git pull
 	$(GOSTATIC) config

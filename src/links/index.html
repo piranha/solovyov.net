@@ -9,14 +9,14 @@ title: Link Roll
   This is a link and image collecting resource, expect few links a day.
 </p>
 
-{{ with .Site.Pages.Children .Url }}
-{{ range .Slice 0 20 }}
 <div class="row">
   <div class="span8">
+{{ with .Site.Pages.Children .Url }}
+{{ range .Slice 0 20 }}
     {{ with cut .Process.Content "<article>" "</article>" }}
       {{ . }}
     {{ end }}
+{{ end }}
+{{ end }}
   </div>
 </div>
-{{ end }}
-{{ end }}
