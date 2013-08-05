@@ -52,7 +52,7 @@ TEMPLATES = dict(
 title: {{ subject }}
 link: {{ link }}
 date: {{ date.strftime("%Y-%m-%d %H:%M:%S") }}
-tag: link
+tags: link
 ----
 
 {{ desc }}
@@ -62,7 +62,7 @@ tag: link
 title: {{ subject }}
 link: {{ link }}
 date: {{ date.strftime("%Y-%m-%d %H:%M:%S") }}
-tag: image
+tags: image
 ----
 
 <img src="{{ link }}">

@@ -9,6 +9,12 @@ title: Link Roll
   This is a link and image collecting resource, expect few links a day.
 </p>
 
+<ul id="menu" class="nav nav-pills">
+  <li data-type="" class="active"><a href="#">All</a></li>
+  <li data-type="link"><a href="#">Links</a></li>
+  <li data-type="image"><a href="#">Images</a></li>
+</ul>
+
 <div class="row">
   <div class="span8">
 {{ with .Site.Pages.Children .Url }}
@@ -20,3 +26,23 @@ title: Link Roll
 {{ end }}
   </div>
 </div>
+
+<script type="text/javascript">
+(function() {
+    toArray(byId('menu').children).forEach(function(el) {
+        var dt = el.getAttribute('data-type');
+        el.firstChild.addEventListener('click', function() {
+            toArray(qsa('div[data-type]')).forEach(function(x) {
+                console.log(x.getAttribute('data-type'), dt);
+                if (~x.getAttribute('data-type').indexOf(dt)) {
+                    x.style.display = 'block';
+                } else {
+                    x.style.display = 'none';
+                }
+            });
+            document.querySelector('li.active').className = '';
+            el.className = 'active';
+        });
+    });
+})();
+</script>

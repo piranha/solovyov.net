@@ -1,4 +1,10 @@
 window.byId = document.getElementById.bind(document);
+window.toArray = function(x) {
+    return Array.prototype.slice.call(x);
+};
+window.qsa = function(sel) {
+    return document.querySelectorAll(sel);
+};
 
 String.prototype.format = function (data) {
     var s = this;
