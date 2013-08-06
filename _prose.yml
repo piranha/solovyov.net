@@ -13,9 +13,10 @@ prose:
           element: "text"
           label: "Date"
           placeholder: "YYYY-MM-DD"
-          value: CURRENT_DATETIME
+          value: ""
       - name: "tags"
         field:
           element: "text"
           label: "Tags"
+          placeholder: "Separate by commas"
           value: ""
