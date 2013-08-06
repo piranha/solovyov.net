@@ -37,7 +37,7 @@ import sys
 import os, os.path as op
 import email, email.utils, email.header
 import shlex
-from urllib2 import urlopen
+from urllib2 import urlopen, HTTPError
 from datetime import datetime
 from HTMLParser import HTMLParser
 from subprocess import call
@@ -139,10 +139,14 @@ def fetch_title(url):
         return url
 
 def fetch_type(url):
-    r = urlopen(url)
-    ct = r.info().get('Content-Type')
-    if ct.startswith('image/'):
-        return 'image'
+    try:
+        r = urlopen(url)
+    except HTTPError:
+        pass
+    else:
+        ct = r.info().get('Content-Type')
+        if ct.startswith('image/'):
+            return 'image'
     return 'link'
 
 LINK_RE = re.compile('https?://[^ \r\n]+')
