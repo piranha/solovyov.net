@@ -44,6 +44,22 @@ title: Alexander Solovyov
 
   <dt>
     <div class="icon">
+      <a href="/links.atom">
+        <img src="static/services/rss_32.png">
+      </a>
+    </div>
+    <a href="links/">Linkroll</a>
+  </dt>
+  <dd>
+  {{ with .Site.Pages.Children "links/" }}
+  Last entry:
+    {{ template "date" .First.Date }}
+    <a href="{{ $.Rel .First.Other.Link }}">{{ .First.Title }}</a>
+  {{ end }}
+  </dd>
+
+  <dt>
+    <div class="icon">
       <a href="http://twitter.com/asolovyov"><img src="static/services/twitter_32.png"></a>
     </div>
     <a href="http://twitter.com/asolovyov">Twitter</a>

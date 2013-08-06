@@ -64,7 +64,7 @@ links/index.html: links/*/*.md static/style.less
 	inner-template
 	template page
 
-index.html: blog/index.html en/index.html static/style.less
+index.html: blog/index.html en/index.html links/index.html static/style.less
 	config
 	inner-template
 	template page
