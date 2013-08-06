@@ -1,0 +1,21 @@
+prose:
+  rooturl: "src"
+  media: "src/assets"
+  metadata:
+    blog:
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+          value: ""
+      - name: "date"
+        field:
+          element: "text"
+          label: "Date"
+          placeholder: "YYYY-MM-DD"
+          value: CURRENT_DATETIME
+      - name: "tags"
+        field:
+          element: "text"
+          label: "Tags"
+          value: ""
