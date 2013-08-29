@@ -9,6 +9,9 @@ w:
 f:
 	$(GOSTATIC) -f config
 
+wf:
+	$(GOSTATIC) -f -w config
+
 update:
 	git pull
 	$(GOSTATIC) config
