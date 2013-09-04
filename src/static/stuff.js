@@ -1,4 +1,6 @@
-window.byId = document.getElementById.bind(document);
+window.byId = function(id) {
+    return document.getElementById(id);
+};
 window.toArray = function(x) {
     return Array.prototype.slice.call(x);
 };
