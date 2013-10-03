@@ -23,8 +23,13 @@ Clojure Cup и написать что-то прикольное на кложу
 [1]: http://en.wikipedia.org/wiki/Risk_(board_game)
 [2]: http://conquerclub.com/
 
-Мы - это я, Сева, Сергей и Рома. Рома немножко посомневался, сможет ли он
-участвовать, и стоит ли, но в конце-концов таки решился.
+Мы - это я, [Сева][seva], [Сергей][serge] и [Рома][roma]. Рома немножко
+посомневался, сможет ли он участвовать, и стоит ли, но в конце-концов таки
+решился.
+
+[seva]: http://twitter.com/Murkt
+[serge]: http://twitter.com/mrjoez
+[roma]: http://twitter.com/rofh
 
 ## До
 
