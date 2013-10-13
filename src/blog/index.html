@@ -6,7 +6,7 @@ title: Блог
 {{ range .Site.Pages.Children .Url }}
 
   {{ if changed "year" .Date.Year }}
-  <div class="row">
+  <div id="{{ .Date.Year }}" class="row">
     <div class="span8"><h2>{{ .Date.Year }}</h2></div>
   </div>
   {{ end }}
