@@ -300,4 +300,7 @@ Flowdock - очень удобная штука. Их разделение на 
 сожалению - но мне будет очень приятно, если вы за нас
 [проголосуете][vote]. Cheers! :-)
 
+UPD: [War Magnet](https://github.com/wunderwaffle/warmagnet) теперь на гитхабе с
+открытым кодом.
+
 [vote]: http://clojurecup.com/app.html?app=warmagnet
