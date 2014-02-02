@@ -11,7 +11,7 @@ title: Блог
   </div>
   {{ end }}
 
-  <div class="row">
+  <div class="row {{ if .Other.Favorite }}favorite{{ end }}">
     <div class="span3">{{ template "date" .Date }}</div>
     <div class="span5">
       <a href="{{ $.Rel .Url }}">{{ .Title }}</a>

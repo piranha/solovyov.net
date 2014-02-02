@@ -1,6 +1,7 @@
 tags: python, programming, sql, db
 title:  SQLAlchemy: как втянуться
 date: 2011-04-22
+favorite: true
 ----
 
 SQLAlchemy сейчас - очевидный лидер ORM в питоне, но у неë есть один

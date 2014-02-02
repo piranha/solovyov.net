@@ -1,0 +1,97 @@
+worker_processes 1;
+error_log stderr;
+pid nginx.pid;
+daemon off;
+
+events {
+	worker_connections 768;
+} 
+
+http {
+	include mime.types;
+
+server {
+    listen <%= ENV['PORT'] %>;
+    server_name solovyov.net;
+    root /home/piranha/web/solovyov.net/site;
+
+    rewrite /blog/feed/ /blog.atom permanent;
+    rewrite /feeds/.* /blog.atom permanent;
+    rewrite ^/(opster|cyrax).* http://github.com/piranha/$1 permanent;
+
+    location /webhook {
+        proxy_pass http://localhost:5010;
+        allow 204.232.175.64/27;
+        allow 192.30.252.0/22;
+        deny all;
+    }
+
+    location /files {
+        expires 10d;
+        alias /home/piranha/web/files;
+    }
+
+    location /blog.atom {
+        if ($http_user_agent !~ FeedBurner) {
+            rewrite .* http://feeds.feedburner.com/AmazonByteflow;
+        }
+    }
+    location /en.atom {
+        if ($http_user_agent !~ FeedBurner) {
+            rewrite .* http://feeds.feedburner.com/BloggingSpree;
+        }
+    }
+
+    location ~ ^/(remote-bookmarks)(.*) {
+        alias /home/piranha/hg/$1/docs/_build/html$2;
+        index index.html;
+    }
+
+    location /static {
+        expires 10d;
+    }
+
+    location / {
+        expires 1h;
+    }
+
+    # invalid urls
+    rewrite /blog/feed.atom /blog.atom permanent;
+    rewrite /en/feed.atom /en.atom permanent;
+    rewrite /blog/sz.* /sz/ permanent;
+    rewrite /blog/2008/03/14/mercurial-vs-git.* /blog/2008/03/13/mercurial-vs-git/ permanent;
+    rewrite /blog/2007/12/01/django-performance-apache-vs-nginx-en.* /en/2007/12/01/django-performance-apache-vs-nginx/ permanent;
+    rewrite /blog/2007/11/24/nginx-mod-wsgi-vs-fastcgi-en.* /en/2007/11/24/nginx-mod-wsgi-vs-fastcgi/ permanent;
+
+    # drop date
+    rewrite "^/(blog|en)/(\d{4})/\d\d/\d\d/(.*)" /$1/$2/$3 permanent;
+    # year index
+    rewrite "^/(blog|en)/(\d{4})/$" /$1\#$2 permanent;
+}
+
+server {
+    listen <%= ENV['PORT'] %>;
+    server_name piranha.org.ua www.piranha.org.ua www.solovyov.net;
+    rewrite ^/(.*) http://solovyov.net/$1 permanent;
+}
+
+server {
+    server_name blog.piranha.org.ua;
+    listen <%= ENV['PORT'] %>;
+    rewrite ^/(.*) http://solovyov.net/blog/$1 permanent;
+}
+
+server {
+    server_name blog.ingspree.net ingspree.net;
+    listen <%= ENV['PORT'] %>;
+    rewrite ^/(.*) http://solovyov.net/en/$1 permanent;
+}
+
+server {
+    server_name blogg.ingspree.net;
+    listen <%= ENV['PORT'] %>;
+    rewrite ^/blog(.*) http://solovyov.net/en$1 permanent;
+    rewrite ^/.* http://solovyov.net/ permanent;
+}
+
+}

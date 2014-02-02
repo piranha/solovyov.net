@@ -2,7 +2,7 @@
 
 TEMPLATES = site.tmpl utils.tmpl
 SOURCE = src
-OUTPUT = site
+OUTPUT = www
 TITLE = solovyov.net
 URL = http://solovyov.net/
 AUTHOR = Alexander Solovyov
