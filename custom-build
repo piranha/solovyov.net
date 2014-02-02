@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+wget http://solovyov.net/files/gostatic-64-linux -O gostatic -q
+chmod +x gostatic
+npm install lessc uglifyjs
+
+PATH=./node_modules/.bin:$PATH ./gostatic $1/config
