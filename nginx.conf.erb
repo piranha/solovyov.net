@@ -14,7 +14,7 @@ http {
 server {
     listen <%= ENV['PORT'] %>;
     server_name solovyov.net;
-    root /home/piranha/web/solovyov.net/site;
+    root /app/www;
 
     rewrite /blog/feed/ /blog.atom permanent;
     rewrite /feeds/.* /blog.atom permanent;
@@ -27,10 +27,10 @@ server {
         deny all;
     }
 
-    location /files {
-        expires 10d;
-        alias /home/piranha/web/files;
-    }
+    # location /files {
+    #     expires 10d;
+    #     alias /home/piranha/web/files;
+    # }
 
     location /blog.atom {
         if ($http_user_agent !~ FeedBurner) {
@@ -41,11 +41,6 @@ server {
         if ($http_user_agent !~ FeedBurner) {
             rewrite .* http://feeds.feedburner.com/BloggingSpree;
         }
-    }
-
-    location ~ ^/(remote-bookmarks)(.*) {
-        alias /home/piranha/hg/$1/docs/_build/html$2;
-        index index.html;
     }
 
     location /static {
