@@ -4,4 +4,4 @@ wget http://solovyov.net/files/gostatic-64-linux -O gostatic -q
 chmod +x gostatic
 apt-get install -y node-uglify node-less
 
-./gostatic -v $1/config
+./gostatic $1/config
