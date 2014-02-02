@@ -9,6 +9,7 @@ events {
 
 http {
 	include mime.types;
+    server_names_hash_bucket_size 64;
 
 server {
     listen <%= ENV['PORT'] %>;
