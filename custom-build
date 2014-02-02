@@ -2,6 +2,6 @@
 
 wget http://solovyov.net/files/gostatic-64-linux -O gostatic -q
 chmod +x gostatic
-npm install lessc uglifyjs
+apt-get install -y node-uglify node-less
 
-PATH=./node_modules/.bin:$PATH ./gostatic $1/config
+./gostatic $1/config
