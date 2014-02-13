@@ -27,10 +27,10 @@ server {
         deny all;
     }
 
-    # location /files {
-    #     expires 10d;
-    #     alias /home/piranha/web/files;
-    # }
+    location /files {
+        expires 10d;
+        alias /files;
+    }
 
     location /blog.atom {
         if ($http_user_agent !~ FeedBurner) {
