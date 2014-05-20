@@ -5,7 +5,7 @@ title: Блог
 <div class="post-list">
 {{ range .Site.Pages.Children .Url }}
 
-  {{ if changed "year" .Date.Year }}
+  {{ if .Date.Year | changed "year" }}
   <div id="{{ .Date.Year }}" class="row">
     <div class="span8"><h2>{{ .Date.Year }}</h2></div>
   </div>
