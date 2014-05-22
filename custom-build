@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-echo "=========== Building site"
-
 wget http://solovyov.net/files/gostatic-64-linux -O gostatic -q
 chmod +x gostatic
 apt-get install -y node-uglify node-less
+
+echo    "-----> Building site"
+echo -n "       "
 
 ./gostatic $1/config
