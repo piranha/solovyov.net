@@ -15,6 +15,7 @@ server {
     listen <%= ENV['PORT'] %>;
     server_name solovyov.net;
     root /app/www;
+    port_in_redirect off;
 
     rewrite /blog/feed/ /blog.atom permanent;
     rewrite /feeds/.* /blog.atom permanent;
