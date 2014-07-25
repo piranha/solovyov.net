@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-wget http://solovyov.net/files/gostatic-64-linux -O gostatic -q
+LATEST=$(curl -s https://api.github.com/repos/piranha/gostatic/releases | awk '/"name": / { gsub(/[\",]/, ""); print $2; exit }')
+wget https://github.com/piranha/gostatic/releases/download/$LATEST/gostatic-64-linux -O gostatic -q
 chmod +x gostatic
 apt-get install -y node-uglify node-less
 
