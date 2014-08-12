@@ -30,13 +30,13 @@ After that, find a place where your project will reside, start a command line
 shell there, and run:
 
 ```shell
-$ lein new figwheel superapp
+$ lein new figwheel yourapp
 ```
 
-This will create a `superapp` directory with a project named `superapp` inside
+This will create a `yourapp` directory with a project named `yourapp` inside
 (so choose your name wisely), using a `fighweel` Leiningen template. This will
 give you basic initial structure for a ClojureScript application (regular `lein
-new superapp` will give you a Clojure project and you'll have to change a lot of
+new yourapp` will give you a Clojure project and you'll have to change a lot of
 stuff there).
 
 ### Configure project
@@ -45,6 +45,11 @@ Your project dependencies and configuration are in `project.clj`: go there and
 change url, description and check out the rest of it. We're going with a
 different wrapper for React, so replace `[om "0.7.1"]` with
 `[quiescent "0.1.4"]`. Read below for a reason why.
+
+### index.html
+
+Open `resources/public/index.html` in your editor and uncomment `script` tag
+with reference to `react`.
 
 ### Imports
 
@@ -102,6 +107,13 @@ Finally, react to files being reloaded:
 
 This code changes a non-relevant variable when some file is changed (and saved),
 forcing your application to re-render.
+
+And kick-off rendering now (we're using defonce here so that this expression
+will be executed only once):
+
+```clj
+(defonce *whatever* (render @world))
+```
 
 ### Run
 
