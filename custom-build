@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 LATEST=$(curl -s https://api.github.com/repos/piranha/gostatic/releases | awk '/"name": / { gsub(/[\",]/, ""); print $2; exit }')
-echo    "-----> Downloading gostatic $(LATEST)"
+echo    "-----> Downloading gostatic ${LATEST}"
 
 wget https://github.com/piranha/gostatic/releases/download/$LATEST/gostatic-64-linux -O gostatic -q
 chmod +x gostatic
