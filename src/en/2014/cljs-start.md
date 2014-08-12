@@ -76,7 +76,8 @@ Set up our data store:
 
 We are using `defonce` instead of `def` here to make our `world` only defined
 once, on initial load of an application. This means that changed state of your
-application will persist between source file reloads.
+application will persist between source file reloads - and you can reset your
+state by reloading a page.
 
 ...and main component:
 
@@ -118,8 +119,9 @@ Finally, react to files being reloaded:
 This code changes a non-relevant variable when some file is changed (and saved),
 forcing your application to re-render.
 
-And kick-off rendering now (we're using defonce here so that this expression
-will be executed only once):
+And kick-off rendering now (again, we're using defonce here so that this
+expression will be executed only once - in future `render` will be called by the
+`world` watcher):
 
 ```clj
 (defonce *whatever* (render @world))
