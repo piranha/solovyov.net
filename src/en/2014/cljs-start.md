@@ -74,6 +74,10 @@ Set up our data store:
 (defonce world (atom {:text "Hello!"}))
 ```
 
+We are using `defonce` instead of `def` here to make our `world` only defined
+once, on initial load of an application. This means that changed state of your
+application will persist between source file reloads.
+
 ...and main component:
 
 ```clj
@@ -82,6 +86,12 @@ Set up our data store:
   (html
     [:h1 (:text data)))
 ```
+
+I'm using sablono's `html` macro here, which renders Hiccup-like data structures
+to React virtual DOM components, since it makes it much easier for me to
+distinguish between HTML markup and my code. You could write it as
+`(d/h1 nil (:text data))` (do not forget to put `[quiescent.dom :as d]`
+in your `:require` section.
 
 ...and renderer:
 
