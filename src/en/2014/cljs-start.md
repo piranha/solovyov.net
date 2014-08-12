@@ -4,10 +4,10 @@ tags: cljs
 hide: true
 ----
 
-This is a short guide which indends to give you shortest path to writing
+This is a short guide which intends to give you shortest path to writing
 [ClojureScript][] with [React][] and reloadless workflow. It doesn't teach you
 how to write actual applications, only how to set up all the necessary (and
-boring) boilerplate. For an actual application demo see [snake][] or
+boring) boilerplate. For an application example see [snake][] or
 [flappy-bird][]. Let's get started.
 
 [ClojureScript]: https://github.com/clojure/clojurescript
@@ -44,7 +44,7 @@ stuff there).
 Your project dependencies and configuration are in `project.clj`: go there and
 change url, description and check out the rest of it. We're going with a
 different wrapper for React, so replace `[om "0.7.1"]` with
-`[quiescent "0.1.4"]`. Read below for a reason why.
+`[quiescent "0.1.4"]`. [Read below](#why-quiescent) for a reason.
 
 ### index.html
 
@@ -89,7 +89,7 @@ state by reloading a page.
 ```
 
 I'm using sablono's `html` macro here, which renders Hiccup-like data structures
-to React virtual DOM components, since it makes it much easier for me to
+to React virtual DOM components, since it makes it easier for me to
 distinguish between HTML markup and my code. You could write it as
 `(d/h1 nil (:text data))` (do not forget to put `[quiescent.dom :as d]`
 in your `:require` section.
@@ -120,8 +120,8 @@ This code changes a non-relevant variable when some file is changed (and saved),
 forcing your application to re-render.
 
 And kick-off rendering now (again, we're using defonce here so that this
-expression will be executed only once - in future `render` will be called by the
-`world` watcher):
+expression executes only once - in general `render` is called by the `world`
+watcher):
 
 ```clj
 (defonce *whatever* (render @world))
@@ -161,4 +161,4 @@ Plus Quiescent forces you to think about your data layout in a single big, while
 Om provides easy access to component local state - and I find that most
 developers (me not excluded) are eager to use it, even if it's not necessary
 (and it's not most of the time). Anyway, go and read Quiescent's rationale, it's
-a good write up.
+a good write-up.
