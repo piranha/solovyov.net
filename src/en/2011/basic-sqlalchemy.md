@@ -3,7 +3,7 @@ title:  SQLAlchemy tutorial: how to start
 date: 2011-04-23
 ----
 
-SQLAlchemy right now obviously is a best Python ORM, but it's documentation,
+SQLAlchemy right now obviously is a best Python ORM, but its documentation,
 while being thorough and detailed, in my opinion lacks easy descriptions of
 steps you need to go through to start using it. Which is why I've decided to
 write small introductory tutorial.
