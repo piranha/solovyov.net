@@ -29,7 +29,7 @@ After that, find a place where your project will reside, start a command line
 shell there, and run:
 
 ```shell
-$ lein new figwheel yourapp
+lein new figwheel yourapp
 ```
 
 This will create a `yourapp` directory with a project named `yourapp` inside
@@ -131,7 +131,7 @@ watcher):
 Run this in your project directory and open
 [http://localhost:3449](http://localhost:3449):
 
-```clj
+```shell
 lein figwheel dev
 ```
 
