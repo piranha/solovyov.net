@@ -1,12 +1,12 @@
 tags: python, programming, sql, db
-title:  SQLAlchemy: how to start
+title:  SQLAlchemy tutorial: how to start
 date: 2011-04-23
 ----
 
-SQLAlchemy right now is an obvious leader of ORM solutions in Python,
-but it has a problem: you will need to read quite a bit of documentation
-to start using it. Which is why I've decided to write small introductory
-tutorial.
+SQLAlchemy right now obviously is a best Python ORM, but it's documentation,
+while being thorough and detailed, in my opinion lacks easy descriptions of
+steps you need to go through to start using it. Which is why I've decided to
+write small introductory tutorial.
 
 Level 1: hand-written SQL
 -------------------------
