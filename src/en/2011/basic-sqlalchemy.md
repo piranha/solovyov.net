@@ -3,10 +3,10 @@ title:  SQLAlchemy tutorial: how to start
 date: 2011-04-23
 ----
 
-SQLAlchemy right now obviously is a best Python ORM, but its documentation,
-while being thorough and detailed, in my opinion lacks easy descriptions of
-steps you need to go through to start using it. Which is why I've decided to
-write small introductory tutorial.
+SQLAlchemy currently is a best Python ORM, but its documentation, while being
+thorough and detailed, in my opinion lacks easy descriptions of steps you need
+to go through to start using it. Which is why I've decided to write small
+introductory tutorial.
 
 Level 1: hand-written SQL
 -------------------------
@@ -42,7 +42,7 @@ Would you like to execute everything inside of transaction?
 ```
 
 That's already better than using raw DB API, especially given that
-parameters are escaped.
+parameters will be escaped.
 
 Level 2: SQL-expressions in Python
 ----------------------------------
@@ -118,7 +118,7 @@ configuring your application, for example (by doing `meta.bind = e`).
 application - there is [orm.scoped_session][1], which creates
 thread-local session class.
 
-That is basically all I wanted to tell you, for futher information there
+That is basically all I wanted to tell you, for further information there
 is [documentation](http://www.sqlalchemy.org/docs/). :)
 
 [1]: http://www.sqlalchemy.org/docs/orm/session.html?highlight=scoped_session#sqlalchemy.orm.scoped_session

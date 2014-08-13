@@ -112,7 +112,7 @@ Finally, react to files being reloaded:
 
 ```clj
 (fw/watch-and-reload :jsload-callback
-  (fn [] (swap! world assoc :tmp-dev (not (:tmp-dev @world)))))
+  (fn [] (swap! world update-in [:tmp-dev] not)))
 ```
 
 This code changes a non-relevant variable when some file is changed (and saved),
