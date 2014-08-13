@@ -84,7 +84,7 @@ state by reloading a page.
 (q/defcomponent Root
   [data]
   (html
-    [:h1 (:text data)))
+    [:h1 (:text data)]))
 ```
 
 I'm using sablono's `html` macro here, which renders Hiccup-like data structures
