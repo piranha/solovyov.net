@@ -1,6 +1,7 @@
 title: ClojureScript: how to begin
 date: 2014-08-13
 tags: cljs
+favorite: true
 ----
 
 This is a short guide which intends to give you shortest path to writing

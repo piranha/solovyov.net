@@ -1,6 +1,7 @@
 tags: python, programming, sql, db
 title:  SQLAlchemy tutorial: how to start
 date: 2011-04-23
+favorite: true
 ----
 
 SQLAlchemy currently is a best Python ORM, but its documentation, while being

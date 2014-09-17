@@ -2,6 +2,11 @@ title: Блог
 
 ----
 
+<ul class="nav nav-pills">
+  <li class="active"><a href="#all">All</a></li>
+  <li><a href="#favorite">Favorite</a></li>
+</ul>
+
 <div class="post-list">
 {{ range .Site.Pages.Children .Url }}
 
@@ -11,8 +16,13 @@ title: Блог
   </div>
   {{ end }}
 
-  <div class="row {{ if .Other.Favorite }}favorite{{ end }}">
-    <div class="span3">{{ template "date" .Date }}</div>
+  <div class="row post {{ if .Other.Favorite }}favorite{{ else }}normal{{ end }}">
+    <div class="span3">
+      {{ if .Other.Favorite }}
+      <img src="{{ version . "static/star.png" }}" class="star" title="Favorite post">
+      {{ end }}
+      {{ template "date" .Date }}
+    </div>
     <div class="span5">
       <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
     </div>
@@ -20,3 +30,29 @@ title: Блог
 
 {{ end }}
 </div>
+
+<script type="text/javascript">
+(function() {
+    function switchTo(e) {
+        e.preventDefault();
+        var el = e.target;
+        switch (el.getAttribute('href')) {
+        case '#all':
+            qsa('.post-list .post.normal').forEach(function(el) {
+                el.style.display = '';
+            });
+            break;
+        case '#favorite':
+            qsa('.post-list .post.normal').forEach(function(el) {
+                el.style.display = 'none';
+            });
+            break;
+        };
+        qsa('.nav-pills .active')[0].classList.remove('active');
+        el.parentElement.classList.add('active');
+    }
+    qsa('.nav-pills a').forEach(function(el) {
+        el.addEventListener('click', switchTo);
+    });
+})();
+</script>

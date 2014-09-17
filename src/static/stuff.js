@@ -8,6 +8,8 @@ window.qsa = function(sel) {
     return document.querySelectorAll(sel);
 };
 
+NodeList.prototype.forEach = Array.prototype.forEach;
+
 String.prototype.format = function (data) {
     var s = this;
     return s.replace(/\{([^\}]+)\}/g, function(match, k) {

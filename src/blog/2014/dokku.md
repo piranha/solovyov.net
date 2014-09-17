@@ -1,6 +1,7 @@
 title: Dokku
 date: 2014-07-31
 tags: linux
+favorite: true
 ----
 
 Недавно перевëз свой сервер на Digital Ocean, и заодно переехал с системы

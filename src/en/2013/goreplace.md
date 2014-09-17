@@ -1,6 +1,7 @@
 title: Go Replace!
 date: 2013-05-21
 tags: programming, go
+favorite: true
 ----
 
 Once upon a time two and something years ago I decided to check out [Go][] to
