@@ -53,13 +53,15 @@ with reference to `react`.
 
 ### Imports
 
-Now we're going to change `core.cljs` a bit. Set up some requires inside of
-`ns` call:
+Now we're going to change `core.cljs` a bit. Delete all the code from this file
+(well, your `ns` declaration should stay, but we're going to change all
+requirements). Set up some requires inside of `ns` call:
 
 ```clj
+(ns yourapp.core
   (:require [figwheel.client :as fw]
             [sablono.core :as html :refer-macros [html]]
-            [quiescent :as q :include-macros true])
+            [quiescent :as q :include-macros true]))
 ```
 
 I'm intentionally not giving all the code at once here so that you'll be forced
