@@ -1,0 +1,65 @@
+==================================================================
+https://keybase.io/asolovyov
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://solovyov.net
+  * I am asolovyov (https://keybase.io/asolovyov) on keybase.
+  * I have a public key with fingerprint 1F63 22C2 2BAE B0D4 18C1  4477 AB09 CA13 33A4 4CB6
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "1f6322c22baeb0d418c14477ab09ca1333a44cb6",
+            "host": "keybase.io",
+            "key_id": "ab09ca1333a44cb6",
+            "uid": "52bf57a7b6e47de7b70587807cf96000",
+            "username": "asolovyov"
+        },
+        "service": {
+            "hostname": "solovyov.net",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1414433530,
+    "expire_in": 157680000,
+    "prev": "bd6dff50c90611029930513cff522d418658a2c8ed6e6c46e502ff3f1a655879",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v1.1.3
+Comment: https://keybase.io/crypto
+
+yMHjAnicbVFdSBRhFB3TlLbSAp/KSAb/KrX5n53NEKS0DUzKLQuSbX6+2R21mW12
+nNrVVaQgkFIJeigoC7ENw8qK8E1d0n60KKTISiGzwtAUV6JMqG9C33r6+M4959x7
+7n20NhaxxUjNe6ZyAnMNMYO9c9WIa1/jQg0qaFIAddSgleDfIyuqB+g+XVEN1IHi
+MkMShEgQAg8ETKJwu4hTFMvyAsaJPE6SJE9RosCg2ahX81sKaCPwfpCraBCDH7ci
+QfQ//Op/BZoQZJrlWYEBFCsBVmAx2s7aMVaUOQbDMIvoB7rKHweWjV+r0syAZqKh
+bBTCpiICa2ir9xJlmZGrAgOKfbpmaKJWBStew/A5LKER8FnMk0BwL3m4BUWVYHAo
+MIHuVzQVdeCQKRqKZYpTMDRJ0iSWjYJTPkUHbsVi0CxjhzNiVhtgQktBYiRZpjGR
+wxgcxwiOIzEaJ0WIEYS1PYa284RoBxIDGJFiAI0RskzKOM/QMDaHWqlOqBrq4OCY
+vMfKo3hU3qjWARqK9B6NQ2JsSPzKFdbpENuqdcsHPXYwYdFWODARB7ouxd+pnhE7
+s25n5mVVhCLOhmhem7cqdfWzgTSzdue70uD360XfpnDX09pI03SXWPLzwSQxFDpQ
+AHLXOzeUtSGL7W/8QeTJtfSH/cExLL0+/0fnxIX67TNyYmxRffLoLymcMvrnlf7e
+3Np819vYn1Bcebig3ZV5tnkbcnG+r6nD7Ht8pIyaHwvPd3947hi50j3yO613aHrT
+Yo7ntfhx14szhVy4LrAmP9oyvPvcLUcwyu2di50sL42Ot+xnZj/f6Bl8eeh0ck/x
+267My2Uu52zSp8SM1nspFc4INvxlozBYW96hJ8mp4R22lvMLreNbNl/9erOuJOP+
+2F+Vlhpg
+=q6dr
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/asolovyov
+
+==================================================================
