@@ -23,10 +23,8 @@
   {{ end }}
   <link href="{{ .Site.Other.Url }}{{ .Url }}" rel="alternate"></link>
   <content type="html"><![CDATA[
-    {{/* .Process runs here in case only feed changed */}}
-    {{ with cut .Process.Content "<section>" "</section>" }}
-      {{ . }}
-    {{ end }}
+    {{/* .Process runs here automatically only in case when has feed changed */}}
+    {{ cut "<section>" "</section>" .Process.Content }}
   ]]></content>
 </entry>
 {{ end }}

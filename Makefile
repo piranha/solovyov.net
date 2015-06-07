@@ -18,4 +18,4 @@ update:
 	curl -s "http://www.feedburner.com/fb/a/pingSubmit?bloglink=http://feeds.feedburner.com/AmazonByteflow" > /dev/null
 
 open: compile
-	open site/index.html
+	open www/index.html
