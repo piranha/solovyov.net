@@ -4,12 +4,10 @@ title: Tags
 
 <div class="tag-list">
 {{ range .Site.Pages.Children "tags/" }}
-{{ if .Title }}
   <a href="{{ $.Rel .Url }}">
   <span class="label label-info">
     {{ .Title }}
   </span>
   </a>
-{{ end }}
 {{ end }}
 </div>
