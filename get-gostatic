@@ -1,7 +1,12 @@
 #!/bin/sh
 
 LATEST=$(curl -s https://api.github.com/repos/piranha/gostatic/releases | awk '/"name": / { gsub(/[\",]/, ""); print $2; exit }')
-echo    " ---> Downloading gostatic ${LATEST}"
+CRITERIA=${1}-${LATEST}
 
+# exit if it's already downloaded
+test -f $CRITERIA && exit 0
+
+echo    " ---> Downloading gostatic ${LATEST}"
 wget https://github.com/piranha/gostatic/releases/download/$LATEST/gostatic-64-linux -O $1 -q
 chmod +x $1
+touch $CRITERIA
