@@ -21,6 +21,6 @@ open: compile
 	open www/index.html
 
 gostatic:
-	get-gostatic /opt/build/cache/gostatic
+	./get-gostatic /opt/build/cache/gostatic
 
 netlify: gostatic compile
