@@ -1,0 +1,10 @@
+{"name": "solovyov.net",
+ "version": "1.0.0",
+ "description": "my site",
+ "author": "Alexander Solovyov",
+ "license": "ISC",
+ "dependencies": {
+     "lessc": "~2.5.3",
+     "uglifyjs": "~2.4.10"
+ }
+}
