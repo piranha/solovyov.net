@@ -4,7 +4,7 @@
  "author": "Alexander Solovyov",
  "license": "ISC",
  "dependencies": {
-     "lessc": "~2.5.3",
+     "less": "~2.5.3",
      "uglifyjs": "~2.4.10"
  }
 }
