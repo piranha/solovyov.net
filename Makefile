@@ -1,4 +1,4 @@
-GOSTATIC ?= gostatic
+GOSTATIC ?= gostatic -p 1234
 
 compile:
 	$(GOSTATIC) config

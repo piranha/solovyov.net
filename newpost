@@ -1,12 +1,26 @@
 #!/bin/sh
 
+type_opt=blog
+
+while getopts :t: opt; do
+    case $opt in
+        t) type_opt="$OPTARG";;
+        :) echo "Option -$OPTARG requires an argument" >&2;;
+        \?) echo "Invalid option: -$OPTARG" >&2;;
+    esac
+done
+shift $((OPTIND-1))
+
 if [ -z "$1" ]; then
-   echo "Supply post slug as first parameter"
-   exit 0
+    echo "$0 [-t TYPE] SLUG"
+    echo "TYPE is one of: blog, en"
+    exit 0
 fi
 
-NAME="$(dirname $0)/src/blog/$(date +%Y)/$1.md"
+NAME="$(dirname $0)/src/${type_opt}/$(date +%Y)/$1.md"
 DATE="$(date +%Y-%m-%d)"
+
+mkdir -p $(dirname "$NAME")
 
 cat > $NAME <<EOF
 title: 
