@@ -213,7 +213,7 @@ title: Alexander Solovyov
 </div>
 
 <script type="text/javascript">
-(function() {
+setTimeout(function() {
     JSONP.get("http://api.flickr.com/services/feeds/photos_public.gne",
               {id: "8226209@N04", format: "json"},
               function(feed) {
@@ -224,9 +224,9 @@ title: Alexander Solovyov
                       s: photo.media.m
                   });
               }, "jsoncallback");
-})();
+}, 1);
 
-(function() {
+setTimeout(function() {
     var tmpl = '<a href="https://github.com/{full_name}/stargazers">' +
         '<img src="static/star.png" class="star">' +
         ' {watchers_count}</a>';
@@ -245,5 +245,5 @@ title: Alexander Solovyov
                       parent.appendChild(el);
                   };
               });
-})();
+}, 1);
 </script>

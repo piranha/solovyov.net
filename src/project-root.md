@@ -57,20 +57,22 @@ shell at current project root:
 
 [org-mode]: http://orgmode.org/
 
-<script>
-JSONP.get(
-  "http://api.bitbucket.org/1.0/repositories/piranha/project-root/changesets",
-  {limit: 1},
-  function (response) {
-    var cset = response.changesets[0];
-    var date = new Date(cset.timestamp);
-    var link = "http://hg.piranha.org.ua/project-root/commits/" + cset.raw_node;
-    var a = '<a href="{href}">{title}</a> <time datetime={iso}>({date})</time>';
-    byId('latest').innerHTML = a.format({
-        href: link,
-        title: cset.message.split('\n')[0],
-        iso: date.toISOString(),
-        date: date.format('{FullYear}, {MonthShort} {Date}')
+<script type="text/javascript">
+setTimeout(function() {
+  JSONP.get(
+    "http://api.bitbucket.org/1.0/repositories/piranha/project-root/changesets",
+    {limit: 1},
+    function (response) {
+      var cset = response.changesets[0];
+      var date = new Date(cset.timestamp);
+      var link = "http://hg.piranha.org.ua/project-root/commits/" + cset.raw_node;
+      var a = '<a href="{href}">{title}</a> <time datetime={iso}>({date})</time>';
+      byId('latest').innerHTML = a.format({
+          href: link,
+          title: cset.message.split('\n')[0],
+          iso: date.toISOString(),
+          date: date.format('{FullYear}, {MonthShort} {Date}')
+      });
     });
-  });
+});
 </script>
