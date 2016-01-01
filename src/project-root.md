@@ -74,5 +74,5 @@ setTimeout(function() {
           date: date.format('{FullYear}, {MonthShort} {Date}')
       });
     });
-});
+}, 1);
 </script>
