@@ -15,7 +15,8 @@ Which makes it **really** good: I've put an
 [icon](https://jrothmanshore.files.wordpress.com/2014/04/gmail-red-icon.png),
 made it fullscreen (wow, nobody can distract me now when I'm replying to
 emails - since I turn off popups for everything), and made it display amount of
-unread email in Inbox with this userscript:
+unread email in Inbox with this userscript (yes, it has userscripts and
+[some API](http://fluidapp.com/developer/)):
 
 ```javascript
 function getUnread() {
