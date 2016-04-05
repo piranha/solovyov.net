@@ -88,7 +88,7 @@ static/highlight-*.less:
 
 static/style.less:
 	ext .css
-	:lessc -
+	:lessc -x -
 
 static/stuff.js:
 	:uglifyjs
