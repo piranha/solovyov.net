@@ -7,6 +7,6 @@ CRITERIA=${1}-${LATEST}
 test -f $CRITERIA && exit 0
 
 echo    " ---> Downloading gostatic ${LATEST}"
-curl https://github.com/piranha/gostatic/releases/download/$LATEST/gostatic-64-linux -o $1 -q
-chmod +x $1
+curl -Lso "$1" https://github.com/piranha/gostatic/releases/download/$LATEST/gostatic-64-linux
+chmod +x "$1"
 touch $CRITERIA
