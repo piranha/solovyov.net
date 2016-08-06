@@ -1,9 +1,6 @@
-FROM node:0.12
+FROM mhart/alpine-node
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-            nginx-light node-uglify node-less && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache nginx && npm install -g uglify-js less
 
 RUN mkdir /app
 WORKDIR /app
