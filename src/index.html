@@ -294,7 +294,7 @@ setTimeout(function() {
 
 setTimeout(function() {
     var tmpl = '<a href="https://github.com/{full_name}/stargazers">' +
-        '<img src="{{ version . "static/star.png" }}" class="star" title="Watchers count">' +
+        '<img src="{{ version . "static/star.svg" }}" class="star" title="Watchers count">' +
         ' {watchers_count}</a>';
     JSONP.get("https://api.github.com/users/piranha/repos",
               {type: 'owner', per_page: 100},
