@@ -6,7 +6,12 @@
   <meta charset="utf-8">
   <meta name="author" content="{{ .Site.Other.Author }}">
   <meta name="keywords" content="alexander solovyov, piranha, python, mercurial, django, emacs, golang, sqlalchemy">
-  <meta name="description" content="Alexander Solovyov, piranha">
+  <meta name="description" content="{{ if .Other.Description }}
+    {{ .Other.Description }}
+  {{ else if contains "<section>" .Content }}
+    {{ with cut "<section>" "</section>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
+  {{ end }}
+  ">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="alternate" type="application/atom+xml"
