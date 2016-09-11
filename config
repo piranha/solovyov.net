@@ -80,15 +80,12 @@ index.html: blog/index.html en/index.html links/index.html static/style.less
 	inner-template
 	template page
 
-static/bootstrap/*.less:
+static/*.css:
 	ignore
 
-static/highlight-*.less:
-	ignore
-
-static/style.less:
+static/style.scss:
 	ext .css
-	:lessc -x -
+	:sassc -t compressed -I src/static
 
 static/stuff.js:
 	:uglifyjs

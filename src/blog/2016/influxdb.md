@@ -124,11 +124,13 @@ protocol buffer менее строгий, чем джавный? Не знаю.
 
 Ну и все типа заработало, кроме одного прикольного момента:
 
+```
 > wrk -c 5 -d 5 http://mk.dev:8080/ | grep requests
   5585 requests in 5.02s, 273.90MB read
 
 > influx -host 127.0.0.1 -database mk_dev -execute 'select count(value) from "clj.ui.time"' -format json | jq '.results[0].series[0].values[0][1]'
 5007
+```
 
 Куда делось еще 500 запросов? Из римана все ушло (десяток-полтора дополнительных
 запросов в апи, пока не закешировались, присутствует, доводя сумму до 5597):

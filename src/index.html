@@ -4,212 +4,277 @@ description: Personal homepage of Alexander Solovyov
 
 <h2 id="presence">Online presence</h1>
 
-<dl class="presence">
-  <dt>
-    <div class="icon">
-      <a href="http://solovyov.net/blog.atom">
-        <img src="static/services/rss_32.png">
-      </a>
-    </div>
-    <a class="right" href="http://feeds.feedburner.com/AmazonByteflow">
+{{/* Blog */}}
+<div class="row mt-15">
+  <div class="index-icon">
+    <a href="http://solovyov.net/blog.atom">
+      <img src="{{ version . "static/services/rss_32.png" }}">
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="blog/">Blog in Russian</a>
+    <p class="mt-0">
+    {{ with .Site.Pages.Children "blog/" }}
+    Last entry:
+      {{ template "date" .First.Date }}
+      <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
+    {{ end }}
+    </p>
+  </div>
+
+  <div class="col-1-4 flex-right">
+    <a href="http://feeds.feedburner.com/AmazonByteflow">
       <img src="//feeds.feedburner.com/~fc/AmazonByteflow">
     </a>
-    <a href="blog/">Blog in Russian</a>
-  </dt>
-  <dd>
-  {{ with .Site.Pages.Children "blog/" }}
-  Last entry:
-    {{ template "date" .First.Date }}
-    <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
-  {{ end }}
-  </dd>
+  </div>
+</div>
 
-  <dt>
-    <div class="icon">
-      <a href="http://solovyov.net/en.atom">
-        <img src="static/services/rss_32.png">
-      </a>
-    </div>
-    <a class="right" href="http://feeds.feedburner.com/BloggingSpree">
+
+{{/* English */}}
+<div class="row mt-15">
+  <div class="index-icon">
+    <a href="http://solovyov.net/en.atom">
+      <img src="{{ version . "static/services/rss_32.png" }}">
+    </a>
+  </div>
+
+  <div class="col">
+    <a href="en/">Blog in English</a>
+    <p class="mt-0">
+    {{ with .Site.Pages.Children "en/" }}
+    Last entry:
+      {{ template "date" .First.Date }}
+      <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
+    {{ end }}
+    </p>
+  </div>
+
+  <div class="col-1-4 flex-right">
+    <a href="http://feeds.feedburner.com/BloggingSpree">
       <img src="//feeds.feedburner.com/~fc/BloggingSpree">
     </a>
-    <a href="en/">Blog in English</a>
-  </dt>
-  <dd>
-  {{ with .Site.Pages.Children "en/" }}
-  Last entry:
-    {{ template "date" .First.Date }}
-    <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
-  {{ end }}
-  </dd>
+  </div>
+</div>
 
-  <dt>
-    <div class="icon">
-      <a href="http://twitter.com/asolovyov"><img src="static/services/twitter_32.png"></a>
-    </div>
+
+{{/* Twitter */}}
+<div class="row mt-15">
+  <div class="index-icon">
+    <a href="http://twitter.com/asolovyov">
+      <img src="{{ version . "static/services/twitter_32.png" }}">
+    </a>
+  </div>
+
+  <div class="col">
     <a href="http://twitter.com/asolovyov">Twitter</a>
-  </dt>
-  <dd>
-    I'm chirping on Twitter a bit.
-  </dd>
+    <p class="mt-0">
+      I'm chirping on Twitter a bit.
+    </p>
+  </div>
+</div>
 
-  <dt>
-    <div class="icon">
-      <a href="photo/"><img src="static/services/flickr_32.png"></a>
+
+{{/* Flickr */}}
+<div class="row mt-15">
+  <div class="col-3-4">
+  <div class="row">
+    <div class="index-icon">
+      <a href="photo/">
+        <img src="{{ version . "static/services/flickr_32.png" }}">
+      </a>
     </div>
-    <a class="right" id="flickr-photo" href="photo/"></a>
-    <a href="photo/">My photos</a>
-  </dt>
-  <dd>It&apos;s nice to capture a moment occasionally.</dd>
 
-  <dt>
-    <div class="icon">
-      <a href="http://www.linkedin.com/in/asolovyov"><img src="static/services/linkedin_32.png"></a>
+    <div class="col">
+      <a href="photo/">My photos</a>
+      <p class="mt-0">It's nice to capture a moment occasionally.</p>
     </div>
-    <a href="http://www.linkedin.com/in/asolovyov">Linkedin page</a>
-  </dt>
-  <dd>You should be there, right? Right?</dd>
+  </div>
 
-
-  <dt>
-    <div class="icon">
-      <a href="http://piranha.github.io/slides/"><img src="static/services/email_32.png"></a>
+  {{/* LinkedIn */}}
+  <div class="row mt-15">
+    <div class="index-icon">
+      <a href="http://www.linkedin.com/in/asolovyov">
+        <img src="{{ version . "static/services/linkedin_32.png" }}">
+      </a>
     </div>
-    <a href="http://piranha.github.io/slides/">Slides from my talks</a>
-  </dt>
-  <dd>So that they can be referenced.</dd>
 
-</dl>
+    <div class="col">
+      <a href="http://www.linkedin.com/in/asolovyov">Linkedin page</a>
+      <p class="mt-0">
+        You should be there, right? Right?
+      </p>
+    </div>
+  </div>
 
-<h2 id="contacts">Contact me</h2>
+  {{/* Slides */}}
+  <div class="row mt-15">
+    <div class="index-icon">
+      <a href="http://piranha.github.io/slides/">
+        <img src="{{ version . "static/services/email_32.png" }}">
+      </a>
+    </div>
+
+    <div class="col-3-4">
+      <a href="http://piranha.github.io/slides/">Slides from my talks</a>
+      <p class="mt-0">
+        So that they can be referenced.
+      </p>
+    </div>
+  </div>
+  </div>
+
+  <div class="col-1-4 flex-right">
+    <a id="flickr-photo" href="photo/"></a>
+  </div>
+</div>
+
+
+<div id="contacts">
+<h2>Contact me</h2>
 
 <p class="span8">
   The simplest way to contact me is email: <script type="text/javascript">document.write("<n uers=\"znvygb:nyrknaqre\100fbybilbi\056arg\">nyrknaqre\100fbybilbi\056arg<\057n>".replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script>
 </p>
+</div>
 
-<br/><br/>
 
-<h2 id="projects">Projects
-  <span class="note">
+<div class="projects">
+  <h2 class="mt-30" id="projects">Projects
     (more at <a href="http://github.com/piranha/">GitHub</a>)
-  </span>
-</h2>
+  </h2>
 
-<div class="row projects">
-  <h3>Sites</h3>
+  <div class="row"><h3 class="col flex-center">Sites</h3></div>
 
-  <div class="span4">
-    <h4 class="row" data-repo="osgameclones">
-      <a href="http://osgameclones.com/">OSGC</a>
-    </h4>
-    <span>List of open source clones of (old) popular games</span>
+  <div class="row">
+    <div class="col">
+      <h4 data-repo="osgameclones">
+        <a href="http://osgameclones.com/">OSGC</a>
+      </h4>
+      <p>List of open source clones of (old) popular games</p>
+    </div>
+
+    <div class="col">
+      <h4 data-repo="showkr">
+        <a href="http://showkr.solovyov.net/">Showkr</a>
+      </h4>
+      <p>Minimalistic viewer for Flickr</p>
+    </div>
   </div>
 
-  <div class="span4">
-    <h4 class="row" data-repo="showkr">
-      <a href="http://showkr.solovyov.net/">Showkr</a>
-    </h4>
-    <span>Minimalistic viewer for Flickr</span>
+  <div class="row"><h3 class="col flex-center">Applications</h3></div>
+
+  <div class="row">
+    <div class="col">
+      <h4 data-repo="gostatic">
+        <a href="http://github.com/piranha/gostatic/">gostatic</a>
+      </h4>
+      <p>Fast static site generator (engine of this site)</p>
+    </div>
+
+    <div class="col">
+      <h4 data-repo="cyrax">
+        <a href="http://github.com/piranha/cyrax/">cyrax</a>
+      </h4>
+      <p>Extremely extensible static site generator
+        (powers <a href="http://osgameclones.com">Open Source Game Clones</a>)</p>
+    </div>
   </div>
 
-  <h3>Applications</h3>
+  <div class="row">
+    <div class="col">
+      <h4 data-repo="goreplace">
+        <a href="http://github.com/piranha/goreplace/">goreplace</a>
+      </h4>
+      <p>grep/ack alternative with ability to replace (a-la sed)
+        and support for .hgignore/.gitignore</p>
+    </div>
 
-  <div class="span4">
-    <h4 class="row" data-repo="gostatic">
-      <a href="http://github.com/piranha/gostatic/">gostatic</a>
-    </h4>
-    <span>Fast static site generator (engine of this site)</span>
+    <div class="col">
+      <h4 data-repo="shorrt">
+        <a href="http://github.com/piranha/shorrt/">shorrt</a>
+      </h4>
+      <p>The simplest possible global shortcuts for OS X</p>
+    </div>
   </div>
 
-  <div class="span4">
-    <h4 class="row" data-repo="cyrax">
-      <a href="http://github.com/piranha/cyrax/">cyrax</a>
-    </h4>
-    <span>Extremely extensible static site generator
-      (powers <a href="http://osgameclones.com">Open Source Game Clones</a>)</span>
+  <div class="row">
+    <div class="col">
+      <h4 data-repo="webhooker">
+        <a href="http://github.com/piranha/webhooker/">webhooker</a>
+      </h4>
+      <span>Github webhook handler - runs a command on push</span>
+    </div>
+
+    <div class="col">
+      <h4 data-repo="nomad">
+        <a href="http://github.com/piranha/nomad/">nomad</a>
+      </h4>
+      <span>
+        Simplest database (idea was to support any db) migration tool I could
+        imagine
+      </span>
+    </div>
   </div>
 
-  <div class="span4">
-    <h4 class="row" data-repo="goreplace">
-      <a href="http://github.com/piranha/goreplace/">goreplace</a>
-    </h4>
-    <span>grep/ack alternative with ability to replace (a-la sed)
-      and support for .hgignore/.gitignore</span>
+  <div class="row">
+    <div class="col">
+      <h4 data-repo="piu">
+        <a href="https://github.com/piranha/piu">piu</a>
+      </h4>
+      <span>Engine behind <a href="http://paste.in.ua">paste.in.ua</a> pastebin</span>
+    </div>
+
+    <div class="col">
+      <h4 data-repo="adium-inline-images">
+        <a href="https://github.com/piranha/adium-inline-images">Adium Inline Images</a>
+      </h4>
+      <span>Show image links as inline images on a click</span>
+    </div>
   </div>
 
-  <div class="span4">
-    <h4 class="row" data-repo="shorrt">
-      <a href="http://github.com/piranha/shorrt/">shorrt</a>
-    </h4>
-    <span>The simplest possible global shortcuts for OS X</span>
+  <div class="row"><h3 class="col flex-center">Libraries</h3></div>
+
+  <div class="row">
+    <div class="col">
+      <h4 data-repo="keymage">
+        <a href="http://github.com/piranha/keymage/">keymage</a>
+      </h4>
+      <span>Simple and small, but featureful enough JS keybinding library</span>
+    </div>
+
+    <div class="col">
+      <h4 data-repo="keybind">
+        <a href="http://github.com/piranha/keybind/">keybind</a>
+      </h4>
+      <span>A ClojureScript keybinding library</span>
+    </div>
   </div>
 
-  <div class="span4">
-    <h4 class="row" data-repo="webhooker">
-      <a href="http://github.com/piranha/webhooker/">webhooker</a>
-    </h4>
-    <span>Github webhook handler - runs a command on push</span>
+  <div class="row">
+    <div class="col">
+      <h4 data-repo="puttext">
+        <a href="http://github.com/piranha/puttext/">puttext</a>
+      </h4>
+      <span>Gettext for JS, both translations and message collecting</span>
+    </div>
+
+    <div class="col">
+      <h4 data-repo="tnetstrings.js">
+        <a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a>
+      </h4>
+      <span>JS implementation of <a href="http://tnetstrings.org">tnetstrings</a></span>
+    </div>
   </div>
 
-  <div class="span4">
-    <h4 class="row" data-repo="nomad">
-      <a href="http://github.com/piranha/nomad/">nomad</a>
-    </h4>
-    <span>
-      Simplest database (idea was to support any db) migration tool I could
-      imagine
-    </span>
-  </div>
-
-  <div class="span4">
-    <h4 class="row" data-repo="piu">
-      <a href="https://github.com/piranha/piu">piu</a>
-    </h4>
-    <span>Engine behind <a href="http://paste.in.ua">paste.in.ua</a> pastebin</span>
-  </div>
-
-  <div class="span4">
-    <h4 class="row" data-repo="adium-inline-images">
-      <a href="https://github.com/piranha/adium-inline-images">Adium Inline Images</a>
-    </h4>
-    <span>Show image links as inline images on a click</span>
-  </div>
-
-  <h3 style="clear: both">Libraries</h3>
-
-  <div class="span4">
-    <h4 class="row" data-repo="keymage">
-      <a href="http://github.com/piranha/keymage/">keymage</a>
-    </h4>
-    <span>Simple and small, but featureful enough JS keybinding library</span>
-  </div>
-
-  <div class="span4">
-    <h4 class="row" data-repo="keybind">
-      <a href="http://github.com/piranha/keybind/">keybind</a>
-    </h4>
-    <span>A ClojureScript keybinding library</span>
-  </div>
-
-  <div class="span4">
-    <h4 class="row" data-repo="puttext">
-      <a href="http://github.com/piranha/puttext/">puttext</a>
-    </h4>
-    <span>Gettext for JS, both translations and message collecting</span>
-  </div>
-
-  <div class="span4">
-    <h4 class="row" data-repo="tnetstrings.js">
-      <a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a>
-    </h4>
-    <span>JS implementation of <a href="http://tnetstrings.org">tnetstrings</a></span>
-  </div>
-
-  <div class="span4">
-    <h4 class="row" data-repo="opster">
-      <a href="http://github.com/piranha/opster/">opster</a>
-    </h4>
-    <span>Simple, concise, powerful command line parser for Python</span>
+  <div class="row">
+    <div class="col">
+      <h4 data-repo="opster">
+        <a href="http://github.com/piranha/opster/">opster</a>
+      </h4>
+      <span>Simple, concise, powerful command line parser for Python</span>
+    </div>
+    <div class="col"></div>
   </div>
 </div>
 
@@ -229,7 +294,7 @@ setTimeout(function() {
 
 setTimeout(function() {
     var tmpl = '<a href="https://github.com/{full_name}/stargazers">' +
-        '<img src="static/star.png" class="star">' +
+        '<img src="{{ version . "static/star.png" }}" class="star" title="Watchers count">' +
         ' {watchers_count}</a>';
     JSONP.get("https://api.github.com/users/piranha/repos",
               {type: 'owner', per_page: 100},

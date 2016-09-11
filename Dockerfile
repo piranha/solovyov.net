@@ -1,6 +1,7 @@
 FROM mhart/alpine-node
 
-RUN apk add --no-cache nginx curl && npm install -g uglify-js less
+RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN apk add --no-cache nginx curl sassc@testing && npm install -g uglify-js
 
 RUN mkdir /app
 WORKDIR /app

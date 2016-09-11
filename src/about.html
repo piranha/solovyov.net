@@ -4,7 +4,7 @@ title: about
 <h2>Who am I?</h2>
 
 <article itemscope itemtype="http://schema.org/Person">
-  <img itemprop="image" class="photo" src="{{ .Rel "static/avatar_fb.jpg" }}">
+  <img itemprop="image" style="float: right" src="{{ version . "static/avatar_fb.jpg" }}">
 
   <p class="info">This page is marked as HTML5 microdata</p>
 
@@ -21,10 +21,11 @@ title: about
   <p>
     <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
       I live in <span itemprop="addressLocality">Kyiv</span>,
-      <span itemprop="addressCountry">Ukraine</span>
-    </span>, working as a <span itemprop="jobTitle">software developer</span>.
-    I'm writing in-browser applications for the last few years
-    and before that it was mostly web back-end stuff in Python.
+      <span itemprop="addressCountry">Ukraine</span></span>,
+    working as a <span itemprop="jobTitle">CTO</span>
+    for <a href="https://modnakasta.ua/">modnaKasta</a>. Before that I've been
+    writing SPA applications in React, Backbone.js, and back-ends in Python
+    (with Django and other stuff).
   </p>
 
   <p>

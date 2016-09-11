@@ -41,7 +41,9 @@
     setTimeout(ga, 15000, 'send', 'event', 'read', '15_seconds');
   </script>
 </head>
-<body class="container">
+<body>
+<div class="flex-center">
+<div class="container">
   <header role="banner">
     <h2 id="site-title"><a href="/">solovyov.net</a></h2>
   </header>
@@ -53,6 +55,8 @@
   <footer>
     &#169; 2006&ndash;2015 <a href="{{ .Rel "/about/" }}">{{ .Site.Other.Author }}</a>
   </footer>
+</div>
+</div>
 </body>
 </html>
 {{ end }}

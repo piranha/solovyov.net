@@ -2,28 +2,32 @@ title: Блог
 
 ----
 
-<ul class="nav nav-pills">
-  <li class="active"><a href="#all">All</a></li>
-  <li><a href="#favorite">Favorite</a></li>
-</ul>
+<div class="row flex-center nav">
+  <div class="col-1-4"><a class="btn btn-primary" href="#all">All</a></div>
+  <div class="col-1-4"><a class="btn" href="#favorite">Favorite</a></div>
+</div>
 
 <div class="post-list">
 {{ range .Site.Pages.Children .Url }}
 
   {{ if .Date.Year | changed "year" }}
   <div id="{{ .Date.Year }}" class="row">
-    <div class="span8"><h2>{{ .Date.Year }}</h2></div>
+    <div class="col flex-center"><h2>{{ .Date.Year }}</h2></div>
   </div>
   {{ end }}
 
-  <div class="row post {{ if .Other.Favorite }}favorite{{ else }}normal{{ end }}">
-    <div class="span3">
+  <div class="row mt-15 post {{ if .Other.Favorite }}favorite{{ else }}normal{{ end }}"
+       style="margin-top: 5px">
+    <div class="col-1-4 flex-right">
       {{ if .Other.Favorite }}
-      <img src="{{ version . "static/star.png" }}" class="star" title="Favorite post">
+      <img src="{{ version . "static/star.png" }}"
+           class="star"
+           style="margin-top: 0.15em"
+           title="Favorite post">
       {{ end }}
       {{ template "date" .Date }}
     </div>
-    <div class="span5">
+    <div class="col">
       <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
     </div>
   </div>
@@ -48,10 +52,10 @@ title: Блог
             });
             break;
         };
-        qsa('.nav-pills .active')[0].classList.remove('active');
-        el.parentElement.classList.add('active');
+        qsa('.nav .btn-primary')[0].classList.remove('btn-primary');
+        el.classList.add('btn-primary');
     }
-    qsa('.nav-pills a').forEach(function(el) {
+    qsa('.nav a').forEach(function(el) {
         el.addEventListener('click', switchTo);
     });
 })();
