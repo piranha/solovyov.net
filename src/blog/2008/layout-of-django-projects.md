@@ -40,5 +40,5 @@ tags: django, programming, tips
 
 [^1]: Как это делается, можно увидеть в `settings.py` у Byteflow.
 
-[1]: http://www.djangoproject.com/documentation/tutorial01/
+[1]: https://docs.djangoproject.com/en/1.10/intro/tutorial01/
 [byteflow]: http://byteflow.su/
