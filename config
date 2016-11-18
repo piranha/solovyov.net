@@ -4,7 +4,7 @@ TEMPLATES = site.tmpl utils.tmpl
 SOURCE = src
 OUTPUT = www
 TITLE = solovyov.net
-URL = http://solovyov.net/
+URL = https://solovyov.net/
 AUTHOR = Alexander Solovyov
 
 

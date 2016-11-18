@@ -10,7 +10,7 @@ title: about
 
   <p class="lead">
     My name is <span itemprop="name">Alexander Solovyov</span>, and
-    that's <a itemprop="url" href="{{ .Rel "/" }}">my site</a>.
+    that's <a itemprop="url" href="{{ .Site.Other.Url }}">my site</a>.
   </p>
 
   <p>
@@ -21,10 +21,12 @@ title: about
   <p>
     <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
       I live in <span itemprop="addressLocality">Kyiv</span>,
-      <span itemprop="addressCountry">Ukraine</span></span>,
-    working as a <span itemprop="jobTitle">CTO</span>
-    for <a href="https://modnakasta.ua/">modnaKasta</a>. Before that I've been
-    writing SPA applications in React, Backbone.js, and back-ends in Python
+      <span itemprop="addressCountry">Ukraine</span>
+    </span>, working as a <span itemprop="jobTitle">CTO</span>
+    for <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization">
+      <a itemprop="url" href="https://modnakasta.ua/"><span itemprop="brand">modnaKasta</span></a>
+    </span> - we're building sick ecommerce platform there! Before that I've
+    been writing SPA applications in React, Backbone.js, and back-ends in Python
     (with Django and other stuff).
   </p>
 
