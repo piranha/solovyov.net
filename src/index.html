@@ -267,7 +267,7 @@ description: Personal homepage of Alexander Solovyov
 </div>
 
 <script type="text/javascript">
-setTimeout(function() {
+window.addEventListener('load', function() {
     JSONP.get("https://api.flickr.com/services/feeds/photos_public.gne",
               {id: "8226209@N04", format: "json"},
               function(feed) {
@@ -278,9 +278,9 @@ setTimeout(function() {
                       s: photo.media.m
                   });
               }, "jsoncallback");
-}, 1);
+});
 
-setTimeout(function() {
+window.addEventListener('load', function() {
     var tmpl = '<a href="https://github.com/{full_name}/stargazers">' +
         '<img src="{{ version . "static/star.svg" }}" class="star" title="Watchers count">' +
         ' {watchers_count}</a>';
@@ -299,5 +299,5 @@ setTimeout(function() {
                       parent.appendChild(el);
                   };
               });
-}, 1);
+});
 </script>
