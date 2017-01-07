@@ -103,7 +103,7 @@ Citroën CX), а Антонио Кастеллана проделал главн
 
 Ссылки по теме:
 
-* [E. v.d. Beek](http://home.wxs.nl/~evdbeek/monster.html)
+* [Eduard van de Beek](http://home.wxs.nl/~evdbeek/monster.html)
 * [Wikipedia](http://en.wikipedia.org/wiki/Alfa_Romeo_SZ)
 * [Pictures and information](http://www.diseno-art.com/encyclopedia/vehicles/road/cars/alfa_romeo_sz.html)
 * [Top Classic Cars](http://www.topclassiccars.com/alfa-romeo-sz.html)
