@@ -2,19 +2,19 @@
 @import "mobi";
 
 #site-title {
-    background: black;
+  background: black;
+  display: inline-block;
+  font-size: 1.3em;
+
+  a {
+    color: white;
     display: inline-block;
-    font-size: 1.3em;
+    padding: 0.3em 0.3em;
 
-    a {
-        color: white;
-        display: inline-block;
-        padding: 0.3em 0.3em;
-
-        &:hover {
-            text-decoration: none;
-        }
+    &:hover {
+      text-decoration: none;
     }
+  }
 }
 
 footer {
@@ -22,7 +22,9 @@ footer {
   text-align: center;
 }
 
-.projects { text-align: center;}
+.projects {
+  text-align: center;
+}
 
 .index-icon {
   padding: 0.6em 0.3em 0 0;
@@ -35,17 +37,17 @@ footer {
 }
 
 h1, h2, h3, h4, h5 {
-    .anchor-link {
-        display: none;
-        color: grey;
-    }
-    &:hover .anchor-link {
-        display: inline;
-    }
+  .anchor-link {
+    display: none;
+    color: grey;
+  }
+  &:hover .anchor-link {
+    display: inline;
+  }
 }
 
 time, .info {
-    color: grey;
+  color: grey;
 }
 
 .post-list {
@@ -58,4 +60,9 @@ time, .info {
 .lead {
   font-size: 1.5em;
   font-weight: 200;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
 }
