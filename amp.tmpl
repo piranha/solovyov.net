@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <link rel="canonical" href="../">
+  <link rel="canonical" href="..">
   <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
   <style amp-custom>
   {{ with .Site.Pages.ByPath "static/amp.css" }}
@@ -52,8 +52,8 @@
 
 {{ define "amp-post" }}
 <article itemscope itemtype="http://schema.org/BlogPosting">
-  <meta name="mainEntityOfPage" content="..">
-  <meta name="description" content="{{ excerpt .Content 50 | strip_html }}">
+  <meta itemprop="mainEntityOfPage" content="..">
+  <meta itemprop="description" content="{{ excerpt .Content 50 | strip_html }}">
 
   <header>
     <h1 itemprop="headline">{{ .Title }}</h1>
