@@ -2,36 +2,38 @@ title: Блог
 
 ----
 
-<div class="row flex-center nav">
-  <div class="col-1-4"><a class="btn btn-primary" href="#all">All</a></div>
-  <div class="col-1-4"><a class="btn" href="#favorite">Favorite</a></div>
+<div class="flex-center units-gap nav">
+  <div class="unit-1-4"><a class="btn btn-primary" href="#all">All</a></div>
+  <div class="unit-1-4"><a class="btn" href="#favorite">Favorite</a></div>
 </div>
 
 <div class="post-list">
 {{ range .Site.Pages.Children .Url }}
+{{ if not (contains "amp" .Url) }}
 
   {{ if .Date.Year | changed "year" }}
-  <div id="{{ .Date.Year }}" class="row">
-    <div class="col flex-center"><h2>{{ .Date.Year }}</h2></div>
+  <div id="{{ .Date.Year }}" class="flex-center">
+    <div class="unit"><h2>{{ .Date.Year }}</h2></div>
   </div>
   {{ end }}
 
-  <div class="row mt-15 post {{ if .Other.Favorite }}favorite{{ else }}normal{{ end }}"
-       style="margin-top: 5px">
-    <div class="col-1-4 flex-right">
+  <div class="flex-left units-gap post {{ if .Other.Favorite }}favorite{{ else }}normal{{ end }}"
+       style="margin-top: 7px">
+    <div class="unit-1-4 flex-right">
       {{ if .Other.Favorite }}
       <img src="{{ version . "static/star.svg" }}"
            class="star"
            style="margin-top: 0.15em"
            title="Favorite post">
       {{ end }}
-      {{ template "date" .Date }}
+      {{ template "shortdate" .Date }}
     </div>
-    <div class="col">
+    <div class="unit">
       <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
     </div>
   </div>
 
+{{ end }}
 {{ end }}
 </div>
 

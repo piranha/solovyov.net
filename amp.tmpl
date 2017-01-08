@@ -1,0 +1,76 @@
+{{/* -*- mode: go-template -*- */}}
+
+{{ define "amp" }}<!doctype html>
+<html amp>
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <link rel="canonical" href="../">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+  <style amp-custom>
+  {{ with .Site.Pages.ByPath "static/amp.css" }}
+    {{ .Process.Content }}
+  {{ end }}
+  </style>
+
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+</head>
+<body>
+
+<amp-analytics type="googleanalytics" id="analytics1">
+<script type="application/json">
+{
+  "vars": {
+    "account": "UA-317760-3"
+  },
+  "triggers": {
+    "trackPageview": {
+      "on": "visible",
+      "request": "pageview",
+	  "vars": {
+	    "title": "{{ .Title }}"
+	  }
+    }
+  }
+}
+</script>
+</amp-analytics>
+
+<div class="flex-center">
+<div class="container">
+  <header role="banner">
+    <h2 id="site-title"><a href="/">solovyov.net</a></h2>
+  </header>
+
+{{ .Content }}
+
+{{ template "footer" . }}{{ end }}
+
+
+{{ define "amp-post" }}
+<article>
+  <header>
+    <h1>{{ .Title }}</h1>
+
+    <div class="info">
+      {{ template "date" .Date }}
+
+      &mdash;
+
+      <a href="{{ or .Other.Authorlink (.Rel "/about/") }}">{{ or .Other.Author .Site.Other.Author }}</a>
+
+      &mdash;
+
+      {{ range $i, $t := .Tags }}{{if $i}},{{end}}
+      <a href="/tags/{{ $t }}/">{{ $t }}</a>{{ end }}
+    </div>
+  </header>
+
+  <section>
+  {{ .Content }}
+  </section>
+</article>
+{{ end }}

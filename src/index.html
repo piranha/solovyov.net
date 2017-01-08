@@ -8,16 +8,16 @@ description: Personal homepage of Alexander Solovyov
 <h2 id="presence">Online presence</h1>
 
 {{/* Blog */}}
-<div class="row mt-15">
+<div class="flex-left top-gap">
   <div class="index-icon">
     <a href="http://solovyov.net/blog.atom">
       <svg class="icon"><use xlink:href="#rss"></svg>
     </a>
   </div>
 
-  <div class="col">
+  <div class="unit">
     <a href="blog/">Blog in Russian</a>
-    <p class="mt-0">
+    <p class="top-gap-0">
     {{ with .Site.Pages.Children "blog/" }}
     Last entry:
       {{ template "date" .First.Date }}
@@ -29,16 +29,16 @@ description: Personal homepage of Alexander Solovyov
 
 
 {{/* English */}}
-<div class="row mt-15">
+<div class="flex-left top-gap">
   <div class="index-icon">
     <a href="http://solovyov.net/en.atom">
       <svg class="icon"><use xlink:href="#rss"></svg>
     </a>
   </div>
 
-  <div class="col">
+  <div class="unit">
     <a href="en/">Blog in English</a>
-    <p class="mt-0">
+    <p class="top-gap-0">
     {{ with .Site.Pages.Children "en/" }}
     Last entry:
       {{ template "date" .First.Date }}
@@ -50,16 +50,16 @@ description: Personal homepage of Alexander Solovyov
 
 
 {{/* Twitter */}}
-<div class="row mt-15">
+<div class="flex-left top-gap">
   <div class="index-icon">
     <a href="http://twitter.com/asolovyov">
       <svg class="icon"><use xlink:href="#twitter"></svg>
     </a>
   </div>
 
-  <div class="col">
+  <div class="unit">
     <a href="http://twitter.com/asolovyov">Twitter</a>
-    <p class="mt-0">
+    <p class="top-gap-0">
       I'm chirping on Twitter a bit.
     </p>
   </div>
@@ -67,55 +67,55 @@ description: Personal homepage of Alexander Solovyov
 
 
 {{/* Flickr */}}
-<div class="row mt-15">
-  <div class="col-3-4">
-  <div class="row">
+<div class="flex-left top-gap">
+  <div class="unit-3-4">
+  <div class="flex-left">
     <div class="index-icon">
       <a href="photo/">
         <svg class="icon"><use xlink:href="#flickr"></svg>
       </a>
     </div>
 
-    <div class="col">
+    <div class="unit">
       <a href="photo/">My photos</a>
-      <p class="mt-0">It's nice to capture a moment occasionally.</p>
+      <p class="top-gap-0">It's nice to capture a moment occasionally.</p>
     </div>
   </div>
 
   {{/* LinkedIn */}}
-  <div class="row mt-15">
+  <div class="flex-left top-gap">
     <div class="index-icon">
       <a href="http://www.linkedin.com/in/asolovyov">
         <svg class="icon"><use xlink:href="#linkedin"></svg>
       </a>
     </div>
 
-    <div class="col">
+    <div class="unit-3-4">
       <a href="http://www.linkedin.com/in/asolovyov">Linkedin page</a>
-      <p class="mt-0">
+      <p class="top-gap-0">
         You should be there, right? Right?
       </p>
     </div>
   </div>
 
   {{/* Slides */}}
-  <div class="row mt-15">
+  <div class="flex-left top-gap">
     <div class="index-icon">
       <a href="http://piranha.github.io/slides/">
         <svg class="icon"><use xlink:href="#slideshow"></svg>
       </a>
     </div>
 
-    <div class="col-3-4">
+    <div class="unit-3-4">
       <a href="http://piranha.github.io/slides/">Slides from my talks</a>
-      <p class="mt-0">
+      <p class="top-gap-0">
         So that they can be referenced.
       </p>
     </div>
   </div>
   </div>
 
-  <div class="col-1-4 flex-right">
+  <div class="unit-1-4 flex-right">
     <a id="flickr-photo" href="photo/"></a>
   </div>
 </div>
@@ -131,21 +131,21 @@ description: Personal homepage of Alexander Solovyov
 
 
 <div class="projects">
-  <h2 class="mt-30" id="projects">Projects
+  <h2 class="top-gap-big" id="projects">Projects
     (more at <a href="http://github.com/piranha/">GitHub</a>)
   </h2>
 
-  <div class="row"><h3 class="col flex-center">Sites</h3></div>
+  <div class="flex-center"><h3 class="unit">Sites</h3></div>
 
-  <div class="row">
-    <div class="col">
+  <div class="flex-left">
+    <div class="unit">
       <h4 data-repo="osgameclones">
         <a href="http://osgameclones.com/">OSGC</a>
       </h4>
       <p>List of open source clones of (old) popular games</p>
     </div>
 
-    <div class="col">
+    <div class="unit">
       <h4 data-repo="showkr">
         <a href="http://showkr.solovyov.net/">Showkr</a>
       </h4>
@@ -153,17 +153,17 @@ description: Personal homepage of Alexander Solovyov
     </div>
   </div>
 
-  <div class="row"><h3 class="col flex-center">Applications</h3></div>
+  <div class="flex-center"><h3 class="unit">Applications</h3></div>
 
-  <div class="row">
-    <div class="col">
+  <div class="flex-left">
+    <div class="unit">
       <h4 data-repo="gostatic">
         <a href="http://github.com/piranha/gostatic/">gostatic</a>
       </h4>
       <p>Fast static site generator (engine of this site)</p>
     </div>
 
-    <div class="col">
+    <div class="unit">
       <h4 data-repo="cyrax">
         <a href="http://github.com/piranha/cyrax/">cyrax</a>
       </h4>
@@ -172,8 +172,8 @@ description: Personal homepage of Alexander Solovyov
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
+  <div class="flex-left">
+    <div class="unit">
       <h4 data-repo="goreplace">
         <a href="http://github.com/piranha/goreplace/">goreplace</a>
       </h4>
@@ -181,7 +181,7 @@ description: Personal homepage of Alexander Solovyov
         and support for .hgignore/.gitignore</p>
     </div>
 
-    <div class="col">
+    <div class="unit">
       <h4 data-repo="shorrt">
         <a href="http://github.com/piranha/shorrt/">shorrt</a>
       </h4>
@@ -189,15 +189,15 @@ description: Personal homepage of Alexander Solovyov
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
+  <div class="flex-left">
+    <div class="unit">
       <h4 data-repo="webhooker">
         <a href="http://github.com/piranha/webhooker/">webhooker</a>
       </h4>
       <span>Github webhook handler - runs a command on push</span>
     </div>
 
-    <div class="col">
+    <div class="unit">
       <h4 data-repo="nomad">
         <a href="http://github.com/piranha/nomad/">nomad</a>
       </h4>
@@ -208,15 +208,15 @@ description: Personal homepage of Alexander Solovyov
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
+  <div class="flex-left">
+    <div class="unit">
       <h4 data-repo="piu">
         <a href="https://github.com/piranha/piu">piu</a>
       </h4>
       <span>Engine behind <a href="http://paste.in.ua">paste.in.ua</a> pastebin</span>
     </div>
 
-    <div class="col">
+    <div class="unit">
       <h4 data-repo="adium-inline-images">
         <a href="https://github.com/piranha/adium-inline-images">Adium Inline Images</a>
       </h4>
@@ -224,17 +224,17 @@ description: Personal homepage of Alexander Solovyov
     </div>
   </div>
 
-  <div class="row"><h3 class="col flex-center">Libraries</h3></div>
+  <div class="flex-center"><h3 class="unit">Libraries</h3></div>
 
-  <div class="row">
-    <div class="col">
+  <div class="flex-left">
+    <div class="unit">
       <h4 data-repo="keymage">
         <a href="http://github.com/piranha/keymage/">keymage</a>
       </h4>
       <span>Simple and small, but featureful enough JS keybinding library</span>
     </div>
 
-    <div class="col">
+    <div class="unit">
       <h4 data-repo="keybind">
         <a href="http://github.com/piranha/keybind/">keybind</a>
       </h4>
@@ -242,15 +242,15 @@ description: Personal homepage of Alexander Solovyov
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
+  <div class="flex-left">
+    <div class="unit">
       <h4 data-repo="puttext">
         <a href="http://github.com/piranha/puttext/">puttext</a>
       </h4>
       <span>Gettext for JS, both translations and message collecting</span>
     </div>
 
-    <div class="col">
+    <div class="unit">
       <h4 data-repo="tnetstrings.js">
         <a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a>
       </h4>
@@ -258,14 +258,14 @@ description: Personal homepage of Alexander Solovyov
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
+  <div class="flex-left">
+    <div class="unit">
       <h4 data-repo="opster">
         <a href="http://github.com/piranha/opster/">opster</a>
       </h4>
       <span>Simple, concise, powerful command line parser for Python</span>
     </div>
-    <div class="col"></div>
+    <div class="unit"></div>
   </div>
 </div>
 
