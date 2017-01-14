@@ -55,6 +55,21 @@
   <meta itemprop="mainEntityOfPage" content="..">
   <meta itemprop="description" content="{{ excerpt .Content 50 | strip_html }}">
 
+  <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <meta itemprop="url" content="https://solovyov.net/static/asolovyov.jpg">
+    <meta itemprop="width" content="200">
+    <meta itemprop="height" content="250">
+  </div>
+
+  <div itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+      <meta itemprop="url" content="https://solovyov.net/static/asolovyov.jpg">
+      <meta itemprop="width" content="200">
+      <meta itemprop="height" content="250">
+    </div>
+    <meta itemprop="name" content="Alexander Solovyov">  
+  </div>
+
   <header>
     <h1 itemprop="headline">{{ .Title }}</h1>
 
