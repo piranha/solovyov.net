@@ -76,14 +76,14 @@
     <div class="info">
       {{ template "date" .Date }}
 
-      &mdash;
+      &middot;
 
       <a href="{{ or .Other.Authorlink (.Rel "/about/") }}"
 	     itemprop="author" itemscope itemtype="http://schema.org/Person">
 	    <span itemprop="name">{{ or .Other.Author .Site.Other.Author }}</span>
 	  </a>
 
-      &mdash;
+      &middot;
 
       {{ range $i, $t := .Tags }}{{if $i}},{{end}}
       <a href="/tags/{{ $t }}/">{{ $t }}</a>{{ end }}
