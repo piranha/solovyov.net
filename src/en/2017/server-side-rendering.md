@@ -21,7 +21,7 @@ Since the whole front-end is in React, which promises to make app renderable
 without having access to DOM - in Node.js in particular - the first idea was to
 render everything using Node.js. Doesn't feel that fuzzy, does it? Especially
 given that there is a new shiny super-fast JS engine in Java 8: Nashorn. And
-first experiments showed that it's indeed very fast, faster than Node.js
+first experiments showed that it's indeed very fast, faster than Node.js.
 
 "That's great," I thought and we started building an app (not SSR, an app
 itself). When the app became at least somewhat usable the time has come for a
