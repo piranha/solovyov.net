@@ -153,13 +153,13 @@ increases in traffic. :)
 
 <div class="flex-left flex-wrap">
 <div class="unit unit-1-on-mobile">
-<img src="../mk-img.jpg"/>
+<a href="https://modnakasta.ua"><img src="../mk-img.jpg"/></a>
 </div>
 
 <div class="unit">
 And they lived happily ever after. And you can go to <a
 href="https://modnakasta.ua">modnakasta.ua</a> by yourself and click around to
-see how that stuff works. Also, look at source HTML server gives you, this all
+see how that stuff works. Also, look at the source HTML server gives you, this all
 is rendered in JVM, with absolutely no JavaScript.
 </div>
 </div>
