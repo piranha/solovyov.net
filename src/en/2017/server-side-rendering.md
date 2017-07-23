@@ -93,10 +93,11 @@ returning a string `<img src="...">`?
   (format "<img src=\"%s\">" image-source))
 ```
 
-I wrote [first version][1] of this rendering for Rum back in January 2016, and
-Nikita (and other contributors) developed in a properly working thing. We've got
-a server-side rendering, but without React runtime, in JVM, with synchronous
-(yay!) network reads, with multithreading: in other words, pure joy!
+I wrote [first version][1] of this rendering for Rum back in January 2016, which
+Nikita (author of Rum) and other contributors developed into a properly working
+thing. We've got a server-side rendering, but without React runtime, in JVM,
+with synchronous (yay!) network reads, with multithreading: in other words, pure
+joy!
 
 [1]: https://github.com/tonsky/rum/commit/5add8dfb4d1e077b0b63a9b2eb76d77ec593817d
 
@@ -106,14 +107,14 @@ a server-side rendering, but without React runtime, in JVM, with synchronous
 Synchronous network reads are good because until data from a top-level component
 is received from the server, inner components (which are dependent on that data)
 sit there waiting. But right after data is there, inner components are
-rendered/initialized and start fetching their own data. So the dependency
-management here is really simple
+rendered/initialized and start fetching their own data. So the data dependency
+management here is really simple.
 
-Also, it occurred that if you render your HTML in the same process your API is
-running there is no need to go through network and HTTP. Clojure's Ring protocol
-is just a function which received a request, so if you can make a request in
-your code (and it's only a simple map), you can call this function and get data
-back. So XHR looks like that for ClojureScript:
+Also, if you render your HTML in the same process your API is running, there is
+no need to go through network and HTTP. Clojure's Ring protocol is just a
+function which accepts a request as an argument, so you can call your whole app
+with a simple map (which is what request in Ring is) and get response back. XHR
+looks like that for ClojureScript:
 
 ```clj
 (defn xhr [params callback]
@@ -139,7 +140,8 @@ quite a bit of time. Obviously parsing is not free as well.
 
 54 lines of changes later and now we pass unserialized data to server rendering:
 takes less time and less memory (minus string for JSON and minus newly parsed
-data). Pleasantly median time for rendering HTML went down from 110 to 80 ms. :)
+data). Pleasantly, median time for rendering HTML went down from 110 to 80
+ms. :)
 
 Also interesting that we have a cheat (or optimization) around caching and
 user-specific content: everything that depends on a current user is rendered
@@ -148,4 +150,17 @@ initially for a few moments, but in exchange, we can cache rendered HTML for
 everyone. This makes us able to look like we're not sweating a bit during sharp
 increases in traffic. :)
 
-And they lived happily ever after. The End.
+# The End
+
+<div class="flex-left flex-wrap">
+<div class="unit unit-1-on-mobile">
+<img src="../mk-img.jpg"/>
+</div>
+
+<div class="unit">
+And they lived happily ever after. And you can go to <a
+href="https://modnakasta.ua">modnakasta.ua</a> by yourself and click around to
+see how that stuff works. Also, look at source HTML server gives you, this all
+is rendered in JVM, with absolutely no JavaScript.
+</div>
+</div>
