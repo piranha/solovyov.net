@@ -10,10 +10,9 @@ fairly interesting for a wider audience than just Russian-speaking people.
 
 [article]: https://medium.com/engikasta/server-side-rendering-b5b11dfe2400
 
-MK (I'm going to use this as an abbreviation for modnakasta.ua) is a single page
-application right now, which uses React internally and is written in
-ClojureScript. But we care about Google and people experience, which means we
-certainly care about server-side rendering.
+modnakasta.ua is a single page application right now, which uses React
+internally and is written in ClojureScript. But we care about Google and people
+experience, which means we certainly care about server-side rendering.
 
 # Ancientry
 
