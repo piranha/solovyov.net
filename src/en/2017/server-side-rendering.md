@@ -4,9 +4,9 @@ tags: programming
 ----
 
 
-I've decided to translate an [article][] I wrote for a https://modnakasta.ua
-technical blog since it should be fairly interesting for a wider audience than
-just Russian-speaking people.
+I've decided to translate an [article][] I wrote
+for [modnaKasta](https://modnakasta.ua) technical blog since it should be
+fairly interesting for a wider audience than just Russian-speaking people.
 
 [article]: https://medium.com/engikasta/server-side-rendering-b5b11dfe2400
 
