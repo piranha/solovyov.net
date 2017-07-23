@@ -3,8 +3,9 @@ date: 2017-07-22
 tags: programming
 ----
 
+
 I've decided to translate an [article][] I wrote for a https://modnakasta.ua
-technical blog, since it should be fairly interesting for wider audience than
+technical blog since it should be fairly interesting for a wider audience than
 just Russian-speaking people.
 
 [article]: https://medium.com/engikasta/server-side-rendering-b5b11dfe2400
@@ -12,49 +13,50 @@ just Russian-speaking people.
 MK (I'm going to use this as an abbreviation for modnakasta.ua) is a single page
 application right now, which uses React internally and is written in
 ClojureScript. But we care about Google and people experience, which means we
-certainly care about server-sidee rendering.
+certainly care about server-side rendering.
 
 # Ancientry
 
 Since the whole front-end is in React, which promises to make app renderable
-without having access to DOM - in Node.js in particular - first idea was to
+without having access to DOM - in Node.js in particular - the first idea was to
 render everything using Node.js. Doesn't feel that fuzzy, does it? Especially
 given that there is a new shiny super-fast JS engine in Java 8: Nashorn. And
 first experiments showed that it's indeed very fast, faster than Node.js
 
-"That's great" I though and we started building an app (not SSR, an app
+"That's great," I thought and we started building an app (not SSR, an app
 itself). When the app became at least somewhat usable the time has come for a
 reality check. Loading our ~2-3k loc application into Nashorn proved difficult:
-8 Gb of heap was barely enough to load JS file and after 30 seconds of hard work
-it spit "this expression in your JS is invalid" error. Fixing few of
+8 Gb of heap was barely enough to load JS file and after 30 seconds of hard work,
+it spits "this expression in your JS is invalid" error. Fixing few of
 those errors (mostly by commenting code) showed that there is no way we could
 develop with an environment like that.
 
 # Antiquity
 
-So the Node.js at last. Architecture was simple: we put compiled JS file inside
-of API server uberjar, on start write it somewhere, and run Node.js against
+So the Node.js at last. The architecture was simple: we put compiled JS file inside
+of API server uber jar, on start write it somewhere, and run Node.js against
 it. After that communicate with Node via HTTP: proxy user requests there, proxy
 rendered HTML back.
 
 Because Node.js is single-threaded it's totally wrong to have a single process -
 so our API server becomes a process pool manager and a load balancer.
 
-Also we make a request for data while component is mounted. Which is fine for
-the browser, you just wait a little and response comes back, but on server your
-request is already gone, nobody waits for the response and that data is not rendered.
+Also, we make a request for data while a component is mounted. Which is fine for
+the browser, you just wait for a bit, the response comes back and the browser
+will render that data. But on server user request is already gone: your first
+version of an "empty" component was already sent to a user because rendering
+process does not wait for the data to be received.
 
 Which was fixed by making it two-pass renderer: first you rendered to kick off
 the data gather process, and when all XHR activity stops, app is rendered one
-more to have full content. That takes around 300 ms on fairly simple page in
+more to have full content. That takes around 300 ms on a fairly simple page in
 optimistic case.
 
 Can't forget to mention that Node.js also leaked memory. Profilers did not help
 so I went lazy `uwsgi` way: made a Node process restart every 1000 requests.
 
-But what won't you suffer for the beauty of the result? So we've got this system
-in place (not in production yet though) and I went to Philly for Clojure/Conj
-2015.
+But what won't you sacrifice for the sake of result? So we've got this system in
+place (not in production yet though) and I went to Philly for Clojure/Conj 2015.
 
 # Enlightenment
 
@@ -107,7 +109,7 @@ sit there waiting. But right after data is there, inner components are
 rendered/initialized and start fetching their own data. So the dependency
 management here is really simple
 
-Also it occured that if you render your HTML in the same process your API is
+Also, it occurred that if you render your HTML in the same process your API is
 running there is no need to go through network and HTTP. Clojure's Ring protocol
 is just a function which received a request, so if you can make a request in
 your code (and it's only a simple map), you can call this function and get data
@@ -127,7 +129,7 @@ And like that for Clojure (`app` is our HTTP API):
   (callback (app (params->http-request params)))
 ```
 
-Of course real implementations are a bit longer, setting headers, parsing JSON,
+Of course, real implementations are a bit longer, setting headers, parsing JSON,
 etc. By the way, there is an interesting story about JSON: right after Black
 Friday 2016, when our architecture proved to be a success, I was showing to
 somebody how it works and saw in [MiniProfiler][] that serializing JSON takes
@@ -142,7 +144,7 @@ data). Pleasantly median time for rendering HTML went down from 110 to 80 ms. :)
 Also interesting that we have a cheat (or optimization) around caching and
 user-specific content: everything that depends on a current user is rendered
 only on a client. It's a compromise: users see "anonymous" version of a site
-initially for a few moments, but in exchange we can cache rendered HTML for
+initially for a few moments, but in exchange, we can cache rendered HTML for
 everyone. This makes us able to look like we're not sweating a bit during sharp
 increases in traffic. :)
 
