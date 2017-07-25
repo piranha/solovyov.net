@@ -13,4 +13,4 @@ tags: nix, fonts
 
 [1]: http://piranha.org.ua/blog/2007/10/30/linux/#c122
 [2]: http://piranha.org.ua/blog/2007/10/30/linux/#c156
-[3]: http://gq.net.ru/2007/11/11/final-win-over-fonts/ "Там ещё два перед этим"
+[3]: http://gq.net.ru/2007/11/11/final-win-over-fonts/
