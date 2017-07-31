@@ -451,21 +451,21 @@ progress {
     max-height: 100%; } }
 
 .top-gap-big {
-  margin-top: 30px !important; }
+  margin-top: 30px; }
 
 .top-gap {
-  margin-top: 15px !important; }
+  margin-top: 15px; }
 
 .top-gap-0 {
-  margin-top: 0 !important; }
+  margin-top: 0; }
 
 @media (max-width: 767px) {
   .hide-on-mobile {
-    display: none !important; } }
+    display: none; } }
 
 @media (min-width: 768px) {
   .show-on-mobile {
-    display: none !important; } }
+    display: none; } }
 
 .table {
   background-color: white;
