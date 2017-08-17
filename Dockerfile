@@ -9,8 +9,8 @@ WORKDIR /app
 COPY get-gostatic /app
 RUN sh get-gostatic /bin/gostatic 2.10
 
-COPY . /app
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY . /app
 
 RUN gostatic config
 
