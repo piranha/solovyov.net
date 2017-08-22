@@ -21,7 +21,7 @@ img: https://farm5.staticflickr.com/4355/35893966034_a18c864e49_z.jpg
 
 <div class="flex-center">
 <a data-flickr-embed="true" href="https://www.flickr.com/photos/asolovyov/35893966034/" title="Otto Ce">
-<img src="https://farm5.staticflickr.com/4355/35893966034_a18c864e49_z.jpg" width="640" height="427" alt="Otto Ce">
+<img src="https://farm5.staticflickr.com/4355/35893966034_a18c864e49_z.jpg" alt="Otto Ce">
 </a>
 </div>
 
