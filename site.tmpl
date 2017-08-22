@@ -22,6 +22,10 @@
         title="{{ .Site.Other.Title }} linkroll" href="{{ .Rel "/links.atom" }}">
   <title>{{ .Site.Other.Title }}{{ if .Title }}: {{ .Title }}{{ end }}</title>
 
+  {{ if .Other.Img }}
+  <meta property="og:image" content="{{ .Other.Img }}">
+  {{ end }}
+
   <link rel="author" href="http://solovyov.net/about/">
   <link rel="author" href="https://plus.google.com/117696497748245979543">
 

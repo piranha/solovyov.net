@@ -1,6 +1,7 @@
 title: Обработка RAW в Fujifilm X-T1
 date: 2017-08-22
 tags: photo
+img: https://farm5.staticflickr.com/4355/35893966034_a18c864e49_z.jpg
 ----
 
 В прошивке фуджика (не знаю точно, в какой, сегодня с утра заметил) сделали
