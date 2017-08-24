@@ -277,7 +277,7 @@ window.addEventListener('load', function() {
                   var photo = feed.items[0];
                   var el = byId('flickr-photo');
                   el.href = photo.link;
-                  el.innerHTML = '<img style="height: 150px" src="{s}">'.format({
+                  el.innerHTML = '<img style="max-height: 150px" src="{s}">'.format({
                       s: photo.media.m
                   });
               }, "jsoncallback");
