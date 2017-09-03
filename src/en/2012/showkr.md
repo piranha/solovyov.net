@@ -4,7 +4,7 @@ date: 2012-02-11
 ----
 
 Some time ago I made quite simple, but (I hope) useful web application
-called [Showkr](http://showkr.solovyov.net/). And now I decided to tell a story
+called [Showkr](https://solovyov.net/showkr/). And now I decided to tell a story
 about why and how I did that - I think that could be useful considering
 growing popularity of in-browser applications.
 
@@ -15,7 +15,7 @@ Flickr has quite heavy pages, and when you're watching full set of
 photos, loading time of every next one is quite annoying (I've just
 tried, and it takes up to a second on a fast connection).
 
-And with Showkr you [open](http://showkr.solovyov.net/#72157625002065401) a page,
+And with Showkr you [open](https://solovyov.net/showkr/#72157625002065401) a page,
 wait for a reply from Flickr's API and then relax watching photos, they
 are all on the same page. Especially given that everything is tailored
 for such activity - just photos, comments and every meaningful hotkey

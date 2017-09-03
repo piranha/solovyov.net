@@ -15,7 +15,7 @@ tags: clojure, showkr
 туда заходит до 5 человек в день максимум. :) Но я его использую для
 [странички с фотками][photo], и мне оно нравится, так что решил, что надо. ;)
 
-[1]: http://showkr.solovyov.net/
+[1]: https://solovyov.net/showkr/
 [1.1]: http://solovyov.net/blog/2012/showkr/
 [quiescent]: https://github.com/levand/quiescent
 [om]: https://github.com/swannodette/om

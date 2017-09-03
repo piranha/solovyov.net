@@ -98,6 +98,9 @@ index.html: blog/index.html en/index.html links/index.html static/style.less
 	inner-template
 	template page
 
+showkr/index.html:
+	:cat
+
 *.html: static/style.scss
 	config
 	directorify
