@@ -7,7 +7,7 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY get-gostatic /app
-RUN sh get-gostatic /bin/gostatic 2.10
+RUN sh get-gostatic /bin/gostatic 2.11
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY . /app
