@@ -91,7 +91,7 @@
   </header>
 
   <section>
-  {{ .Content | replacere "<img([^>]+)/?>" "<amp-img$1 layout=responsive></amp-img>" }}
+  {{ .Content | replacere "<img([^>]+?)/?>" "<amp-img$1 layout=responsive></amp-img>" }}
   </section>
 </article>
 {{ end }}
