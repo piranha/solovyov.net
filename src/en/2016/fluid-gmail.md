@@ -19,22 +19,29 @@ unread email in Inbox with this userscript (yes, it has userscripts and
 [some API](http://fluidapp.com/developer/)):
 
 ```javascript
+function setDockBadge(badge) {
+    window.fluid.dockBadge = badge || '';
+}
+
+
 function getUnread() {
-    var inbox = document.querySelector('a[title^="Inbox"]');
-    var m = inbox.title.match(/Inbox \((\d+)\)/);
-
-    return m ? parseInt(m[1], 10) : 0;
+  // Extract unread message count from title and set dockBadge
+  // There is no "Inbox" in this regex to work around different gmail-languages.
+  var re = /\s*\((\d+)\)[^\d]*/;
+  var parent = document.querySelector('[role=navigation]');
+  if (!parent) return;
+  var el = parent.querySelector('a[href$="#inbox"]');
+  var badge = el && el.title.match(re);
+  return badge && badge[1];
 }
 
-function setBadge(count) {
-    window.fluid.dockBadge = count ? '' + count : '';
-}
 
 function updateDockBadge() {
-    setBadge(getUnread());
-    setTimeout(updateDockBadge, 1000);
+  var unread = getUnread();
+  setDockBadge(unread);
 }
-setTimeout(updateDockBadge, 1000);
+
+setInterval(updateDockBadge, 1000);
 ```
 
 *(yeah, I don't need to parse unread counter here - I'll never reuse the code
