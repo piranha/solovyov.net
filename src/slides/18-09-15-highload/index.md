@@ -8,6 +8,8 @@ background-image: url(img/title-slide.png)
 
 .ml-28.left[
 
+<br>
+
 # Make It Fast
 
 .meta[<p>Alexander Solovyov<br>CTO @ Kasta</p>]
