@@ -117,20 +117,19 @@
     color: white;
   }
 
-  .ml-28 {
-    margin-left: 28px;
-  }
-
   </style>
   <script type="text/javascript">
     setTimeout(function() {
     var slideshow = remark.create({
         highlightLanguage: 'clojure',
         highlightStyle: 'github',
-        highlightInline: true,
-        ratio: "16:9"
+        highlightLines: true,
+        ratio: "16:9",
+        navigation: {scroll: false},
+        slideNumberFormat: (current, total) => {
+          return current > 1 ? current + ' / ' + total : ''
+        }
     });
-    document.getElementsByClassName('remark-slide-number')[0].style.display = 'none';
     }, 1);
 
     /**

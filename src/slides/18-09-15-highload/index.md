@@ -1,6 +1,10 @@
 class: middle
 background-image: url(img/title-slide.png)
 
+<style>
+.ml-28 { margin-left: 29px; }
+</style>
+
 .ml-28[
 
 # .left[<br>Make It Fast]
@@ -63,11 +67,11 @@ background-image: url(img/facepalm.png)
 
 ```java
 public Object swap(IFn f) {
-  for (; ;) { // !!!
+* for (; ;) {
     Object v = this.deref();
     Object newv = f.invoke(v);
     if (this.compareAndSet(v, newv) {
-       return newv;
+*     return newv;
     }
   }
 }
