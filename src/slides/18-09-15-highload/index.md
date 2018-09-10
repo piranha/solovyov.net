@@ -3,11 +3,12 @@ background-image: url(img/title-slide.png)
 
 <style>
 .ml-28 { margin-left: 29px; }
+.left h1 { text-align: left; }
 </style>
 
-.ml-28[
+.ml-28.left[
 
-# .left[<br>Make It Fast]
+# Make It Fast
 
 .meta[<p>Alexander Solovyov<br>CTO @ Kasta</p>]
 
