@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:10.10
 
-RUN apk add --no-cache nginx curl sassc@testing && npm install -g uglify-js
+RUN apk add --no-cache nginx curl sassc && npm install -g uglify-js
 
 RUN mkdir /app
 WORKDIR /app
