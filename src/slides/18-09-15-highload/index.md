@@ -1,9 +1,13 @@
-class: middle, center
+class: middle
+background-image: url(img/title-slide.png)
 
-# Make It Fast
+.ml-28[
 
-.meta[Alexander Solovyov, CTO @ Kasta]
+# .left[<br>Make It Fast]
 
+.meta[<p>Alexander Solovyov<br>CTO @ Kasta</p>]
+
+]
 ---
 
 class: center, middle
