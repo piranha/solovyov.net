@@ -1,0 +1,50 @@
+digraph mdp {
+    graph [nodesep=1 bgcolor=transparent];
+    node [fontsize=24 shape=plaintext];
+    edge [penwidth=3];
+
+    p [label=<
+       <table border="0" cellborder="1" cellspacing="0" align="left">
+       <tr><td bgcolor="lavender">product</td></tr>
+       <tr><td port="id">id</td></tr>
+       <tr><td>name</td></tr>
+       <tr><td>...</td></tr>
+       </table>
+    >];
+
+    sku [label=<
+       <table border="0" cellborder="1" cellspacing="0" align="left">
+       <tr><td bgcolor="lavender">sku</td></tr>
+       <tr><td port="id">id</td></tr>
+       <tr><td port="product_id">product_id</td></tr>
+       <tr><td>stock</td></tr>
+       </table>
+    >];
+
+    c [label=<
+         <table border="0" cellborder="1" cellspacing="0" align="left">
+         <tr><td bgcolor="lavender">campaign</td></tr>
+         <tr><td port="id">id</td></tr>
+         <tr><td port="product_id">product_id</td></tr>
+         <tr><td port="sku_id">sku_id</td></tr>
+         <tr><td>quantity</td></tr>
+         </table>
+    >];
+
+    sp [label=<
+       <table border="0" cellborder="1" cellspacing="0" align="left">
+       <tr><td bgcolor="lavender">sku_price</td></tr>
+       <tr><td port="id">id</td></tr>
+       <tr><td port="sku_id">sku_id</td></tr>
+       <tr><td port="campaign_id">campaign_id</td></tr>
+       <tr><td>price</td></tr>
+       </table>
+    >];
+
+
+    sku:product_id -> p:id;
+    sp:sku_id -> sku:id;
+    sp:campaign_id -> c:id;
+    {rank=min sku sp}
+    {rank=same p c}
+}

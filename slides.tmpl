@@ -1,0 +1,152 @@
+{{/* -*- mode: go-template -*- */}}
+
+{{ define "slides" }}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/remark/0.14.0/remark.min.js" type="text/javascript"></script>
+  <link href="https://highlightjs.org/static/demo/styles/github.css"  rel="stylesheet">
+  <style type="text/css">
+
+@media print {
+  .remark-slide-scaler {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(1) !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+}
+
+  .hljs-github .hljs { background: inherit; }
+
+
+  /* slides styles (c) Alexander Solovyov <alexander@solovyov.net> */
+
+  body {
+      font-family: Open Sans, sans-serif;
+  }
+
+  h1, h2, h3 {
+      color: #333;
+      font-family: Oswald;
+  }
+
+  code {
+      font-family: Monaco;
+  }
+
+  h1 {
+      font-size: 1.8em;
+      text-align: center;
+      -webkit-margin-before: 0;
+  }
+
+  code { position: relative; text-align: left; }
+  code .function {color: #900;}
+
+  a, a:visited {
+      color: #00E;
+  }
+
+  .meta {
+      font-size: 0.7em;
+  }
+
+  .footer {
+      font-size: 0.7em;
+      position: absolute;
+      bottom: 1em;
+      right: 1em;
+      opacity: 0.5;
+  }
+
+  li { margin-bottom: 15px; }
+  ul { margin-top: 10px; }
+
+  .remark-slide-content {
+      padding: 0 1.5em 1em 1.5em;
+      font-size: 26pt;
+  }
+
+  .mk-logo {
+      background-image: url("small-mk.svg");
+      background-position: left 20px bottom 20px;
+      background-size: 50px;
+  }
+
+  .remark-code { font-size: 24pt; }
+
+  .full img {
+      width: 110%;
+      height: 110%;
+      margin-left: -1em;
+  }
+
+  s {
+      text-decoration: none;
+      position: relative;
+  }
+  s::after {
+      content: '';
+      border-bottom: 4px solid red;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+  }
+
+  .transparent {
+      opacity: 0.5;
+  }
+
+  .highlight {
+      color: red;
+      text-shadow: 2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
+  }
+
+  .invert {
+    background-color: black;
+    color: white;
+  }
+  .invert h1 {
+    color: white;
+  }
+
+  </style>
+  <script type="text/javascript">
+    setTimeout(function() {
+    var slideshow = remark.create({
+        highlightLanguage: 'clojure',
+        highlightStyle: 'github',
+        highlightInline: true,
+        ratio: "16:9"
+    });
+    document.getElementsByClassName('remark-slide-number')[0].style.display = 'none';
+    }, 1);
+
+    /**
+      Set the page attribute dynamically, as needed for printing to PDF.
+     **/
+    (function() {
+        var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+        if (!r) return;
+        s.type = "text/css";
+        s.innerHTML = "@page { size: " + r.style.width + " " + r.style.height +"; }";
+        d.head.appendChild(s);
+    })();
+  </script>
+  <title>{{ .Content | cut "\n# " "\n" }}</title>
+</head>
+<body>
+  <textarea id="source">
+
+{{ .Content }}
+
+</textarea>
+</body>
+</html>
+{{ end }}

@@ -1,0 +1,7 @@
+Make it fast
+
+Any project passes “we need more features” and “omg why is everything so slow”
+phases during itslife. They intertwine, they are not always pronounced, but they
+are there. Weirdly enough Kasta gets phase #2 regularly; few times a year. Some
+of the iterations are especially remarkable. This story is going to tell you how
+we quickly (heh) discover them and, for the lack of a better word - solve them.

@@ -1,6 +1,6 @@
 # -*- mode: makefile -*-
 
-TEMPLATES = site.tmpl utils.tmpl amp.tmpl
+TEMPLATES = site.tmpl utils.tmpl amp.tmpl slides.tmpl
 SOURCE = src
 OUTPUT = www
 TITLE = solovyov.net
@@ -60,6 +60,13 @@ en/*/*.md: static/style.less
 	markdown
 	template post
 	template page
+
+# Slides
+
+slides/*/*.md:
+	ext .html
+	directorify
+	template slides
 
 # Links...
 
