@@ -1,0 +1,25 @@
+digraph mknew {
+    splines=true;
+    rankdir=LR;
+    node [fontname="times bold" fontsize=150];
+    edge [penwidth=3];
+    
+    hub    [label="Hub"];
+    kafka  [shape=box label="" color=white image="img/kafka.png"];
+    clj    [shape=box label="" color=white image="img/mk-lepestki.png"];
+    onec   [shape=box label="" color=white image="img/1c.jpg"];
+    pp     [label="PP"];
+    email  [label="email"];
+    raker  [label="Raker"];
+    
+    {rank=max pp onec email}
+    {rank=min clj hub raker}
+    
+    hub -> kafka [dir=both];
+    clj -> kafka [dir=both];
+    pp -> kafka [dir=both];
+    onec -> kafka [dir=both];
+    email -> kafka [dir=back];
+    raker -> kafka [dir=both];
+    
+}

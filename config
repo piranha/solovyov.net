@@ -120,6 +120,9 @@ static/*.css:
 static/style.scss:
 	ignore
 
+static/mobi.scss:
+	ignore
+
 static/*.scss: static/mobi.css static/style.scss
 	ext .css
 	:sassc -t compressed -I src/static

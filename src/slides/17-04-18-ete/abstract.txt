@@ -1,0 +1,8 @@
+Saving Black Friday: Clojure to the Rescue
+
+Two years ago modnakasta.ua already was one of the largest ecommerce platforms
+in Ukraine.  Built in Python/Django it couldn't handle any spikes in traffic and
+was hard to maintain and improve. How do you change a platform on the fly? A
+tale of Clojure and ClojureScript, its incredible ecosystem and a crazy team
+which brought bleeding edge technologies on the screens of hundreds of thousands
+of people.

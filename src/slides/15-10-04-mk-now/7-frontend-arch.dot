@@ -1,0 +1,29 @@
+digraph fe {
+    rankdir=LR;
+    graph [nodesep=1];
+    node [fontsize=24];
+    edge [penwidth=3];
+
+    subgraph cluster_data {
+        label="Data";
+
+        db [shape=box label="DataScript"];
+        q1, q2 [shape=box label="Query Cell"];
+        
+        db -> {q1 q2};
+    }
+
+    subgraph cluster_react {
+        label="React";
+
+        ctrl [shape=box label="Controller"];
+        c1, c2 [shape=box label="Component"];
+
+        ctrl -> {c1 c2};
+    }
+    
+    q2 -> ctrl [color=blue];
+
+    c2 -> handler [color=red];
+    handler -> db [color=red];
+}

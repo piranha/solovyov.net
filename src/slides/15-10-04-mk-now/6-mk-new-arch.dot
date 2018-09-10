@@ -1,0 +1,40 @@
+digraph mknew {
+    splines=true;
+    rankdir=LR;
+    node [fontname="times bold" fontsize=24];
+    edge [penwidth=3];
+    
+    pgsql  [shape=box label="" color=white image="img/pgsql.png"];
+    cass   [shape=box label="" color=white image="img/cass.jpg"];
+    kafka  [shape=box label="" color=white image="img/kafka.jpg"];
+    mk     [shape=box label="" color=white image="img/python-mk-small.png"];
+    clj    [shape=box label="" color=white image="img/clojure.png"];
+    cljs   [shape=box label="" color=white image="img/cljs.png"];
+    onec   [shape=box label="" color=white image="img/1c.png"];
+    client [shape=box label="" color=white image="img/ff.png"];
+    pp     [label="PP" fontsize=36];
+    email  [label="email" fontsize=30];
+    
+    {rank=min pgsql cass}
+    {rank=same mk clj}
+    {rank=same kafka cljs}
+    {rank=max pp onec email client}
+    
+    pgsql -> mk [color=blue];
+    cass -> mk [color=blue];
+    pgsql -> clj [color=blue];
+    cass -> clj [color=blue];
+    
+    mk -> kafka [dir=both];
+    clj -> kafka [dir=both];
+    pp -> kafka [dir=both];
+    onec -> kafka [dir=both];
+    email -> kafka [dir=back];
+    
+    clj -> cljs;
+    cljs -> client;
+    
+    // hack
+    kafka -> cljs [style=invis minlen=3];
+    email -> client [style=invis minlen=3];
+}

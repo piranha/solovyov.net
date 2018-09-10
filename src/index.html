@@ -287,20 +287,24 @@ window.addEventListener('load', function() {
     var tmpl = '<a href="https://github.com/{full_name}/stargazers">' +
         '<img src="{{ version . "static/star.svg" }}" class="star" title="Watchers count">' +
         ' {watchers_count}</a>';
+    function repos2html(repos) {
+        for (var i = 0; i < repos.data.length; i++) {
+            var repo = repos.data[i],
+                sel = '[data-repo="{name}"]'.format(repo),
+                parent = document.querySelector(sel);
+
+            if (!parent) continue;
+
+            var el = document.createElement('span');
+            el.innerHTML = tmpl.format(repo);
+            parent.appendChild(el);
+        };
+    }
     JSONP.get("https://api.github.com/users/piranha/repos",
               {type: 'owner', per_page: 100},
-              function(repos) {
-                  for (var i = 0; i < repos.data.length; i++) {
-                      var repo = repos.data[i],
-                          sel = '[data-repo="{name}"]'.format(repo),
-                          parent = document.querySelector(sel);
-
-                      if (!parent) continue;
-
-                      var el = document.createElement('span');
-                      el.innerHTML = tmpl.format(repo);
-                      parent.appendChild(el);
-                  };
-              });
+              repos2html);
+    JSONP.get("https://api.github.com/users/opengaming/repos",
+              {type: 'owner', per_page: 100},
+              repos2html);
 });
 </script>

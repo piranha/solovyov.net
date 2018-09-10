@@ -1,0 +1,19 @@
+digraph mkold {
+    splines=true;
+    rankdir=LR;
+    node [fontname="times bold" fontsize=150];
+    edge [penwidth=3];
+
+    mk     [shape=box label="" color=white image="img/mk-lepestki.png"];
+    onec   [shape=box label="" color=white image="img/1c.jpg"];
+    pp     [label="PP"];
+    email  [label="email" fontsize=120];
+    
+    mk -> {
+        pp;
+        onec [dir=both];
+    };
+    mk -> email;
+    pp -> onec [dir=both minlen=2];
+    {rank=same; pp; onec };
+}

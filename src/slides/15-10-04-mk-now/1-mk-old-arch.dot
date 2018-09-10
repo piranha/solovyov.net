@@ -1,0 +1,28 @@
+digraph mkold {
+    splines=true;
+    rankdir=LR;
+    node [fontname="times bold" fontsize=24];
+    edge [penwidth=3];
+
+    pgsql  [shape=box label="" color=white image="img/pgsql.png"];
+    redis  [shape=box label="" color=white image="img/redis.png"];
+    cass   [shape=box label="" color=white image="img/cass.jpg"];
+    mk     [shape=box label="" color=white image="img/python-mk.png"];
+    onec   [shape=box label="" color=white image="img/1c.png"];
+    client [shape=box label="" color=white image="img/ff.png"];
+    pp     [label="PP" fontsize=36];
+
+    pgsql -> mk [color=blue];
+    redis -> mk [color=blue];
+    cass -> mk [color=blue];
+
+    mk -> {
+        pp;
+        onec [dir=both];
+        };
+    pp -> onec [dir=both minlen=2];
+    {rank=same; pp; onec };
+
+    mk -> client [color=red minlen=2];
+    {rank=same; mk; client };
+}

@@ -1,0 +1,51 @@
+* Intro
+* История
+** Как ускорились
+** Волны
+** Кэш
+** АПИ
+* BF16
+** Цифры
+** Железо
+* Почему
+* Как перешли
+
+
+
+* Where it starts
+** What's MK
+** BlackFriday 2014
+** metadatapair
+** BlackFriday 2015
+* What we did
+** How to fix - rewrite
+** Clojure
+** SPA
+** Server-side rendering
+** Database - pg, orm
+* Results
+** Performance
+** Code
+** Conclusions
+
+# old
+
+* Intro
+** What's MK
+** Starting point - support, weird data tables, weird queries?
+* Why Clojure/Script
+** JVM
+** SPA
+** Why not Python?
+* Cool tech
+** Server-side rendering
+** Onyx
+** ES caching
+** Functional programming
+* How did it happen
+** Preparation
+** First try
+** Page by page
+** API design approach
+* Current state
+** Performance numbers

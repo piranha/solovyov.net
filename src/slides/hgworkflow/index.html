@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="rst2slides 0.2.2" /><title></title>
+<link rel="stylesheet" href="ui/styles.css" />
+<link rel="stylesheet" href="ui/pygments_style.css" />
+<link rel="stylesheet" href="ui/user.css" />
+</head>
+<body>
+
+    <header>
+        <h1>Mercurial in complex workflows</h1>
+    <nav>
+        <ul>
+            <li><button id="prev-btn" title="Previous slide">Previous Slide</button></li>
+            <li><span id="slide-number"></span>/<span id="slide-total"></span></li>
+            <li><button id="next-btn" title="Next Slide">Next Slide</button></li>
+        </ul>
+    </nav>
+    </header>
+
+<div id='deck'>
+
+
+<section class="slide">
+<hgroup>
+    <h1>
+Mercurial    </h1>
+</hgroup>
+    <h2>
+in complex workflows    </h2>
+<object data="droplets.svg" type="image/svg+xml">
+droplets.svg</object>
+<!-- This talk intends to present a view on a workflow which you can approach with -->
+<!-- mercurial and a bit of exposure of mercurial itself -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Who I am    </h1>
+</hgroup>
+    <h2>
+Alexander Solovyov    </h2>
+<ul class="simple">
+<li>Paylogic employee</li>
+<li>Python developer for 5 years</li>
+<li>Mercurial contributor for 3 years</li>
+<li>...and author and contributor to several other projects</li>
+</ul>
+<!-- during my career I participated in quite high amount of different projects -->
+<!-- and had exposure to significant amount of different workflows so I'd like to -->
+<!-- share with you some thoughts on what I think is one of nicest workflows -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Traditional workflow    </h1>
+</hgroup>
+<ul class="simple">
+<li>Everybody has write access to central repository</li>
+<li>Code review post factum</li>
+<li>Centralized VCS, linear history</li>
+</ul>
+<!-- Here we have a workflow used by thousands of companies in the world. It's -->
+<!-- quite easy to understand, quite natural to start with and overall it's still -->
+<!-- not that bad if you can imagine working without version control at all. This -->
+<!-- is typical to work like that when you have subversion. -->
+<!-- Sometimes it works like that even if you're migrated to something better. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+What's wrong    </h1>
+</hgroup>
+<ul class="simple">
+<li>Too much conflicts</li>
+</ul>
+<!-- stops working for bigger amount of people... -->
+<ul class="simple">
+<li>Post factum never works</li>
+</ul>
+<!-- or you want better quality control -->
+<ul class="simple">
+<li>Unfinished work hard to manage</li>
+</ul>
+<!-- But it obviously has problems. When a developer works on some problem, it's -->
+<!-- natural to commit to save some intermediate state. And when your team starts -->
+<!-- to grow (or you have big amount of problems in same place of code and -->
+<!-- everybody is focusing there) you start experiencing a lot of conflicts. This -->
+<!-- is really hard with centralized VCS, since you haven't committed yet and any -->
+<!-- mistake can turn out in lost code. -->
+<!-- Also, post factum doesn't work that good anyway. Even if you do a code -->
+<!-- review, you have some impedance to changing code, since "it already works, -->
+<!-- this is not big deal, I'll change later". -->
+<!-- And it is not that rare to have some sort of problem in development, in -->
+<!-- half-finished state, when you suddenly need to put it aside in a patch to -->
+<!-- hack on small fix since doing separate checkout takes ages. And managing -->
+<!-- patches can be quite a burden. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Where to look    </h1>
+</hgroup>
+<p class="center">World has invented a great model for developer interaction:</p>
+    <h2>
+Open Source    </h2>
+<!-- Not open source by itself, but rather development model, used by popular -->
+<!-- projects. Popular in meaning 'big enough to attract strangers which want to -->
+<!-- commit'. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Open Source    </h1>
+</hgroup>
+<ul class="simple">
+<li>Core team (gatekeepers)</li>
+<li>Contributors (developers)</li>
+<li>Disconnected development</li>
+</ul>
+<!-- They basically have some kind of quality control to prevent bad code -->
+<!-- appearing in repository. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Workflow    </h1>
+</hgroup>
+<ul class="simple">
+<li>Developers submit changes</li>
+<li>Gatekeepers review them</li>
+<li>Changes are merged in main line</li>
+</ul>
+<!-- So how does it work in the end? Developers submit changes in any way which is -->
+<!-- suitable for you. With subversion projects this happened by using patches -->
+<!-- sent by mail. -->
+<!-- Then gatekeepers reply to mail or comment in code review tool. This really -->
+<!-- needs to be disconnected from submitting code since you don't really want to -->
+<!-- interrupt someone in a loop. Your developers could be gatekeepers for their -->
+<!-- colleagues, actually. And it can be really annoying when somebody asks you to -->
+<!-- review code when you are working on something else, of course. -->
+<!-- When gatekeeper has no questions to code, code gets in your main repository -->
+<!-- and everybody is happy. Sometimes. :) -->
+<!-- You will end with a history which has much smaller amount of mistakes, -->
+<!-- clearly wrong solutions and similar stuff. Hopefully. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+What's the point    </h1>
+</hgroup>
+<ul class="simple">
+<li>Experience exchange</li>
+<li>Prevent sad code</li>
+<li>Collective code ownership</li>
+</ul>
+<!-- The idea is that new contributors have feedback loop with old contributors -->
+<!-- (and gatekeepers) on how their code should be written. It works pretty the -->
+<!-- same with developers - you could assign gatekeepering on developers who know -->
+<!-- particular part of application better. -->
+<!-- And of course we're all humans and occasionally can write something -->
+<!-- mind-blowing. When you work on some part of the system for few hours in a row -->
+<!-- you could write some awful code just to escape from there. Which is were -->
+<!-- happy gatekeeper comes and asks you to remove sadness from code. -->
+<!-- Also your team ends up with knowing different parts of code better since they -->
+<!-- see it all the time -->
+<!-- This workflow is simple enough to use it with any tools, starting even with -->
+<!-- simple patches - that's how Linux kernel was developed for years. But this is -->
+<!-- where distributed VCS really shine. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+DVCS    </h1>
+</hgroup>
+<ul class="simple">
+<li>Changesets in repository instead of patches</li>
+<li>Zero effort branching and merging</li>
+<li>Full history of development</li>
+<li>Total control of situation</li>
+</ul>
+<!-- If you have centralized VCS, to be able to gatekeeper changes, you'll have to -->
+<!-- send them as patches. This case is much better with DVCS - you're going to -->
+<!-- store them as commits in your local repository. With pushing and pulling all -->
+<!-- the way around. Free backups, no more lost merges, happy life. :) -->
+<!-- And your repository is local, so creating a branch doesn't involve any hassle -->
+<!-- and nobody will notice until you want them to. Also, merge will work only -->
+<!-- with new differences - changesets know their history and have context to -->
+<!-- prevent conflicts of already merged changes. -->
+<!-- And you never lose idea when exactly this bug was introduced, you still have -->
+<!-- your changesets. Also, with local repository, you'll be happy to research -->
+<!-- history since it's easy and fast. :) -->
+<!-- You can easily pull changes in your repo and review how they affect overall -->
+<!-- code, you can accept only certain changesets - because you have separate -->
+<!-- commits and not a single patch, etcetera. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Mercurial    </h1>
+</hgroup>
+<ul class="simple">
+<li>Started in April 2005</li>
+<li>Very fast</li>
+<li>94% Python, 6% C (30k lines)</li>
+<li>Simple and clean Python API for extensions</li>
+</ul>
+<!-- Mercurial started as response to Bitkeeper license withdrawn, same week as -->
+<!-- git (this is an amusing story). -->
+<!-- It's really fast, actually second fast on the market behind git maintaining -->
+<!-- same order of magnitude of performance. Python introduces a bit of penalty -->
+<!-- here. -->
+<!-- It handles nice property of having highest feature/sloc ratio, which I think -->
+<!-- is property of a project where people actually care about code. For -->
+<!-- comparison, Bazaar has 85k lines of code and git 250k lines of code. Darcs is -->
+<!-- also nice to mention, since it's 26k lines of code in Haskell. :) -->
+<!-- And having nice API is really important thing, since in this case system will -->
+<!-- have a lot of extensions. Which is the case with Mercurial, wiki page lists -->
+<!-- more than hundred of 3rd-party extensions. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+How it applies    </h1>
+</hgroup>
+<ul class="simple">
+<li>Track features with branches in a single repository</li>
+<li>Have developers' repositories on a server</li>
+<li>Tag branches with bookmarks (or use named branches)</li>
+<li>Use all hg's power to help you</li>
+</ul>
+<!-- Main idea is that you implement every feature in separate branch. Each of -->
+<!-- those branches starts at actual location where you need them. If we will look -->
+<!-- on next slide, you can see that hotfix was done on a stable branch, while -->
+<!-- features are being done on a default branch. -->
+<!-- You track your branches with bookmarks or named branches, developers publish -->
+<!-- their changes to their own repositories (not using central one in this case), -->
+<!-- gatekeepers use this repositories to pull changes from. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Branching    </h1>
+</hgroup>
+<object type="image/svg+xml" data="aafigure-0.svg" width="672.0" height="280.0"></object>  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+hg serve    </h1>
+</hgroup>
+<ul class="simple">
+<li>Embedded web-server for viewing and sharing</li>
+<li>Zero configuration</li>
+</ul>
+<div class="highlight"><pre>project&gt; hg serve
+listening at http://hostname:8000/ <span class="o">(</span>bound to *:8000<span class="o">)</span>
+
+<span class="c"># this requires zeroconf extension enabled</span>
+~&gt; hg paths
+zc-hostname-project <span class="o">=</span> http://192.168.1.2:8000/
+</pre></div>
+<!-- Basically you have free peer-to-peer sharing. No configuration, no hassle, it -->
+<!-- just works out of the box. It has support for zeroconf, which means you don't -->
+<!-- need to tell ip addresses out loud. :) -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Revision sets    </h1>
+</hgroup>
+<ul class="simple">
+<li>What do I have in my branch?</li>
+</ul>
+<div class="highlight"><pre>project&gt; hg log -r <span class="s1">&#39;ancestors(branchname) - ancestors(master)&#39;</span>
+</pre></div>
+<ul class="simple">
+<li>What is not merged yet?</li>
+</ul>
+<div class="highlight"><pre>project&gt; hg log -r <span class="s1">&#39;bookmark() - ancestors(master)&#39;</span> --template <span class="s1">&#39;{bookmarks}\n&#39;</span>
+</pre></div>
+<ul class="simple">
+<li>Much more powerful than that: <a class="reference external" href="http://selenic.com/hg/help/revsets">http://selenic.com/hg/help/revsets</a></li>
+</ul>
+<!-- Essentially a functional language to query your history -->
+<!-- You can query for changes on stable branch since last release, you can query -->
+<!-- what new changes you got in your new release. And a lot of other -->
+<!-- stuff. Invent meaningful query and it's probably possible. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Transplant    </h1>
+</hgroup>
+<ul class="simple">
+<li>Suddenly need a fix in an older release?</li>
+<li>Use hg transplant!</li>
+<li>Merge will take care</li>
+</ul>
+<!-- This is quite common use case - you just need some fix from your main line -->
+<!-- backported to stable branch. You always can resort to regular patches, but hg -->
+<!-- has extension which will give hints to merge mechanism later. -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Other stuff    </h1>
+</hgroup>
+<ul class="simple">
+<li>color</li>
+<li>pager</li>
+<li>progress</li>
+<li>schemes (url shortcuts)</li>
+<li>rebase (uh-huh)</li>
+</ul>
+<!-- Color, pager and progress add some nice properties to output. It's always -->
+<!-- nice when something makes it easier to read console output easier. :) -->
+<!-- Of course, amount of nice things is a bit overwhelming for this talk, so -->
+<!-- let's move on. :) -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Mercurial API    </h1>
+</hgroup>
+<ul class="simple">
+<li>Very simple and clean</li>
+<li>Extensive<ul>
+<li>hooks</li>
+<li>helpers for wrapping functions</li>
+<li>adding commands</li>
+</ul>
+</li>
+<li>Improve your workflow with writing extensions</li>
+</ul>
+<!-- VCS is actually your second most important instrument after your editor, -->
+<!-- you are using it a lot, and Mercurial allows you to automate anything which -->
+<!-- happens to be repetetive and boring in a very simple way -->
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Bookmarks pushing    </h1>
+</hgroup>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">bookpush</span><span class="p">(</span><span class="n">orig</span><span class="p">,</span> <span class="n">ui</span><span class="p">,</span> <span class="n">repo</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">opts</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;bookmark&#39;</span><span class="p">,</span> <span class="p">())</span> <span class="ow">and</span> <span class="n">repo</span><span class="o">.</span><span class="n">_bookmarkcurrent</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">opts</span><span class="p">[</span><span class="s">&#39;bookmark&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+        <span class="n">opts</span><span class="p">[</span><span class="s">&#39;bookmark&#39;</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">_bookmarkcurrent</span>
+    <span class="k">return</span> <span class="n">orig</span><span class="p">(</span><span class="n">ui</span><span class="p">,</span> <span class="n">repo</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="o">**</span><span class="n">opts</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">uisetup</span><span class="p">(</span><span class="n">ui</span><span class="p">):</span>
+    <span class="n">extensions</span><span class="o">.</span><span class="n">wrapcommand</span><span class="p">(</span><span class="n">commands</span><span class="o">.</span><span class="n">table</span><span class="p">,</span> <span class="s">&#39;push&#39;</span><span class="p">,</span> <span class="n">bookpush</span><span class="p">)</span>
+</pre></div>
+<p>And suddenly you don't need to copy-paste:</p>
+<div class="highlight"><pre>&gt; hg push -B . <span class="c"># instead of &quot;-B bookmark-name&quot;</span>
+</pre></div>
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+What do we have    </h1>
+</hgroup>
+<ul class="simple">
+<li>check you're in the right branch</li>
+<li>check you're not resolving file with conflicts</li>
+<li>start working on a case</li>
+<li>stop working on a case, merge with target branch, submit changes</li>
+</ul>
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Making life easier    </h1>
+</hgroup>
+    <h2>
+Automate and structure it    </h2>
+  </section>
+
+<section class="slide">
+<hgroup>
+    <h1>
+Questions    </h1>
+</hgroup>
+<p>It's the time for them. :)</p>
+  </section>
+</div>
+<footer>
+<p>
+Alexander Solovyov, PyGrunn, 2011<address>solovyov.net</address></p>
+</footer>
+
+
+        <script src="ui/jquery-1.6.1.min.js"></script>
+        <script src="ui/jquery.jswipe-0.1.2.js"></script>
+        <script src="ui/htmlSlides.js"></script>
+        <script>htmlSlides.init()</script>
+        </body>
+</html>

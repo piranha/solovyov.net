@@ -1,0 +1,94 @@
+digraph mdp {
+    graph [nodesep=1 bgcolor=transparent];
+    node [fontsize=24 shape=plaintext];
+    edge [penwidth=3];
+
+    p [label=<
+       <table border="0" cellborder="1" cellspacing="0" align="left">
+       <tr><td bgcolor="lavender">product</td></tr>
+       <tr><td port="id">id</td></tr>
+       <tr><td>name</td></tr>
+       <tr><td>...</td></tr>
+       </table>
+    >];
+
+    mdp [label=<
+         <table border="0" cellborder="1" cellspacing="0" align="left">
+         <tr><td bgcolor="lavender">metadatapair</td></tr>
+         <tr><td port="id">id</td></tr>
+         <tr><td port="product_id">product_id</td></tr>
+         <tr><td port="key_id">key_id</td></tr>
+         <tr><td port="value_id">value_id</td></tr>
+         </table>
+    >];
+
+    mdk [label=<
+         <table border="0" cellborder="1" cellspacing="0" align="left">
+         <tr><td bgcolor="lavender">metadatakey</td></tr>
+         <tr><td port="id">id</td></tr>
+         <tr><td port="key">key</td></tr>
+         </table>
+    >];
+
+    mdv [label=<
+         <table border="0" cellborder="1" cellspacing="0" align="left">
+         <tr><td bgcolor="lavender">metadatavalue</td></tr>
+         <tr><td port="id">id</td></tr>
+         <tr><td port="key">value</td></tr>
+         </table>
+    >];
+
+    mds [label=<
+         <table border="0" cellborder="1" cellspacing="0" align="left">
+         <tr><td bgcolor="lavender">mdp_stock</td></tr>
+         <tr><td port="id">id</td></tr>
+         <tr><td>stock_count</td></tr>
+         <tr><td>sold_count</td></tr>
+         </table>
+    >];
+
+    mdps [label=<
+         <table border="0" cellborder="1" cellspacing="0" align="left">
+         <tr><td bgcolor="lavender">mdp_stock_mdps</td></tr>
+         <tr><td port="id">id</td></tr>
+         <tr><td port="mds_id">mdpstock_id</td></tr>
+         <tr><td port="mdp_id">metadatapair_id</td></tr>
+         </table>
+    >];
+
+    bi [label=<
+         <table border="0" cellborder="1" cellspacing="0" align="left">
+         <tr><td bgcolor="lavender">basket_item</td></tr>
+         <tr><td port="id">id</td></tr>
+         <tr><td port="product_id">product_id</td></tr>
+         <tr><td>quantity</td></tr>
+         </table>
+    >];
+
+    mdpbi [label=<
+         <table border="0" cellborder="1" cellspacing="0" align="left">
+         <tr><td bgcolor="lavender">basket_item_mdps</td></tr>
+         <tr><td port="id">id</td></tr>
+         <tr><td port="bi_id">basketitem_id</td></tr>
+         <tr><td port="mdp_id">metadatapair_id</td></tr>
+         </table>
+    >];
+
+    mdp:product_id -> p;
+    mdp:key_id -> mdk;
+    mdp:value_id -> mdv;
+
+    mdp -> mdps [style=invis];
+    mdv -> mdk [style=invis];
+
+    mdps:mds_id -> mds;
+    mdps:mdp_id -> mdp:id;
+
+    bi:product_id -> p;
+    mdpbi:bi_id -> bi;
+    mdpbi:mdp_id -> mdp;
+
+    {rank=min p mds bi}
+    {rank=same mdp mdps mdpbi}
+    {rank=max mdk mdv}
+}
