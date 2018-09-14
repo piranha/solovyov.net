@@ -460,3 +460,5 @@ class: middle, center
 class: middle, center
 
 # Вопросы?
+
+https://solovyov.net/slides/18-09-15-highload/
