@@ -1,20 +1,8 @@
-class: middle
-background-image: url(img/title-slide.png)
-
-<style>
-.ml-28 { margin-left: 29px; }
-.left h1 { text-align: left; }
-</style>
-
-.ml-28.left[
-
-<br>
+class: center, middle
 
 # Make It Fast
 
 .meta[<p>Alexander Solovyov<br>CTO @ Kasta</p>]
-
-]
 
 ???
 

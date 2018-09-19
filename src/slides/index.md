@@ -6,7 +6,7 @@ title: Slides
 
 Here are slides from talks I've given.
 
-* [Make It Fast](18-09-15-highload/), Highload fwdays'18
+* [Make It Fast](18-09-15-make-it-fast/), Highload fwdays'18
 * <a href="17-04-18-ete/">Black Friday: Clojure to the Rescue</a>, Emerging Technologies for the Enterprise 2017
 * <a href="17-04-09-tech-to-the-rescue/">Technology to the rescue</a>, UA Pycon 2017
 * <a href="16-04-13-react-no-js/">React on JVM</a>, Clojure Meetup #10 Apr 2016
