@@ -23,9 +23,9 @@ tags: python, programming, django
 
 Логично, что вместо дебага можно использовать любой уровень - потом их можно фильтровать в морде FirePython'а.
 
-[^1]: Ну не совсем всё, а только то, что логировалось в то время, пока FirePython был хендлером в logging.
-
 [1]: https://addons.mozilla.org/en-US/firefox/addon/9602
 [2]: https://addons.mozilla.org/en-US/firefox/addon/1843
 [firebug]: http://getfirebug.com/
 [firepython]: http://github.com/woid/firepython/tree/master
+
+[^1]: Ну не совсем всё, а только то, что логировалось в то время, пока FirePython был хендлером в logging.

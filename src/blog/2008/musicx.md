@@ -44,11 +44,11 @@ byteflow) хочу заметить: истина про ранний запус
 
 И самое главное - [Music excavated][mcx]! :-)
 
-[^1]: Byteflow начался с копирования кусочка исходников musi.cx в отдельную директорию, в том числе моделей, вьюх и темплейтов для собственно блога. :)
-
 [1]: http://murkt.org.ua/
 [2]: http://mydeco.com/
 [lyriki]: http://lyriki.com/
 [hst]: http://code.google.com/p/django-history/
 [mcx]: http://musi.cx/
 [bf]: http://byteflow.su/
+
+[^1]: Byteflow начался с копирования кусочка исходников musi.cx в отдельную директорию, в том числе моделей, вьюх и темплейтов для собственно блога. :)
