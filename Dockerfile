@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:10.10
+FROM mhart/alpine-node:11.8
 
 RUN apk add --no-cache nginx curl sassc && npm install -g uglify-js
 
@@ -14,4 +14,4 @@ COPY . /app
 RUN gostatic config
 
 EXPOSE 80
-CMD /usr/sbin/nginx
+CMD ["/usr/sbin/nginx"]
