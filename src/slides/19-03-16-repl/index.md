@@ -123,6 +123,29 @@ Exception
 
 ---
 
+class: center, middle
+
+# JAVASCRIPT CONSOLE?!
+
+???
+
+Это как `Console` в девтулзах браузеров, только хорошо. Консоль это тоже хорошо,
+по сравнению с языками, где её нет, конечно, но цель моя - рассказать, как
+бывает совсем хорошо.
+
+---
+
+class: center, middle
+
+# КАК БЫ НЕ ТАК!
+
+???
+
+Это ж тупо как шелл в питоне. Ваш редактор коннектится к соплям папы карло, а не к
+консоли джаваскрипта.
+
+---
+
 # Изучение
 
 ## Тут всё ясно
@@ -191,8 +214,8 @@ class: center
 # Figwheel
 
 * figwheel.org
-* Live Reload для CLJS
-* REPL для CLJS
+* REPL для ClojureScript
+* Live Reload для ClojureScript
 * Life-changing опыт
 
 ???
@@ -221,3 +244,4 @@ class: center, middle
 * https://vimeo.com/230220635
 * https://www.youtube.com/watch?v=Ngt29DyNDRM
 * https://en.wikipedia.org/wiki/Deep_Space_1#Remote_Agent
+* https://figwheel.org
