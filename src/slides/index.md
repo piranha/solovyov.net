@@ -6,6 +6,7 @@ title: Slides
 
 Here are slides from talks I've given.
 
+* [REPL](19-03-16-repl), JavaScript fwdays'19
 * [Make It Fast](18-09-15-make-it-fast/), Highload fwdays'18
 * <a href="17-04-18-ete/">Black Friday: Clojure to the Rescue</a>, Emerging Technologies for the Enterprise 2017
 * <a href="17-04-09-tech-to-the-rescue/">Technology to the rescue</a>, UA Pycon 2017
