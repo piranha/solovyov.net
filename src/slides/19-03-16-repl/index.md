@@ -77,7 +77,7 @@ class: center
 
 class: middle, center
 
-<img src="img/django.svg" width="70%">
+<img src="img/django.svg" width="50%">
 
 ???
 
@@ -114,12 +114,12 @@ Exception
 
 # REPL
 
-* Read-Eval-Print Loop
-* [Википедия про функциональность](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop#Functionality)
-* Инструмент для изучения
-* Инструмент для экспериментов
-* Инструмент для тестов
-* Инструмент для дебага и исправлений
+## .center[`(loop (print (eval (read))))`]
+
+* Изучение
+* Эксперименты
+* Тесты
+* Дебаг и исправления
 
 ---
 
@@ -146,13 +146,9 @@ class: center, middle
 
 ---
 
+class: center, middle
+
 # Изучение
-
-## Тут всё ясно
-
-* Дополнение
-* Документация
-* Исходный код
 
 ???
 
@@ -161,12 +157,39 @@ class: center, middle
 
 ---
 
-# Эксперименты
+class: center
 
-* Возможность быстро исполнить отдельное выражение
-* Редактор, подключенный к реплу
-* Репл, подключенный к программе
-* Изменения программы на лету
+# Дополнение
+
+<video width="80%" autoplay loop muted>
+  <source src="demo/1-completion.mp4" type="video/mp4" />
+</video>
+
+---
+
+class: center
+
+# Документация
+
+<video width="80%" autoplay loop muted>
+  <source src="demo/2-docs.mp4" type="video/mp4" />
+</video>
+
+---
+
+class: center
+
+# Исходный код
+
+<video width="80%" autoplay loop muted>
+  <source src="demo/3-source.mp4" type="video/mp4" />
+</video>
+
+---
+
+class: center, middle
+
+# Эксперименты
 
 ???
 
@@ -180,9 +203,64 @@ class: center, middle
 
 ---
 
+class: center
+
+# Возможность исполнить отдельное выражение
+
+<video width="80%" autoplay loop muted>
+  <source src="demo/4-expression.mp4" type="video/mp4" />
+</video>
+
+---
+
+class: center
+
+# Редактор, подключенный к реплу
+
+<video width="80%" autoplay loop muted>
+  <source src="demo/5-editor.mp4" type="video/mp4" />
+</video>
+
+---
+
+class: center
+
+# Репл, подключенный к программе
+
+<video width="80%" autoplay loop muted>
+  <source src="demo/6-app.mp4" type="video/mp4" />
+</video>
+
+---
+
+class: center
+
+# Изменения программы на лету
+
+<video width="80%" autoplay loop muted>
+  <source src="demo/7-change.mp4" type="video/mp4" />
+</video>
+
+---
+
+class: center, middle
+
 # Тесты
 
-* Результаты экспериментов с функцией переносятся в тесты
+---
+
+class: center
+
+# Результаты экспериментов переносятся в тесты
+
+<video width="80%" autoplay loop muted>
+  <source src="demo/8-test.mp4" type="video/mp4" />
+</video>
+
+---
+
+# Тесты
+
 * Код, который легко тестировать
 * Не TDD, а DDT
 
@@ -193,6 +271,7 @@ up, и эксперименты легко перенести в тесты, и 
 кусочков, которые хорошо подходят для тестирования.
 
 Не Test-Driven Development, а Development-Driven Testing
+
 
 ---
 
@@ -230,11 +309,7 @@ class: center
 работу обновления по живому. Более того, долго этим назывался автоматический
 релоад страницы после изменения файла.
 
----
-
-class: center, middle
-
-# Демо
+TODO: вставить видео фигвила
 
 ---
 
