@@ -81,7 +81,7 @@
   <meta itemprop="mainEntityOfPage" content=".">
 
   <header>
-    <h1 itemprop="headline">{{ .Title }}{{ if .Other.Draft }}<span class="info">(draft)</span>{{ end }}</h1>
+    <h1 itemprop="headline">{{ .Title }}{{ if .Other.Draft }} <span class="info">(draft)</span>{{ end }}</h1>
 
     <div class="info">
       {{ template "date" .Date }}
