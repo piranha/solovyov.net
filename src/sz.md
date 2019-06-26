@@ -3,7 +3,7 @@ title: Alfa Romeo SZ
 
 Различные интересные факты о. <b>UPD 01.12.2007 14:28 EET</b>
 
-<a href="http://upload.wikimedia.org/wikipedia/commons/f/f3/Alfa_Romeo_SZ.JPG"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Alfa_Romeo_SZ.JPG/250px-Alfa_Romeo_SZ.JPG"></a>
+<a href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Alfa_Romeo_SZ.JPG"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Alfa_Romeo_SZ.JPG/250px-Alfa_Romeo_SZ.JPG"></a>
 
 > Some day you'll be asked to define the term "Sports Car". <br/>
 > When that times come, just show 'em this Alfa Romeo

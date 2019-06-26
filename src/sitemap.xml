@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{{ range .Site.Pages }}
-{{ if not (or (starts "static/" .Url) (eq .Url "keybase.txt" "favicon.ico")) }}
+{{- range .Site.Pages }}
+{{- if not (or (starts "static/" .Url) (eq .Url "keybase.txt" "favicon.ico") (matches "\\.(css|js)$" .Url)) }}
   <url>
-    <loc>{{ .Site.Other.Url }}{{ .Url }}</loc>	
-	{{ if not .Date.IsZero }}
+    <loc>{{ .Site.Other.Url }}{{ .Url }}</loc>
+    {{- if not .Date.IsZero }}
     <lastmod>{{ .Date.Format "2006-01-02" }}</lastmod>
-	{{ end }}
-    <changefreq>	
- 	{{ if eq .Url "blog/" "en/" "" "blog.atom" "en.atom" }}
-	  weekly
-	{{ else }}
+    {{- end }}
+    <changefreq>
+    {{- if eq .Url "blog/" "en/" "" "blog.atom" "en.atom" -}}
+      weekly
+    {{- else -}}
       monthly
-	{{ end }}
-	</changefreq>
+    {{- end -}}
+    </changefreq>
     <priority>0.5</priority>
   </url>
-{{ end }}
-{{ end }}
-</urlset> 
+{{- end }}
+{{- end }}
+</urlset>
