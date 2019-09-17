@@ -19,9 +19,11 @@ description: Online bureau of Alexander Solovyov, software engineer and blogger
     <a href="blog/">Blog in Russian</a>
     <p class="top-gap-0">
     {{ with .Site.Pages.Children "blog/" }}
+    {{ with .WhereNot "Draft" "true" }}
     Last entry:
       {{ template "date" .First.Date }}
       <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
+    {{ end }}
     {{ end }}
     </p>
   </div>
@@ -40,9 +42,11 @@ description: Online bureau of Alexander Solovyov, software engineer and blogger
     <a href="en/">Blog in English</a>
     <p class="top-gap-0">
     {{ with .Site.Pages.Children "en/" }}
+    {{ with .WhereNot "Draft" "true" }}
     Last entry:
       {{ template "date" .First.Date }}
       <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
+    {{ end }}
     {{ end }}
     </p>
   </div>
