@@ -3,6 +3,10 @@ tags: emacs, software
 date: 2010-03-28
 ----
 
+**EDIT**: на дворе 2019 год и я давным-давно пользуюсь [projectile][], чего и вам советую. :)
+
+[projectile]: https://github.com/bbatsov/projectile
+
 У Емакса какое-то подобие проектов из коробки появилось только в 23 версии, и то
 очень простое - только переменные директорий (directory variables, что-то типа
 file variables, только хранящиеся в отдельном файле - `.dir-locals.el`). По
@@ -98,6 +102,6 @@ file variables, только хранящиеся в отдельном файл
 
 [^f1]: надо только не забыть установить `ido-enable-flex-matching` в `t`.
 
-[1]: http://piranha.org.ua/project-root/
+[1]: http://solovyov.net/project-root/
 [ido]: http://www.emacswiki.org/emacs/InteractivelyDoThings
 
