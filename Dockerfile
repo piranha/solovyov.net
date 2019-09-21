@@ -5,6 +5,8 @@ RUN apk add --no-cache nginx curl sassc && npm install -g butternut
 RUN mkdir /app
 WORKDIR /app
 
+VOLUME /build
+
 COPY Makefile get-gostatic /app/
 RUN sh get-gostatic /bin/gostatic 2.17
 
