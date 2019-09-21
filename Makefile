@@ -15,12 +15,9 @@ wf:
 update:
 	git pull
 	$(GOSTATIC) config
-	curl -s "http://www.feedburner.com/fb/a/pingSubmit?bloglink=http://feeds.feedburner.com/AmazonByteflow" > /dev/null
 
 open: compile
 	open www/index.html
 
 gostatic:
-	./get-gostatic /opt/build/cache/gostatic
-
-netlify: gostatic compile
+	./get-gostatic /opt/build/cache/gostatic 2.17

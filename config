@@ -128,7 +128,7 @@ static/*.scss: static/mobi.css static/style.scss
 	:sassc -t compressed -I src/static
 
 static/stuff.js:
-	:uglifyjs
+	:squash # this is butternut
 
 \#*:
 	ignore
