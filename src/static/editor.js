@@ -67,29 +67,24 @@
         return serializeRange(range);
     }
 
-    function deserializeSelection(s) {
-        var sel = window.getSelection();
-        var range = deserializeRange(s);
-
-        //sel.removeAllRanges();
-        sel.addRange(range);
-    }
-
-
     /// EDITOR
+
+    function getEditor() {
+        var m = location.search.match(/\beditor=([^&]+)/);
+        var editor = m && m[1];
+        return editor;
+    }
 
     function gatherData() {
         var s = serializeSelection();
         var text = window.getSelection().toString();
         var comment = prompt('Any comments?');
-        var m = location.search.match(/\beditor=([^&]+)/);
-        var author = m && m[1];
 
         return {selection: s,
                 url: href(),
                 text: text,
                 comment: comment,
-                author: author,
+                author: getEditor(),
                 timestamp: new Date()};
     }
 
@@ -97,7 +92,10 @@
         var data = gatherData();
         fetch(URL, {method: 'POST',
                     body: JSON.stringify(data)})
-            .then((x) => console.log(x));
+            .then((x) => {
+                console.log(x);
+                render(data);
+            });
     }
 
     window.addEventListener('keydown', function(e) {
@@ -109,24 +107,22 @@
 
     /// MASTER
 
-    function createTooltip(text, top, left) {
+    function createTooltip(parent, text) {
         el = document.createElement('div');
         el.className = 'tooltip';
-        el.style.top = top || '100px';
-        el.style.left = left || '100px';
         el.innerHTML = text;
-        document.body.appendChild(el);
+        parent.appendChild(el);
         return el;
     }
 
-    function permSelection(rect) {
+    function permSelection(parent, rect) {
         el = document.createElement('div');
         el.className = 'permsel';
-        el.style.top = rect.top + 'px';
-        el.style.left = rect.left + 'px';
+        el.style.top = (pageYOffset + rect.top) + 'px';
+        el.style.left = (pageXOffset + rect.left) + 'px';
         el.style.height = rect.height + 'px';
         el.style.width = rect.width + 'px';
-        document.body.appendChild(el);
+        parent.appendChild(el);
         return el;
     }
 
@@ -135,12 +131,16 @@
         window.getSelection().addRange(range);
 
         var rects = range.getClientRects();
-        for (rect of rects) {
-            permSelection(rect);
+
+        var el = document.createElement('div');
+        document.body.appendChild(el);
+
+        var sels = toArray(rects).map(permSelection.bind(null, el));
+
+        var text = 'Auth: {author}<br>Orig: {text}<br>Said: <b>{comment}</b>'.format(row);
+        for (el of sels) {
+            createTooltip(el, text);
         }
-        var rect = rects[0];
-        var text = 'Author: {author}<br>Comment: {comment}<br>Orig: {text}'.format(row);
-        createTooltip(text, rect.top + 'px', rect.left + 'px');
     }
 
     function renderComments(rows) {
@@ -149,14 +149,18 @@
         sel.removeAllRanges();
     }
 
-    function loadData() {
-        fetch(URL + '?url=' + encodeURIComponent(href()))
+    function loadData(editor) {
+        if (!editor) return;
+        var url = URL + '?url=' + encodeURIComponent(href());
+        if (editor != 'asolovyov') {
+            url += '&author=' + encodeURIComponent(editor);
+        }
+
+        fetch(url)
             .then(x => x.json())
             .then(x => x.rows && renderComments(x.rows));
     }
 
-    if (location.search.match(/\beditor=asolovyov\b/)) {
-        loadData();
-    }
+    loadData(getEditor());
 
 })(window, 'article > section');

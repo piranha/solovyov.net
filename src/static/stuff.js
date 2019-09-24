@@ -7,6 +7,10 @@ window.qsa = function(sel) {
     return document.querySelectorAll(sel);
 };
 
+window.toArray = function(x) {
+    return Array.prototype.slice.call(x);
+}
+
 NodeList.prototype.forEach = Array.prototype.forEach;
 
 String.prototype.format = function (data) {
