@@ -1,3 +1,105 @@
 @import "highlight-github";
 @import "mobi";
-@import "style";
+
+body {
+    font-size: 20px;
+}
+
+pre {
+    background-color: #f8f8f8;
+}
+
+#site-title {
+  background: black;
+  display: inline-block;
+  font-size: 1.3em;
+
+  a {
+    color: white;
+    display: inline-block;
+    padding: 0.3em 0.3em;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+footer {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.projects {
+  text-align: center;
+}
+
+.index-icon {
+  padding: 0.6em 0.6em 0 0;
+}
+
+.star {
+  height: 1em;
+  width: 1em;
+  margin-top: -0.3em;
+}
+
+h1, h2, h3, h4, h5 {
+  .anchor-link {
+    display: none;
+    color: grey;
+  }
+  &:hover .anchor-link {
+    display: inline;
+  }
+}
+
+time, .info {
+  color: grey;
+}
+
+.lead {
+  font-size: 1.5em;
+  font-weight: 200;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+// editor comments
+.tooltip {
+    max-width: 50%;
+    background: rgba(0,0,0, 0.3);
+    border-radius: 10px;
+    color: white;
+    padding: 10px 15px;
+    position: absolute;
+    text-align: left;
+    z-index: 10;
+    transform: translate(-50%, -120%);
+}
+
+.tooltip:hover {
+    background: rgba(0,0,0, 1);
+    z-index: 11;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-width: 15px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.3) transparent transparent transparent;
+}
+
+.permsel {
+    background-color: rgba(20, 50, 120, 0.2);
+    position: absolute;
+}
