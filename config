@@ -1,6 +1,6 @@
 # -*- mode: makefile -*-
 
-TEMPLATES = site.tmpl utils.tmpl amp.tmpl slides.tmpl
+TEMPLATES = site.tmpl utils.tmpl slides.tmpl
 SOURCE = src
 OUTPUT = www
 TITLE = solovyov.net
@@ -8,14 +8,14 @@ URL = https://solovyov.net/
 AUTHOR = Alexander Solovyov
 
 
-*.tag: blog/*/*.md en/*/*.md static/style.less
+*.tag: blog/*/*.md en/*/*.md static/main.scss
 	ext .html
 	directorify
 	template tag
 	markdown
 	template page
 
-*.md: static/style.less
+*.md: static/main.scss
 	config
 	ext .html
 	directorify
@@ -23,27 +23,9 @@ AUTHOR = Alexander Solovyov
 	markdown
 	template page
 
-# AMP
-
-blog/*/*.md:
-	config
-	rename */amp.html
-	directorify
-	markdown
-	template amp-post
-	template amp
-
-en/*/*.md: static/style.less
-	config
-	rename */amp.html
-	directorify
-	markdown
-	template amp-post
-	template amp
-
 # Blog
 
-blog/*/*.md: static/style.less
+blog/*/*.md: static/main.scss
 	config
 	ext .html
 	directorify
@@ -52,7 +34,7 @@ blog/*/*.md: static/style.less
 	template post
 	template page
 
-en/*/*.md: static/style.less
+en/*/*.md: static/main.scss
 	config
 	ext .html
 	directorify
@@ -70,7 +52,7 @@ slides/*/*.md:
 
 # Links...
 
-links/*/*.md: static/style.less
+links/*/*.md: static/main.scss
 	config
 	ext .html
 	directorify
@@ -80,17 +62,17 @@ links/*/*.md: static/style.less
 
 # Indexes
 
-blog/index.html: blog/*/*.md static/style.less
+blog/index.html: blog/*/*.md static/main.scss
 	config
 	inner-template
 	template page
 
-en/index.html: en/*/*.md static/style.less
+en/index.html: en/*/*.md static/main.scss
 	config
 	inner-template
 	template page
 
-links/index.html: links/*/*.md static/style.less
+links/index.html: links/*/*.md static/main.scss
 	config
 	inner-template
 	template page
@@ -100,7 +82,7 @@ tags/index.html: tags/*.tag
 	inner-template
 	template page
 
-index.html: blog/index.html en/index.html links/index.html static/style.less
+index.html: blog/index.html en/index.html links/index.html static/main.scss
 	config
 	inner-template
 	template page
@@ -108,7 +90,7 @@ index.html: blog/index.html en/index.html links/index.html static/style.less
 showkr/index.html:
 	:cat
 
-*.html: static/style.scss
+*.html: static/main.scss
 	config
 	directorify
 	inner-template
@@ -117,13 +99,10 @@ showkr/index.html:
 static/*.css:
 	ignore
 
-static/style.scss:
-	ignore
-
 static/mobi.scss:
 	ignore
 
-static/*.scss: static/mobi.css static/style.scss
+static/*.scss: static/mobi.css
 	ext .css
 	:sassc -t compressed -I src/static
 

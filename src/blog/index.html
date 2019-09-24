@@ -9,7 +9,7 @@ title: Блог
 
 <div class="post-list">
 {{ range .Site.Pages.Children .Url }}
-{{ if and (not (contains "amp" .Url)) (not .Other.Draft) }}
+{{ if (not .Other.Draft) }}
 
   {{ if .Date.Year | changed "year" }}
   <div id="{{ .Date.Year }}" class="flex-center">

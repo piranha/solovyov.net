@@ -72,8 +72,6 @@
 {{ template "footer" . }}{{ end }}
 
 {{ define "post" }}
-<link rel="amphtml" href="./amp/" />
-
 <script src="{{ version . "static/highlight.pack.js" }}"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
@@ -124,9 +122,7 @@
 # Pages tagged with {{ .Title }}
 
 {{ range .Site.Pages.WithTag .Title }}
-{{ if not (contains "amp" .Url) }}
 - [{{ .Title }}](../../{{ .Url }})
-{{ end }}
 {{ end }}
 {{end}}
 

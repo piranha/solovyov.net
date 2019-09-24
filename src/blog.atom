@@ -12,7 +12,7 @@
 
 {{ with .Site.Pages.Children "blog/" }}
 {{ range .Slice 0 5 }}
-{{ if and (not (contains "amp" .Url)) (not .Other.Draft) }}
+{{ if (not .Other.Draft) }}
 <entry>
   <id>{{ .Url }}</id>
   <author><name>{{ or .Other.Author .Site.Other.Author }}</name></author>
