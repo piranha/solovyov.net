@@ -24,6 +24,8 @@
 
   {{ if .Other.Img }}
   <meta property="og:image" content="{{ .Other.Img }}">
+  {{ else }}
+  <meta property="og:image" content="{{ version . "static/logo.png" }}">
   {{ end }}
 
   <link rel="author" href="http://solovyov.net/about/">
