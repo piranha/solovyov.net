@@ -60,6 +60,11 @@ links/*/*.md: static/main.scss
 	template link-html
 	template page
 
+# Config
+
+_nginx_push.conf:
+	inner-template
+
 # Indexes
 
 blog/index.html: blog/*/*.md static/main.scss
