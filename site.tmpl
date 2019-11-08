@@ -35,6 +35,7 @@
   <link rel="openid2.local_id" href="https://openid.stackexchange.com/user/76e7488b-6c80-4941-8f5a-0e4ba7c6b592">
 
   <link rel="stylesheet" type="text/css" href="{{ version . "static/main.css" }}">
+  <link rel="icon" href="{{ "favicon.ico" | version (.Site.Pages.ByPath "index.html") | cut "^." "$" }}" type="image/x-icon" />
   <script async="true" src="{{ version . "static/stuff.js" }}"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
