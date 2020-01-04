@@ -39,4 +39,4 @@ Almost forgot! Since I got escapeless Macbook Pro, I configured my fn key to wor
 
 Here are my [Karabiner config](https://github.com/piranha/conf/blob/master/karabiner.json) and [Hammerspoon config](https://github.com/piranha/conf/blob/master/hammerspoon.lua).
 
-P.S. Weirdly enough this post is not very useful for English speakers, so there is no real reason why wrote it in English. But this thought came to me only when I finished writing and I'm too lazy to rewrite it. :)
+P.S. Weirdly enough this post is not very useful for English speakers, so there is no real reason to write it in English. But this thought came to me only when I finished writing and I'm too lazy to rewrite it. :)
