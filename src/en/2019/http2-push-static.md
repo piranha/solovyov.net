@@ -9,7 +9,7 @@ The way it works is HTTP handler returns special header (`Link: </path>; rel=pre
 
 At some point, I was looking at my [site](/) and decided that there is a clear possibility to speed it up: push CSS and JS files to a client. It was not necessary, but it was certainly something I could do: and when I can, what will stop me? :)
 
-But there was a problem! I use (gostatic)[https://github.com/piranha/gostatic] to generate HTML pages from Markdown sources and Go templates and static files, and I did something clever there: I put a long expiration headers on files like CSS and JS, and then use hash of their content in query string to force browsers to load them if their content changes. Again, the reasoning was the same: I could do that, so I did it. It's certainly clever, but it prevented me from instructing my Nginx to push that file: browsers would not recognize `/static/main.css` and `/static/main.css?v=b1d2e227` as the same file.
+But there was a problem! I use [gostatic](https://github.com/piranha/gostatic) to generate HTML pages from Markdown sources and Go templates and static files, and I did something clever there: I put a long expiration headers on files like CSS and JS, and then use hash of their content in query string to force browsers to load them if their content changes. Again, the reasoning was the same: I could do that, so I did it. It's certainly clever, but it prevented me from instructing my Nginx to push that file: browsers would not recognize `/static/main.css` and `/static/main.css?v=b1d2e227` as the same file.
 
 But then I remembered that *actually* site is hosted in Docker image with its own Nginx (hello Dokku), and then another Nginx (host one) in front of that. That opens a possibility!
 
