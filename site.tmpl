@@ -47,6 +47,18 @@
     ga('send', 'pageview');
     setTimeout(ga, 15000, 'send', 'event', 'read', '15_seconds');
   </script>
+  <script>
+	(function(w,d,s,x) {
+		w.counter = 'https://sn.goatcounter.com/count';
+        w.goatcounter = {vars: {path: location.pathname}}; // drop QS
+
+		var el = d.createElement(s);
+		var m = d.getElementsByTagName(s)[0];
+		el.async = 1;
+		el.src = x;
+		m.parentNode.insertBefore(el, m)
+	})(window,document,'script','//gc.zgo.at/count.js');
+  </script>
 </head>
 <body>
 <div class="flex-center">
