@@ -48,17 +48,20 @@
     setTimeout(ga, 15000, 'send', 'event', 'read', '15_seconds');
   </script>
   <script>
+    window.counter = 'https://sn.goatcounter.com/count';
+    window.goatcounter = {vars: {path: location.pathname}}; // drop QS
 	(function(w,d,s,x) {
 		w.counter = 'https://sn.goatcounter.com/count';
         w.goatcounter = {vars: {path: location.pathname}}; // drop QS
-
+        
 		var el = d.createElement(s);
 		var m = d.getElementsByTagName(s)[0];
 		el.async = 1;
 		el.src = x;
 		m.parentNode.insertBefore(el, m)
-	})(window,document,'script','//gc.zgo.at/count.js');
+	}); //(window,document,'script','//gc.zgo.at/count.js');
   </script>
+  <script type="text/javascript" src="//gc.zgo.at/count.js" async></script>
 </head>
 <body>
 <div class="flex-center">
