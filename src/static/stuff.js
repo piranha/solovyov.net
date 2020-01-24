@@ -26,7 +26,7 @@ String.prototype.format = function (data) {
 * BSD Zero Clause License
 */
 var JSONP = (function(window, document){
-    var counter = 0, head, config = {};
+    var counter = 0, config = {};
     function load(url, onTimeout) {
         var script = document.createElement('script'),
             done = false,
@@ -69,9 +69,7 @@ var JSONP = (function(window, document){
             timeoutTimer = setTimeout(triggerTimeout, config.timeout)
         }
 
-        if ( !head ) {
-            head = document.getElementsByTagName('head')[0];
-        }
+        var head = document.getElementsByTagName('head')[0];
         head.appendChild( script );
     }
     function encode(str) {
