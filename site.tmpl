@@ -48,10 +48,9 @@
     setTimeout(ga, 15000, 'send', 'event', 'read', '15_seconds');
   </script>
   <script>
-    window.counter = 'https://sn.goatcounter.com/count';
-    window.goatcounter = {vars: {path: location.pathname}}; // drop QS
+    window.goatcounter = {path: location.pathname}; // drop QS
   </script>
-  <script type="text/javascript" src="//gc.zgo.at/count.js" async></script>
+  <script data-goatcounter="https://sn.goatcounter.com/count" src="//gc.zgo.at/count.js" async></script>
 </head>
 <body>
 <div class="flex-center">
