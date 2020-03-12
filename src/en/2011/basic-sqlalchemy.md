@@ -4,10 +4,11 @@ date: 2011-04-23
 favorite: true
 ----
 
-SQLAlchemy currently is a best Python ORM, but its documentation, while being
-thorough and detailed, in my opinion lacks easy descriptions of steps you need
-to go through to start using it. Which is why I've decided to write small
-introductory tutorial.
+SQLAlchemy is a best Python ORM by far, and it has really thorough and detailed
+documentation. Being like that has a flip side though: it explains a lot of
+basic concepts right through beginning. I personally find it much easier to
+start with some recipes and examples. Which is why I've decided to write small
+introductory tutorial: a shortest introduction to SQLAlchemy.
 
 Level 1: hand-written SQL
 -------------------------
@@ -19,6 +20,10 @@ First step is obtaining a connection to a database:
     >>> for row in e.execute('select * from table where id < %s', 2):
     ...     print dict(r)
     {u'id': 1, u'info': u'first row'}
+
+Of course, there are many more supported
+[dialects](https://docs.sqlalchemy.org/en/13/dialects/index.html), for example
+`postgresql` or `sqlite`.
 
 If you want to use named parameters, there is `text()`:
 
