@@ -74,9 +74,11 @@
 </html>
 {{ end }}
 
+
 {{ define "page" }}{{ template "header" . }}
   {{ .Content }}
 {{ template "footer" . }}{{ end }}
+
 
 {{ define "post" }}
 <script src="{{ version . "static/highlight.pack.js" }}"></script>
@@ -108,20 +110,9 @@
   <section>
   {{ .Content }}
   </section>
-
-{{- /*
-  <footer id="disqus_thread"></footer>
-  <script type="text/javascript">
-    // var disqus_identifier = "https://solovyov.net/{{ .Url }}";
-    (function(d, t) {
-      var e = d.createElement(t);
-      e.src = 'https://solovyovnet.disqus.com/embed.js';
-      d.getElementsByTagName('head')[0].appendChild(e);
-    })(document, 'script');
-  </script>
-*/ -}}
-
 </article>
+
+
 <script>
 if (location.search.match(/\beditor=/)) {
   var js = document.createElement('script');
@@ -129,6 +120,13 @@ if (location.search.match(/\beditor=/)) {
   document.body.appendChild(js);
 }
 </script>
+
+<footer>
+<a href="../..">More posts</a> |
+Subscribe with
+<a href="http://solovyov.net/{{ if starts "/en" .FullPath }}en.atom{{ else }}blog.atom{{ end }}">RSS
+<svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"></svg></a>
+</footer>
 
 {{ end }}
 
@@ -140,6 +138,7 @@ if (location.search.match(/\beditor=/)) {
 - [{{ .Title }}](../../{{ .Url }})
 {{ end }}
 {{end}}
+
 
 {{define "link-html"}}
 <article>

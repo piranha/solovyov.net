@@ -26,8 +26,14 @@ pre {
 }
 
 footer {
-  margin-top: 2em;
-  text-align: center;
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+    text-align: center;
+}
+
+footer + footer {
+    border-top: none;
+    margin-top: 5px;
 }
 
 .projects {
@@ -38,10 +44,9 @@ footer {
   padding: 0.6em 0.6em 0 0;
 }
 
-.star {
+.small-icon {
   height: 1em;
   width: 1em;
-  margin-top: -0.3em;
 }
 
 h1, h2, h3, h4, h5 {

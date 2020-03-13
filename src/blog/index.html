@@ -21,10 +21,7 @@ title: Блог
        style="margin-top: 7px">
     <div class="unit-1-4 flex-right">
       {{ if .Other.Favorite }}
-      <img src="{{ version . "static/star.svg" }}"
-           class="star"
-           style="margin-top: 0.15em"
-           title="Favorite post">
+      <svg title="Favorite post" class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#star"></svg>
       {{ end }}
       {{ template "shortdate" .Date }}
     </div>
