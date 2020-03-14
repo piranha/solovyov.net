@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /showkr/
+Disallow: /photo/
+
+Sitemap: https://solovyov.net/sitemap.xml
