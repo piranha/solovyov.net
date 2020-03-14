@@ -113,3 +113,9 @@ time, .info {
     border-style: solid;
     border-color: #222 transparent transparent transparent;
 }
+
+.mono {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 85%;
+    padding: 0.2em 0.3em;
+}

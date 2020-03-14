@@ -20,12 +20,10 @@ title: Blog
   <div class="flex-left units-gap post {{ if .Other.Favorite }}favorite{{ else }}normal{{ end }}"
        style="margin-top: 7px">
     <div class="unit-1-4 flex-right">
-      {{ if .Other.Favorite }}
-      <svg title="Favorite post" class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#star"></svg>
-      {{ end }}
       {{ template "shortdate" .Date }}
     </div>
     <div class="unit">
+      {{ if .Other.Favorite }}{{ template "star" . }}{{ end }}
       <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
     </div>
   </div>

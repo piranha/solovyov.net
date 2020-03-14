@@ -1,6 +1,7 @@
 title: Switching languages with Karabiner
 date: 2020-01-04
 tags: software, mac
+favorite: true
 ----
 
 Life has blessed me with being born in Ukraine; this complicates life a bit when dealing with computers. For example, you can't just use a single layout like all those peoples in the USA or elsewhere where they have this luxury. That makes living in Ukraine similar to living in Russia or elsewhere where they have the same problem. So it's like a layout for Latin letters (for writing text in English and programming) and layout for Cyrillic letters.

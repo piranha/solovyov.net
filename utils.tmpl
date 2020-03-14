@@ -8,7 +8,12 @@
 {{end}}
 
 {{define "shortdate"}}
-<time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
-  {{ .Format "January 02" }}
+<time class="mono" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ .Format "Jan 02" }}
 </time>
+{{end}}
+
+
+{{define "star"}}
+<svg title="Favorite post" class="small-icon" style="margin-top: 0.15em"><use xlink:href="{{ version . "static/icons.svg" }}#star"></svg>
 {{end}}
