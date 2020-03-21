@@ -11,8 +11,6 @@ I should say, it's pretty nifty, seeing browser being updated almost immediately
 
 That's it, I gave you a reason to finally go and experiment with gostatic, if you never did. :)
 
-The way it's implemented is that there is a WebSocket connection, opened back to the server, where server sends commands if anything changes: `page`, if HTML changes, and `css`, if it's the CSS. Simple and robust (I hope).
+So how does it work? A [script](https://github.com/piranha/gostatic/blob/master/hotreload/assets/hotreload.js) is inserted before closing `</head>`, and this script establishes WebSocket connection. Then when some file changes server's watching mechanism sends a command down this connection: `page`, if HTML changes, and `css`, if it's the CSS. Simple and robust (I hope).
 
-There is [JS](https://github.com/piranha/gostatic/blob/master/hotreload/assets/hotreload.js) counterpart of this, which handles commands and does its thing. In case you know how to improve that, I'm eager to hear from you.
-
-But all in all just a really useful feature. Enjoy. *(I said that to myself)*
+All in all just a really useful feature, and a pleasant to use and see. Enjoy. *(I said that to myself)*
