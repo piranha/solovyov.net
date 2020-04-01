@@ -27,14 +27,13 @@
   {{ end }}
 
   <link rel="author" href="http://solovyov.net/about/">
-  <link rel="author" href="https://plus.google.com/117696497748245979543">
 
   <link rel="openid2.provider" href="https://openid.stackexchange.com/openid/provider">
   <link rel="openid2.local_id" href="https://openid.stackexchange.com/user/76e7488b-6c80-4941-8f5a-0e4ba7c6b592">
 
   <link rel="stylesheet" type="text/css" href="{{ version . "static/main.css" }}">
   <link rel="icon" href="{{ "favicon.ico" | version (.Site.Pages.ByPath "index.html") | cut "^." "$" }}" type="image/x-icon" />
-  <script async="true" src="{{ version . "static/stuff.js" }}"></script>
+  {{/* <script async src="{{ version . "static/stuff.js" }}"></script> */}}
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -60,7 +59,7 @@
 {{ define "footer" }}
   <footer>
     &#169; 2006&ndash;2020 <a href="{{ .Rel "/" }}">{{ .Site.Other.Author }}</a>.
-	{{ if eq .Url "" }} Icons from <a href="https://www.flaticon.com/">Flaticon</a>. {{ end }}
+	{{ if eq .Url "" }}Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a>.{{ end }}
   </footer>
 </div>
 </div>

@@ -10,6 +10,25 @@ description: Online bureau of Alexander Solovyov, software engineer and blogger
 </article>
 
 <h2 id="presence">Online presence</h1>
+{{/* English */}}
+<div class="flex-left top-gap">
+  <div class="index-icon">
+    <a href="http://solovyov.net/en.atom">
+      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"></svg>
+    </a>
+  </div>
+
+  <div class="unit">
+    <a href="en/">Blog</a>
+    {{ range ((.Site.Pages.Children "en/").WhereNot "Draft" "true").Slice 0 5 }}
+    <p class="top-gap-0">
+      {{ template "date" .Date }}
+      <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
+    </p>
+    {{ end }}
+  </div>
+</div>
+
 
 {{/* Blog */}}
 <div class="flex-left top-gap">
@@ -21,38 +40,12 @@ description: Online bureau of Alexander Solovyov, software engineer and blogger
 
   <div class="unit">
     <a href="blog/">Blog in Russian</a>
+    {{ range ((.Site.Pages.Children "blog/").WhereNot "Draft" "true").Slice 0 5 }}
     <p class="top-gap-0">
-    {{ with .Site.Pages.Children "blog/" }}
-    {{ with .WhereNot "Draft" "true" }}
-    Last entry:
-      {{ template "date" .First.Date }}
-      <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
-    {{ end }}
-    {{ end }}
+      {{ template "date" .Date }}
+      <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
     </p>
-  </div>
-</div>
-
-
-{{/* English */}}
-<div class="flex-left top-gap">
-  <div class="index-icon">
-    <a href="http://solovyov.net/en.atom">
-      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"></svg>
-    </a>
-  </div>
-
-  <div class="unit">
-    <a href="en/">Blog in English</a>
-    <p class="top-gap-0">
-    {{ with .Site.Pages.Children "en/" }}
-    {{ with .WhereNot "Draft" "true" }}
-    Last entry:
-      {{ template "date" .First.Date }}
-      <a href="{{ $.Rel .First.Url }}">{{ .First.Title }}</a>
     {{ end }}
-    {{ end }}
-    </p>
   </div>
 </div>
 
@@ -67,243 +60,54 @@ description: Online bureau of Alexander Solovyov, software engineer and blogger
 
   <div class="unit">
     <a href="http://twitter.com/asolovyov">Twitter</a>
-    <p class="top-gap-0">
-      I'm chirping on Twitter a bit.
-    </p>
+    <p class="top-gap-0">I'm chirping on Twitter a bit.</p>
   </div>
 </div>
 
 
-{{/* Flickr */}}
+{{/* Slides */}}
 <div class="flex-left top-gap">
+  <div class="index-icon">
+    <a href="slides/">
+      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#slideshow"></svg>
+    </a>
+  </div>
+
   <div class="unit-3-4">
-  <div class="flex-left">
-    <div class="index-icon">
-      <a href="photo/">
-        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#flickr"></svg>
-      </a>
-    </div>
-
-    <div class="unit">
-      <a href="photo/">My photos</a>
-      <p class="top-gap-0">It's nice to capture a moment occasionally.</p>
-    </div>
-  </div>
-
-  {{/* LinkedIn */}}
-  <div class="flex-left top-gap">
-    <div class="index-icon">
-      <a href="http://www.linkedin.com/in/asolovyov">
-        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#linkedin"></svg>
-      </a>
-    </div>
-
-    <div class="unit-3-4">
-      <a href="http://www.linkedin.com/in/asolovyov">Linkedin page</a>
-      <p class="top-gap-0">
-        You should be there, right? Right?
-      </p>
-    </div>
-  </div>
-
-  {{/* Slides */}}
-  <div class="flex-left top-gap">
-    <div class="index-icon">
-      <a href="slides/">
-        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#slideshow"></svg>
-      </a>
-    </div>
-
-    <div class="unit-3-4">
-      <a href="slides/">Slides from my talks</a>
-      <p class="top-gap-0">
-        So that they can be referenced.
-      </p>
-    </div>
-  </div>
-  </div>
-
-  <div class="unit-1-4 flex-right">
-    <a id="flickr-photo" href="photo/"></a>
+    <a href="slides/">Slides from my talks</a>
+    <p class="top-gap-0">So that they can be referenced.</p>
   </div>
 </div>
 
 
-<div class="projects">
-  <h2 class="top-gap-big" id="projects">Projects
-    (more at <a href="http://github.com/piranha/">GitHub</a>)
-  </h2>
-
-  <div class="flex-center"><h3 class="unit">Sites</h3></div>
-
-  <div class="flex-left">
-    <div class="unit">
-      <h4 data-repo="osgameclones">
-        <a href="http://osgameclones.com/">OSGC</a>
-      </h4>
-      <p>List of open source clones of (old) popular games</p>
-    </div>
-
-    <div class="unit">
-      <h4 data-repo="showkr">
-        <a href="https://solovyov.net/showkr/">Showkr</a>
-      </h4>
-      <p>Minimalistic viewer for Flickr</p>
-    </div>
+{{/* Github */}}
+<div class="flex-left top-gap">
+  <div class="index-icon">
+    <a href="https://github.com/piranha">
+      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#github"></svg>
+    </a>
   </div>
 
-  <div class="flex-center"><h3 class="unit">Applications</h3></div>
-
-  <div class="flex-left">
-    <div class="unit">
-      <h4 data-repo="gostatic">
-        <a href="http://github.com/piranha/gostatic/">gostatic</a>
-      </h4>
-      <p>Fast static site generator (engine of this site)</p>
-    </div>
-
-    <div class="unit">
-      <h4 data-repo="cyrax">
-        <a href="http://github.com/piranha/cyrax/">cyrax</a>
-      </h4>
-      <p>Extremely extensible static site generator
-        (powers <a href="http://osgameclones.com">Open Source Game Clones</a>)</p>
-    </div>
-  </div>
-
-  <div class="flex-left">
-    <div class="unit">
-      <h4 data-repo="goreplace">
-        <a href="http://github.com/piranha/goreplace/">goreplace</a>
-      </h4>
-      <p>grep/ack alternative with ability to replace (a-la sed)
-        and support for .hgignore/.gitignore</p>
-    </div>
-
-    <div class="unit">
-      <h4 data-repo="shorrt">
-        <a href="http://github.com/piranha/shorrt/">shorrt</a>
-      </h4>
-      <p>The simplest possible global shortcuts for OS X</p>
-    </div>
-  </div>
-
-  <div class="flex-left">
-    <div class="unit">
-      <h4 data-repo="webhooker">
-        <a href="http://github.com/piranha/webhooker/">webhooker</a>
-      </h4>
-      <span>Github webhook handler - runs a command on push</span>
-    </div>
-
-    <div class="unit">
-      <h4 data-repo="nomad">
-        <a href="http://github.com/piranha/nomad/">nomad</a>
-      </h4>
-      <span>
-        Simplest database (idea was to support any db) migration tool I could
-        imagine
-      </span>
-    </div>
-  </div>
-
-  <div class="flex-left">
-    <div class="unit">
-      <h4 data-repo="piu">
-        <a href="https://github.com/piranha/piu">piu</a>
-      </h4>
-      <span>Engine behind <a href="http://paste.in.ua">paste.in.ua</a> pastebin</span>
-    </div>
-
-    <div class="unit">
-      <h4 data-repo="adium-inline-images">
-        <a href="https://github.com/piranha/adium-inline-images">Adium Inline Images</a>
-      </h4>
-      <span>Show image links as inline images on a click</span>
-    </div>
-  </div>
-
-  <div class="flex-center"><h3 class="unit">Libraries</h3></div>
-
-  <div class="flex-left">
-    <div class="unit">
-      <h4 data-repo="keymage">
-        <a href="http://github.com/piranha/keymage/">keymage</a>
-      </h4>
-      <span>Simple and small, but featureful enough JS keybinding library</span>
-    </div>
-
-    <div class="unit">
-      <h4 data-repo="keybind">
-        <a href="http://github.com/piranha/keybind/">keybind</a>
-      </h4>
-      <span>A ClojureScript keybinding library</span>
-    </div>
-  </div>
-
-  <div class="flex-left">
-    <div class="unit">
-      <h4 data-repo="puttext">
-        <a href="http://github.com/piranha/puttext/">puttext</a>
-      </h4>
-      <span>Gettext for JS, both translations and message collecting</span>
-    </div>
-
-    <div class="unit">
-      <h4 data-repo="tnetstrings.js">
-        <a href="http://github.com/piranha/tnetstrings.js/">tnetstrings.js</a>
-      </h4>
-      <span>JS implementation of <a href="http://tnetstrings.org">tnetstrings</a></span>
-    </div>
-  </div>
-
-  <div class="flex-left">
-    <div class="unit">
-      <h4 data-repo="opster">
-        <a href="http://github.com/piranha/opster/">opster</a>
-      </h4>
-      <span>Simple, concise, powerful command line parser for Python</span>
-    </div>
-    <div class="unit"></div>
+  <div class="unit-3-4">
+    <a href="https://github.com/piranha">Github</a>
+    <p class="top-gap-0"><a href="https://github.com/piranha/gostatic"><img src="https://img.shields.io/github/stars/piranha/gostatic?label=%E2%98%85"> gostatic</a>, fast static site generator this site uses</p>
+    <p class="top-gap-0"><img src="https://img.shields.io/github/stars/piranha/keymage?label=%E2%98%85"> <a href="https://github.com/piranha/keymage">keymage</a>, yet another JS keybinding library</p>
+    <p class="top-gap-0"><img src="https://img.shields.io/github/stars/piranha/keybind?label=%E2%98%85"> <a href="https://github.com/piranha/keybind">keybind</a>, ClojureScript key bindings library</p>
+    <p class="top-gap-0">...and more open source stuff!</p>
   </div>
 </div>
 
-<script type="text/javascript">
-window.addEventListener('load', function() {
-    JSONP.get("https://api.flickr.com/services/feeds/photos_public.gne",
-              {id: "8226209@N04", format: "json"},
-              function(feed) {
-                  var photo = feed.items[0];
-                  var el = byId('flickr-photo');
-                  el.href = photo.link;
-                  el.innerHTML = '<img style="max-height: 150px" src="{s}">'.format({
-                      s: photo.media.m
-                  });
-              }, "jsoncallback");
-});
 
-window.addEventListener('load', function() {
-    var tmpl = '<a href="https://github.com/{full_name}/stargazers">' +
-        '<svg title="Star count" class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#star"></svg>' +
-        ' {watchers_count}</a>';
-    function repos2html(repos) {
-        for (var i = 0; i < repos.data.length; i++) {
-            var repo = repos.data[i],
-                sel = '[data-repo="{name}"]'.format(repo),
-                parent = document.querySelector(sel);
+{{/* LinkedIn */}}
+<div class="flex-left top-gap">
+  <div class="index-icon">
+    <a href="https://www.linkedin.com/in/asolovyov">
+      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#linkedin"></svg>
+    </a>
+  </div>
 
-            if (!parent) continue;
-
-            var el = document.createElement('span');
-            el.innerHTML = tmpl.format(repo);
-            parent.appendChild(el);
-        };
-    }
-    JSONP.get("https://api.github.com/users/piranha/repos",
-              {type: 'owner', per_page: 100},
-              repos2html);
-    JSONP.get("https://api.github.com/users/opengaming/repos",
-              {type: 'owner', per_page: 100},
-              repos2html);
-});
-</script>
+  <div class="unit-3-4">
+    <a href="https://www.linkedin.com/in/asolovyov">Linkedin page</a>
+    <p class="top-gap-0">You should be there, right? Right?</p>
+  </div>
+</div>

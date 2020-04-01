@@ -34,17 +34,18 @@ title: Blog
 
 <script type="text/javascript">
 (function() {
+    var qsa = document.querySelectorAll.bind(document);
     function switchTo(e) {
         e.preventDefault();
         var el = e.target;
         switch (el.getAttribute('href')) {
         case '#all':
-            qsa('.post-list .post.normal').forEach(function(el) {
+            [].forEach.call(qsa('.post-list .post.normal'), function(el) {
                 el.style.display = '';
             });
             break;
         case '#favorite':
-            qsa('.post-list .post.normal').forEach(function(el) {
+            [].forEach.call(qsa('.post-list .post.normal'), function(el) {
                 el.style.display = 'none';
             });
             break;
@@ -52,7 +53,7 @@ title: Blog
         qsa('.nav .btn-primary')[0].classList.remove('btn-primary');
         el.classList.add('btn-primary');
     }
-    qsa('.nav a').forEach(function(el) {
+    [].forEach.call(qsa('.nav a'), function(el) {
         el.addEventListener('click', switchTo);
     });
 })();
