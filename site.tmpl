@@ -97,7 +97,10 @@
       &middot;
 
       {{ range $i, $t := .Tags }}{{if $i}},{{end}}
-      <a href="/tags/{{ $t }}/">{{ $t }}</a>{{ end }}
+      <a href="/tags/{{ $t }}/" class="p-category">{{ $t }}</a>{{ end }}
+
+      &middot;
+      <a href="/{{ .Url }}" class="u-url u-uid">permalink</a>
     </div>
   </header>
 
