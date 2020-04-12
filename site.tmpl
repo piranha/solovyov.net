@@ -78,19 +78,19 @@
 <script src="{{ version . "static/highlight.pack.js" }}"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<article itemscope itemtype="http://schema.org/BlogPosting">
+<article itemscope itemtype="http://schema.org/BlogPosting" class="h-entry">
   <meta itemprop="mainEntityOfPage" content=".">
 
   <header>
-    <h1 itemprop="headline">{{ .Title }}{{ if .Other.Draft }} <span class="info">(draft)</span>{{ end }}</h1>
+    <h1 itemprop="headline" class="p-name">{{ .Title }}{{ if .Other.Draft }} <span class="info">(draft)</span>{{ end }}</h1>
 
     <div class="info">
       {{ template "date" .Date }}
 
       &middot;
 
-      <a href="{{ or .Other.Authorlink (.Rel "/about/") }}"
-	     itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <a href="{{ or .Other.Authorlink (.Rel "/") }}"
+	     itemprop="author" itemscope itemtype="http://schema.org/Person" class="p-author h-card">
 	    <span itemprop="name">{{ or .Other.Author .Site.Other.Author }}</span>
 	  </a>
 
@@ -101,7 +101,7 @@
     </div>
   </header>
 
-  <section>
+  <section itemprop="articleBody" class="e-content">
   {{ .Content }}
   </section>
 </article>
