@@ -2,6 +2,7 @@ tags: python, programming, sql, db
 title:  SQLAlchemy: как втянуться
 date: 2011-04-22
 favorite: true
+alternate: <link rel="alternate" hreflang="en" href="/en/2011/basic-sqlalchemy/" />
 ----
 
 SQLAlchemy - очевидно, лучшая ORM для питона, с обширной и подробной
