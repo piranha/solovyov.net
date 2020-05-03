@@ -112,7 +112,7 @@ static/*.scss: static/mobi.css
 	:sassc -t compressed -I src/static
 
 static/stuff.js:
-	:squash # this is butternut
+	:closure-compiler
 
 \#*:
 	ignore
