@@ -21,3 +21,6 @@ open: compile
 
 gostatic:
 	./get-gostatic /opt/build/cache/gostatic 2.17
+
+hook:
+	ln -s post-update .git/hooks/post-update

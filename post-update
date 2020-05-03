@@ -1,0 +1,4 @@
+#!/bin/sh
+# NOTE: look at `push-to-checkout`
+
+exec gostatic config
