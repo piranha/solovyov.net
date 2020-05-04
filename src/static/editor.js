@@ -6,6 +6,13 @@
         return location.origin + location.pathname;
     }
 
+    function format(s, data) {
+        return s.replace(/\{([^\}]+)\}/g, function(match, k) {
+            return data[k];
+        });
+    }
+
+
     /// SERIALIZE
 
     function nodeIndex(node) {
@@ -127,6 +134,8 @@
     }
 
     function render(row) {
+        var text = format('Auth: {author}<br>Orig: {text}<br>Said: <b>{comment}</b>', row);
+
         var range = deserializeRange(row.selection);
         window.getSelection().addRange(range);
 
@@ -135,11 +144,9 @@
         var el = document.createElement('div');
         document.body.appendChild(el);
 
-        var sels = toArray(rects).map(permSelection.bind(null, el));
-
-        var text = 'Auth: {author}<br>Orig: {text}<br>Said: <b>{comment}</b>'.format(row);
-        for (el of sels) {
-            createTooltip(el, text);
+        for (var i = 0; i < rects.length; i++) {
+          var sel = permSelection(el, rects[i]);
+          createTooltip(sel, text);
         }
     }
 

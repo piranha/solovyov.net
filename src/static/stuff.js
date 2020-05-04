@@ -7,19 +7,6 @@ window.qsa = function(sel) {
     return document.querySelectorAll(sel);
 };
 
-window.toArray = function(x) {
-    return Array.prototype.slice.call(x);
-}
-
-NodeList.prototype.forEach = Array.prototype.forEach;
-
-String.prototype.format = function (data) {
-    var s = this;
-    return s.replace(/\{([^\}]+)\}/g, function(match, k) {
-        return data[k];
-    });
-};
-
 /*!
 * Lightweight JSONP fetcher
 * Copyright 2010-2019 Erik Arenhill. All rights reserved.
