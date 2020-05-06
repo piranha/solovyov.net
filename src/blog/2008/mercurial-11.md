@@ -1,6 +1,7 @@
 title: Mercurial 1.1
 date: 2008-12-02 22:37:42
 tags: news, hg
+alternate: <link rel="alternate" hreflang="en" href="../mercurial-11-en/" />
 ----
 
 

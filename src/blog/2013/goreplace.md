@@ -2,6 +2,7 @@ title: Go Replace!
 date: 2013-05-21
 tags: programming, go
 favorite: true
+alternate: <link rel="alternate" hreflang="en" href="../goreplace-en/" />
 ----
 
 Как-то раз два с лишним года назад я решил посмотреть на [Go][], поизучать, как

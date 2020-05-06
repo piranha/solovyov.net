@@ -1,6 +1,7 @@
 title: Короткие ссылки — rev=canonical
 date: 2009-04-12 18:45:00
 tags: byteflow, django
+alternate: <link rel="alternate" hreflang="en" href="../revcanonical-en/" />
 ----
 
 

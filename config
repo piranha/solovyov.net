@@ -1,6 +1,6 @@
 # -*- mode: makefile -*-
 
-TEMPLATES = site.tmpl utils.tmpl slides.tmpl
+TEMPLATES = site.tmpl slides.tmpl
 SOURCE = src
 OUTPUT = www
 TITLE = solovyov.net
@@ -49,16 +49,6 @@ slides/*/*.md:
 	ext .html
 	directorify
 	template slides
-
-# Links...
-
-links/*/*.md: static/main.scss
-	config
-	ext .html
-	directorify
-	markdown
-	template link-html
-	template page
 
 # Config
 

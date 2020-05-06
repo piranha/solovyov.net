@@ -1,6 +1,7 @@
 title: FirePython - нет print'ам?
 date: 2008-11-24 20:03:07
 tags: python, programming, django
+alternate: <link rel="alternate" hreflang="en" href="../firepython-no-prints-en/" />
 ----
 
 
