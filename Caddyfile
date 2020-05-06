@@ -11,13 +11,15 @@ solovyov.net {
   handle /static/* {
     header Cache-Control max-age=31536000
   }
+
   handle /favicon.ico {
     header Cache-Control max-age=31536000
   }
 
   handle /q/* {
     uri strip_prefix /q
-    file_server * browse { root /mnt/share }
+    root /mnt/share
+    file_server * browse
   }
 
   redir /blog/feed/ /blog.atom permanent
