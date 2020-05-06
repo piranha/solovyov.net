@@ -18,7 +18,7 @@ solovyov.net {
 
   handle /q/* {
     uri strip_prefix /q
-    root /mnt/share
+    root * /mnt/share
     file_server * browse
   }
 
@@ -56,11 +56,6 @@ solovyov.net {
   redir /en/2020/gostatic-hot-reload/                /blog/2020/gostatic-hot-reload/
   redir /en/2020/karabiner-hotkeys/                  /blog/2020/karabiner-hotkeys/
   
-
-  @renamed-en {
-    path_regexp /en/
-  }
-
   # changed urls
   redir /opster/ https://github.com/piranha/opster/ permanent
   redir /cyrax/ https://github.com/piranha/cyrax/ permanent
