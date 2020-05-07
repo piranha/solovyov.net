@@ -1,13 +1,22 @@
+# -*- mode: conf -*-
+
+
 solovyov.net {
   encode zstd gzip
   root * /opt/solovyov.net/www
 
   file_server
 
-  route {
-    header Cache-Control max-age=3600
-    header /static/* Cache-Control max-age=31536000
-    header /favicon.ico Cache-Control max-age=31536000
+  @exists {
+    file
+  }
+
+  handle @exists {
+    route {
+      header Cache-Control max-age=3600
+      header /static/* Cache-Control max-age=31536000
+      header /favicon.ico Cache-Control max-age=31536000
+    }
   }
 
   handle /q/* {
