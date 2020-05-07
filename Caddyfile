@@ -4,20 +4,16 @@ solovyov.net {
 
   file_server
 
-  header * Cache-Control max-age=3600
-
-  handle /static/* {
-    header Cache-Control max-age=31536000
-  }
-
-  handle /favicon.ico {
-    header Cache-Control max-age=31536000
+  route {
+    header Cache-Control max-age=3600
+    header /static/* Cache-Control max-age=31536000
+    header /favicon.ico Cache-Control max-age=31536000
   }
 
   handle /q/* {
     uri strip_prefix /q
     root * /mnt/share
-    file_server * browse
+    file_server browse
   }
 
   redir /blog/feed/ /blog.atom permanent
