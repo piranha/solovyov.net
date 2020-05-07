@@ -1,4 +1,9 @@
 #!/bin/sh
 # NOTE: look at `push-to-checkout`
 
+pwd
+ls -l `which gostatic`
+ls -l config
+wc -l config
+
 exec gostatic config
