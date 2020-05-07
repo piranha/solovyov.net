@@ -1,9 +1,4 @@
 #!/bin/sh
-# NOTE: look at `push-to-checkout`
 
-pwd
-ls -l `which gostatic`
-ls -l config
-wc -l config
-
+cd .. # hooks get executed in .git
 exec gostatic config
