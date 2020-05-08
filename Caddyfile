@@ -67,7 +67,7 @@ solovyov.net {
 
   log {
     output file /var/log/caddy/solovyov.net.log
-    format single_field common_log
+    #format single_field common_log
   }
 }
 
