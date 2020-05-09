@@ -2,59 +2,27 @@ title: Blog
 
 ----
 
-<div class="flex-center units-gap nav">
-  <div class="unit-1-4"><a class="btn btn-primary" href="#all">All</a></div>
-  <div class="unit-1-4"><a class="btn" href="#favorite">Favorite</a></div>
-</div>
+<h1>Blog</h1>
 
 <div class="post-list">
 {{ range .Site.Pages.Children .Url }}
 {{ if (not .Other.Draft) }}
 
   {{ if .Date.Year | changed "year" }}
-  <div id="{{ .Date.Year }}" class="flex-center">
+  <div id="{{ .Date.Year }}" class="center">
     <div class="unit"><h2>{{ .Date.Year }}</h2></div>
   </div>
   {{ end }}
 
-  <div class="flex-left units-gap post {{ if .Other.Favorite }}favorite{{ else }}normal{{ end }}"
-       style="margin-top: 7px">
-    <div class="unit-1-4 flex-right">
-      {{ template "shortdate" .Date }}
-    </div>
-    <div class="unit">
-      {{ if .Other.Favorite }}{{ template "star" . }}{{ end }}
-      <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
-    </div>
+  <div class="mb {{ if .Other.Favorite }}favorite{{ else }}normal{{ end }}">
+    {{ template "shortdate" .Date }}
+    <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
+    {{ if .Other.Favorite }}{{ template "star" . }}{{ end }}
+    <blockquote>
+      {{ with .Process.Content | cut "<section[^>]*>" "</section>" }}{{ excerpt . 50 | strip_html }}{{ end }}
+    </blockquote>
   </div>
 
 {{ end }}
 {{ end }}
 </div>
-
-<script type="text/javascript">
-(function() {
-    var qsa = document.querySelectorAll.bind(document);
-    function switchTo(e) {
-        e.preventDefault();
-        var el = e.target;
-        switch (el.getAttribute('href')) {
-        case '#all':
-            [].forEach.call(qsa('.post-list .post.normal'), function(el) {
-                el.style.display = '';
-            });
-            break;
-        case '#favorite':
-            [].forEach.call(qsa('.post-list .post.normal'), function(el) {
-                el.style.display = 'none';
-            });
-            break;
-        };
-        qsa('.nav .btn-primary')[0].classList.remove('btn-primary');
-        el.classList.add('btn-primary');
-    }
-    [].forEach.call(qsa('.nav a'), function(el) {
-        el.addEventListener('click', switchTo);
-    });
-})();
-</script>

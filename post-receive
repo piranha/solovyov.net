@@ -1,4 +1,5 @@
 #!/bin/sh
 
 cd .. # hooks get executed in .git
+./get-gostatic /usr/local/bin/gostatic 2.20
 exec gostatic config

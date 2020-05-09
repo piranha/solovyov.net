@@ -153,7 +153,7 @@ increases in traffic. :)
 
 <div class="flex-left flex-wrap">
 <div class="unit unit-1-on-mobile">
-<a href="https://modnakasta.ua"><img width=320 height=185 src="../mk-img.jpg"/></a>
+<a href="https://modnakasta.ua"><img width=320 height=185 src="/media/mk-img.jpg"/></a>
 </div>
 
 <div class="unit">

@@ -8,14 +8,14 @@ URL = https://solovyov.net/
 AUTHOR = Alexander Solovyov
 
 
-*.tag: blog/*/*.md en/*/*.md static/main.scss
+*.tag: blog/*/*.md en/*/*.md static/blog.css
 	ext .html
 	directorify
 	template tag
 	markdown
 	template page
 
-*.md: static/main.scss
+*.md: static/blog.css
 	config
 	ext .html
 	directorify
@@ -25,7 +25,7 @@ AUTHOR = Alexander Solovyov
 
 # Blog
 
-blog/*/*.md: static/main.scss
+blog/*/*.md: static/blog.css
 	config
 	ext .html
 	directorify
@@ -34,7 +34,7 @@ blog/*/*.md: static/main.scss
 	template post
 	template page
 
-en/*/*.md: static/main.scss
+en/*/*.md: static/blog.css
 	config
 	ext .html
 	directorify
@@ -57,17 +57,17 @@ _nginx_push.conf:
 
 # Indexes
 
-blog/index.html: blog/*/*.md static/main.scss
+blog/index.html: blog/*/*.md static/blog.css
 	config
 	inner-template
 	template page
 
-en/index.html: en/*/*.md static/main.scss
+en/index.html: en/*/*.md static/blog.css
 	config
 	inner-template
 	template page
 
-links/index.html: links/*/*.md static/main.scss
+links/index.html: links/*/*.md static/blog.css
 	config
 	inner-template
 	template page
@@ -77,7 +77,7 @@ tags/index.html: tags/*.tag
 	inner-template
 	template page
 
-index.html: blog/index.html en/index.html links/index.html static/main.scss
+index.html: blog/index.html en/index.html links/index.html static/blog.css
 	config
 	inner-template
 	template page
@@ -85,21 +85,20 @@ index.html: blog/index.html en/index.html links/index.html static/main.scss
 showkr/index.html:
 	:cat
 
-*.html: static/main.scss
+*.html: static/blog.scss
 	config
 	directorify
 	inner-template
 	template page
 
+static/blog.css:
+	:cat
+
 static/*.css:
 	ignore
 
-static/mobi.scss:
+static/*.scss:
 	ignore
-
-static/*.scss: static/mobi.css
-	ext .css
-	:sassc -t compressed -I src/static
 
 static/stuff.js:
 	:closure-compiler

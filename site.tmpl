@@ -10,14 +10,12 @@
     {{ .Other.Description }}
   {{ else if contains "<section>" .Content }}
     {{ with cut "<section>" "</section>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
-  {{ end }}
-  ">
+  {{ end }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="alternate" type="application/atom+xml"
-        title="{{ .Site.Other.Title }} russian posts" href="http://solovyov.net/blog.atom">
-  <link rel="alternate" type="application/atom+xml"
-        title="{{ .Site.Other.Title }} english posts" href="http://solovyov.net/en.atom">
+        title="{{ .Site.Other.Title }}" href="https://solovyov.net/blog.atom">
+
   <title>{{ if .Other.Fulltitle }}{{ .Other.Fulltitle}}{{ else }}{{ .Site.Other.Title }}{{ if .Title }}: {{ .Title }}{{ end }}{{ end }}</title>
 
   {{ if .Other.Img }}
@@ -31,7 +29,7 @@
   <link rel="openid2.provider" href="https://openid.stackexchange.com/openid/provider">
   <link rel="openid2.local_id" href="https://openid.stackexchange.com/user/76e7488b-6c80-4941-8f5a-0e4ba7c6b592">
 
-  <link rel="stylesheet" type="text/css" href="{{ version . "static/main.css" }}">
+  <link rel="stylesheet" type="text/css" href="{{ version . "static/blog.css" }}">
   <link rel="icon" href="{{ "favicon.ico" | version (.Site.Pages.ByPath "index.html") | cut "^." "$" }}" type="image/x-icon" />
   {{/* <script async src="{{ version . "static/stuff.js" }}"></script> */}}
   <script>
@@ -47,22 +45,29 @@
   <script data-goatcounter="https://sn.goatcounter.com/count" src="//gc.zgo.at/count.js" async></script>
 </head>
 <body>
-<div class="flex-center">
-<div class="container">
-  <header role="banner">
-    <h2 id="site-title"><a href="/">solovyov.net</a></h2>
+  <header>
+    <h2 id="title"><a href="/">solovyov.net</a></h2>
+    <ul class="top-icons">
+      <li><a href="http://twitter.com/asolovyov" class="icon" title="Twitter">
+        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
+      </a></li>
+      <li><a href="https://github.com/piranha" class="icon" title="Github">
+        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#github"/></svg>
+      </a></li>
+      <li><a href="https://solovyov.net/blog.atom" class="icon" title="RSS">
+        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
+      </a></li>
+    </ul>
   </header>
 
 {{ end }}
 
 
 {{ define "footer" }}
-  <footer>
+  <footer class="text-center">
     &#169; 2006&ndash;2020 <a href="{{ .Rel "/" }}">{{ .Site.Other.Author }}</a>.
-	{{ if eq .Url "" }}Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a>.{{ end }}
+    {{ if eq .Url "" }}Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a>.{{ end }}
   </footer>
-</div>
-</div>
 
 </body>
 </html>
@@ -82,30 +87,28 @@
   <meta itemprop="mainEntityOfPage" content=".">
 
   <header>
-    <h1 itemprop="headline" class="p-name">{{ .Title }}{{ if .Other.Draft }} <span class="info">(draft)</span>{{ end }}</h1>
+    <h1 itemprop="headline" class="p-name">
+      {{ .Title }}
+      {{ if .Other.Draft }} <span class="cg">(draft)</span>{{ end }}
+      <a href="/{{ .Url }}" class="u-url u-uid">#</a>
+    </h1>
 
-    <div class="info">
-      {{ template "date" .Date }}
-
-      &middot;
-
-      <a href="{{ or .Other.Authorlink (.Rel "/") }}"
-	     itemprop="author" itemscope itemtype="http://schema.org/Person" class="p-author h-card">
-	    <span itemprop="name">{{ or .Other.Author .Site.Other.Author }}</span>
-	  </a>
+    <div class="cg">
+      {{ .Content | reading_time }} min read
 
       &middot;
 
       {{ range $i, $t := .Tags }}{{if $i}},{{end}}
       <a href="/tags/{{ $t }}/" class="p-category">{{ $t }}</a>{{ end }}
-
-      &middot;
-      <a href="/{{ .Url }}" class="u-url u-uid">permalink</a>
     </div>
   </header>
 
   <section itemprop="articleBody" class="e-content">
   {{ .Content }}
+  </section>
+
+  <section class="right">
+    {{ template "date" .Date }}
   </section>
 </article>
 
@@ -119,10 +122,10 @@ if (location.search.match(/\beditor=/)) {
 </script>
 
 <footer>
-<a href="../..">More posts</a> |
+<a href="{{ .Rel "/" }}">Back to index</a> |
 Subscribe with
 <a href="http://solovyov.net/{{ if starts "/en" .FullPath }}en.atom{{ else }}blog.atom{{ end }}">RSS
-<svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"></svg></a>
+  <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"></svg></a>
 </footer>
 
 {{ end }}
@@ -132,20 +135,24 @@ Subscribe with
 # Pages tagged with {{ .Title }}
 
 {{ range .Site.Pages.WithTag .Title }}
-- [{{ .Title }}](../../{{ .Url }})
+<div class="mb5">
+  {{ template "date" .Date }}
+  <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
+  {{ if .Other.Favorite }}{{ template "star" . }}{{ end }}
+</div>
 {{ end }}
 {{end}}
 
 
 {{define "date"}}
 <meta itemprop="datePublished dateModified" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
-<time class="mono dt-published" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+<time class="cg mono dt-published" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Format "Jan 2006" }}
 </time>
 {{end}}
 
 {{define "shortdate"}}
-<time class="mono" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+<time class="cg mono" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Format "Jan" }}
 </time>
 {{end}}

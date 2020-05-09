@@ -9,100 +9,43 @@ description: Blog of Alexander Solovyov
   <p class="lead">Hi! I'm <span itemprop="name" class="p-name">Alexander Solovyov</span> and that's <a class="u-uid u-url" href="https://solovyov.net/">my site</a>.</p>
   <p class="p-note">I'm a <span itemprop="jobTitle" class="p-job-title">Chief Product Officer</span>
     at <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization"><a itemprop="url" href="https://kasta.ua/"><span itemprop="brand">Kasta</span></a></span>,
-    and before long I've been a CTO there - we're focused on building slick one-stop ecommerce platform for both consumer and producers.</p>
+    and before that I've been a CTO there - we're focused on building slick one-stop ecommerce platform for both consumer and producers.</p>
   <p>If you want to contact me, use my email: <script type="text/javascript">document.write("<n uers=\"znvygb:nyrknaqre\100fbybilbi\056arg\">nyrknaqre\100fbybilbi\056arg<\057n>".replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script></p>
-                                                                                                                                                                                                                                                    </article>
+</article>
 
-<h2 id="presence">Online presence</h1>
-
-
-{{/* Blog */}}
-<div class="flex-left top-gap">
-  <div class="index-icon">
-    <a href="http://solovyov.net/blog.atom">
-      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"></svg>
+<ul class>
+  <li>
+    <a href="http://twitter.com/asolovyov" title="Twitter">
+      <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
+      Twitter
     </a>
-  </div>
-
-  <div class="unit">
-    <a href="blog/">Blog</a>
-    {{ range ((.Site.Pages.Children "blog/").WhereNot "Draft" "true").Slice 0 5 }}
-    <p class="top-gap-0">
-      {{ template "date" .Date }}
-      <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
-    </p>
-    {{ end }}
-  </div>
-</div>
-
-
-{{/* Twitter */}}
-<div class="flex-left top-gap">
-  <div class="index-icon">
-    <a href="http://twitter.com/asolovyov">
-      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"></svg>
+  </li>
+  <li>
+    <a href="https://github.com/piranha" title="Github">
+      <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#github"/></svg>
+      Github
     </a>
-  </div>
-
-  <div class="unit">
-    <a href="http://twitter.com/asolovyov" rel="me">Twitter</a>
-    <p class="top-gap-0">I'm chirping on Twitter a bit.</p>
-  </div>
-</div>
-
-
-{{/* Slides */}}
-<div class="flex-left top-gap">
-  <div class="index-icon">
+  </li>
+  <li>
     <a href="slides/">
-      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#slideshow"></svg>
+      <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#slideshow"/></svg>
+      Slides from my talks
     </a>
-  </div>
+  </li>
+</ul>
 
-  <div class="unit-3-4">
-    <a href="slides/">Slides from my talks</a>
-    <p class="top-gap-0">So that they can be referenced.</p>
-  </div>
+<h1 id="blog" class="mt">
+  <a href="https://solovyov.net/blog.atom" class="icon" title="RSS">
+    <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
+  </a>
+  Blog
+</h1>
+
+
+{{ range ((.Site.Pages.Children "blog/").WhereNot "Draft" "true") }}
+<div class="mb5">
+  {{ template "date" .Date }}
+  <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
+  {{ if .Other.Favorite }}{{ template "star" . }}{{ end }}
 </div>
-
-
-{{/* Github */}}
-<div class="flex-left top-gap">
-  <div class="index-icon">
-    <a href="https://github.com/piranha" rel="me">
-      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#github"></svg>
-    </a>
-  </div>
-
-  <div class="unit-3-4">
-    <a href="https://github.com/piranha">Github</a>
-    <p class="top-gap-0">
-      Fast static site generator this site uses:
-      <a href="https://github.com/piranha/gostatic">gostatic <img loading=lazy src="https://img.shields.io/github/stars/piranha/gostatic?label=%E2%98%85&maxAge=86400"></a>
-    </p>
-    <p class="top-gap-0">
-      Yet another JS keybindings library:
-      <a href="https://github.com/piranha/keymage">keymage <img loading=lazy src="https://img.shields.io/github/stars/piranha/keymage?label=%E2%98%85&maxAge=86400"></a>
-    </p>
-    <p class="top-gap-0">
-      ClojureScript key bindings library:
-      <a href="https://github.com/piranha/keybind">keybind <img loading=lazy src="https://img.shields.io/github/stars/piranha/keybind?label=%E2%98%85&maxAge=86400"></a>
-    </p>
-    <p class="top-gap-0">...and more open source stuff!</p>
-  </div>
-</div>
-
-
-{{/* LinkedIn */}}
-<div class="flex-left top-gap">
-  <div class="index-icon">
-    <a href="https://www.linkedin.com/in/asolovyov">
-      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#linkedin"></svg>
-    </a>
-  </div>
-
-  <div class="unit-3-4">
-    <a href="https://www.linkedin.com/in/asolovyov" rel="me">Linkedin page</a>
-    <p class="top-gap-0">You should be there, right? Right?</p>
-  </div>
-</div>
+{{ end }}

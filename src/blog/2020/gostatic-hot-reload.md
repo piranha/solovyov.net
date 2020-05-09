@@ -7,7 +7,7 @@ After years of reminding myself to do it, I finally did it: [gostatic](https://g
 
 I should say, it's pretty nifty, seeing browser being updated almost immediately after pressing save (should I enable autosave in Emacs?). It's not a so-called "Live Reload", when a page is reloaded, that is a literal update-on-the-fly. Just look at it yourself:
 
-<p><video src="../hot-reload.mp4" loop controls></video></p>
+<p><video src="/media/hot-reload.mp4" loop controls></video></p>
 
 That's it, I gave you a reason to finally go and experiment with gostatic, if you never did. :)
 

@@ -1,0 +1,192 @@
+*,*::before,*::after{box-sizing:border-box}ul[class],ol[class]{padding:0}body,h1,h2,h3,h4,p,ul[class],ol[class],figure,blockquote,dl,dd{margin:0}html{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeLegibility;line-height:1.5}ul[class],ol[class]{list-style:none}a:not([class]){text-decoration-skip-ink:auto}img{max-width:100%;display:block}article>*+*{margin-top:1em}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+
+
+html {
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  font-size: calc(14px + .25vw);
+  color: #333;
+}
+
+body {
+  margin: auto;
+  max-width: 40rem;
+  padding: 0 15px 15px;
+}
+
+h1, h2, h3, h4 {
+  margin: 1.414rem 0 .5rem;
+}
+
+small {
+  font-size: 0.7em;
+}
+
+a, a:visited {
+  color: #3498db;
+  text-decoration: none;
+}
+a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+p, blockquote, table, hr, dl, ul, ol, pre, address, figure {
+  margin-bottom: 1rem;
+}
+
+pre, code, .mono {
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+pre, code {
+  background-color: #fafafa;
+}
+
+pre {
+  padding: .5rem;
+  line-height: 1.25;
+  overflow-x: scroll;
+}
+
+img, canvas, iframe, video, svg, select, textarea {
+  max-width: 100%;
+}
+
+blockquote {
+  border-left: 8px solid #dcdcdc;
+  padding: 1rem;
+}
+
+footer {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Custom styles */
+
+body > header {
+  margin: 0.5rem 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background: #333;
+}
+
+#title a {
+  color: white;
+  padding: 0.3rem;
+}
+
+#title a:hover {
+  text-decoration: none;
+}
+
+.top-icons {
+  display: inline-flex;
+}
+
+.top-icons li {
+  margin-left: 0.5rem;
+}
+
+svg {
+  opacity: 0.5;
+}
+
+svg:hover {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.small-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+h1 a {
+  color: #333;
+}
+
+h1 a:hover {
+  text-decoration: none;
+}
+
+h1[itemprop="headline"] a.u-url { display: none; }
+h1[itemprop="headline"]:hover a.u-url { display: inline; }
+
+
+/* Utility */
+
+.mt { margin-top: 1rem; }
+.mb { margin-bottom: 1rem; }
+.mb5 { margin-bottom: .5rem; }
+.ml { margin-left: 1rem; }
+.mr { margin-right: 1rem; }
+
+.mt0 { margin-top: 0; }
+.mb0 { margin-bottom: 0; }
+.ml0 { margin-left: 0; }
+.mr0 { margin-right: 0; }
+
+.cg { color: grey; }
+
+.center { text-align: center; }
+.right { text-align: right; }
+
+
+/* editor.js comments */
+
+.permsel {
+    background-color: rgba(20, 50, 120, 0.2);
+    position: absolute;
+}
+
+.permsel:hover .tooltip {
+    display: block;
+}
+
+.tooltip {
+    display: none;
+    width: 300px;
+    background: #222;
+    border-radius: 10px;
+    color: #f5f5f5;
+    padding: 10px 15px;
+    position: relative;
+    text-align: left;
+    z-index: 10;
+    left: 50%;
+    transform: translate(-50%, calc(-100% - 15px));
+}
+
+.tooltip b {
+    color: white;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-width: 15px;
+    border-style: solid;
+    border-color: #222 transparent transparent transparent;
+}
