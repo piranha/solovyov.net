@@ -1,7 +1,11 @@
 #!/bin/sh
 
+TARGET="${1}"
 VERSION="${2}"
+CURRENT=$(test -f "$TARGET" && "$TARGET" -V | cut -d ' ' -f 2)
+
+test "$VERSION" = "$CURRENT" && exit 0
 
 echo " ---> Downloading gostatic ${VERSION}"
-curl -Lso "$1" https://github.com/piranha/gostatic/releases/download/$VERSION/gostatic-64-linux
-chmod +x "$1"
+curl -Lso "$TARGET" "https://github.com/piranha/gostatic/releases/download/$VERSION/gostatic-64-linux"
+chmod +x "$TARGET"
