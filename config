@@ -92,12 +92,9 @@ showkr/index.html:
 	template page
 
 static/blog.css:
-	:cat
+	:cat - src/static/highlight-github.css
 
 static/*.css:
-	ignore
-
-static/*.scss:
 	ignore
 
 static/stuff.js:
