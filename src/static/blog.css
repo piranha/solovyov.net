@@ -19,11 +19,10 @@ small {
 }
 
 a, a:visited {
-  color: #3498db;
+  color: #1183d0;
   text-decoration: none;
 }
 a:hover {
-  color: #2980b9;
   text-decoration: underline;
 }
 
@@ -92,13 +91,13 @@ body > header {
   margin-left: 0.5rem;
 }
 
-svg {
-  opacity: 0.5;
+.icon {
+  opacity: 0.8;
 }
 
-svg:hover {
+.icon:hover {
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: opacity 0.2s;
 }
 
 .icon {
