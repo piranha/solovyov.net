@@ -11,7 +11,7 @@ The next day I discovered that "sale" was restarted (again "only XX hours left!"
 
 ## Next episode
 
-Fast forward a few months and finally I had something to do for a box of this size! So I went and bought one "on sale" for 89 err 139$. 
+Fast forward a few months and finally I had something to do for a box of this size! So I went and bought one "on sale" for 89 err 139$.
 
 It provisioned just well, gave me an IP and a root password, and away we go! I logged in my brand new Ubuntu 20.04: `apt update` reported 3 packages due for an upgrade. During `apt upgrade` I noticed that new kernels (especially their headers) became big: it took noticeable time to finish upgrading them!
 
@@ -45,3 +45,7 @@ cache size	: 4096 KB
 It's a 4 years old CPU. Should be okay I guess if it's not overloaded, shame I didn't test. Linode is on AMD EPYC though, another score in their basket. :)
 
 Okay, so what's next? Fortunately enough they guarantee 14 days money back. It's through a ticket and not an automated button. They asked me why and after being provided with hdparm output proposed to "recreate the server in another location that will provide better performance". I declined and received a notification that my refund is processed. Money had arrived quickly, so that's a plus.
+
+## Conclusion
+
+Do not recommend. :)
