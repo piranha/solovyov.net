@@ -163,7 +163,7 @@
       query.set('author', editor);
     }
 
-    fetch(url + query.toString())
+    fetch(URL + '?' + query.toString())
       .then(x => x.json())
       .then(x => x.rows && renderComments(x.rows));
   }
