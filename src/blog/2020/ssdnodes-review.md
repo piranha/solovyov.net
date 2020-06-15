@@ -11,7 +11,7 @@ The next day I discovered that "sale" was restarted (again "only XX hours left!"
 
 ## Next episode
 
-Fast forward a few months and finally I had something to do for a box of this size! So I went and bought one "on sale" for 89 err 139$.
+Fast forward a few months and finally I had something to do for a box of this size! So I went and bought one "on sale" for $89 err $139.
 
 It provisioned just well, gave me an IP and a root password, and away we go! I logged in my brand new Ubuntu 20.04: `apt update` reported 3 packages due for an upgrade. During `apt upgrade` I noticed that new kernels (especially their headers) became big: it took noticeable time to finish upgrading them!
 
@@ -19,13 +19,21 @@ Then the actual task: I went to download GraalVM release from Github. And that's
 
 Wow. Where's my promised 10 Gbps network? That looks worse than my home connection!
 
-And then `tar xf` took an infinite amount of time. Like, all of time in the world. So I googled how to check disk speed and came back with `hdparm` - haven't touched that tool since the early 00s. :)
+And then `tar xf` took an infinite amount of time. Like, all of the time in the world. So I googled how to check disk speed and came back with `hdparm` - haven't touched that tool since the early '00s. :)
 
 Okay, so this is how hdparm looks on Linode:
 
+```no-highlight
+root@sirius ~> hdparm -Tt /dev/sda
+
+/dev/sda:
+ Timing cached reads:   16554 MB in  1.99 seconds = 8317.67 MB/sec
+ Timing buffered disk reads: 3136 MB in  3.01 seconds = 1040.39 MB/sec
+```
+
 That is good results I think. This is how it looks on SSDNodes:
 
-```
+```no-highlight
 root@rigel:~# hdparm -Tt /dev/sda
 
 /dev/sda:
@@ -34,9 +42,9 @@ SG_IO: bad/missing sense data, sb[]:  70 00 05 00 00 00 00 0a 00 00 00 00 20 00 
  Timing buffered disk reads: 310 MB in  3.03 seconds = 102.39 MB/sec
 ```
 
-NVMe my ass! That is stone age speeds! Also, what is this stuff about missing sense data?.. I didn't even try to benchmark CPU, just looked at `/proc/cpuinfo`, there were 4 of those:
+NVMe my ass! Those are stone age speeds! Also, what is this stuff about missing sense data?.. I didn't even try to benchmark CPU, just looked at `/proc/cpuinfo`, there were 4 of those:
 
-```
+```no-highlight
 model name	: Intel(R) Xeon(R) CPU E5-2650 v4 @ 2.20GHz
 cpu MHz		: 2199.998
 cache size	: 4096 KB
