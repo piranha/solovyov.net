@@ -1,0 +1,21 @@
+#!/bin/sh
+
+TARGET="$1"; shift
+VERSION="$1"; shift
+CURRENT=$(test -f "$TARGET" && "$TARGET" -V | cut -d ' ' -f 2)
+
+case "$(uname -s)" in
+    Darwin) ARCH=mac;;
+    Linux)  ARCH=linux;;
+    *)      ARCH=win.exe
+esac
+
+if [ "$VERSION" != "$CURRENT" ]; then
+    echo " ---> Downloading gostatic $VERSION $ARCH"
+    DIR=$(dirname "$TARGET")
+    mkdir -p "$DIR"
+    curl -Lso "$TARGET" "https://github.com/piranha/gostatic/releases/download/$VERSION/gostatic-64-$ARCH"
+    chmod +x "$TARGET"
+fi
+
+exec "$TARGET" "$@"

@@ -1,3 +1,4 @@
 /www
 /node_modules
+/_bin
 .DS_Store

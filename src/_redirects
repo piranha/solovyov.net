@@ -1,0 +1,15 @@
+# -*- mode: conf -*-
+# redirects for netlify
+
+/blog/feed/ /blog.atom
+/feeds/.* /blog.atom
+/blog/feed.atom /blog.atom
+/en/feed.atom /blog.atom
+/en.atom /blog.atom
+/blog/sz/* /sz/
+
+/blog/:year/:month/:day/:slug /blog/:year/:slug
+/en/:year/:month/:day/:slug /blog/:year/:slug
+
+/en/* /blog/:splat
+/about/ /

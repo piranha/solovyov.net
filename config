@@ -98,7 +98,7 @@ static/*.css:
 	ignore
 
 static/stuff.js:
-	:closure-compiler
+	:google-closure-compiler
 
 \#*:
 	ignore

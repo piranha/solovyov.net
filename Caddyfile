@@ -28,7 +28,7 @@ solovyov.net {
   redir /blog/feed/ /blog.atom permanent
   redir /feeds/.* /blog.atom permanent
   redir /blog/feed.atom /blog.atom permanent
-  redir /en/feed.atom /en.atom permanent
+  redir /en/feed.atom /blog.atom permanent
   redir /blog/sz/* /sz/ permanent
 
   # drop date
