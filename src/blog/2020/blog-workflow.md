@@ -8,7 +8,7 @@ A long time ago I had a blog that had an admin interface. That ended 10 years ag
 
 A few months ago I found an app - [Drafts.app](https://getdrafts.com/) - which I love to use. It's good for notes and for longer texts, and, important for my use case, it's very usable on a phone. Since what I do lately is instead of sitting in front of my laptop, I write texts while waiting for my son to fall asleep. The longer it takes, the more I can type. :)
 
-So I type a post of iPhone, then go to a laptop, open Drafts there, copy text to Emacs, commit to git, push it to my server and send a link to post for review to friends. 
+So I type a post on iPhone, then go to a laptop, open Drafts there, copy text to Emacs, commit to git, push it to my server and send a link to post for review to friends. 
 
 It works, but is a little tedious. I hate supporting processes and this is exactly it. 
 
