@@ -48,7 +48,7 @@ Take Django's class-based views. I remember participating in hot debates back wh
 
 If that was the only problem! Let's not forget that now your base class internal implementation is your API now. For every child class! Change something in the base class and risk whole codebase being derailed with bugs. 
 
-In my opinion, object oriented programming was a lie. But other parts of it at the very least are not actively harmful. Inheritance is.
+In my opinion, object oriented programming is a lie. But other parts of it at the very least are not actively harmful. Inheritance is.
 
 ### Brave new world
 
