@@ -11,7 +11,7 @@ So I type a post on iPhone, then go to a laptop, open Drafts there, copy text to
 
 It works, but is a little tedious. I hate supporting processes and this is exactly it. 
 
-But fortunately, you can write actions for Drafts in JavaScript! So I wrote two: one adds gostatic header to a post (title and date, and updates that date if you call it again). The second one - and this is beautiful - converts title to slug and commits a file to Github!
+But fortunately, you can write actions for Drafts in JavaScript! So I wrote two: [one](https://actions.getdrafts.com/a/104) adds gostatic header to a post (title and date, and updates that date if you call it again). [The second](https://actions.getdrafts.com/a/105) one - and this is beautiful - converts title to slug and commits a file to Github!
 
 I don't know if you're excited yet, but it's great! I can do this from my phone, not touching my laptop at all. Fixing errors and retyping sentences is low friction now, so when somebody points out a bug in a text I don't get irritated. :)
 
