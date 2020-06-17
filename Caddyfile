@@ -68,7 +68,7 @@ solovyov.net {
   # changed urls
   redir /opster/ https://github.com/piranha/opster/ permanent
   redir /cyrax/ https://github.com/piranha/cyrax/ permanent
-  redir /about/ / permanent;
+  redir /about/ / permanent
   redir /slides/18-09-15-highload/ /slides/18-09-15-make-it-fast/ permanent
 
   log {
