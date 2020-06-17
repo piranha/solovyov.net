@@ -25,6 +25,12 @@ solovyov.net {
     file_server browse
   }
 
+  @webhook {
+    remote_ip 192.30.252.0/22 185.199.108.0/22 140.82.112.0/20
+    path /webhook
+  }
+  reverse_proxy @webhook localhost:5002
+
   redir /blog/feed/ /blog.atom permanent
   redir /feeds/.* /blog.atom permanent
   redir /blog/feed.atom /blog.atom permanent
