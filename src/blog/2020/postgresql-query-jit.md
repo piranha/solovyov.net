@@ -1,7 +1,6 @@
 title: PostgreSQL query JIT
 date: 2020-06-23
 tags: postgresql, programming
-draft: true
 ----
 
 We're proud users of PostgreSQL. Proud in a sense we're really glad that our main data store is such a stable, performant, introspective and overall great DBMS. It's been very reliable for us and in times of turbulence made it possible to understand what the issue is. Overall, I love it. 
