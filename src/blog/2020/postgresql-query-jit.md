@@ -23,7 +23,7 @@ At 6:40, when I was woken up, site barely moved. We tracked slowdown to a very p
 
 And what was wrong? Query plan for this query was so wildly weird that we've tried to use our intuition first and just disabled non-critical parts which we knew were heavy. This improved our mean API timings from 10s to 5s. Which is still strictly in "site is unresponsive" category.
 
-Okay, back to investigation. Explain for that query was the same as on pg10, but explain analyze said that 12.9s of 13s of execution (API timings are lower because of caches) are spent on joining `auth_user` and `user_userprofile`. We're an ex-Django site and that means some peculiarities in database design. For example, having a table called `product_product`, or that stuff where `auth_user` is a table about users and `user_userprofile` is about users data. So the interesting part of query explain plan looks like this:
+Okay, back to investigation. Explain for that query was the same as on pg10, but explain analyze said that 12.9s of 13s of execution (API timings are lower because of caches) are spent on joining `auth_user` and `user_userprofile`. We're an ex-Django site and that means some peculiarities in database design. For example, having a table called `product_product`, or that stuff where `auth_user` is a table about users and `user_userprofile` is about users data. So the interesting part of the query plan looks like this:
 
 ```
 ->  Nested Loop  (cost=0.86..12.89 rows=1 width=310) (actual time=13708.286..13708.290 rows=1 loops=1)
@@ -33,7 +33,7 @@ Okay, back to investigation. Explain for that query was the same as on pg10, but
             Index Cond: (user_id = 7002298)
 ```
 
-What is the magic here? How does `0.08 + 0.1` results in `13708`? Is this the real life or is this just fantasy? We've spent pondering on that question close to half an hour until [Vsevolod](https://vsevolod.net) woke up and told me there is a JIT report at the end of the query plan:
+What is the magic here? How does `0.08 + 0.1` results in `13708`? Is this the real life or is this just fantasy? We've spent half an hour pondering on that question until [Vsevolod](https://vsevolod.net) woke up and told me there is a JIT report at the end of the query plan:
 
 ```
  Planning Time: 2.515 ms
