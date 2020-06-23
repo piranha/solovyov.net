@@ -6,9 +6,9 @@ draft: true
 
 We're proud users of PostgreSQL. Proud in a sense we're really glad that our main data store is such a stable, performant, introspective and overall great DBMS. It's been very reliable for us and in times of turbulence made it possible to understand what the issue is. Overall, I love it. 
 
-We were on 10.x since ages - upgraded a month after it came out. We did a regular, old school upgrade, using `pg_upgrade`. You see, one of PG traits is that on-disk data layout changes is different between major versions. That means that version 10 can't work with data from version 9 (and vice versa) and you have to convert the data to run a new version. It's a PITA, but gives you time to test and see if everything is okay, etc. 
+We were on 10.x since ages - upgraded a month after it came out. We did a regular old school upgrade using `pg_upgrade`. You see, one of PG traits is that on-disk data layout changes is different between major versions. That means that version 10 can't work with data from version 9 (and vice versa) and you have to convert the data to run a new version. It's a PITA, but gives you time to test and see if everything is okay, etc. 
 
-But when 11th came out something stopped us from upgrading. I don't really remember what. Plus around that time we started using [pglogical](https://www.2ndquadrant.com/en/resources/pglogical/) for purpose of having, for example, an analytical replica. Or a partial replica to speed up something. And our idea of next major upgrade was to use logical replication to copy data from our master to new node with newer PostgreSQL. That is one of cool features of logical replication, that you can replicate data between nodes with different major versions. 
+But when 11th came out something stopped us from upgrading. I don't really remember what. Plus around that time we started using [pglogical](https://www.2ndquadrant.com/en/resources/pglogical/) for purpose of having, for example, an analytical replica. Or a partial replica to speed up something. And our idea of next major upgrade was to use logical replication to copy data from our master to new node with newer PostgreSQL. It's one of the cool features of logical replication - you can replicate data between nodes with different major versions. 
 
 Then pg12 came out. It was a great (as always) release, with a lot of performance improvements (CTE is not an optimization fence anymore, woohoo!), plus JIT was improved and enabled by default, and some new exciting features (jsonpath anyone?). And we're an experienced users of logical replication now. 
 
@@ -24,7 +24,7 @@ At 6:40, when I was woken up, site barely moved. We tracked slowdown to a very p
 
 And what was wrong? Query plan for this query was so wildly weird that we've tried to use our intuition first and just disabled non-critical parts which we knew were heavy. This improved our mean API timings from 10s to 5s. Which is still strictly in "site is unresponsive" category.
 
-Okay, back to investigation. Explain for that query was the same as on pg10, but explain analyze said that 12.9s of 13s of execution (API timings are lower because of caches) are spent on joining `auth_user` and `user_userprofile`. We're a ex-Django site and that means some peculiarities in database design. For example, having a table called `product_product`, or that stuff where `auth_user` is a table about users and `user_userprofile` is about users data. So the interesting part of query explain plan looks like this:
+Okay, back to investigation. Explain for that query was the same as on pg10, but explain analyze said that 12.9s of 13s of execution (API timings are lower because of caches) are spent on joining `auth_user` and `user_userprofile`. We're an ex-Django site and that means some peculiarities in database design. For example, having a table called `product_product`, or that stuff where `auth_user` is a table about users and `user_userprofile` is about users data. So the interesting part of query explain plan looks like this:
 
 ```
 ->  Nested Loop  (cost=0.86..12.89 rows=1 width=310) (actual time=13708.286..13708.290 rows=1 loops=1)
@@ -51,6 +51,6 @@ JIT got disabled. API response timings dropped from 5s to whatever they are norm
 
 ## Conclusion
 
-We should have tested more. Also, we need more monitoring to see that one query became too slow. Also, too bad we skipped pg11, since we would have enabled JIT with a 100% probability and this issue would've been really easy to identify.
+We should have tested more. Also, we need more monitoring to see that one query became too slow. I've been thinking that not skipping PG11 would've helped to test JIT and identify this issue early. OTOH it seems it wasn't that straightforward to enable.
 
 With all that said, I can't shake off the feeling that JIT being enabled by default is a bit too early.
