@@ -46,7 +46,7 @@ What is the magic here? How does `0.08 + 0.1` results in `13708`? Is this the re
 
 I blame this on both being too sleepy (being woken up in the wrong sleep phase is a pain) and having absolutely zero experience with JIT. Somehow this `Optimizations` word has captured my attention and I've spent quite a bit of time reading up on new optimizations in PostgreSQL and how to disable them. No idea why `Emission` did not have my attention - I guess its time just didn't come yet. :-) 
 
-JIT got disabled. API response timings dropped from 5s to whatever they are normally. Things went back to normal.
+JIT got disabled. API response timings dropped from 5s to whatever they are normally. Things went back to usual state.
 
 ## Conclusion
 
