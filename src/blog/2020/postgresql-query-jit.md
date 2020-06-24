@@ -48,6 +48,21 @@ I blame this on both being too sleepy (being woken up in the wrong sleep phase i
 
 JIT got disabled. API response timings dropped from 5s to whatever they are normally. Things went back to usual state.
 
+## Reasons
+
+Discussion on [lobste.rs](https://lobste.rs/s/r6ydjp/postgresql_query_jit) was coming to a conclusion that 14 seconds is too much for a JIT and maybe we triggered some bug in PostgreSQL. So I went up to reproduce this, but with more verbose query plan (literally `explain (analyze, verbose, buffers) ...`). And got this:
+
+```
+ Planning Time: 2.240 ms
+ JIT:
+   Functions: 101
+   Options: Inlining false, Optimization false, Expressions true, Deforming true
+   Timing: Generation 13.719 ms, Inlining 0.000 ms, Optimization 3.280 ms, Emission 83.755 ms, Total 100.753 ms
+ Execution Time: 102.812 ms
+```
+
+My first reaction was of course "argh it fixed itself or what?!" But then it hit me: this is one of the most frequent queries in our database and JIT adding 100 ms of CPU time (because just in time compilation for sure is not some I/O wait) put such a massive load on our CPUs that eventually that 100 ms went up to being 14 seconds.
+
 ## Conclusion
 
 We should have tested more. Also, we need more monitoring to see that one query became too slow. I've been thinking that not skipping PG11 would've helped to test JIT and identify this issue early. OTOH it seems it wasn't that straightforward to enable.
