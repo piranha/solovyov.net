@@ -11,7 +11,7 @@ But when 11th came out something stopped us from upgrading (I don't remember wha
 
 Then pg12 came out. It was a great (as always) release, with a lot of performance improvements (CTE is not an optimization fence anymore, woohoo!), plus JIT was improved and enabled by default, and some new exciting features (jsonpath anyone?). And we're experienced users of logical replication now. 
 
-It is time to upgrade then, right? Not so fast, amigo. 2ndQuadrant, authors of pglogical, were not sure if they should update for the new version of pg. I guess because there is a built-in one now? No idea, but they reconsidered (or something, I'm not in the loop, unfortunately) and we got a new release of pglogical for pg12.
+It is time to upgrade then, right? Not so fast, amigo. 2ndQuadrant, authors of pglogical, had some problems with rolling out new release for pg12. I don't know details here, but after some time they figured stuff out and February saw release of pglogical 2.3.
 
 Cool! So after weeks of preparation on one uneventful (so far) night of 16th of April, a designated person did a migration. Well, a migration was done by logical replication before, so he switched pgbouncer to the new main db. 
 
