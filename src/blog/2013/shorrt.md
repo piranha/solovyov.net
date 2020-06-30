@@ -1,6 +1,6 @@
 title: Шоррткаты
 date: 2013-07-07
-tags: programming, osx
+tags: programming, macos
 favorite: true
 ----
 
@@ -38,3 +38,5 @@ DDHotKey и она жрëт 9 мегов вместо 4, но ладно, не 8
 маленькую утилитку - я буду очень-очень рад. :)
 
 Enjoy! ;)
+
+**UPD 2020**: использую для этого Hammerspoon уже несколько лет. :-)

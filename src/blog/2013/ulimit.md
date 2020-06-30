@@ -1,6 +1,7 @@
 title: Mac OS X: too many open files
 date: 2013-01-21
-tags: osx, gostatic
+tags: macos, gostatic
+alternate: <link rel="alternate" hreflang="en" href="../macos-too-many-open-files/" />
 ----
 
 Иногда на Макоси возникает такая ошибка, и я боролся с ней разными способами:
@@ -20,7 +21,7 @@ tags: osx, gostatic
 
     ulimit -S -n 4096
 
-Помогло.
+помогло.
 
 Для информации: проведенными позже экспериментами было установлено, что
 максимальное количество файлов на 1 процесс - 249 включительно.

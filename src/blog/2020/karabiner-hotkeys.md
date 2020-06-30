@@ -1,6 +1,6 @@
 title: Switching languages with Karabiner
 date: 2020-01-04
-tags: software, mac
+tags: software, macos
 favorite: true
 ----
 
