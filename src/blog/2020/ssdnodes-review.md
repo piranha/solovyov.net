@@ -52,8 +52,12 @@ cache size	: 4096 KB
 
 It's a 4 years old CPU. Should be okay I guess if it's not overloaded, shame I didn't test. Linode is on AMD EPYC though, another score in their basket. :)
 
+## The end
+
 Okay, so what's next? Fortunately enough they guarantee 14 days money back. It's through a ticket and not an automated button. They asked me why and after being provided with hdparm output proposed to "recreate the server in another location that will provide better performance". I declined and received a notification that my refund is processed. Money had arrived quickly, so that's a plus.
+
+I'm little bit unhappy that I didn't search for `ssdnodes review` before doing anything, I think finding [this post](https://www.blogtipstricks.com/ssdnodes-review/) would help me with not giving them my money. :) He's writing they did not refund his credit, that is awful. :( It was a bit better for me, but fortunately I discovered I don't want to be hosted there in a single day.
 
 ## Conclusion
 
-Do not recommend. :)
+Strongly do not recommend. :) Go to Linode, Digital Ocean, Hetzner, whatever! I don't know, to somebody who's in a business of hosting and servers rather than generation of fake sales.
