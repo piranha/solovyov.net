@@ -16,7 +16,7 @@
   <link rel="alternate" type="application/atom+xml"
         title="{{ .Site.Other.Title }}" href="https://solovyov.net/blog.atom">
 
-  <title>{{ if .Other.Fulltitle }}{{ .Other.Fulltitle}}{{ else }}{{ .Site.Other.Title }}{{ if .Title }}: {{ .Title }}{{ end }}{{ end }}</title>
+  <title>{{ some .Title .Site.Other.Title }}</title>
 
   {{ if .Other.Img }}
   <meta property="og:image" content="{{ .Other.Img }}">
