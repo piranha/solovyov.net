@@ -1,6 +1,7 @@
 title: Inheritance considered harmful
 date: 2020-05-10
 tags: programming, python, clojure
+favorite: true
 ----
 
 Many years ago I was a Python developer. That is, the only language I knew well was Python. I had some perspective though - via Perl, Elisp, C# and bits of others. And it's not like I didn't see any problems, but I embraced Python by heart and accepted these problems as a payment for being able to enjoy its benefits. That's the way to live though! :)
