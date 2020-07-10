@@ -1,6 +1,6 @@
 title: Clojure, GraalVM, PolyglotVM: paste.in.ua
 date: 2020-07-10
-tags: 
+tags: programming
 draft: true
 ----
 
