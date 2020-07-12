@@ -6,7 +6,7 @@
   <updated>{{ .First.Date.Format "2006-01-02T15:04:05Z07:00" }}</updated>
   {{ end }}
   <author><name>{{ .Site.Other.Author }}</name></author>
-  <link href="{{ .Site.Other.Url }}blog/" rel="alternate"></link>
+  <link href="{{ .Site.Other.Url }}" rel="alternate"></link>
   <link href="{{ .Site.Other.Url }}{{ .Url }}"></link>
   <generator uri="http://github.com/piranha/gostatic/">gostatic</generator>
 
