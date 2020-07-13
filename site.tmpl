@@ -70,12 +70,10 @@
 
 
 {{ define "post" }}
-<article itemscope itemtype="https://schema.org/BlogPosting" class="h-entry">
-  <meta itemprop="mainEntityOfPage" content=".">
-
+<article itemscope itemtype="https://schema.org/Article" class="h-entry">
   <header>
-    <h1 itemprop="headline" class="p-name">
-      {{ .Title }}
+    <h1 class="p-name">
+      <span itemprop="headline">{{ .Title }}</span>
       {{ if .Other.Draft }} <span class="cg">(draft)</span>{{ end }}
       <a href="/{{ .Url }}" class="u-url u-uid">#</a>
     </h1>
