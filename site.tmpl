@@ -18,6 +18,7 @@
     {{ with cut "<section[^>]+>" "</section>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
   {{- end }}">
 
+  <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Site.Other.Url }}{{ .Url }}">
   <meta property="og:title" content="{{ some .Title .Site.Other.Title }}">
   <meta property="og:description" content="{{ if .Other.Description -}}
