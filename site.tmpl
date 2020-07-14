@@ -4,27 +4,34 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="author" content="{{ .Site.Other.Author }}">
-  <meta name="keywords" content="alexander solovyov, piranha, python, mercurial, django, emacs, golang, sqlalchemy">
-  <meta name="description" content="{{ if .Other.Description }}
-    {{ .Other.Description }}
-  {{ else if contains "<section>" .Content }}
-    {{ with cut "<section>" "</section>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
-  {{ end }}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="alternate" type="application/atom+xml"
-        title="{{ .Site.Other.Title }}" href="https://solovyov.net/blog.atom">
+        title="{{ .Site.Other.Title }}" href="{{ .Site.Other.Url }}blog.atom">
 
   <title>{{ some .Title .Site.Other.Title }}</title>
+  <meta name="author" content="{{ .Site.Other.Author }}">
+  <meta name="keywords" content="alexander solovyov, piranha, python, mercurial, django, emacs, golang, sqlalchemy">
+  <meta name="description" content="{{ if .Other.Description -}}
+    {{ .Other.Description }}
+  {{- else if contains "<section " .Content -}}
+    {{ with cut "<section[^>]+>" "</section>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
+  {{- end }}">
 
-  {{ if .Other.Img }}
-  <meta property="og:image" content="{{ .Other.Img }}">
-  {{ else }}
-  <meta property="og:image" content="{{ version . "static/logo.png" }}">
-  {{ end }}
-
-  <link rel="author" href="https://solovyov.net/about/">
+  <meta property="og:url" content="{{ .Site.Other.Url }}{{ .Url }}">
+  <meta property="og:title" content="{{ some .Title .Site.Other.Title }}">
+  <meta property="og:description" content="{{ if .Other.Description -}}
+    {{ .Other.Description }}
+  {{- else if contains "<section" .Content -}}
+    {{ with cut "<section[^>]+>" "</section>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
+  {{- end }}">
+  {{ if .Other.Img -}}
+  <meta property="og:image" content="{{ .Site.Other.Url }}{{ .Other.Img }}">
+  {{- else -}}
+  <meta property="og:image" content="{{ .Site.Other.Url }}{{ version . "static/logo.png" | replace "../" "" }}">
+  <meta property="og:image:width" content="490">
+  <meta property="og:image:height" content="162">
+  {{- end }}
 
   <link rel="openid2.provider" href="https://openid.stackexchange.com/openid/provider">
   <link rel="openid2.local_id" href="https://openid.stackexchange.com/user/76e7488b-6c80-4941-8f5a-0e4ba7c6b592">
