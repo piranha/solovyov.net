@@ -1,6 +1,7 @@
 title: Blog workflow
 date: 2020-06-16
 tags: blog, programming
+favorite: true
 ----
 
 A long time ago I had a blog that had an admin interface. That ended 10 years ago, and it's been Emacs and git since then. Until yesterday!
