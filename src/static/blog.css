@@ -125,8 +125,8 @@ h1 a:hover {
   text-decoration: none;
 }
 
-h1[itemprop="headline"] a.u-url { display: none; }
-h1[itemprop="headline"]:hover a.u-url { display: inline; }
+h1 a.u-url { display: none; }
+h1:hover a.u-url { display: inline; }
 
 
 /* Utility */
