@@ -48,12 +48,13 @@ I really liked intercooler's coherent approach to working around ajax, so I deci
 There are some differences with Intercooler, of course, because why would it exist? The most noticeable one is that there is no dependency on jQuery. It supports only modern browsers (no IE or Opera Mini), but drops that 88kb monster. 
 
 It also has:
-* no inheritance — can't stress that enough!
-* clear extension points for your own directives
-* support for batching requests to server
-* tighter attribute name convention (my own opinion, but `ic-get` and `ic-post` irritate me: do not make me change keys!)
-* much smaller payload (thanks to no jQuery!)
-* should be faster (thanks to no jQuery again)
+
+- no inheritance — can't stress that enough!
+- clear extension points for your own directives
+- support for batching requests to server
+- tighter attribute name convention (my own opinion, but `ic-get` and `ic-post` irritate me: do not make me change keys!)
+- much smaller payload (thanks to no jQuery!)
+- should be faster (thanks to no jQuery again)
 
 Honestly speaking, main reasons are [batching](https://kasta-ua.github.io/twinspark-js/#batch) and [no inheritance](https://solovyov.net/blog/2020/inheritance/). Inheritance is particularly painful here. In Intercooler, if you declared `ic-target` on body, all tags inside body will think it's their target too. So you include a component somewhere in HTML tree and an attribute higher on tree changes this components behaviour. I mean this is a freaking dynamic scope, I want none of that! :)
 
