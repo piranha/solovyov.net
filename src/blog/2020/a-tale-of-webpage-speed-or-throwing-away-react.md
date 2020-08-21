@@ -3,11 +3,11 @@ date: 2020-08-21
 tags: programming, kasta
 draft: true
 ----
-Sometime in the past I happened to get a job writing Backbone.js app. If you never did that, don’t. I was complaining about difficulties with composition left and right to whoever would listen. As I started digging into alternatives for the front-end, I discovered FRP and Flapjax, and ClojureScript. Last one got me hooked on Clojure. I even did a successful talk on FRP and ClojureScript (and precursor to Hoplon, called hlisp).
+Sometime in the past I happened to get a job writing [Backbone.js](https://backbonejs.org/) app. If you never did that, don’t. I was complaining about difficulties with composition left and right to whoever would listen. As I started digging into alternatives for the front-end, I discovered [FRP](https://en.wikipedia.org/wiki/Functional_reactive_programming) and [Flapjax](https://www.flapjax-lang.org/), and [ClojureScript](https://clojurescript.org/). Last one got me hooked on [Clojure](https://clojure.org/). I even did a [successful talk](https://fwdays.com/event/js-frameworks-day-2013/review/Functional-Reactive-Programming-&-ClojureScript) on FRP and ClojureScript (and precursor to [Hoplon](https://hoplon.io/), called hlisp).
 
 ## React
 
-Then in May 2013 React was released. I championed it’s use on my new job and discovered during Clojure-themed hackaton (ClojureDay 2013) that CLJS and React are a great match. What’s so good about React though? To me the main selling point is that it composes really well. 
+Then in May 2013 React was released. I championed it’s use on my new job and discovered during Clojure-themed hackaton ([Clojure Cup 2013](https://solovyov.net/blog/2013/clojurecup/)) that CLJS and React are a great match. What’s so good about React though? To me the main selling point is that it composes really well. 
 
 When you use predecessors like jQuery or Backbone or Angular or whatever after just a year of development your code is a mess of event listeners and triggers. Don't get me started on unobtrusive JS, code locality is non-existent with jQuery. Which handler is bound where and what it does? It’s too hard to discover to be a good base for a good codebase!
 
@@ -17,23 +17,23 @@ So after some experiments, tests and checks, I decided that we’re going React 
 
 ## Demise
 
-And for a while things were looking good. But our frontend grew bigger and bigger, and while there were few attempts on keeping it performant, ultimately we failed. Application became too big, and it’s boot time became too long.
+And for a while things were looking good. But our frontend grew bigger and bigger, and while there were few attempts on keeping it performant, ultimately we failed. The application became too big, and its boot time became too long.
 
-One of the main reasonings back in 2016 were that we take a hit on startup time, but in turn get no page loads and having rich web application with a lot of interactions. And for a while that worked! But startup time became longer and longer, leading to a shameful rating of 5/100 from Google’s PageSpeed.
+One of the main reasonings back in 2016 were that we take a hit on startup time, but in turn get no page loads and have rich web application with a lot of interactions. And for a while that worked! But startup time became longer and longer, leading to a shameful rating of 5/100 from Google’s PageSpeed.
 
-More than that, during doing what is described below, we've discovered that React also leads to a number of questionable practices. Like hovers in JS (rather than in CSS), drop-down menus in JS, not rendering hidden (under a hover) text (Google won't be happy), weird complex logic (since it's possible!), etc. You can have a React app without those problems, but apparently you have to have better self-control than our team had (nobody's perfect!).
+More than that, while doing what is described below, we've discovered that React also leads to a number of questionable practices. Like hovers in JS (rather than in CSS), drop-down menus in JS, not rendering hidden (under a hover) text (Google won't be happy), weird complex logic (since it's possible!), etc. You can have a React app without those problems, but apparently you have to have better self-control than we had (nobody's perfect!).
 
-Also since then the vast majority of our users switched to mobile apps. This made web app a main entry point for new users, and it’s main target now is not serving somebody who uses site often, since she’s on mobile app now. It’s rendering fast for a newcomer so he’s not bouncing away. And TTI is so much more important here. 
+Also since then the vast majority of our users switched to mobile apps. This made web app a main entry point for new users. This means its main goal is rendering fast for a newcomer, because old-timers, which want more functionality, are on mobile app now. And [TTI](https://web.dev/tti/) (time to interactive) is so much more important here. 
 
 ## Time For A Change
 
-So given that circumstances have changed, what do we do? I read articles “how I survive on vanilla JS” since before React appeared and they usually don’t make sense - it’s either a pink-glassed rant about how great it is, disregarding all problems (separation of concerns, cohesion, composability, code locality), or a project by one (or few) person, who just keep everything in their own head. 
+So given that circumstances have changed, what do we do? I read articles “how I survive on vanilla JS” since before React appeared and they usually don’t make sense — it’s either a pink-glassed rant about how great it is, disregarding all the problems (separation of concerns, cohesion, composability, code locality), or a project by one (or few) person, who just keeps everything in their own head. 
 
 Somewhere back in February I stumbled upon [Intercooler.js](https://intercoolerjs.org/). I’m not sure if I ever saw it before — maybe I did, but skimmed over — it does not really matter. This time it captured my attention.
 
-The idea is that all HTML is rendered on the server. And client updates parts of HTML, controlled by element's attributes. Basically like HTML+XHR on steroids. You can’t do anything you want, but that’s partially the point: some limits are good so you won’t do crazy stuff. And you need some support from the server, so you can render partial results (that is an optimization obviously, but an important one). 
+The idea is that all HTML is rendered on the server. And client updates parts of HTML, controlled by element's attributes. Basically like HTML+XHR on steroids. You can’t do anything you want, but that’s partially the point: some limits are good so you won’t do crazy stuff. And you need some support from the server, so you can render partial results — just an optimisation, but quite important one. 
 
-There is an alternative product - [Unpoly](https://unpoly.com/). It has more features around layout and styling, but has a little bit less thought out XHR stuff (hard to do a post request with parameters without having a form, for example). And library size is much bigger. And it's lots of classes in CoffeeScript, [ugh](https://solovyov.net/blog/2020/inheritance/).
+There is an alternative product — [Unpoly](https://unpoly.com/). It has more features around layout and styling, but has a little bit less thought out XHR stuff (hard to do a POST request with parameters without having a form, for example). And the library size is much bigger. And it's written in CoffeeScript with lots of classes, [ugh](https://solovyov.net/blog/2020/inheritance/).
 
 So I made a proof-of-concept implementation of catalogue in Intercooler and it worked! Except there was a dependency on jQuery, and some other irritating stuff... As I was struggling to make a batch request for HTML fragments I understood one thing: when I wrote down a roadmap for catalogue last point was "small intercooler-like thing for analytics". 
 
