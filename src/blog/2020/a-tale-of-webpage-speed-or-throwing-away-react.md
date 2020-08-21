@@ -64,9 +64,9 @@ Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's au
 
 We need to look at it from two sides: if it's good for developers and if it's good for users. React was great at former and terrible at later. 
 
-TwinSpark approach is obviously much better in most cases for the user: less JavaScript, less jankiness, more common HTML-like behaviour. On a worst day we would serve you 2.5mb of minified (non-gzipped) JS and 700 kb of HTML (half of it were initial data for React) for catalogue. Right now it's 40 kb of minified non-gzipped JS (TwinSpark, analytics, some behaviour, IntersectionObserver polyfill) and 350 kb of HTML. An order of magnitude difference! I know iPhones don't care that much, but Androids are so happy! :)
+TwinSpark approach is obviously much better in most cases for the user: less JavaScript, less jankiness, more common HTML-like behaviour. On a worst day we would serve you 2.5mb of minified (non-gzipped) JS and 700 kb of HTML (half of it were initial data for React) for catalogue. Right now it's 40 kb of minified non-gzipped JS (TwinSpark, analytics, some behaviour, IntersectionObserver polyfill) and 350 kb of HTML. Two orders of magnitude difference and even HTML is smaller! This is just like Christmas in childhood!
 
-On the developer side I think React is better still, but code locality is great, composability is much better (since you are forced in a limited world of working in a simplistic model) than with jQuery. Plus there is a lot of ways to improve it. 
+On the developer side I think React is better still, but code locality is great, composability is much better (since you are forced in a limited world of working in a simplistic model) than with jQuery. Plus there are a lot of ways to improve it. 
 
 ## Results
 
