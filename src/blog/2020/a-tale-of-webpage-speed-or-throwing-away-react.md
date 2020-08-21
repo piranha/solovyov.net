@@ -48,14 +48,14 @@ I really liked intercooler's coherent approach to working around ajax, so I deci
 There are some differences with Intercooler, of course, because why would it exist? The most noticeable one is that there is no dependency on jQuery. It supports only modern browsers (no IE or Opera Mini), but drops that 88kb monster. 
 
 It also has:
-- no inheritance - can't stress that enough!
-- clear extension points for your own directives
-- support for batching requests to server
-- tighter attribute name convention (my own opinion, but `ic-get` and `ic-post` irritate me: do not make me change keys!)
-- much smaller payload (thanks to no jQuery!)
-- should be faster (thanks to no jQuery again)
+* no inheritance — can't stress that enough!
+* clear extension points for your own directives
+* support for batching requests to server
+* tighter attribute name convention (my own opinion, but `ic-get` and `ic-post` irritate me: do not make me change keys!)
+* much smaller payload (thanks to no jQuery!)
+* should be faster (thanks to no jQuery again)
 
-Honestly speaking, main reasons are [batching](https://kasta-ua.github.io/twinspark-js/#batch) and [no inheritance](https://solovyov.net/blog/2020/inheritance/). Inheritance is particularly painful here. In Intercooler, if you declared `ic-target` on body, all tags inside body will think it's their target too. So you include a component somewhere in HTML tree and an attribute higher on tree changes this components behaviour. I mean this is freaking dynamic scope, I want none of that! :)
+Honestly speaking, main reasons are [batching](https://kasta-ua.github.io/twinspark-js/#batch) and [no inheritance](https://solovyov.net/blog/2020/inheritance/). Inheritance is particularly painful here. In Intercooler, if you declared `ic-target` on body, all tags inside body will think it's their target too. So you include a component somewhere in HTML tree and an attribute higher on tree changes this components behaviour. I mean this is a freaking dynamic scope, I want none of that! :)
 
 Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's author announced that he's doing an jQuery-less modern version: [htmx](https://htmx.org/). :) It has really good extensions points, so maybe it's possible to add batching... but inheritance is still there. :(
 
@@ -71,4 +71,4 @@ On the developer side I think React is better still, but code locality is great,
 
 It took us four months since first experiments to release. Not exactly an amount of time I imagined when we started ("should take two to three weeks at most!"), heh, but we were not exclusively doing that. It still took a lot of time and energy to remove React-isms from the code and wrangle our app to be a server-side citizen. It still could use some polishing, but we decided to release despite that just to cut it short.
 
-Google gives our catalogue 75/100 now instead of 5. Hurray, I guess? :)
+Google gives our catalogue 75/100 now instead of 5/100. Hurray, I guess? :)
