@@ -1,7 +1,7 @@
 title: Short urls — rev=canonical
 tags: django, byteflow
 date: 2009-04-12
-alternate: <link rel="alternate" hreflang="ru" href="../revcanonical/" />
+alternate: <link rel="alternate" hreflang="ru" href="https://solovyov.net/blog/2009/revcanonical/" /> <link rel="alternate" hreflang="en" href="https://solovyov.net/blog/2009/revcanonical-en/" />
 ----
 
 

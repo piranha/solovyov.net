@@ -2,13 +2,13 @@ tags: python, programming, sql, db
 title:  SQLAlchemy tutorial: how to start
 date: 2011-04-23
 favorite: true
-alternate: <link rel="alternate" hreflang="ru" href="../basic-sqlalchemy/" />
+alternate: <link rel="alternate" hreflang="ru" href="https://solovyov.net/blog/2011/basic-sqlalchemy/" /> <link rel="alternate" hreflang="en" href="https://solovyov.net/blog/2011/basic-sqlalchemy-en/" />
 ----
 
 SQLAlchemy is a best Python ORM by far, and it has really thorough and detailed
 documentation. Being like that has a flip side though: it explains a lot of
 basic concepts right through beginning. I personally find it much easier to
-start with some recipes and examples. Which is why I've decided to write small
+start with some recipes and simple examples. Which is why I've decided to write small
 introductory tutorial: a shortest introduction to SQLAlchemy.
 
 Level 1: hand-written SQL

@@ -1,7 +1,7 @@
 tags: javascript, programming, project
 title:  Showkr - приложение в браузере
 date: 2012-01-13
-alternate: <link rel="alternate" hreflang="en" href="../showkr-en/" />
+alternate: <link rel="alternate" hreflang="ru" href="https://solovyov.net/blog/2013/showkr/" /> <link rel="alternate" hreflang="en" href="https://solovyov.net/blog/2013/showkr-en/" />
 ----
 
 Я за последние пару-тройку недель по вечерам и выходным понемногу сделал

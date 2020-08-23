@@ -1,7 +1,7 @@
 title: MacOS: too many open files
 date: 2013-01-21
 tags: macos, gostatic
-alternate: <link rel="alternate" hreflang="ru" href="../ulimit/" />
+alternate: <link rel="alternate" hreflang="ru" href="https://solovyov.net/blog/2013/ulimit/" /> <link rel="alternate" hreflang="en" href="https://solovyov.net/blog/2013/macos-too-many-open-files/" />
 ----
 
 Sometimes MacOS gives you an error like this. I tried to fix that by whatever

@@ -1,7 +1,7 @@
 tags: javascript, programming, project, showkr
 title:  Showkr - an in-browser application
 date: 2012-02-11
-alternate: <link rel="alternate" hreflang="ru" href="../showkr/" />
+alternate: <link rel="alternate" hreflang="ru" href="https://solovyov.net/blog/2013/showkr/" /> <link rel="alternate" hreflang="en" href="https://solovyov.net/blog/2013/showkr-en/" />
 ----
 
 Some time ago I made quite simple, but (I hope) useful web application

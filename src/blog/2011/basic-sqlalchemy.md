@@ -1,15 +1,15 @@
 tags: python, programming, sql, db
-title:  SQLAlchemy: как втянуться
+title:  SQLAlchemy учебник: как начать
 date: 2011-04-22
 favorite: true
-alternate: <link rel="alternate" hreflang="en" href="../basic-sqlalchemy-en/" />
+alternate: <link rel="alternate" hreflang="ru" href="https://solovyov.net/blog/2011/basic-sqlalchemy/" /> <link rel="alternate" hreflang="en" href="https://solovyov.net/blog/2011/basic-sqlalchemy-en/" />
 ----
 
 SQLAlchemy - очевидно, лучшая ORM для питона, с обширной и подробной
 документацией. У такой документации есть и обратная сторона: вместо быстрого
 введения она подробно объясняет все базовые концепции. Мне лично легче начинать
-с простеньких рецептов и примеров, а не с серьёзных трактатов - поэтому я решил
-написать эдакий недо-учебник, самое короткое введение в SQLAlchemy.
+с небольших рецептов и простых примеров, а не с серьёзных трактатов - поэтому я
+решил написать эдакий недо-учебник, самое короткое введение в SQLAlchemy.
 
 Уровень 1: SQL руками
 ---------------------

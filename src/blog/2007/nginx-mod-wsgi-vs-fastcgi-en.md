@@ -1,7 +1,7 @@
 title: Nginx + Django: mod_wsgi vs FastCGI
 tags: nginx, django, wsgi, fastcgi, performance
 date: 2007-11-24
-alternate: <link rel="alternate" hreflang="ru" href="../nginx-mod-wsgi-vs-fastcgi/" />
+alternate: <link rel="alternate" hreflang="ru" href="https://solovyov.net/blog/2007/nginx-mod-wsgi-vs-fastcgi/" /> <link rel="alternate" hreflang="en" href="https://solovyov.net/blog/2007/nginx-mod-wsgi-vs-fastcgi-en/" />
 ----
 
 (Translation of my previous [post][1]).

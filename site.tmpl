@@ -8,6 +8,7 @@
 
   <link rel="alternate" type="application/atom+xml"
         title="{{ .Site.Other.Title }}" href="{{ .Site.Other.Url }}blog.atom">
+  {{ if .Other.Alternate }}{{ .Other.Alternate }}{{ end }}
 
   <title>{{ some .Title .Site.Other.Title }}</title>
   <meta name="author" content="{{ .Site.Other.Author }}">

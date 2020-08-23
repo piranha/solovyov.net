@@ -2,7 +2,7 @@ title: Translating in-browser applications
 date: 2013-04-24
 tags: i18n, javascript
 favorite: true
-alternate: <link rel="alternate" hreflang="ru" href="../i18n/" />
+alternate: <link rel="alternate" hreflang="ru" href="https://solovyov.net/blog/2013/i18n/" /> <link rel="alternate" hreflang="en" href="https://solovyov.net/blog/2013/i18n-en/" />
 ----
 
 Earlier or later, if an application is not targeted on an English-speaking

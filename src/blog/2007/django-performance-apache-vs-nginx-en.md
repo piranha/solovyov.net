@@ -1,7 +1,7 @@
 title: Django performance: Apache vs Nginx
 tags: apache, nginx, django, wsgi, fastcgi, performance
 date: 2007-12-01
-alternate: <link rel="alternate" hreflang="ru" href="../django-performance-apache-vs-nginx/" />
+alternate: <link rel="alternate" hreflang="ru" href="https://solovyov.net/blog/2007/django-performance-apache-vs-nginx/" /> <link rel="alternate" hreflang="en" href="https://solovyov.net/blog/2007/django-performance-apache-vs-nginx-en/" />
 ----
 
 Just a week ago I have [compared][1] performance and stability of nginx working
