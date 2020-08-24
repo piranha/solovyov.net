@@ -3,7 +3,7 @@ date: 2020-08-24
 tags: programming, javascript, kasta
 ----
 
-Sometime in the past, I happened to get a job writing [Backbone.js](https://backbonejs.org/) app. If you never did that, don’t. I was complaining about difficulties with composition left and right to whoever would listen. As I started digging into alternatives for the front-end, I discovered [FRP](https://en.wikipedia.org/wiki/Functional_reactive_programming) and [Flapjax](https://www.flapjax-lang.org/), and [ClojureScript](https://clojurescript.org/). The last one got me hooked on [Clojure](https://clojure.org/). I even did a [successful talk](https://fwdays.com/event/js-frameworks-day-2013/review/Functional-Reactive-Programming-&-ClojureScript) on FRP and ClojureScript (and precursor to [Hoplon](https://hoplon.io/), called hlisp).
+Back in 2011, I happened to get a job writing [Backbone.js](https://backbonejs.org/) app. If you never did that, don’t. I was complaining about difficulties with composition left and right to whoever would listen. As I started digging into alternatives for the front-end, I discovered [FRP](https://en.wikipedia.org/wiki/Functional_reactive_programming) and [Flapjax](https://www.flapjax-lang.org/), and [ClojureScript](https://clojurescript.org/). The last one got me hooked on [Clojure](https://clojure.org/). I even did a [successful talk](https://fwdays.com/event/js-frameworks-day-2013/review/Functional-Reactive-Programming-&-ClojureScript) on FRP and ClojureScript (and precursor to [Hoplon](https://hoplon.io/), called hlisp).
 
 ## React
 
@@ -70,6 +70,6 @@ On the developer side, I think React is better still, but code locality is great
 
 ## Results
 
-It took us four months since the first experiments to release. Not exactly the amount of time I imagined when we started ("should take two to three weeks at most!"), heh, but we were not exclusively doing that. It still took a lot of time and energy to remove React-isms from the code and wrangle our app to be a server-side citizen. It still could use some polishing, but we decided to release it despite that just to cut it short.
+It took us four months since the first experiments to release. Not exactly the amount of time I imagined when we started ("should take two to three weeks at most!"), heh, but we were not exclusively doing that. It still took a lot of time and energy to remove React-isms from the code and wrangle our app to be a server-side citizen. It still could use some polishing, but we decided to release it despite that just to cut it short. And A/B test showed that we were right - especially for Android phones.
 
 Google gives our catalogue 75/100 now instead of 5/100. Hurray, I guess? :)
