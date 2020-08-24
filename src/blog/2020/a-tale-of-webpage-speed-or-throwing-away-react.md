@@ -19,7 +19,7 @@ So after some experiments, tests, and checks, I decided that we’re going React
 
 And for a while, things were looking good. But our frontend grew bigger and bigger, and while there were few attempts on keeping it performant, ultimately we failed. The application became too big, and its boot time became too long.
 
-One of the main reasonings back in 2016 was that we take a hit on startup time, but in turn, get no page loads and have a rich web application with a lot of interactions. And for a while that worked! But startup time became longer and longer, leading to a shameful rating of 5/100 from Google’s PageSpeed.
+One of the main reasonings back in 2016 was that we take a hit on startup time, but in turn, get no page loads and have a rich web application with a lot of interactions. And for a while that worked! But startup time became longer and longer, leading to a shameful rating of 5/100 from Google’s PageSpeed (okay, it was sometimes up to ~25/100, whatever).
 
 More than that, while doing what is described below, we've discovered that React also leads to some questionable practices. Like hovers in JS (rather than in CSS), drop-down menus in JS, not rendering hidden (under a hover) text (Google won't be happy), weird complex logic (since it's possible!), etc. You can have a React app without those problems, but apparently, you have to have better self-control than we had (nobody's perfect!).
 
