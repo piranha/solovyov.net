@@ -1,7 +1,6 @@
 title: A tale of webpage speed, or throwing away React
-date: 2020-08-21
-tags: programming, kasta
-draft: true
+date: 2020-08-24
+tags: programming, javascript, kasta
 ----
 
 Sometime in the past, I happened to get a job writing [Backbone.js](https://backbonejs.org/) app. If you never did that, don’t. I was complaining about difficulties with composition left and right to whoever would listen. As I started digging into alternatives for the front-end, I discovered [FRP](https://en.wikipedia.org/wiki/Functional_reactive_programming) and [Flapjax](https://www.flapjax-lang.org/), and [ClojureScript](https://clojurescript.org/). The last one got me hooked on [Clojure](https://clojure.org/). I even did a [successful talk](https://fwdays.com/event/js-frameworks-day-2013/review/Functional-Reactive-Programming-&-ClojureScript) on FRP and ClojureScript (and precursor to [Hoplon](https://hoplon.io/), called hlisp).
