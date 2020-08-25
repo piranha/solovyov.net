@@ -17,7 +17,9 @@ So after some experiments, tests, and checks, I decided that we’re going React
 
 ## Demise
 
-And for a while, things were looking good. But our frontend grew bigger and bigger, and while there were few attempts on keeping it performant, ultimately we failed. The application became too big, and its boot time became too long.
+And for a while, things were looking good. We had this [architecture](https://solovyov.net/blog/2017/server-side-rendering/) where our components are executed as Clojure on the backend, so no Node.js on the server, hurray! And developer UX is through the roof with excellent live reload (thanks CLJS), ability to connect from your editor to browser REPL and experiment there. It is just great!
+
+To make long story short, our frontend grew bigger and bigger. Incremental compilation started to become slower — it now routinely takes more than a second or two. And while there were few attempts on keeping whole app performant, ultimately we failed. It's a death by thousand cuts. The application became too big, and its boot time became too long.
 
 One of the main reasonings back in 2016 was that we take a hit on startup time, but in turn, get no page loads and have a rich web application with a lot of interactions. And for a while that worked! But startup time became longer and longer, leading to a shameful rating of 5/100 from Google’s PageSpeed (okay, it was sometimes up to ~25/100, whatever).
 
@@ -68,8 +70,10 @@ TwinSpark approach is much better in most cases for the user: less JavaScript, l
 
 On the developer side, I think React is better still, but code locality is great, composability is much better (since you are forced in a limited world of working in a simplistic model) than with jQuery. Plus there are a lot of ways to improve it. 
 
+Good news is that development process did not change that much! We're still writing components which query necessary data from site-wide memory store (and make a call to API when needed), but they are executed only on the server. We effectively piggy-backend on our previous architecture, and this gives us perfect ability to render "partial" HTML - since components do not wait for some "controller" to give them all necessary data. This is what allowed us to have both React and non-React versions to co-exist and make an A/B test without writing the markup twice.
+
 ## Results
 
-It took us four months since the first experiments to release. Not exactly the amount of time I imagined when we started ("should take two to three weeks at most!"), heh, but we were not exclusively doing that. It still took a lot of time and energy to remove React-isms from the code and wrangle our app to be a server-side citizen. It still could use some polishing, but we decided to release it despite that just to cut it short. And A/B test showed that we were right - especially for Android phones.
+It took us four months since the first experiments to release. Not exactly the amount of time I imagined when we started ("should take two to three weeks at most!"), heh, but we were not exclusively doing that. It still took a lot of time and energy to remove React-isms from the code and wrangle our app to be a server-side citizen. It still could use some polishing, but we decided to release it despite that just to cut it short. And A/B test showed that we were right — especially for Android phones.
 
 Google gives our catalogue 75/100 now instead of 5/100. Hurray, I guess? :)
