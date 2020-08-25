@@ -17,9 +17,9 @@ So after some experiments, tests, and checks, I decided that we’re going React
 
 ## Demise
 
-And for a while, things were looking good. We had this [architecture](https://solovyov.net/blog/2017/server-side-rendering/) where our components are executed as Clojure on the backend, so no Node.js on the server, hurray! And developer UX is through the roof with excellent live reload (thanks CLJS), ability to connect from your editor to browser REPL and experiment there. It is just great!
+And for a while, things were looking good. We had this [architecture](https://solovyov.net/blog/2017/server-side-rendering/) where our components are executed as Clojure on the backend, so no Node.js on the server, hurray! And developer UX is through the roof with the excellent live reload (thanks CLJS), ability to connect from your editor to browser REPL, and experiment there. It is just great!
 
-To make long story short, our frontend grew bigger and bigger. Incremental compilation started to become slower — it now routinely takes more than a second or two. And while there were few attempts on keeping whole app performant, ultimately we failed. It's a death by thousand cuts. The application became too big, and its boot time became too long.
+To make a long story short, our frontend grew bigger and bigger. Incremental compilation started to become slower — it now routinely takes more than a second or two. And while there were few attempts on keeping the whole app performant, ultimately we failed. It's a death by a thousand cuts. The application became too big and its boot time became too long. Server side rendering helps partially, but then hydration freezes the browser. On the older hardware or Androids it became unacceptable!
 
 One of the main reasonings back in 2016 was that we take a hit on startup time, but in turn, get no page loads and have a rich web application with a lot of interactions. And for a while that worked! But startup time became longer and longer, leading to a shameful rating of 5/100 from Google’s PageSpeed (okay, it was sometimes up to ~25/100, whatever).
 
@@ -60,17 +60,19 @@ It also has:
 
 Honestly speaking, the main reasons are [batching](https://kasta-ua.github.io/twinspark-js/#batch) and [no inheritance](https://solovyov.net/blog/2020/inheritance/). Inheritance is particularly painful here. In Intercooler, if you declared `ic-target` on the body, all tags inside will think it's their target too. So you include a component somewhere in HTML tree and an attribute higher on tree changes this component behavior. I mean this is a freaking dynamic scope, I want none of that! :)
 
-Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's author announced that he's doing a jQuery-less modern version: [htmx](https://htmx.org/). :) It has really good extensions points, so maybe it's possible to add batching... but inheritance is still there. :(
+Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's author announced that he's doing a jQuery-less modern version: [htmx](https://htmx.org/). :) It has really good extensions points, so maybe it's possible to add batching... but inheritance is still there. :-(
 
 ## Why is that a good idea
 
 We need to look at it from two sides: if it's good for developers and if it's good for users. React was great at former and terrible at later. 
 
-TwinSpark approach is much better in most cases for the user: less JavaScript, less jitter, more common HTML-like behavior. In the worst case, we would serve you 2.5MB of minified (non-gzipped) JS and 700KB of HTML (half of it were initial data for React) for catalogue. Right now it's 40KB of minified non-gzipped JS (TwinSpark, analytics, some behavior, IntersectionObserver polyfill) and 350KB of HTML. Two orders of magnitude difference and even HTML is smaller! This is just like Christmas in childhood!
+TwinSpark approach is much better in most cases for the user: less JavaScript, less jitter, more common HTML-like behavior. In the worst case, we would serve you 2.5MB of minified (non-gzipped) JS and 700KB of HTML (half of it were initial data for React) for catalogue. JS bundle is not that big because of embedded images or css or some other obscure stuff, it's big because it's the whole app, with a lot of views and logic.
+
+Now it's 40KB of minified non-gzipped JS (TwinSpark, analytics, some behavior, IntersectionObserver polyfill) and 350KB of HTML. Two orders of magnitude difference and even HTML is smaller! This is just like Christmas in childhood!
 
 On the developer side, I think React is better still, but code locality is great, composability is much better (since you are forced in a limited world of working in a simplistic model) than with jQuery. Plus there are a lot of ways to improve it. 
 
-Good news is that development process did not change that much! We're still writing components which query necessary data from site-wide memory store (and make a call to API when needed), but they are executed only on the server. We effectively piggy-backend on our previous architecture, and this gives us perfect ability to render "partial" HTML - since components do not wait for some "controller" to give them all necessary data. This is what allowed us to have both React and non-React versions to co-exist and make an A/B test without writing the markup twice.
+The good news is that the development process did not change that much! We're still writing components that query necessary data from site-wide memory store (and make a call to API when needed), but they are executed only on the server. We effectively piggy-backend on our previous architecture, and this gives us the perfect ability to render "partial" HTML - since components do not wait for some "controller" to give them all necessary data. This is what allowed us to have both React and non-React versions to co-exist and make an A/B test without writing the markup twice.
 
 ## Results
 
