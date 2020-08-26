@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {{- range .Site.Pages }}
-{{- if not (or (matches "^(static|showkr|photo)/" .Url) (eq .Url "keybase.txt") (matches "\\.(css|js|jpg|png|gif|ico|txt|conf|xml)$" .Url)) }}
+{{- if not (or (matches "^(static|showkr|photo)/" .Url) (eq .Url "keybase.txt") (matches "\\.(css|js|jpg|png|gif|ico|txt|conf|xml|mp4)$" .Url)) }}
   <url>
     <loc>{{ .Site.Other.Url }}{{ .Url }}</loc>
     {{- if not .Date.IsZero }}
     <lastmod>{{ .Date.Format "2006-01-02" }}</lastmod>
     {{- end }}
     <changefreq>
-    {{- if eq .Url "blog/" "en/" "" "blog.atom" "en.atom" -}}
+    {{- if eq .Url "" -}}
+      daily
+    {{- else if eq .Url "blog/" "en/" "" "blog.atom" "en.atom" -}}
       weekly
     {{- else -}}
       monthly
