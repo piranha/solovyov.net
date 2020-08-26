@@ -26,9 +26,8 @@ First - `ab -n 1000 -c 20` (around of 10-12 runs for every variant):
 
 - `mod_wsgi` takes 14.2-14.3 ms per query, quite stable performance
 - `prefork fastcgi` takes 12.5-16.5 ms (mostly near of 12 ms, but raises from
-  time to time), eats bigger amount of RAM - I have an xmobar[^1] showing usage
-  of RAM and `mod_wsgi` has a two-three percents (percent is 20 megs) lesser
-  usage
+  time to time), eats more RAM - I have an xmobar[^1] showing RAM usage and
+  `mod_wsgi` has a two-three percents (percent is 20 megs) lesser usage
 - `threaded fastcgi` takes 24-25 ms per query - it uses only one core of CPU. I
   have tried to get `upstream` working in `nginx` - it works, but uses only 1
   process for some reason :-(
@@ -49,12 +48,12 @@ Second - `ab -n 10000 -c 500` (here I got 3-4 runs for every variant):
   slighty lower speed than with `-c 20`, but process eats near of 300 mb of VSZ.
 
 What I can say here? Lets wait for stable mod_wsgi release! :-) Thanks, Manlio,
-for this piece of code. :-)
+for creating it. :-)
 
 [1]: http://piranha.org.ua/blog/2007/11/24/nginx-mod-wsgi-vs-fastcgi/
 [2]: http://hg.mperillo.ath.cx/nginx/mod_wsgi/
 [3]: http://trac.piranha.org.ua/browser/byteflow/django.wsgi
 [4]: http://gorgias.mine.nu/xmobar/
 
-[^1]: [xmobar][4] - small statusbar, written on Haskell. Displays system state and other various information
+[^1]: [xmobar][4] - small statusbar, written in Haskell. Displays system state and other various information
 
