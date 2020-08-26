@@ -9,6 +9,7 @@
   <link rel="alternate" type="application/atom+xml"
         title="{{ .Site.Other.Title }}" href="{{ .Site.Other.Url }}blog.atom">
   {{ if .Other.Alternate }}{{ .Other.Alternate }}{{ end }}
+  {{ if .Other.Meta }}{{ .Other.Meta }}{{ end }}
 
   <title>{{ some .Title .Site.Other.Title }}</title>
   <meta name="author" content="{{ .Site.Other.Author }}">
@@ -126,7 +127,11 @@ Subscribe with
 {{ end }}
 
 
-{{define "tag"}}
+{{ define "tag" -}}
+title: Pages tagged with {{ .Title }}
+meta: <meta name="robots" content="noindex, follow">
+---
+
 <h1>Pages tagged with {{ .Title }}</h1>
 
 {{ range .Site.Pages.WithTag .Title }}

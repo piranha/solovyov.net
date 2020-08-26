@@ -12,7 +12,8 @@ AUTHOR = Alexander Solovyov
 	ext .html
 	directorify
 	template tag
-	template page
+	config
+#	template page
 
 *.md: static/blog.css
 	config
