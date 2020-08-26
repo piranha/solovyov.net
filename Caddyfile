@@ -43,6 +43,11 @@ solovyov.net {
   }
   redir @date /{http.regexp.date.1}/{http.regexp.date.2}/{http.regexp.date.3} permanent
 
+  @amp {
+    path_regexp amp ^/(.*)/amp/$
+  }
+  redir @amp /{http.regexp.amp.1}/ permanent
+
   # en migration
   redir /en/ /blog/ permanent
   redir /en.atom /blog.atom permanent
