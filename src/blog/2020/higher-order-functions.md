@@ -34,7 +34,7 @@ But! When a HOF is used in a business logic among other functions, it's a bad th
    (es-filters-q fg2 :naw)])
 ```
 
-That's not good. It's a little hard to compress code in a little example, but idea is following: both `es-filters-q` and `filter-gen` contain business logic. Parametrizing your business logic with functions leads to extraneous openness and indirection, making it very hard to follow.
+That's not good. It's not easy to compress real code to an example in blog, but idea is following: both `es-filters-q` and `filter-gen` contain business logic. Parametrizing your business logic with functions leads to extraneous openness and indirection, making it very hard to follow.
 
 ## Take away
 
