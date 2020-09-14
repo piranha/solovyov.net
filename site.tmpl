@@ -80,12 +80,12 @@
 
 
 {{ define "post" }}
-<article itemscope itemtype="https://schema.org/Article" class="h-entry">
+<article>
   <header>
-    <h1 class="p-name">
-      <span itemprop="headline">{{ .Title }}</span>
+    <h1>
+      {{ .Title }}
       {{ if .Other.Draft }} <span class="cg">(draft)</span>{{ end }}
-      <a href="/{{ .Url }}" class="u-url u-uid">#</a>
+      <a href="/{{ .Url }}" class="u-url">#</a>
     </h1>
 
     <div class="cg">
@@ -98,15 +98,21 @@
     </div>
   </header>
 
-  <section itemprop="articleBody" class="e-content">
-  {{ .Content }}
-  </section>
+  <div>{{ .Content }}</div>
 
-  <section class="right">
+  <div class="right">
     {{ template "date" .Date }}
-  </section>
+  </div>
 </article>
 
+<footer>
+<span><a href="{{ .Rel "/" }}">Back to index</a></span>
+<span>
+  Subscribe with
+  <a href="https://solovyov.net/{{ if starts "/en" .FullPath }}en.atom{{ else }}blog.atom{{ end }}">RSS
+    <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"></svg></a>
+</span>
+</footer>
 
 <script>
 if (location.search.match(/\beditor=/)) {
@@ -115,13 +121,6 @@ if (location.search.match(/\beditor=/)) {
   document.body.appendChild(js);
 }
 </script>
-
-<footer>
-<a href="{{ .Rel "/" }}">Back to index</a> |
-Subscribe with
-<a href="https://solovyov.net/{{ if starts "/en" .FullPath }}en.atom{{ else }}blog.atom{{ end }}">RSS
-  <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"></svg></a>
-</footer>
 
 <script src="{{ version . "static/highlight.pack.js" }}" async defer onload="hljs.initHighlighting()"></script>
 {{ end }}
@@ -145,7 +144,6 @@ meta: <meta name="robots" content="noindex, follow">
 
 
 {{define "date"}}
-<meta itemprop="datePublished dateModified" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
 <time class="cg mono dt-published" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Format "Jan 2006" }}
 </time>

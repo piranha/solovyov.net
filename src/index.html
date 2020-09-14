@@ -44,9 +44,9 @@ description: Blog of Alexander Solovyov
 
 
 {{ range ((.Site.Pages.Children "blog/").WhereNot "Draft" "true") }}
-<div class="mb5">
+<section class="mb5">
   {{ template "date" .Date }}
   <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
   {{ if .Other.Favorite }}{{ template "star" . }}{{ end }}
-</div>
+</section>
 {{ end }}

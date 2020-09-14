@@ -41,7 +41,7 @@ pre, code {
 
 pre {
   padding: .5rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   border: 1px solid #f2f2f2;
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0,0,0,.125);
@@ -127,6 +127,8 @@ h1 a:hover {
 
 h1 a.u-url { display: none; }
 h1:hover a.u-url { display: inline; }
+
+footer > span + span:before { content: " | "; }
 
 
 /* Utility */
