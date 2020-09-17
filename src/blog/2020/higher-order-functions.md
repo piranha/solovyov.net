@@ -35,7 +35,9 @@ But! When a HOF is used in a business logic among other functions, it's a bad th
    (es-filters-q fg2 :naw)])
 ```
 
-That's not good. It's not easy to compress real code to an example in a blog, but the idea is the following: both `es-filters-q` and `filter-gen` contain business logic. Parametrizing your business logic with functions leads to extraneous openness and indirection, making it very hard to follow.
+In this case reading `es-filters-q` makes little sense. You'll have to start jumping around and loading stuff into your head to find out whats going on rather than just reading line by line. Even experimenting with the code in REPL is hard, because usually code ends up structured in a way where `es-filters-q` makes a lot of setup before calling `filter-gen`, and recreating all that setup takes effort.
+
+That is not good. It took a lot of time for me to formulate what I dislike about HOFs in code given that I wrote many decorators, middlewares, and use map&friends a lot without any hesitation or negativity, but I think that's it: parametrizing your business logic with functions leads to extraneous openness and indirection, making it very hard to follow.
 
 ## Take away
 
