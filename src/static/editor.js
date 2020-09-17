@@ -1,5 +1,6 @@
-(function(window, selector) {
+(function(window) {
   var URL = 'https://script.google.com/a/solovyov.net/macros/s/AKfycbxJFBRQCoPw1WmbzrYwNBRV_P8LoQrwUl8lTBvVjw/exec';
+  var selector = document.currentScript.dataset.selector || 'body';
   var root = document.querySelector(selector);
 
   function href() {
@@ -170,4 +171,4 @@
 
   loadData(getEditor());
 
-})(window, 'article > section');
+})(window);

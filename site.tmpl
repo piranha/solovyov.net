@@ -98,7 +98,7 @@
     </div>
   </header>
 
-  <div>{{ .Content }}</div>
+  <div id="content">{{ .Content }}</div>
 
   <div class="right">
     {{ template "date" .Date }}
@@ -117,6 +117,7 @@
 <script>
 if (location.search.match(/\beditor=/)) {
   var js = document.createElement('script');
+  js.dataset.selector = '#content';
   js.src = "{{ version . "static/editor.js" }}";
   document.body.appendChild(js);
 }
@@ -129,7 +130,7 @@ if (location.search.match(/\beditor=/)) {
 {{ define "tag" -}}
 title: Pages tagged with {{ .Title }}
 meta: <meta name="robots" content="noindex, follow">
----
+----
 
 <h1>Pages tagged with {{ .Title }}</h1>
 
@@ -137,7 +138,6 @@ meta: <meta name="robots" content="noindex, follow">
 <div class="mb5">
   {{ template "date" .Date }}
   <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
-  {{ if .Other.Favorite }}{{ template "star" . }}{{ end }}
 </div>
 {{ end }}
 {{end}}
