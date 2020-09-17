@@ -2,7 +2,6 @@ title: Higher-order functions are like inheritance
 slug: higher-order-functions
 date: 2020-09-17
 tags: programming
-draft: true
 ----
 
 [HOF](https://en.wikipedia.org/wiki/Higher-order_function) as a concept is quite simple: it's a function which takes a function as an argument. Alternatively, it's a function which returns a new function. In both cases it's a higher-order function.
