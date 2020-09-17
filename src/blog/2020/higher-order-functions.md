@@ -1,24 +1,26 @@
-title: Higher-order functions
-date: 2020-09-13
+title: Higher-order functions are like inheritance
+slug: higher-order-functions
+date: 2020-09-17
 tags: programming
 draft: true
 ----
 
-[HOF](https://en.wikipedia.org/wiki/Higher-order_function) as a concept is quite simple: it's a function, which takes a function as an argument. Alternatively, it's a function, which returns a new function. In both cases, it's a higher-order function.
+[HOF](https://en.wikipedia.org/wiki/Higher-order_function) as a concept is quite simple: it's a function which takes a function as an argument. Alternatively, it's a function which returns a new function. In both cases it's a higher-order function.
 
 Is it useful? Massively! Most sequence-processing functions take a function as an argument: `map`, `filter`, `reduce`, whatever. And the concept works well in this case.
 
-There is another case when you define a function, which returns a function. This could be a middleware in Clojure's Ring or a Python decorator:
+There is another case when you define a function which returns a function. This could be a middleware in Clojure's Ring or a Python decorator:
 
 ```py
 def logall(func):
+    @functools.wraps(func)
     def inner(*args, **kwargs):
         print(args, kwargs)
         return func(*args, **kwargs)
     return inner
 ```
 
-In this case, it also works well. There is a commonality between them: the protocol of defining such functions is strictly defined. In the first case it's defined for an "argument" function, in the second case it's for writing those HOFs. In both cases, HOF is a glue between a library and business logic (library in a wider sense, could still be your application code).
+In this case it also works well. There is a commonality between them: the protocol of defining such functions is strictly defined. In the first case it's defined for an "argument" function, in the second case it's for writing those HOFs. In both cases, HOF is a glue between a library and business logic (library in a wider sense, could still be your application code).
 
 But! When a HOF is used in a business logic among other functions, it's a bad thing. If you see a HOF like this:
 
@@ -38,4 +40,4 @@ That's not good. It's not easy to compress real code to an example in a blog, bu
 
 ## Take away
 
-One side of higher-order functions (either HOF itself or the function that is being passed) belongs to a library side. Using HOFs in the middle of business logic needlessly complicates it and is a code smell.
+One side of higher-order functions (either HOF itself or the function that is being passed) should belong to a library. Using HOFs amidst business logic needlessly complicates the code. It's exactly like [inheritance](https://solovyov.net/blog/2020/inheritance/), makes your code hard to follow, hard to reason about, hard to debug, hard to experiment with. It's a useful and a powerful tool, but it should be used with restraint and understanding.
