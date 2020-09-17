@@ -10,9 +10,7 @@
   <link href="{{ .Site.Other.Url }}{{ .Url }}"></link>
   <generator uri="http://github.com/piranha/gostatic/">gostatic</generator>
 
-{{ with .Site.Pages.Children "blog/" }}
-{{ range .Slice 0 5 }}
-{{ if (not .Other.Draft) }}
+{{ range (((.Site.Pages.Children "blog/").WhereNot "Draft" "true").Slice 0 5) }}
 <entry>
   <id>{{ .Url }}</id>
   <author><name>{{ or .Other.Author .Site.Other.Author }}</name></author>
@@ -28,7 +26,5 @@
     {{ cut "<section[^>]*>" "</section>" .Process.Content }}
   ]]></content>
 </entry>
-{{ end }}
-{{ end }}
 {{ end }}
 </feed>

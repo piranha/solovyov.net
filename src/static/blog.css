@@ -15,7 +15,7 @@ h1, h2, h3, h4 {
 }
 
 small {
-  font-size: 0.7em;
+  font-size: 0.8em;
 }
 
 a, a:visited {
@@ -128,8 +128,6 @@ h1 a:hover {
 h1 a.u-url { display: none; }
 h1:hover a.u-url { display: inline; }
 
-footer > span + span:before { content: " | "; }
-
 
 /* Utility */
 
@@ -146,8 +144,11 @@ footer > span + span:before { content: " | "; }
 
 .cg { color: grey; }
 
+.left { text-align: left; }
 .center { text-align: center; }
 .right { text-align: right; }
+
+.small { font-size: 0.8em; }
 
 
 /* editor.js comments */

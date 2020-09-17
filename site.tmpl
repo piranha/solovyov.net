@@ -105,14 +105,25 @@
   </div>
 </article>
 
-<footer>
-<span><a href="{{ .Rel "/" }}">Back to index</a></span>
-<span>
-  Subscribe with
-  <a href="https://solovyov.net/{{ if starts "/en" .FullPath }}en.atom{{ else }}blog.atom{{ end }}">RSS
-    <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"></svg></a>
-</span>
-</footer>
+<hr class="mt mb">
+
+<div>
+<div>
+  <a href="https://solovyov.net/blog.atom" title="RSS">
+    <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
+  </a>
+  See also
+</div>
+
+{{ range (((.Site.Pages.Children "blog/").WhereNot "Draft" "true").Slice 0 5) }}
+{{ if ne . $ }}
+<section class="mb5">
+  {{ template "date" .Date }}
+  <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
+</section>
+{{ end }}
+{{ end }}
+</div>
 
 <script>
 if (location.search.match(/\beditor=/)) {
