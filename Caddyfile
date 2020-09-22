@@ -19,7 +19,7 @@ solovyov.net {
     }
   }
 
-  handle /q/* {
+  handle path /q /q/* {
     uri strip_prefix /q
     root * /mnt/share
     file_server browse
