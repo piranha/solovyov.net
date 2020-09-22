@@ -139,10 +139,6 @@ if (location.search.match(/\beditor=/)) {
 
 
 {{ define "tag" -}}
-title: Pages tagged with {{ .Title }}
-meta: <meta name="robots" content="noindex, follow">
-----
-
 <h1>Pages tagged with {{ .Title }}</h1>
 
 {{ range .Site.Pages.WithTag .Title }}
