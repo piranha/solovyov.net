@@ -24,6 +24,7 @@ solovyov.net {
     uri strip_prefix /q
     root * /mnt/share
     file_server browse
+    header X-Robots-Tag noindex
   }
 
   @webhook {
