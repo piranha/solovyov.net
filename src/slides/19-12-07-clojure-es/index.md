@@ -1,4 +1,5 @@
 class: center, middle
+description: ElasticSearch is a great addition to a relational DB — it allows you to query data in different ways and it scales well. On the other hand, its query language is far from being great: it’s JSON-based, and is composable, and allows you to use any language without specialized drivers, but it’s hard to write and equally hard to read. There are many ways to work with ES queries, and majority of them are in the range of painful to terrible. We’ve recently reworked our ES plumbing and this time it turned out to be nicer, more extensible, easier to test and overall more pleasant to live with. Come to see what we’ve got.
 
 # Clojure makes ElasticSearch bearable
 

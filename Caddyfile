@@ -53,24 +53,24 @@ solovyov.net {
   # en migration
   redir /en/ /blog/ permanent
   redir /en.atom /blog.atom permanent
-  redir /en/2007/django-performance-apache-vs-nginx /blog/2007/django-performance-apache-vs-nginx-en/
-  redir /en/2007/nginx-mod-wsgi-vs-fastcgi          /blog/2007/nginx-mod-wsgi-vs-fastcgi-en/
-  redir /en/2008/firepython-no-prints               /blog/2008/firepython-no-prints-en/
-  redir /en/2008/hgshelve                           /blog/2008/hgshelve/
-  redir /en/2008/mercurial-11                       /blog/2008/mercurial-11-en/
-  redir /en/2009/opster                             /blog/2009/opster/
-  redir /en/2009/revcanonical                       /blog/2009/revcanonical-en/
-  redir /en/2011/basic-sqlalchemy                   /blog/2011/basic-sqlalchemy-en/
-  redir /en/2012/cross-compiling-go                 /blog/2012/cross-compiling-go/
-  redir /en/2012/showkr                             /blog/2012/showkr-en/
-  redir /en/2013/goreplace                          /blog/2013/goreplace-en/
-  redir /en/2013/i18n                               /blog/2013/i18n-en/
-  redir /en/2014/cljs-start                         /blog/2014/cljs-start/
-  redir /en/2016/fluid-gmail                        /blog/2016/fluid-gmail/
-  redir /en/2017/server-side-rendering              /blog/2017/server-side-rendering/
-  redir /en/2019/http2-push-static                  /blog/2019/http2-push-static/
-  redir /en/2020/gostatic-hot-reload                /blog/2020/gostatic-hot-reload/
-  redir /en/2020/karabiner-hotkeys                  /blog/2020/karabiner-hotkeys/
+  redir /en/2007/django-performance-apache-vs-nginx* /blog/2007/django-performance-apache-vs-nginx-en/ permanent
+  redir /en/2007/nginx-mod-wsgi-vs-fastcgi*          /blog/2007/nginx-mod-wsgi-vs-fastcgi-en/ permanent
+  redir /en/2008/firepython-no-prints*               /blog/2008/firepython-no-prints-en/ permanent
+  redir /en/2008/hgshelve*                           /blog/2008/hgshelve/ permanent
+  redir /en/2008/mercurial-11*                       /blog/2008/mercurial-11-en/ permanent
+  redir /en/2009/opster*                             /blog/2009/opster/ permanent
+  redir /en/2009/revcanonical*                       /blog/2009/revcanonical-en/ permanent
+  redir /en/2011/basic-sqlalchemy*                   /blog/2011/basic-sqlalchemy-en/ permanent
+  redir /en/2012/cross-compiling-go*                 /blog/2012/cross-compiling-go/ permanent
+  redir /en/2012/showkr*                             /blog/2012/showkr-en/ permanent
+  redir /en/2013/goreplace*                          /blog/2013/goreplace-en/ permanent
+  redir /en/2013/i18n*                               /blog/2013/i18n-en/ permanent
+  redir /en/2014/cljs-start*                         /blog/2014/cljs-start/ permanent
+  redir /en/2016/fluid-gmail*                        /blog/2016/fluid-gmail/ permanent
+  redir /en/2017/server-side-rendering*              /blog/2017/server-side-rendering/ permanent
+  redir /en/2019/http2-push-static*                  /blog/2019/http2-push-static/ permanent
+  redir /en/2020/gostatic-hot-reload*                /blog/2020/gostatic-hot-reload/ permanent
+  redir /en/2020/karabiner-hotkeys*                  /blog/2020/karabiner-hotkeys/ permanent
   
   # changed urls
   redir /opster/ https://github.com/piranha/opster/ permanent

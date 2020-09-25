@@ -13,11 +13,11 @@
 
   <title>{{ some .Title .Site.Other.Title }}</title>
   <meta name="author" content="{{ .Site.Other.Author }}">
-  <meta name="keywords" content="alexander solovyov, piranha, python, mercurial, django, emacs, golang, sqlalchemy">
+  <meta name="keywords" content="alexander solovyov, piranha, kasta, clojure, python, emacs, blog">
   <meta name="description" content="{{ if .Other.Description -}}
     {{ .Other.Description }}
-  {{- else if contains "<section " .Content -}}
-    {{ with cut "<section[^>]+>" "</section>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
+  {{- else -}}
+    {{ with cut "<div id=\"content\">" "</div>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
   {{- end }}">
 
   <meta property="og:type" content="website">
@@ -25,8 +25,8 @@
   <meta property="og:title" content="{{ some .Title .Site.Other.Title }}">
   <meta property="og:description" content="{{ if .Other.Description -}}
     {{ .Other.Description }}
-  {{- else if contains "<section" .Content -}}
-    {{ with cut "<section[^>]+>" "</section>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
+  {{- else -}}
+    {{ with cut "<div id=\"content\">" "</div>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
   {{- end }}">
   {{ if .Other.Img -}}
   <meta property="og:image" content="{{ .Site.Other.Url }}{{ .Other.Img }}">
