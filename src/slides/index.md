@@ -6,6 +6,7 @@ title: Slides
 
 Here are slides from talks I've given.
 
+* [Throwing ReactJS away](20-09-26-throwing-reactjs), JavaScript fwdays'20
 * [Clojure makes ElasticSearch bearable](19-12-07-clojure-es), ClojureDay Dec 2019
 * [REPL](19-03-16-repl), JavaScript fwdays'19
 * [Make It Fast](18-09-15-make-it-fast/), Highload fwdays'18

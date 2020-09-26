@@ -50,6 +50,11 @@ solovyov.net {
   }
   redir @amp /{http.regexp.amp.1}/ permanent
 
+  @weirdone {
+    path_regexp one ^/(.*)/1$
+  }
+  redir @weirdone /{http.regexp.one.1}/ permanent
+
   # en migration
   redir /en/ /blog/ permanent
   redir /en.atom /blog.atom permanent
@@ -77,6 +82,8 @@ solovyov.net {
   redir /cyrax/ https://github.com/piranha/cyrax/ permanent
   redir /about/ / permanent
   redir /slides/18-09-15-highload/ /slides/18-09-15-make-it-fast/ permanent
+  redir /project-root/ https://docs.projectile.mx/
+  redir /files/gr-* https://github.com/piranha/goreplace/releases
 
   log {
     output file /var/log/caddy/solovyov.net.log
