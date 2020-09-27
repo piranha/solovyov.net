@@ -65,6 +65,6 @@ P.S. Явно в этот раз я из всей работы только то
 написал... Ну да это мелочи, главное - удобно получилось. :-)
 
 
-[rt]: http://piranha.org.ua/blog/2007/01/28/django-render_to_response/
+[rt]: https://solovyov.net/blog/2007/django-render_to_response/
 [1]: http://hrundel.eth0.net.ua/
-[2]: http://piranha.org.ua/blog/2008/03/22/render-to-improved/#c722
+[2]: https://solovyov.net/blog/2008/render-to-improved/#c722

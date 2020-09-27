@@ -424,7 +424,7 @@ email. Это такая упакованная (по умолчанию - с п
 **UPD: проблема решена, работающий `rebase` появился давным-давно.** Наверняка
 со стороны приверженцев git’а можно услышать об отсутствии rebase (это уже явно
 совсем не базовый уровень, но всё-таки :-)), но, во-первых, он
-[эмулируется](http://piranha.org.ua/blog/2008/05/21/poor-mans-rebase-in-mercurial/)
+[эмулируется](https://solovyov.net/blog/2008/poor-mans-rebase-in-mercurial/)
 с помощью mq (о Mercurial Queues - в продолжении этой статьи), а во-вторых, есть
 уже работающий
 [проект GSoC](http://www.selenic.com/mercurial/wiki/index.cgi/RebaseProject).

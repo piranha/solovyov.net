@@ -64,11 +64,7 @@ MathML.
 Кстати, отличная штука - возможность в textarea нажать `C-i` и редактировать
 текст во внешнем редакторе. Что я сейчас и делаю, редактируя его в Емаксе. :-)
 
-Ну и напоследок - [скриншот][5]. Хотя аскетичный, конечно, но на всякий
-случай...
-
 [1]: http://hah.mozdev.org/
 [2]: http://firemacs.mozdev.org/
 [3]: http://vimperator.mozdev.org/
 [4]: http://conkeror.mozdev.org/
-[5]: http://piranha.org.ua/media/img/conkeror.png

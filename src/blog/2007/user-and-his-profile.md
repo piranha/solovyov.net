@@ -21,6 +21,6 @@ tags: python, programming, django, blog, dbqueries
 
 И ещё одно - спасибо [Амиту][3], который и показал конкретно, как это сделать. ;-) 
 
-[1]: http://piranha.org.ua/blog/2007/10/31/related-objects/
+[1]: https://solovyov.net/blog/2007/related-objects/
 [2]: http://en.wikipedia.org/wiki/Monkey_patch
 [3]: http://www.amitu.com/blog/2007/july/django-extending-user-model/

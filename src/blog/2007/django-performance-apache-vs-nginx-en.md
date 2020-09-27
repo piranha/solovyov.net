@@ -51,5 +51,5 @@ amount of memory.
 Everyone can do summary for himself, the only one thing I can say unambiguously
 - nginx + mod_wsgi is very interesting combination.
 
-[1]: http://piranha.org.ua/blog/2007/11/24/nginx-mod-wsgi-vs-fastcgi-en/
+[1]: https://solovyov.net/blog/2007/nginx-mod-wsgi-vs-fastcgi-en/
 

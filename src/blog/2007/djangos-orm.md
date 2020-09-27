@@ -10,6 +10,6 @@ tags: django, orm, personality, programming
 
 [1]: http://programming.reddit.com "Трафик, конечно, огромный, но проскакивают хорошие ссылки"
 [2]: http://adam.gomaa.us/blog/ "204 No Content"
-[3]: http://piranha.org.ua/blog/2007/8/21/django-queryset-refactoring/ "Таки жду с нетерпением"
+[3]: https://solovyov.net/blog/2007/django-queryset-refactoring/ "Таки жду с нетерпением"
 [4]: http://www.b-list.org/ "Тоже, кстати, весьма правильный мужик"
 [5]: http://www.b-list.org/weblog/2007/sep/04/orm-wars/ "Войны, просто войны :)"

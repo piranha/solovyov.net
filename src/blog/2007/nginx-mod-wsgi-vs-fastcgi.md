@@ -53,8 +53,8 @@ T7300 и 2 Gb RAM.
 
 Что тут можно сказать? Ждём, когда [mod_wsgi][2] станет стабильным! :-)
 
-[1]: http://piranha.org.ua/blog/2007/10/05/apache--modwsgi--django/
-[2]: http://hg.mperillo.ath.cx/nginx/mod_wsgi/ "Репозиторий Mercurial"
+[1]: https://solovyov.net/blog/2007/apache--modwsgi--django/
+[2]: http://hg.mperillo.ath.cx/nginx/mod_wsgi/
 [3]: http://gorgias.mine.nu/xmobar/
 
 [^1]: [xmobar][3] - это такой статусбар на хаскеле, показывает состояние системы и вообще чего мне захочется

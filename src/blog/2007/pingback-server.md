@@ -11,4 +11,4 @@ tags: blog, news, pingback
 P.S. Вывода пингбеков в статью ещё пока нету. :)
 P.P.S. Кстати, таки работает! :)
 
-[1]: http://piranha.org.ua/blog/2007/8/23/pingback-client/
+[1]: https://solovyov.net/blog/2007/pingback-client/

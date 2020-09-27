@@ -48,4 +48,4 @@ Django с помощью mod_wsgi и fastcgi. Сравнение показал�
 Выводы каждый может сделать сам для себя, но nginx + mod_wsgi однозначно - очень
 интересная комбинация.
 
-[1]: http://piranha.org.ua/blog/2007/11/24/nginx-mod-wsgi-vs-fastcgi/
+[1]: https://solovyov.net/blog/2007/nginx-mod-wsgi-vs-fastcgi/

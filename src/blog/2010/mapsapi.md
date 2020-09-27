@@ -58,7 +58,7 @@ date: 2010-03-15 15:37:25
 пользовался 3 версией API, которая еще находится в бета-тестировании, что
 несколько извиняет гугль. :)
 
-[1]: http://piranha.org.ua/blog/2010/03/14/locations/
+[1]: https://solovyov.net/blog/2010/locations/
 [2]: http://locations.in.ua/
 [3]: http://mapia.ua/
 [4]: http://maps.visicom.ua/

@@ -50,7 +50,7 @@ Second - `ab -n 10000 -c 500` (here I got 3-4 runs for every variant):
 What I can say here? Lets wait for stable mod_wsgi release! :-) Thanks, Manlio,
 for creating it. :-)
 
-[1]: http://piranha.org.ua/blog/2007/11/24/nginx-mod-wsgi-vs-fastcgi/
+[1]: https://solovyov.net/blog/2007/nginx-mod-wsgi-vs-fastcgi/
 [2]: http://hg.mperillo.ath.cx/nginx/mod_wsgi/
 [3]: http://trac.piranha.org.ua/browser/byteflow/django.wsgi
 [4]: http://gorgias.mine.nu/xmobar/

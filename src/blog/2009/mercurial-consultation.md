@@ -26,5 +26,5 @@ tags: hg, work
 
 Основной способ связи - email: alexander AT solovyov.net
 
-[1]: http://piranha.org.ua/blog/2008/10/15/mercurial-articles/
+[1]: https://solovyov.net/blog/2008/mercurial-articles/
 [2]: http://www.developers.org.ua/blog/top50/

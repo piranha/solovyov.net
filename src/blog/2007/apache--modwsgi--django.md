@@ -66,4 +66,4 @@ tags: apache, django, hosting, wsgi
 
 P.S. И, естественно, апач надо релоадить (`apache2ctl graceful`) после изменений в конфиге или в питон-коде приложения.
 
-[1]: http://piranha.org.ua/blog/2007/09/17/modwsgi/#c99
+[1]: https://solovyov.net/blog/2007/modwsgi/#c99

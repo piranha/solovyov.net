@@ -10,7 +10,7 @@ tags: pingback, blog, news, markdown, python, programming
 
 P.S. Кстати, замечания и дополнения привествуются. :) А то чувствую, ещё пару раз гляну на `ping`, и перепишу её. Уж больно ужасно вышло. :-)
 
-[1]: http://piranha.org.ua/blog/2007/10/31/related-objects/
+[1]: https://solovyov.net/blog/2007/related-objects/
 [2]: http://www.freewisdom.org/projects/python-markdown/
 [3]: http://trac.piranha.org.ua/browser/byteflow/lib/helpers.py
 [4]: http://code.google.com/p/django-pingback/ "Так его с самого GC проще найти будет"

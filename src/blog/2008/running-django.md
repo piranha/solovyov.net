@@ -10,8 +10,8 @@ tags: django, performance, wsgi
 
 Итого в результате у нас есть всего два реальных претендента на то, чтобы их использовать - [fapws2][] и Apache/[mod_wsgi][]. Первый кушает меньше памяти, но второй как-то привычнее пока. Возможно, я на первый переползу, и тогда поделюсь ощущениями. А пока можно сказать, что flup можно отправлять на свалку истории. И если вы не хотите юзать Apache, то использовать FastCGI - обрекать себя на тормозной путь. ;) Правильнее будет использовать fapws2.
 
-[1]: http://piranha.org.ua/blog/2008/07/31/wsgi-servers-short/
-[2]: http://piranha.org.ua/media/perftest.tar.bz2
+[1]: https://solovyov.net/blog/2008/wsgi-servers-short/
+[2]: https://solovyov.net/media/perftest.tar.bz2
 [byteflow]: http://byteflow.su/
 [cogen]: http://code.google.com/p/cogen/
 [fapws2]: http://william-os4y.livejournal.com/

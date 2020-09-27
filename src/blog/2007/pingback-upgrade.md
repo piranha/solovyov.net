@@ -9,4 +9,4 @@ tags: blog, news, pingback
 Поэтому опять - [проверка][2] на работоспособность. :)
 
 [1]: http://softwaremaniacs.org/forum/viewtopic.php?pid=4012#p4012 "Клёвый форум :)"
-[2]: http://piranha.org.ua/blog/2007/8/24/pingback-server/ "Блог тоже ничего :Р"
+[2]: https://solovyov.net/blog/2007/pingback-server/ "Блог тоже ничего :Р"
