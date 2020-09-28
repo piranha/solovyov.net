@@ -35,7 +35,8 @@
 
   function deserializePosition(pos) {
     var parts = pos.split(':');
-    var indexes = parts[0].split('-'), i = indexes.length;
+    var indexes = parts[0].split('-'),
+        i = indexes.length;
     var node = root;
 
     while (i--) {
