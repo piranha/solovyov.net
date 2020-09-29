@@ -13,7 +13,7 @@ ElasticSearch is a wildly useful database (if I may say so), but at times it fee
 Certainly this was our case a few years ago. Our code was a bunch of functions calling one another, which sounds like functional programming and should be fine, right? Well, as always, devil is in the detail, and: 
 
 - `if`/`case`/`cond` everywhere, various cases were piling on top of each other
-- functions parametrized with functions — it's a good tool if you make some higher order well-documented/understood function, but your business logic should be free of this stuff in general; makes logic hard to be understood
+- [functions parametrized with functions](https://solovyov.net/blog/2020/higher-order-functions/) — it's a good tool if you make some higher order well-documented/understood function, but your business logic should be free of this stuff in general; makes logic hard to be understood
 - code factorization was quite a bit off: function boundaries felt a bit random
 - it was written at the start of current codebase, grew with it and just happened, was never planned
 
