@@ -1,33 +1,33 @@
 title:  ElasticSearch query builder
-date: 2020-08-23
-tags: programming, clojure
+date: 2020-09-27
+tags: programming, clojure, db
 draft: true
 ----
 
 This post strives to be useful to anyone who uses ElasticSearch, but all examples are going to be in Clojure since it's what we use. 
 
-ElasticSearch is a wildly useful database (if I may say so), but at times it feels like its query language evolved rather than was planned. This manifests in it being rather ad-hoc and non-orthogonal. Plus using JSON with its low expressiveness adds quite a bit of verbosity. All of this leads to code, which builds ES queries, being really messy and unpleasant to use. 
+ElasticSearch is a wildly useful database (if I may say so), but at times it feels like its query language evolved rather than was planned. This manifests in it being rather ad-hoc and non-orthogonal. Plus using JSON with its low expressiveness adds quite a bit of verbosity. All of this leads to code which builds ES queries being really messy and unpleasant to use. 
 
 ## Jump in
 
-Certainly this was our case few years ago. Our code was a bunch of functions calling one another, which sounds like functional programming and should be fine, right? Well, as always, devil is in the detail, and: 
+Certainly this was our case a few years ago. Our code was a bunch of functions calling one another, which sounds like functional programming and should be fine, right? Well, as always, devil is in the detail, and: 
 
 - `if`/`case`/`cond` everywhere, various cases were piling on top of each other
 - functions parametrized with functions — it's a good tool if you make some higher order well-documented/understood function, but your business logic should be free of this stuff in general; makes logic hard to be understood
 - code factorization was quite a bit off: function boundaries felt a bit random
-- it firmly rooted in 2015, grew with our codebase and just happened, was never planned (see common theme here)
+- it was written at the start of current codebase, grew with it and just happened, was never planned
 
-Our use case, by the way, is filtering API (facets and all that stuff) for an ecommerce site, [Kasta](https://kasta.ua/). Apply some filters and retrieve some aggregations, which is enough of a problem to need a proper solution. 
+Our use case, by the way, is a product filtering API (facets and all that stuff) for an ecommerce site, [Kasta](https://kasta.ua/). Apply some filters and retrieve some aggregations, which is enough of a problem to need a proper solution. 
 
 ## What is out there
 
 So where to go? I looked around, and saw stuff like [elasticsearch-dsl](https://elasticsearch-dsl.readthedocs.io/en/latest/), which was just like ES data structures, but methods on mutable objects. Ugh. Also, [ElasticBuilder](https://elastic-builder.js.org/docs/), which is similar, but with different names, so you have to remember two layers of abstraction. Thanks, but no. 
 
-And there are a lot of articles how to accomplish with a query to ES, but nobody writes an article how to make an ES query builder! Well, except for me. :-)
+And there are a lot of articles how to make a query to get what you need from ES, but nobody wrote an article how to make an ES query builder! Well, except of me. :-)
 
 ## Solution
 
-What I really like is HoneySQL, which is a compiler from maps/vectors to SQL queries. This got me thinking and it turns out that good question is half of the answer. 
+What I really like in terms of API is [HoneySQL](https://github.com/seancorfield/honeysql), which is a compiler from maps/vectors to SQL queries. This got me thinking and it turns out that a good question is half of the answer. 
 
 What we need is a compiler from our API interface — GET request query string — to an ES query.
 
@@ -39,9 +39,9 @@ Rephrased like this it makes the task almost a walk in the park. A long-long wal
 
 ### Verbs
 
-So we have a number of functions like `not`, `and`, `or`, `term=`. They signal intent rather than what ES is doing inside and make reading aggregations and filters much easier. Some examples:
+So we have a number of functions like `not`, `and`, `or`, `term=`. They signal intent rather than what ES is doing inside and make reading aggregations and filters much easier. Or should I say `should` easier? Or `must` easier? :-) You can understand what's it doing without opening ES docs. Some examples:
 
-```
+```clojure
 (defn or* [& clauses]
   (let [clauses (filterv identity clauses)]
     (cond
@@ -73,9 +73,9 @@ Pipeline is 4 steps:
 - then a query is executed
 - `aggs->response` converts ES response to what our API returns
 
-We represent user query inside with a map like that:
+We represent a user query internally with a map like that:
 
-```
+```clojure
 {:base {"menu" "pants"}
  :filters {"1" #{"123" "456"}}
  :sort :default
@@ -83,17 +83,32 @@ We represent user query inside with a map like that:
  :limit 100}
 ```
 
-This is easier to interact with that just raw query string. 
+This is easier to interact with than with just a raw query string.
+
+### Data format
+
+Some time ago I stumbled upon a great article about working with ES, and one of it parts [describes a data model](https://project-a.github.io/on-site-search-design-patterns-for-e-commerce/#generic-faceted-search) they have used. It proposes that instead of a map like `{:brand "wow" :color "red"}` you use a following structure:
+
+```
+{:facets [{:name "brand"
+           :value "wow"}
+          {:name "color"
+           :value "red"}]}
+```
+
+This allows you to query all those facets with a single definition, rather than sending a separate aggregation for every field. More than that, you don't really need to know which facets are available for filtering upfront, since you'll receive all of them from ES.
+
+In practice, two lists of facets are needed - regular ones and ranged facets. Regular facets are aggregated by `terms` aggregation, and ranged are aggregated by combo of `ranges` and `percentiles`.
 
 ### make-aggs-q
 
-This part is the most convoluted one.  The essence is following: it concatenates results of a few loops:
+This part is the most convoluted one. It builds the essence of an ES query for aggregations, and consists of:
 
- - known non-faceted aggregations
- - facets which were used as filters in a query
- - regular facets
- - numeric facets
- - ranged facets
+ - loop over known non-faceted aggregations
+ - loop over every facet which was used as a filter in a query
+ - query for regular facets
+ - query for numeric facets
+ - query for ranged facets
 
 What I call a "facet" can be [read here](https://project-a.github.io/on-site-search-design-patterns-for-e-commerce/#indexing-facet-values), and I recommend this article very much.
 
@@ -107,11 +122,42 @@ Every loop then delegates to `make-agg` multimethod, which actually build its pi
          (agg-filter (filters/make filters)))])
 ```
 
-This aggregations looks up SKUs which are stored at our warehouse. This information is stored inside of a nested map (like `{:product-id 1 :skus [{:id 1 :depot true}]}`). And then user filters are applied on top — this could be moved to `make-aggs-q` logic, doesn't feel necessary though. :)
+This is an example of a facet called `:depot` - it looks up SKUs which are stored at our warehouse, so you can filter those if you want a faster delivery. This information is stored inside of a nested map (like `{:product-id 1 :skus [{:id 1 :depot true}]}`). And then user filters are applied on top — this could be moved to `make-aggs-q` logic, doesn't feel necessary though. :)
 
 ### aggs->response
 
-Loops over response converting raw data into what we feel is appropriate to show our clients. Fortunately most parts of the response are independent, so it's pretty clean and simple. Unfortunately there is no good way to pass additional information from `make-agg` to `extract-agg`, so at times it's stringly-typed. Also does sorting, etc. 
+This stage loops over response and converts data from ES into API response format. Fortunately most parts of the response are independent, so it's pretty clean and simple: it's a loop, which calls `extract-agg` on every aggregation:
+
+```clojure
+(defn agg-recur [{:keys [doc_count] :as agg}]
+  (loop [agg agg]
+    (if-let [nested (get agg NESTED-AGG)]
+      (recur nested)
+      (if-not (:doc_count agg)
+        (assoc agg :doc_count doc_count)
+        agg))))
+
+(defn aggs->response [query es-response]
+  (for [[k agg] (:aggregations es-response)
+     (extract-agg k (agg-recur agg) query))
+```
+
+`agg-recur` is a way to get to the real data: ES aggregations are very nested. To get through that we name every intermediate aggregation `:_nest` (this is a value of `NESTED-AGG`), and then use this `agg-recur` function.
+
+Unfortunately, there is no good way to pass additional information from `make-agg` to `extract-agg`, so it's stringly-typed, as is [recommended by ES](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/returning-aggregation-type.html). Look at our `extract-agg` multimethod:
+
+```clojure
+(defmulti extract-agg
+  (fn [k data query]
+    (let [kn (name k)]
+      (condp #(str/starts-with? %2 %1) kn
+        "facet_"      :facet
+        "percentile_" :percentile
+        "range_"      :range
+        :else         k))))
+```
+
+`extract-agg` methods extract data, sort in case necessary (so brands are alphabet-sorted rather than count of matches-sorted), fix up document count (in case of nested aggregations). Here's an example processing `:depot`:
 
 ```clojure
 (defmethod extract-agg :depot [k agg query]
@@ -131,4 +177,4 @@ There is nothing new under the sun. If only the right idea would appear right at
 
 In the end what we've got is a straightforward pipeline, no parametrization with functions, every chunk of a query is as simple as it gets, and extensibility is just great! It's been in production for 1.5 years now with no significant changes to the logic, received some new features and doesn't feel like it was holding us back.
 
-I could publish some code, but that would require describing our data layout, so maybe later. I now hope this post can serve as an inspiration for your own code. If you feel confused or have questions, please contact me by email — I would love to update this post more approachable.
+I could publish some code, but that would require describing our data layout, so maybe later. I now hope this post can serve as an inspiration for your own code. If you feel confused or have questions, please contact me by email — I would love to make this post more approachable.
