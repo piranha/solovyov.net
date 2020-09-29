@@ -129,7 +129,9 @@ Every loop then delegates to `make-agg` multimethod, which actually build its pi
 
 This is an example of a facet called `:color` - it's one of the simplest aggregations, just generates a list of colors available for selected products. `k` there is a name of filter, in this case `:color`, returned in case when you need to change a name - read on about stringly-typed aggregations.
 
-`filters` are filters for the given query except the one for the given aggregation, so that you'll receive all possible values for the current aggregation in a given context. 
+`filters` are filters for the given query except the one for the given aggregation, so that you'll receive all possible values for the current aggregation in a given context. So we apply them with an `agg-filter` function.
+
+`->` could be confusing, but look at it as a pipeline operator: every function you give it is executed in order.
 
 ElasticSearch aggregation rules are nested, read on to discover why we need `NESTED-AGG`.
 
