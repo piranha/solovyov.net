@@ -87,7 +87,7 @@ This is easier to interact with than with just a raw query string.
 
 ### Data format
 
-Some time ago I stumbled upon a great article about working with ES, and one of it parts [describes a data model](https://project-a.github.io/on-site-search-design-patterns-for-e-commerce/#generic-faceted-search) they have used. It proposes that instead of a map like `{:brand "wow" :color "red"}` you use a following structure:
+Some time ago I stumbled upon a great article about working with ES, and one of its parts [describes a data model](https://project-a.github.io/on-site-search-design-patterns-for-e-commerce/#generic-faceted-search) they have used. It proposes that instead of a map like `{:brand "wow" :color "red"}` you use a following structure:
 
 ```
 {:facets [{:name "brand"
@@ -104,25 +104,34 @@ In practice, two lists of facets are needed - regular ones and ranged facets. Re
 
 This part is the most convoluted one. It builds the essence of an ES query for aggregations, and consists of:
 
- - loop over known non-faceted aggregations
+ - loop over known non-facet aggregations
  - loop over every facet which was used as a filter in a query
  - query for regular facets
- - query for numeric facets
  - query for ranged facets
 
-What I call a "facet" can be [read here](https://project-a.github.io/on-site-search-design-patterns-for-e-commerce/#indexing-facet-values), and I recommend this article very much.
+What is a facet aggregation is described in [data format](#data-format) section. All other aggregations are non-facet and should be explicitly mentioned. Those are filters such as price, depot (whenever they are on stock in our warehouse rather than supplier's one), supplier, etc. When I look there it feels like most of them need to be in facets. Historical reasons. :)
 
 Every loop then delegates to `make-agg` multimethod, which actually build its piece of query. 
 
 ```
-(defmethod make-agg :depot [k _ filters _]
-  [k (-> {:filter (filters/term= "skus.depot" true)
-          :aggs   {:real_count {:reverse_nested {}}}}
-         (agg-nested "skus")
+(def NESTED-AGG :_nest)
+
+(defn agg-filter [agg filter-data]
+  {:filter filter-data
+   :aggs   {NESTED-AGG agg}})
+
+(defmethod make-agg :color [k _ filters options]
+  [k (-> {:terms {:field "color_group"
+                  :size  (:max-buckets options)}}
          (agg-filter (filters/make filters)))])
+
 ```
 
-This is an example of a facet called `:depot` - it looks up SKUs which are stored at our warehouse, so you can filter those if you want a faster delivery. This information is stored inside of a nested map (like `{:product-id 1 :skus [{:id 1 :depot true}]}`). And then user filters are applied on top — this could be moved to `make-aggs-q` logic, doesn't feel necessary though. :)
+This is an example of a facet called `:color` - it's one of the simplest aggregations, just generates a list of colors available for selected products. `k` there is a name of filter, in this case `:color`, returned in case when you need to change a name - read on about stringly-typed aggregations.
+
+`filters` are filters for the given query except the one for the given aggregation, so that you'll receive all possible values for the current aggregation in a given context. 
+
+ElasticSearch aggregation rules are nested, read on to discover why we need `NESTED-AGG`.
 
 ### aggs->response
 
@@ -142,7 +151,7 @@ This stage loops over response and converts data from ES into API response forma
      (extract-agg k (agg-recur agg) query))
 ```
 
-`agg-recur` is a way to get to the real data: ES aggregations are very nested. To get through that we name every intermediate aggregation `:_nest` (this is a value of `NESTED-AGG`), and then use this `agg-recur` function.
+`agg-recur` is a way to get to the real data: ES aggregations are very nested. To get through we use key `:_nest` (value of `NESTED-AGG`), and then use this `agg-recur` function.
 
 Unfortunately, there is no good way to pass additional information from `make-agg` to `extract-agg`, so it's stringly-typed, as is [recommended by ES](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/returning-aggregation-type.html). Look at our `extract-agg` multimethod:
 
