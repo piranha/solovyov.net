@@ -111,7 +111,7 @@ This part is the most convoluted one. It builds the essence of an ES query for a
 
 What is a facet aggregation is described in [data format](#data-format) section. All other aggregations are non-facet and should be explicitly mentioned. Those are filters such as price, depot (whenever they are on stock in our warehouse rather than supplier's one), supplier, etc. When I look there it feels like most of them need to be in facets. Historical reasons. :)
 
-Every loop then delegates to `make-agg` multimethod, which actually build its piece of query. 
+Every loop then delegates to `make-agg` multimethod, which actually build its piece of query. Here is an example of a filter for colors - it's one of the simplest aggregations, just generates a list of colors available for selected products.
 
 ```
 (def NESTED-AGG :_nest)
@@ -127,7 +127,7 @@ Every loop then delegates to `make-agg` multimethod, which actually build its pi
 
 ```
 
-This is an example of a facet called `:color` - it's one of the simplest aggregations, just generates a list of colors available for selected products. `k` there is a name of filter, in this case `:color`, returned in case when you need to change a name - read on about stringly-typed aggregations.
+`k` is a name of a filter (in this case `:color`), so it can be changed if necessary - read on about stringly-typed aggregations.
 
 `filters` are filters for the given query except the one for the given aggregation, so that you'll receive all possible values for the current aggregation in a given context. So we apply them with an `agg-filter` function.
 
