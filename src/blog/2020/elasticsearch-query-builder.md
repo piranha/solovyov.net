@@ -1,5 +1,5 @@
 title:  ElasticSearch query builder
-date: 2020-09-27
+date: 2020-09-30
 tags: programming, clojure, db
 draft: true
 ----
@@ -169,9 +169,9 @@ Unfortunately, there is no good way to pass additional information from `make-ag
 `extract-agg` methods extract data, sort if necessary (so brands are alphabet-sorted rather than count of matches-sorted), fix up document count (in case of nested aggregations). Here's an example processing `:depot`:
 
 ```clojure
-(defmethod extract-agg :depot [k agg query]
+(defmethod extract-agg :depot [filter-name agg query]
   (let [cnt (-> agg :real_count :doc_count)]
-    [{:id        k
+    [{:id        filter-name
       :widget    :toggle
       :values    [{:key       "true"
                    :doc_count cnt}]
