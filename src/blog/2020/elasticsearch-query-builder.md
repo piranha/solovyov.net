@@ -120,14 +120,13 @@ Every loop then delegates to `make-agg` multimethod, which actually build its pi
   {:filter filter-data
    :aggs   {NESTED-AGG agg}})
 
-(defmethod make-agg :color [k _ filters options]
-  [k (-> {:terms {:field "color_group"
-                  :size  (:max-buckets options)}}
-         (agg-filter (filters/make filters)))])
+(defmethod make-agg :color [filter-name _ filters options]
+  [filter-name
+   (-> {:terms {:field "color_group"
+                :size  (:max-buckets options)}}
+       (agg-filter (filters/make filters)))])
 
 ```
-
-`k` is a name of a filter (in this case `:color`), so it can be changed if necessary - read on about stringly-typed aggregations.
 
 `filters` are filters for the given query except the one for the given aggregation, so that you'll receive all possible values for the current aggregation in a given context. So we apply them with an `agg-filter` function.
 
@@ -155,20 +154,19 @@ This stage loops over response and converts data from ES into API response forma
 
 `agg-recur` is a way to get to the real data: ES aggregations are very nested. To get through we use key `:_nest` (value of `NESTED-AGG`), and then use this `agg-recur` function.
 
-Unfortunately, there is no good way to pass additional information from `make-agg` to `extract-agg`, so it's stringly-typed, as is [recommended by ES](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/returning-aggregation-type.html). Look at our `extract-agg` multimethod:
+Unfortunately, there is no good way to pass additional information from `make-agg` to `extract-agg`, so it's stringly-typed, as is [recommended by ES](https://www.elastic.co/guide/en/elasticsearch/reference/7.x/returning-aggregation-type.html). Look at our `extract-agg` multimethod (`defmulti` defines dispatcher, this is a function which determines which method to call):
 
 ```clojure
 (defmulti extract-agg
-  (fn [k data query]
-    (let [kn (name k)]
-      (condp #(str/starts-with? %2 %1) kn
-        "facet_"      :facet
-        "percentile_" :percentile
-        "range_"      :range
-        :else         k))))
+  (fn [filter-name data query]
+    (condp #(str/starts-with? %2 %1) filter-name
+      "facet_"      :facet
+      "percentile_" :percentile
+      "range_"      :range
+      :else         filter-name)))
 ```
 
-`extract-agg` methods extract data, sort in case necessary (so brands are alphabet-sorted rather than count of matches-sorted), fix up document count (in case of nested aggregations). Here's an example processing `:depot`:
+`extract-agg` methods extract data, sort if necessary (so brands are alphabet-sorted rather than count of matches-sorted), fix up document count (in case of nested aggregations). Here's an example processing `:depot`:
 
 ```clojure
 (defmethod extract-agg :depot [k agg query]
@@ -180,7 +178,7 @@ Unfortunately, there is no good way to pass additional information from `make-ag
       :doc_count cnt}]))
 ```
 
-That part is pretty simple since you just have to massage data into whatever you declared you support in the API. :)
+That part is pretty simple since you just have to massage data into whatever you need for the API. :)
 
 ## Divide and conquer
 
@@ -188,4 +186,4 @@ There is nothing new under the sun. If only the right idea would appear right at
 
 In the end what we've got is a straightforward pipeline, no parametrization with functions, every chunk of a query is as simple as it gets, and extensibility is just great! It's been in production for 1.5 years now with no significant changes to the logic, received some new features and doesn't feel like it was holding us back.
 
-I could publish some code, but that would require describing our data layout, so maybe later. I now hope this post can serve as an inspiration for your own code. If you feel confused or have questions, please contact me by email — I would love to make this post more approachable.
+I hope this post can serve as an inspiration for your own code. If you feel confused or have questions, please contact me by email — I would love to make this post more approachable.
