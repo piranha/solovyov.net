@@ -28,5 +28,5 @@ Here are slides from talks I've given.
 * <a href="cljs/">ClojureScript</a>, kiev::fprog Sep 2012
 * <a href="go-duck/">Go: static duck typing</a>, PyGrunn 2012
 * <a href="nomad-talk/">Database Migrations: Nomad</a>, UA PyCon 2011
-* <a href="sqla-talk/static/">SQLAlchemy: a better ORM</a>, UA PyCon 2011
+* <a href="sqla-talk/">SQLAlchemy: a better ORM</a>, UA PyCon 2011
 * <a href="hgworkflow/">Mercurial in complex workflows</a>, PyGrunn 2011
