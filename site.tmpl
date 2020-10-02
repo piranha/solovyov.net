@@ -83,8 +83,8 @@
 <article>
   <header>
     <h1>
-      {{ .Title }}
-      {{ if .Other.Draft }} <span class="cg">(draft)</span>{{ end }}
+      {{- .Title -}}
+      {{- if .Other.Draft }} <span class="cg">(draft)</span>{{ end -}}
       <a href="/{{ .Url }}" class="u-url">#</a>
     </h1>
 
