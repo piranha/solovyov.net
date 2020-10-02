@@ -177,7 +177,7 @@ console.log(c.valueNow());
 - Про архитектуру я не успею рассказать
   - Ну там разделяйте на модули и всë такое
 - Продолжение следует
-  - Следите на http://solovyov.net/
+  - Следите на https://solovyov.net/
     - (по теме там пока ничего нет)
 
 ---
@@ -186,7 +186,7 @@ console.log(c.valueNow());
 
 - http://awelonblue.wordpress.com/2012/07/01/why-not-events/
 - http://flapjax-lang.org/
-- http://github.com/clojure/clojurescript
-- http://github.com/emezeske/lein-cljsbuild
-- http://github.com/tailrecursion/javelin
-- http://solovyov.net/
+- https://github.com/clojure/clojurescript
+- https://github.com/emezeske/lein-cljsbuild
+- https://github.com/tailrecursion/javelin
+- https://solovyov.net/

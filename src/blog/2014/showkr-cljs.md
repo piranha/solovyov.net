@@ -16,10 +16,10 @@ tags: clojure, showkr
 [странички с фотками][photo], и мне оно нравится, так что решил, что надо. ;)
 
 [1]: https://solovyov.net/showkr/
-[1.1]: http://solovyov.net/blog/2012/showkr/
+[1.1]: https://solovyov.net/blog/2012/showkr/
 [quiescent]: https://github.com/levand/quiescent
 [om]: https://github.com/swannodette/om
-[photo]: http://solovyov.net/photo/
+[photo]: https://solovyov.net/photo/
 
 Ну и, за несколько дней я [переписал его][2], и заодно написал библиотеку для
 шорткатов [keybind][] (по мотивам [keymage][], хе-хе). Вышло прикольно, при

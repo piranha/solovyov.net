@@ -30,15 +30,12 @@ grep сам по себе, или [ack][], или, вот, [the_silver_searcher]
 так же бинарные - поэтому обычно он ищет заметно быстрее. :) Плюс синтаксис
 регекспов нормальный, а не POSIX'овый из grep/sed.
 
-Плюс его не нужно компилировать! Качайте и пользуйтесь: для [макоси][1],
-[линукса][2] и [винды][3] (ищите ссылки на 32-битные сборки в ридми на
-гитхабе). Это простой бинарник, у которого нет никаких зависимостей ни на что.
+Плюс его не нужно компилировать!
+[Качайте](https://github.com/piranha/goreplace/releases) и пользуйтесь. Это
+простой бинарник, у которого нет никаких зависимостей ни на что.
 
 [Go]: http://golang.org/
 [sr]: https://bitbucket.org/lorien/sr
 [Go Replace]: https://github.com/piranha/goreplace
 [ack]: http://beyondgrep.com/
 [the_silver_searcher]: https://github.com/ggreer/the_silver_searcher
-[1]: http://solovyov.net/files/gr-64-osx
-[2]: http://solovyov.net/files/gr-64-linux
-[3]: http://solovyov.net/files/gr-64-win.exe

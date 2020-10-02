@@ -169,6 +169,6 @@ var Root = React.createClass({
 
 # Ссылки
 
-- http://reactjs.org/
-- http://facebook.github.io/react/docs/videos.html
-- http://solovyov.net/
+- https://reactjs.org/
+- https://facebook.github.io/react/docs/videos.html
+- https://solovyov.net/

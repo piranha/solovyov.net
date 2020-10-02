@@ -157,8 +157,8 @@ console.log(c.valueNow());
 
 - http://awelonblue.wordpress.com/2012/07/01/why-not-events/
 - http://flapjax-lang.org/
-- http://github.com/clojure/clojurescript
-- http://github.com/emezeske/lein-cljsbuild
-- http://github.com/tailrecursion/lein-hlisp
-- http://github.com/tailrecursion/javelin
-- http://solovyov.net/
+- https://github.com/clojure/clojurescript
+- https://github.com/emezeske/lein-cljsbuild
+- https://github.com/tailrecursion/lein-hlisp
+- https://github.com/tailrecursion/javelin
+- https://solovyov.net/

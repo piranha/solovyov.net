@@ -102,6 +102,6 @@ file variables, только хранящиеся в отдельном файл
 
 [^f1]: надо только не забыть установить `ido-enable-flex-matching` в `t`.
 
-[1]: http://solovyov.net/project-root/
+[1]: https://solovyov.net/project-root/
 [ido]: http://www.emacswiki.org/emacs/InteractivelyDoThings
 

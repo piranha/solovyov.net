@@ -318,7 +318,7 @@ SQLAlchemy shines - it makes everything nice and complex possible!
 
 * http://www.sqlalchemy.org/docs/
 * http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
-* http://solovyov.net/en/2011/04/23/basic-sqlalchemy/
+* https://solovyov.net/en/2011/04/23/basic-sqlalchemy/
 
 ---
 class: center
