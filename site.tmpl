@@ -17,7 +17,7 @@
   <meta name="description" content="{{ if .Other.Description -}}
     {{ .Other.Description }}
   {{- else -}}
-    {{ with cut "<div id=\"content\">" "</div>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
+    {{ with cut "<div id=\"content\">" "</div>" .Content }}{{ excerpt . 30 | strip_html }}{{ end }}
   {{- end }}">
 
   <meta property="og:type" content="website">
@@ -26,7 +26,7 @@
   <meta property="og:description" content="{{ if .Other.Description -}}
     {{ .Other.Description }}
   {{- else -}}
-    {{ with cut "<div id=\"content\">" "</div>" .Content }}{{ excerpt . 50 | strip_html }}{{ end }}
+    {{ with cut "<div id=\"content\">" "</div>" .Content }}{{ excerpt . 30 | strip_html }}{{ end }}
   {{- end }}">
   {{ if .Other.Img -}}
   <meta property="og:image" content="{{ .Site.Other.Url }}{{ .Other.Img }}">
