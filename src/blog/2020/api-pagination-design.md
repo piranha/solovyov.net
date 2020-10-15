@@ -1,7 +1,6 @@
 title: API pagination design
-date: 2020-10-13
+date: 2020-10-15
 tags: programming
-draft: true
 ----
 
 Returning all results for a given query could be a challenge for an API, especially if there are thousands of results. It puts a load on a server, on a client, on a network, and often is unnecessary. Thus people invented pagination.
