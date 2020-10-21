@@ -125,9 +125,9 @@ h1 a:hover {
   text-decoration: none;
 }
 
-a.u-url { display: none; user-select: none; }
-a.u-url::before { content: " "; }
-h1:hover a.u-url, h2:hover a.u-url, h3:hover a.u-url { display: inline; }
+.self-target { display: none; user-select: none; }
+.self-target::before { content: " "; }
+h1:hover .self-target, h2:hover .self-target, h3:hover .self-target { display: inline; }
 
 
 /* Utility */
