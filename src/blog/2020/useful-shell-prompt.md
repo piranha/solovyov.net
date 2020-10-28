@@ -14,7 +14,7 @@ where `█` is a cursor. It shows username, `@` to separate it from hostname - o
 
 But a week ago a saw a [tweet](https://twitter.com/thingskatedid/status/1316081732467081217) with an idea to change prompt's prompt (the `>` thingie) to a red color when previous command exited with an error status. This motivated me to cleanup and update my prompt to a newer conventions. This is a result:
 
-<img alt="prompt screenshot" src="/media/prompt.jpg" height="60px" width="127px">
+<p><img alt="prompt screenshot" src="/media/prompt.jpg" height="60px" width="127px"></p>
 
 You can see I removed my username since it really gives me no information, no reason to spend space on that. I also really like white background, but if you don't, changing colors is easy — I'll explain how everything works.
 
