@@ -151,6 +151,9 @@ h1:hover .self-target, h2:hover .self-target, h3:hover .self-target { display: i
 
 .small { font-size: 0.8em; }
 
+.red { color: red; }
+.blue { color: blue; }
+
 
 /* editor.js comments */
 
