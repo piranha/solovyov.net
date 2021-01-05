@@ -1,0 +1,90 @@
+title: Streaming
+date: 2021-01-05
+tags: video
+draft: true
+----
+
+Few months ago I got a feeling that I'd enjoy live streaming some coding. I'm not really a person to sit and understand my own desire, but it seems to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. It feels like after doing it for some time it could generate some platform for discussions, etc. Also, applying some time-based pressure should move at least some small stuff forward, and doing some small things outside of general job-related stuff makes me feel more alive. :)
+
+The problem is that I just can start doing something. I can't just buy a dishwashing machine - I need to read up on what's current features are and select the one I like. It's the same here - I can't stream with my Macbook's cam even though I'm going to sit in a little sector of a video. I need a better webcam so I can feel like it's for real. :) So I set to research the topic.
+
+
+## Camera
+
+And it turns out [you can't buy a good webcam](https://vsevolod.net/good-webcams/). They are all shit — even if you pay $200+. If you want a good picture quality the only way right now is to buy a photo camera an HDMI capture card. You can argue that all major brands have released drivers to connect cameras via USB. They (the drivers) all suck though: USB2 can support compressed 1080p60, but those drivers only support (crappy) 576p30. What is this madness I don't know.
+
+The capture card could either be some [cheap thingie](https://aliexpress.com/item/4000917130635.html) for $15 on Aliexpress, which will work, or an [Elgato Camlink 4K](https://www.amazon.com/dp/B07K3FN5MR) for $130 (or other proper brand-name stuff for even more money). I settled on cheap crap and it works fine for now. :)
+
+As for a camera you have two non-negotiable properties:
+
+1) It should be able to work from an AC adapter. Obviously, working using batteries and a charger is insanity, when it's a non-mobile working place. :)
+2) It should output so-called "clean HDMI". Which means that HDMI output should contain whatever camera sees but without all the technical information, which is present on a camera screen - like shutter speed or a battery level.
+
+The second one just out-ruled my Fuji X-T1, because it outputs only recorded footage at HDMI port. So... it was painful to realize, but I went to [OLX](https://www.olx.ua/) (it's a local classified site) and bought used Sony a5100 for $250. 
+
+There are a few reasons why a5100:
+
+1) Sony's autofocus is the best on the market.
+2) The sensor is good enough. I looked at [dxomark](https://www.dxomark.com/sony-a5100-sensor-review-uncompromising-performance/) results and it's almost the same as much newer a6400 and a6600 have.
+3) It has a flip-out screen which flips from the top. Excellent as a self-monitor, because it will work even if some of the components in the path fails.
+4) It's dirt cheap. It's an older model made for 6 years already.
+
+I'd prefer to have Fuji — their colors are so much better to look at — but I wanted to keep investment low just in case in two months I decide I don't need it all. And the cheapest Fuji setup would be 2x from a5100 — partially because Sony's kit lens is so cheaply made, ugh! Also, when I compared a5100 autofocus performance to my beloved X-T1 my jaw just dropped. Reviews suggest that newer Fuji cameras have improved greatly, but still are not on the par with Sony.
+
+
+## Mount
+
+Here's the fun began. I never saw Magic Arms before, but the way they work is magical:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/yfE00pXkL8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+It seems that Manfrotto invented that stuff (can't find reliable sources, but I recall reading somewhere it was invented in 2008), but now everyone and their grandma are making clones of that stuff. Clones are not even close in terms of quality to Manfrotto's products (or Matthews Infinity Arm, or other costly brands), but they are cheap! You can get a "decent" one along with a "crab" clamp for around 20-25$ here in Ukraine (and even cheaper on AliExpress). It's made from aluminum and will die on you if you use it a lot, but I'm not going to.
+
+So I bought a monitor stand (a cheap one, of course), and put a magic arm there, and a little $4 ball head, and — bam! — camera is looking right at me now.
+
+
+## Microphone
+
+They say that there are three important things in a video, in that order:
+
+1. Sound
+2. Light
+3. Video
+
+And... did you know that camera's mic is the worst mic ever? By a weird coincidence — I tried to make a video from Fuji X-T1 few times :) — I already knew that. They pick up weird frequency profiles (to a point where I can't listen to my own voice from those mics), and they are **noisy** as hell. My MacBook's mic array is vastly superior to a camera mic, but it just won't do. It won't feel real. :-)
+
+I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman choice! :-) Plus I had an audio interface with XLR input and a 48V [phantom power][^1]. So I went to read and view — because there are heaps of information on YouTube which just don't exist in text form! — on mics and after some point stumbled upon [Neat Working Bee](https://www.neatmic.com/bee/worker-bee-microphone/).
+
+[^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
+
+![working bee image](https://wp-cdn.milocloud.com/neat-microphones-wp/wp-content/uploads/2019/06/12214611/worker-bee-front-view.png)
+
+It turned out that because of Gibson's bankruptcy a CEO of Neat Microphones was able to buy it (maybe not by himself alone, but still). And that CEO - [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is one of the founders of Blue Microphones. :) So they bought it out and lowered prices 2x to 3x on all their equipment. Both King Bee and Working Bee have loads of glowing reviews on YouTube, and their design... It's funny and it's different, so I went to buy one. :) Unfortunately, King Bees are no longer produced, so Working Bee it is. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped.
+
+Other big brands you probably know of - like Audio-Technica and Shure - are great as well. Shure more for their dynamic mics, but still. There are some other great companies I've never heard of before, like RØDE. 
+
+Various tests say that your listeners won't be able to tell the difference if you have any mic costing from about $100. Do whatever you want with that information.
+
+
+## Light
+
+That's the hardest one, because it's much more about physical world than anything else. Like, you can compare a camera to other cameras and buy the one you decided on, you can do the same with mic, but with lightning the specs of light you buy is not going to be the main thing. The main thing is placement. Tutorials say you have to have three different light sources: a key light, a fill light and a back light.
+
+A *key light* is a bright source of light that should light up your face somewhat from the side so that you have some shadows. I put a Yongnuo YN300 right behind my camera. 
+
+A *fill light* should be slightly less bright, its purpose is to reduce harshness of those shadows on your face. I have a small lamp from the other side of my display which I reflect from the wall.
+
+And a *back light* is something to highlight you from a back (surprise!) to add a feeling of depth to the image. I have nothing there and image suffers a little bit because of that. I'll have to fix that. :)
+
+There are also so-called *practical lights*, whose purpose is to add interesting points to your background so it's less dull.
+
+
+## Streaming
+
+Now that I told you the gist of what I learned over the course of few weeks (I'll try to add more information, it's hard to extract knowledge from a human brain), let's get to the point of all that — streaming.
+
+I did [some](https://www.youtube.com/playlist?list=PL7gxcNpwRVlp1Xepntn5EiUFo0YjtT8ok). It doesn't feel satisfying though. I know that to get some audience you have to persist, but the content should be interesting as well. 5 viewers suggest it's not yet. :-)
+
+I still feel the itch to produce some video content, but I guess it shouldn't be live coding. It's not exciting to watch some guy trying to figure out what the hell is going on with that SHA1 calculation for 10 minutes. Maybe diving deep in some bigger project would be more interesting, but I'm not involved into a big open source right now and showing innards of Kasta is something I'm wary of. 
+
+So right now the idea is to do a number of (shorter) videos on various technical/programming topics, like why PostgreSQL is the best DB, or what do I think about Hotwire, etc. We will see. :)
