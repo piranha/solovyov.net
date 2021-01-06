@@ -87,11 +87,11 @@
   <header>
     <h1>
       {{- .Title -}}
-      {{- if .Other.Draft }} <span class="cg">(draft)</span>{{ end -}}
+      {{- if .Other.Draft }} <span class="grey">(draft)</span>{{ end -}}
       <a href="/{{ .Url }}" class="u-url self-target">#</a>
     </h1>
 
-    <div class="cg">
+    <div class="grey">
       {{ .Content | reading_time }} min read
 
       &middot;

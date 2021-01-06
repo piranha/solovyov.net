@@ -143,16 +143,16 @@ h1:hover .self-target, h2:hover .self-target, h3:hover .self-target { display: i
 .ml0 { margin-left: 0; }
 .mr0 { margin-right: 0; }
 
-.cg { color: grey; }
-
 .left { text-align: left; }
 .center { text-align: center; }
 .right { text-align: right; }
+.mcenter { margin: 0 auto; }
 
 .small { font-size: 0.8em; }
 
 .red { color: red; }
 .blue { color: blue; }
+.grey { color: grey; }
 
 
 /* editor.js comments */
