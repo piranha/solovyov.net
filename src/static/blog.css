@@ -146,7 +146,7 @@ h1:hover .self-target, h2:hover .self-target, h3:hover .self-target { display: i
 .left { text-align: left; }
 .center { text-align: center; }
 .right { text-align: right; }
-.mcenter { margin: 0 auto; }
+.mcenter { margin: 0 auto; display: block; }
 
 .small { font-size: 0.8em; }
 
