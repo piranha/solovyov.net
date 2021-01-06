@@ -57,7 +57,7 @@ I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti bec
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
-![worker bee image](https://wp-cdn.milocloud.com/neat-microphones-wp/wp-content/uploads/2019/06/12214736/worker-bee-three-quarter-view.png)
+![worker bee image](https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg)
 
 It turned out that because of Gibson's bankruptcy a CEO of Neat Microphones was able to buy it (maybe not by himself alone, but still). And that CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is one of the founders of Blue Microphones. So they bought it out and lowered prices 2x to 3x on all their equipment. Both King Bee and Worker Bee have loads of glowing reviews on YouTube, and their design... It's funny and it's different, so I went to buy one. Unfortunately, King Bees are no longer produced, so Worker Bee it is. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped.
 
