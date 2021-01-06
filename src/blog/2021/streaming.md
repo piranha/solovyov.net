@@ -53,13 +53,13 @@ They say that there are three important things in a video, in that order:
 
 And... did you know that camera's mic is the worst mic ever? By a weird coincidence — I tried to make a video from Fuji X-T1 few times :) — I already knew that. They pick up weird frequency profiles (to a point where I can't listen to my own voice from those mics), and they are **noisy** as hell. My MacBook's mic array is vastly superior to a camera mic, but it just won't do. It won't feel real (see above)!
 
-I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and view — because there are heaps of information on YouTube which just don't exist in text form! — on mics and after some point stumbled upon [Neat Working Bee](https://www.neatmic.com/bee/worker-bee-microphone/).
+I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and view — because there are heaps of information on YouTube which just don't exist in text form! — on mics and after some point stumbled upon [Neat Worker Bee](https://www.neatmic.com/bee/worker-bee-microphone/).
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
-![working bee image](https://wp-cdn.milocloud.com/neat-microphones-wp/wp-content/uploads/2019/06/12214611/worker-bee-front-view.png)
+![worker bee image](https://wp-cdn.milocloud.com/neat-microphones-wp/wp-content/uploads/2019/06/12214736/worker-bee-three-quarter-view.png)
 
-It turned out that because of Gibson's bankruptcy a CEO of Neat Microphones was able to buy it (maybe not by himself alone, but still). And that CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is one of the founders of Blue Microphones. So they bought it out and lowered prices 2x to 3x on all their equipment. Both King Bee and Working Bee have loads of glowing reviews on YouTube, and their design... It's funny and it's different, so I went to buy one. Unfortunately, King Bees are no longer produced, so Working Bee it is. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped.
+It turned out that because of Gibson's bankruptcy a CEO of Neat Microphones was able to buy it (maybe not by himself alone, but still). And that CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is one of the founders of Blue Microphones. So they bought it out and lowered prices 2x to 3x on all their equipment. Both King Bee and Worker Bee have loads of glowing reviews on YouTube, and their design... It's funny and it's different, so I went to buy one. Unfortunately, King Bees are no longer produced, so Worker Bee it is. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped.
 
 Other big brands you probably know of — like Audio-Technica and Shure — are great as well. There are some other great companies I've never heard of before, like RØDE. 
 
