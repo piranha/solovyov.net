@@ -13,6 +13,10 @@
     });
   }
 
+  function min(a, b) {
+    return a < b ? a : b;
+  }
+
 
   /// SERIALIZE
 
@@ -62,8 +66,8 @@
     var end = deserializePosition(parts[1]);
     var range = document.createRange();
 
-    range.setStart(start.node, start.offset);
-    range.setEnd(end.node, end.offset);
+    range.setStart(start.node, min(start.offset, start.node.length));
+    range.setEnd(end.node, min(end.offset, end.node.length));
 
     return range;
   }
