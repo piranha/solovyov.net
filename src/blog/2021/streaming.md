@@ -61,7 +61,7 @@ I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti bec
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
-<img class="float-right ml" alt="worker bee image" src="https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg" height="300px">
+<img class="float-right ml" alt="worker bee image" height="300px" src="https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg">
 
 It turns out Neat Microphones were a subsidiary of Gibson, and made some upper-class mics: like Worker Bee for $200 and King Bee for $300. But after Gibson's bankruptcy Neat's CEO (and maybe some others, IDK) was able to buy it out. That CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is also one of the founders of Blue Microphones. So Neat Mics are independent now and decided to change their pricing strategy. Unfortunately, King Bee is not produced anymore, but Worker Bee is sold for $90, which is a steal! It has loads of glowing reviews on YouTube, and the design... it's funny, and it's different, and I just like it. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped. But I bought one anyway.
 
@@ -72,21 +72,27 @@ Various tests say that your listeners won't be able to tell the difference if yo
 
 ## Sound processing
 
-I mentioned that I already have an XLR interface to drive the mic — it's Presonus AudioBox 22VSL. It's a good interface with reasonably good pre-amplifiers. Can I complain? You bet! I'm an expert complainer!
+<img class="float-right ml" alt="presonus audiobox 22vsl image" height="200px" src="https://pae-web.presonusmusic.com/uploads/products/media/images/AudioBox_22VSL-02.png">
+
+I mentioned that I already have an XLR interface to drive the mic — it's [Presonus AudioBox 22VSL](https://www.presonus.com/products/AudioBox-22VSL). It's a good interface with reasonably good pre-amplifiers. Can I complain? You bet! I'm an expert complainer[^2]!
+
+[^2]: You could say that I'm good at spotting market opportunities, of course.
 
 And the main complaint is that it's just an audio interface. Let me elaborate.
 
 There are a few things you could do with your voice: de-noise, compression, and equalization.
 
-De-noise is self-describing, but really important: when you stream, your laptop is going to make a lot of sound spinning coolers. This generates a lot of background noise which tires your listeners. What's more important, it drives me mad.
+De-noise is self-describing, but really important: when you stream, your laptop is going to make a lot of sound spinning coolers. This generates a lot of background noise which tires your listeners. What's more important, it drives me mad. This could be done in a simpler way, like noise gate — just silencing signal under some volume level, and in a more intelligent way, learning noise and then trying to clean whole duration of a recording.
 
 Compression is a really interesting way to improve voice signal: make quiet sounds louder and loud sounds quieter, "compressing" your sound volume to some middle level. This is good because then your distance to microphone becomes less important, and what's especially good — changing distance to a mic is much less pronounced, with a volume level being more stable.
 
 Equalizers are used for two purposes. First is altering the perception of recorded voice — add lows to make it sound fuller, remove them if it sounds "muddy"; add highs to make it more airy, remove if it cuts your ears; alter mids for better understanding; you know, usual equalizer stuff. Another one is that mics are not perfect and recorded voice could have some irritating frequencies. Go see [Curtis' video](https://www.youtube.com/watch?v=Jn6iB1SNvRQ) on that — it's pretty interesting, but it's a bit too hard. I tried looking at my own recordings but it feels like it needs someone with a better trained ear. :)
 
-Anyway, so we have those three things and my 22VSL can't do any of them. You can do them on your computer, of course, but it uses some CPU (~10% of a single core) and, more importantly, adds latency to sound channel. Doing that inside some hardware BSP would be vastly superior: no latency, no CPU load, and you will not forget to run that freaking app!
+Anyway, so we have those three things and my 22VSL can't do any of them. You can do them on your computer, of course, but it uses some CPU (~10% of a single core) and, more importantly, adds latency to sound channel. Doing that inside some hardware DSP would be vastly superior: no latency, no CPU load, and you will not forget to run that freaking app!
 
-To keep it real — I found two interfaces with BSP under $500: Yamaha AG03 (and AG06) and Steinberg UR22C (UR24C etc), which is also Yamaha. 
+<img class="float-right ml" alt="yamaha ag03 image" width="400px" src="https://usa.yamaha.com/files/3723ECB0493643A4A223EA68E569A046_12073_990x990_c1f536d33591de0431d896a13451fe11.jpg">
+
+To keep it real — I found two interfaces with DSP under $500: Yamaha AG03 (and AG06) for $170 and Steinberg UR22C (UR24C etc) for $250, which is also Yamaha. 
 
 [Yamaha AG03](https://usa.yamaha.com/products/music_production/interfaces/ag_series/ag03.html) has 4-line equalizer and compressor, but no de-noise, which is a shame. I guess there is a reason why eq is only 4-line and not like 30-line, but this really feels underwhelming. :( [Steinberg](https://new.steinberg.net/audio-interfaces/ur22c/) looks like a more conventional interface, and has a few amplifiers emulation built-in (for guitars), but just a 3-line equalizer (what). Reviews on their audio quality are not glowing, and some reviews on Steinberg complain that it's not working with X470/X570, so it's not all bells and whistles.
 
@@ -94,18 +100,24 @@ Alternatives from other manufacturers include [Behringer XR12](https://www.behri
 
 There is UAD Apollo Solo for $700, and it's small, but 700?! Is it that hard?!
 
-There is also a *highly* popular GoXLR, which does all processing in software and doesn't work under Macos. And RØDECaster Pro for $600 and 4 mic inputs, which has BSP and equalization presets but no way to customize them.
+<img class="float-right ml" alt="rodecaster pro image" width="400px" src="https://cdn.rode.com/website/images/rodecasterpro/R%C3%98DE_R%C3%98DECaster_Pro_3_QUARTER_700x468+1.png">
+
+There is also a *highly* popular [TC Helicon GoXLR](https://www.tc-helicon.com/product.html?modelCode=P0CQK), which does all processing in software and doesn't work under Macos. And [RØDECaster Pro](https://www.rode.com/rodecasterpro) for $600 and 4 mic inputs, which has DSP and equalization presets but no way to customize them.
 
 As you can guess I'm totally unsure what to do about audio interface so I'm still using trusty 22VSL. If you can help me choose a solution I'm all ears!
 
 USB mics are not better. Elgato released a new line of mics called Wave, which comes with a great (judging from reviews) driver, but it's doing all the compression/equalization stuff inside the driver. Also reviews of hardware side are not as glowing.
 
-Also, I think this is the right place to complain about software as well! There is an app called VoiceMeeter Potato for Windows, which replaces regular mixer and allows you to do all the things you want. And then silently sits in tray. Nothing like that exists for Macos! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live. All of them are pretty expensive, eat a lot of memory, have highly cryptic interfaces and are not resident apps. Each and every of them thinks it's the *main* app of your life period. Ugh. GIVE ME POTATO!
+<img class="float-right ml" alt="voicemeeter image" width="400px" src="https://vb-audio.com/Voicemeeter/VoicemeeterBananaMixer.jpg">
+
+Also, I think this is the right place to complain about software as well! There is an app for Windows called VoiceMeeter Banana, which replaces system mixer and allows you to do all the things you want. And then silently sits in tray. Nothing like that exists for Macos! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live. All of them are pretty expensive, eat a lot of memory, have highly cryptic interfaces and are not resident apps. Each and every one of them thinks it's the *main* app of your life period. Ugh. GIVE ME BANANA!
 
 
 ## Light
 
 I just can't stop here. Like, I've had two out of three crossed, is it possible to stop? But light is the hardest one, because it's much more about physical world than anything else. It depends on your room, ability to place stuff around, and it can change anything drastically. Also you can compare a camera to other cameras and buy the one you decided on, you can do the same with mic, but with lightning the specs of light you buy is not going to be the main thing. The main thing is placement. Tutorials say you have to have three different light sources: a key light, a fill light and a back light.
+
+<img class="float-right ml" alt="rodecaster pro image" width="400px" src="https://d2r5da613aq50s.cloudfront.net/wp-content/uploads/321891.image0.jpg">
 
 A *key light* is a bright source of light that should light up your face somewhat from the side so that you have some shadows. I put a Yongnuo YN300 right behind my camera. 
 
@@ -116,13 +128,17 @@ And a *back light* is something to highlight you from a back (surprise!) to add 
 There are also so-called *practical lights*, whose purpose is to add interesting points to your background so it's less dull. This starts to feel like I'm going too far, though, I'm not a "real" video maker yet but geared up as hell already, haha.
 
 
-## Various hardware
+## Various
 
-There is also some streamer-oriented hardware I'm not very excited about, like [Elgato Stream Deck](https://www.elgato.com/en/gaming/stream-deck). It's a keyboard with LCD screens under each key, where you can put various actions and sequences of actions ("macros"). So it's like [Hammerspoon](https://www.hammerspoon.org/) + [Optimus Maximus](https://en.wikipedia.org/wiki/Optimus_Maximus_keyboard). The only reason I'm mentioning it here is to tell a story how [Ecamm Live](https://www.ecamm.com/mac/ecammlive/) can switch screen configuration presets either from the app interface or by installing a plugin to Stream Deck. No AppleScript, no global hotkeys... it's like someone has a blind eye on power users? Anyway, good for Elgato, it's product seems to be really popular.
+<img class="float-right ml" alt="stream deck image" width="400px" src="https://theawesomer.com/photos/2017/05/elgato_stream_deck_4.jpg">
+
+There is also some streamer-oriented hardware I'm not very excited about, like [Elgato Stream Deck](https://www.elgato.com/en/gaming/stream-deck). It's a keyboard with LCD screens under each key, where you can put various actions and sequences of actions ("macros"). So it's like [Hammerspoon](https://www.hammerspoon.org/) + [Optimus Maximus](https://en.wikipedia.org/wiki/Optimus_Maximus_keyboard). The only reason I'm mentioning it here is to tell a story how [Ecamm Live](https://www.ecamm.com/mac/ecammlive/) can switch screen configuration presets either from the app interface or by installing a plugin to Stream Deck. No AppleScript, no global hotkeys... it's like someone has a blind eye on power users? Anyway, good for Elgato, its product seems to be really popular.
 
 The same Elgato has an interesting mount system, but it's not only not sold in Ukraine and costs considerable amounts of money, but also is constantly out of stock.
 
-Those Elgato people seem to be most successful company oriented on streaming market. Their Key Lights are also good, plus the software is excellent - you can control them from your phone.
+Those Elgato people seem to be the most successful company oriented on streaming market. Their Key Lights are also good, plus the software is excellent — you can control them from your phone.
+
+I also feel like I need to link a few channels I liked (that talk about streaming) - [EposVox](https://www.youtube.com/c/EposVox), [Alpha Gaming](https://www.youtube.com/c/AlphaGamingHouse) and [Tom Buck](https://www.youtube.com/c/TomBuck). I'm sure there are other sensible channels, but those are that I stayed with.
 
 
 ## Streaming
