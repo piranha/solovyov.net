@@ -38,7 +38,7 @@ Of course, you can't just put a camera on your display. Webcams can do that, hah
 
 > *Aside*: did I tell you I had to watch a lot of videos instead of reading text to discover everything? No? Now I did. It's a bit painful, but lots and lots of information are in video format only, and text articles about streaming are hard to find and incomplete. I guess including this one. :-)
 
-<iframe class="float-right" width="560" height="315" src="https://www.youtube.com/embed/yfE00pXkL8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="float-right" width="448" height="252" src="https://www.youtube.com/embed/yfE00pXkL8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Back to the story. I never saw Magic Arms before, but the way they work is magical.
 
@@ -61,7 +61,7 @@ I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti bec
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
-<img class="float-right" alt="worker bee image" src="https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg" height="300px">
+<img class="float-right ml" alt="worker bee image" src="https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg" height="300px">
 
 It turns out Neat Microphones were a subsidiary of Gibson, and made some upper-class mics: like Worker Bee for $200 and King Bee for $300. But after Gibson's bankruptcy Neat's CEO (and maybe some others, IDK) was able to buy it out. That CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is also one of the founders of Blue Microphones. So Neat Mics are independent now and decided to change their pricing strategy. Unfortunately, King Bee is not produced anymore, but Worker Bee is sold for $90, which is a steal! It has loads of glowing reviews on YouTube, and the design... it's funny, and it's different, and I just like it. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped. But I bought one anyway.
 
@@ -72,7 +72,7 @@ Various tests say that your listeners won't be able to tell the difference if yo
 
 ## Sound processing
 
-I mentioned that I already have an XLR interface to drive the mic — it's Presonus AudioBox 22VSL. It's a good interface with reasonably good pre-amplifiers. Can I complain? You bet! I'm an expert at that stuff!
+I mentioned that I already have an XLR interface to drive the mic — it's Presonus AudioBox 22VSL. It's a good interface with reasonably good pre-amplifiers. Can I complain? You bet! I'm an expert complainer!
 
 And the main complaint is that it's just an audio interface. Let me elaborate.
 
