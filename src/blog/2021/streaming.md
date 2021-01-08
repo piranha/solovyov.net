@@ -20,12 +20,12 @@ For a camera you have two non-negotiable properties:
 1) It should be able to work from an AC adapter. Obviously, working using batteries and a charger is insanity, when it's a non-mobile working place.
 2) It should output so-called "clean HDMI". Which means that HDMI output should contain whatever camera sees but without all the technical information, which is present on a camera screen — like a shutter speed or a battery level.
 
-The second one just out-ruled my Fuji X-T1, because it outputs only recorded footage at the HDMI port. It was painful to realize, but I went to [OLX](https://www.olx.ua/) (it's a local classified site) and bought used Sony a5100 for $250. 
+The second one just out-ruled my otherwise excellent Fuji X-T1, because it outputs only recorded footage at the HDMI port. It was painful to realize, but I went to a a local classified site and bought used Sony a5100 for $250. 
 
 There are a few reasons why a5100:
 
 1) Sony's autofocus is the best on the market.
-2) The sensor is good enough. I looked at [dxomark](https://www.dxomark.com/sony-a5100-sensor-review-uncompromising-performance/) results and they are almost the same as much newer a6400 and a6600 results.
+2) The sensor is good enough. I looked at [dxomark](https://www.dxomark.com/sony-a5100-sensor-review-uncompromising-performance/) results and they are almost the same as much newer a6400 and a6600 have.
 3) It has a flip-out screen which flips up 180° (sticking from the top of the camera). Excellent as a self-monitor, because it will work even if some of the components in the path fail.
 4) It's dirt cheap. It's an older model made for 6 years already.
 
@@ -36,7 +36,7 @@ I'd prefer to have Fuji — their colors are so much better to look at — but I
 
 Of course, you can't just put a camera on your display. Webcams can do that, haha, should've gone that way, right? Tripod is an option if you have a place to put it beside a table, but I don't. So I watched some YouTube videos to see how people mount cameras to film themselves and discovered a Magic Arm. 
 
-> *Aside*: did I tell you I had to watch a lot of videos instead of reading text to discover everything? No? Now I did. It's a bit painful, but lots and lots of information are in video format and text articles about streaming are hard to find and incomplete. I guess including this one. :-)
+> *Aside*: did I tell you I had to watch a lot of videos instead of reading text to discover everything? No? Now I did. It's a bit painful, but lots and lots of information are in video format only, and text articles about streaming are hard to find and incomplete. I guess including this one. :-)
 
 Back to the story. I never saw Magic Arms before, but the way they work is magical:
 
@@ -55,9 +55,9 @@ They say that there are three important things in a video, in that order:
 2. Light
 3. Video
 
-And... did you know that camera's mic is the worst mic ever? By a weird coincidence — I tried to make a video with Fuji X-T1 a few times — I already knew that. They pick up weird frequency profiles (to a point where I can't listen to my own voice from those mics), and they are **noisy** as hell. My MacBook's mic array is vastly superior to a camera mic! As you can guess to make all that feel more real I need an external microphone.
+And... did you know that camera's mic is the worst mic ever? By a weird coincidence — I tried to make a video with Fuji X-T1 a few times — I already knew that. They pick up weird frequency profiles (to a point where I can't listen to my own voice from those mics), and they are *noisy as hell*. My MacBook's mic array is vastly superior to a camera mic! As you can guess to make all that feel more real I need an external microphone.
 
-I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and view some videos on mics and after some point stumbled upon [Neat Worker Bee](https://www.neatmic.com/bee/worker-bee-microphone/).
+I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and watch some videos on mics and after some point stumbled upon [Neat Worker Bee](https://www.neatmic.com/bee/worker-bee-microphone/).
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
@@ -78,9 +78,9 @@ A *key light* is a bright source of light that should light up your face somewha
 
 A *fill light* should be slightly less bright, its purpose is to reduce harshness of those shadows on your face. I have a small lamp from the other side of my display which I reflect from the wall.
 
-And a *back light* is something to highlight you from a back (surprise!) to add a feeling of depth to the image. I have nothing there and my image somewhat a little bit because of that. I'll have to fix that.
+And a *back light* is something to highlight you from a back (surprise!) to add a feeling of depth to the image. I don't have a back light and my image is a little bit too plain because of that. I'll have to fix that.
 
-There are also so-called *practical lights*, whose purpose is to add interesting points to your background so it's less dull. This starts to feel light I'm going too far, though, I'm not a "real" video maker yet but geared up as hell already, haha.
+There are also so-called *practical lights*, whose purpose is to add interesting points to your background so it's less dull. This starts to feel like I'm going too far, though, I'm not a "real" video maker yet but geared up as hell already, haha.
 
 
 ## Streaming
