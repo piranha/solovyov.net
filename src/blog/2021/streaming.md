@@ -57,7 +57,7 @@ They say that there are three important things in a video, in that order:
 
 And... did you know that camera's mic is the worst mic ever? By a weird coincidence — I tried to make a video with Fuji X-T1 a few times — I already knew that. They pick up weird frequency profiles (to a point where I can't listen to my own voice from those mics), and they are *noisy as hell*. My MacBook's mic array is vastly superior to a camera mic! As you can guess to make all that feel more real I need an external microphone.
 
-I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and watch some videos on mics and after some point stumbled upon [Neat Worker Bee](https://www.neatmic.com/bee/worker-bee-microphone/).
+I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and watch some videos on mics and after some point stumbled upon [Neat Worker Bee](https://www.neatmic.com/bee/worker-bee-microphone/) — see [review](https://www.youtube.com/watch?v=ScI1U3ey9ZY&t=630s) at Podcastage (which is one of two channels I liked about audio, the other being [Curtis Judd](https://www.youtube.com/user/curtisjudd)).
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
@@ -68,6 +68,39 @@ It turns out Neat Microphones were a subsidiary of Gibson, and made some upper-c
 Other big brands you probably know of — like Audio-Technica and Shure — are great as well. There are some other great companies I've never heard of before, like RØDE. 
 
 Various tests say that your listeners won't be able to tell the difference if you have any mic costing from about $100. Do whatever you want with that information.
+
+
+## Sound processing
+
+I mentioned that I already have an XLR interface to drive the mic — it's Presonus AudioBox 22VSL. It's a good interface with reasonably good pre-amplifiers. Can I complain? You bet! I'm an expert at that stuff!
+
+And the main complaint is that it's just an audio interface. Let me elaborate.
+
+There are a few things you could do with your voice: de-noise, compression, and equalization.
+
+De-noise is self-describing, but really important: when you stream, your laptop is going to make a lot of sound spinning coolers. This generates a lot of background noise which tires your listeners. What's more important, it drives me mad.
+
+Compression is a really interesting way to improve voice signal: make quiet sounds louder and loud sounds quieter, "compressing" your sound volume to some middle level. This is good because then your distance to microphone becomes less important, and what's especially good — changing distance to a mic is much less pronounced, with a volume level being more stable.
+
+Equalizers are used for two purposes. First is altering the perception of recorded voice — add lows to make it sound fuller, remove them if it sounds "muddy"; add highs to make it more airy, remove if it cuts your ears; alter mids for better understanding; you know, usual equalizer stuff. Another one is that mics are not perfect and recorded voice could have some irritating frequencies. Go see [Curtis' video](https://www.youtube.com/watch?v=Jn6iB1SNvRQ) on that — it's pretty interesting, but it's a bit too hard. I tried looking at my own recordings but it feels like it needs someone with a better trained ear. :)
+
+Anyway, so we have those three things and my 22VSL can't do any of them. You can do them on your computer, of course, but it uses some CPU (~10% of a single core) and, more importantly, adds latency to sound channel. Doing that inside some hardware BSP would be vastly superior: no latency, no CPU load, and you will not forget to run that freaking app!
+
+To keep it real — I found two interfaces with BSP under $500: Yamaha AG03 (and AG06) and Steinberg UR22C (UR24C etc), which is also Yamaha. 
+
+[Yamaha AG03](https://usa.yamaha.com/products/music_production/interfaces/ag_series/ag03.html) has 4-line equalizer and compressor, but no de-noise, which is a shame. I guess there is a reason why eq is only 4-line and not like 30-line, but this really feels underwhelming. :( [Steinberg](https://new.steinberg.net/audio-interfaces/ur22c/) looks like a more conventional interface, and has a few amplifiers emulation built-in (for guitars), but just a 3-line equalizer (what). Reviews on their audio quality are not glowing, and some reviews on Steinberg complain that it's not working with X470/X570, so it's not all bells and whistles.
+
+Alternatives from other manufacturers include [Behringer XR12](https://www.behringer.com/product.html?modelCode=P0BI6) and [Motu UltraLite mk4](https://motu.com/products/proaudio/ultralite-mk4), which are more professional-grade devices and their size doesn't let me splurge on that.
+
+There is UAD Apollo Solo for $700, and it's small, but 700?! Is it that hard?!
+
+There is also a *highly* popular GoXLR, which does all processing in software and doesn't work under Macos. And RØDECaster Pro for $600 and 4 mic inputs, which has BSP and equalization presets but no way to customize them.
+
+As you can guess I'm totally unsure what to do about audio interface so I'm still using trusty 22VSL. If you can help me choose a solution I'm all ears!
+
+USB mics are not better. Elgato released a new line of mics called Wave, which comes with a great (judging from reviews) driver, but it's doing all the compression/equalization stuff inside the driver. Also reviews of hardware side are not as glowing.
+
+Also, I think this is the right place to complain about software as well! There is an app called VoiceMeeter Potato for Windows, which replaces regular mixer and allows you to do all the things you want. And then silently sits in tray. Nothing like that exists for Macos! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live. All of them are pretty expensive, eat a lot of memory, have highly cryptic interfaces and are not resident apps. Each and every of them thinks it's the *main* app of your life period. Ugh. GIVE ME POTATO!
 
 
 ## Light
@@ -81,6 +114,15 @@ A *fill light* should be slightly less bright, its purpose is to reduce harshnes
 And a *back light* is something to highlight you from a back (surprise!) to add a feeling of depth to the image. I don't have a back light and my image is a little bit too plain because of that. I'll have to fix that.
 
 There are also so-called *practical lights*, whose purpose is to add interesting points to your background so it's less dull. This starts to feel like I'm going too far, though, I'm not a "real" video maker yet but geared up as hell already, haha.
+
+
+## Various hardware
+
+There is also some streamer-oriented hardware I'm not very excited about, like [Elgato Stream Deck](https://www.elgato.com/en/gaming/stream-deck). It's a keyboard with LCD screens under each key, where you can put various actions and sequences of actions ("macros"). So it's like [Hammerspoon](https://www.hammerspoon.org/) + [Optimus Maximus](https://en.wikipedia.org/wiki/Optimus_Maximus_keyboard). The only reason I'm mentioning it here is to tell a story how [Ecamm Live](https://www.ecamm.com/mac/ecammlive/) can switch screen configuration presets either from the app interface or by installing a plugin to Stream Deck. No AppleScript, no global hotkeys... it's like someone has a blind eye on power users? Anyway, good for Elgato, it's product seems to be really popular.
+
+The same Elgato has an interesting mount system, but it's not only not sold in Ukraine and costs considerable amounts of money, but also is constantly out of stock.
+
+Those Elgato people seem to be most successful company oriented on streaming market. Their Key Lights are also good, plus the software is excellent - you can control them from your phone.
 
 
 ## Streaming
