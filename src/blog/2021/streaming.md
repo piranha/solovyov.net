@@ -40,7 +40,7 @@ Of course, you can't just put a camera on your display. Webcams can do that, hah
 
 > *Aside*: did I tell you I had to watch a lot of videos instead of reading text to discover everything? No? Now I did. It's a bit painful, but lots and lots of information are in video format only, and text articles about streaming are hard to find and incomplete. I guess including this one. :-)
 
-<iframe class="image" src="https://www.youtube.com/embed/yfE00pXkL8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="image" width="400px" height="225px" src="https://www.youtube.com/embed/yfE00pXkL8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Back to the story. I never saw Magic Arms before, but the way they work is magical.
 
@@ -112,18 +112,18 @@ USB mics are not better. Elgato released a new line of mics called Wave, which c
 
 <img class="image" alt="voicemeeter image" src="https://vb-audio.com/Voicemeeter/VoicemeeterBananaMixer.jpg">
 
-Also, I think this is the right place to complain about software as well! There is an app for Windows called VoiceMeeter Banana, which replaces system mixer and allows you to do all the things you want. And then silently sits in tray. Nothing like that exists for Macos! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live. All of them are pretty expensive, eat a lot of memory, have highly cryptic interfaces and are not resident apps. Each and every one of them thinks it's the *main* app of your life period. Ugh. GIVE ME BANANA!
+Also, I think this is the right place to complain about software as well! There is an app for Windows called [VoiceMeeter Banana](https://vb-audio.com/Voicemeeter/banana.htm), which replaces system mixer and allows you to do all the things you want. And then silently sits in tray. Nothing like that exists for Macos! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live. All of them are pretty expensive, eat a lot of memory, have highly cryptic interfaces and are not resident apps. Each and every one of them thinks it's the *main* app of your life. Ugh. GIVE ME BANANA!
 
 
 ## Light
 
-I just can't stop here. Like, I've had two out of three crossed, is it possible to stop? But light is the hardest one, because it's much more about physical world than anything else. It depends on your room, ability to place stuff around, and it can change anything drastically. Also you can compare a camera to other cameras and buy the one you decided on, you can do the same with mic, but with lightning the specs of light you buy is not going to be the main thing. The main thing is placement. Tutorials say you have to have three different light sources: a key light, a fill light and a back light.
+I just can't stop here. Like, I've had two points out of three crossed, is it possible to stop? But light is the hardest one, because it's much more about physical world than anything else. It depends on your room, ability to place stuff around, and it can change anything drastically. Also you can compare a camera to other cameras and buy the one you decided on, you can do the same with mic, but with lightning the specs of light you buy is not going to be the main thing. The main thing is placement. Tutorials say you have to have three different light sources: a key light, a fill light and a back light.
 
 <img class="image" alt="rodecaster pro image" src="https://d2r5da613aq50s.cloudfront.net/wp-content/uploads/321891.image0.jpg">
 
 A *key light* is a bright source of light that should light up your face somewhat from the side so that you have some shadows. I put a Yongnuo YN300 right behind my camera. 
 
-A *fill light* should be slightly less bright, its purpose is to reduce harshness of those shadows on your face. I have a small lamp from the other side of my display which I reflect from the wall.
+A *fill light* should be less bright, its purpose is to reduce harshness of those shadows on your face. I have a small lamp from the other side of my display which I reflect from the wall.
 
 And a *back light* is something to highlight you from a back (surprise!) to add a feeling of depth to the image. I don't have a back light and my image is a little bit too plain because of that. I'll have to fix that.
 
@@ -136,7 +136,7 @@ There are also so-called *practical lights*, whose purpose is to add interesting
 
 There is also some streamer-oriented hardware I'm not very excited about, like [Elgato Stream Deck](https://www.elgato.com/en/gaming/stream-deck). It's a keyboard with LCD screens under each key, where you can put various actions and sequences of actions ("macros"). So it's like [Hammerspoon](https://www.hammerspoon.org/) + [Optimus Maximus](https://en.wikipedia.org/wiki/Optimus_Maximus_keyboard). The only reason I'm mentioning it here is to tell a story how [Ecamm Live](https://www.ecamm.com/mac/ecammlive/) can switch screen configuration presets either from the app interface or by installing a plugin to Stream Deck. No AppleScript, no global hotkeys... it's like someone has a blind eye on power users? Anyway, good for Elgato, its product seems to be really popular.
 
-The same Elgato has an interesting mount system, but it's not only not sold in Ukraine and costs considerable amounts of money, but also is constantly out of stock.
+The same Elgato has an interesting [mount system](https://www.elgato.com/en/multi-mount-system), but it's not only not sold in Ukraine and costs considerable amounts of money, but also is constantly out of stock.
 
 Those Elgato people seem to be the most successful company oriented on streaming market. Their Key Lights are also good, plus the software is excellent — you can control them from your phone.
 
