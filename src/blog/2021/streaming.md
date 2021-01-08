@@ -4,14 +4,14 @@ tags: video
 draft: true
 ----
 
-Few months ago I got a feeling that I'd enjoy live streaming some coding. I'm not really a person to sit and understand my own desire, but it seems to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. It feels like after doing it for some time it could generate some platform for discussions, etc. Also, applying some time-based pressure should move at least some small stuff forward, and doing small things outside of general job-related stuff makes me feel more alive.
+Few months ago I got a feeling that I'd enjoy live streaming some coding. I'm not an introspective kind of person, but it seems to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. It feels like after doing it for some time it could generate some platform for discussions, etc. Also, having some time-based pressure to a smaller projects could move them forward, and doing small things outside of a general job-related stuff makes me feel more alive.
 
-The problem is that I just can't start doing something. I can't just buy a dishwashing machine  — I need to read up on what are the current features and select the one I like. It's the same here  — I can't stream with my Macbook's cam even though I'm going to sit in a little sector of a video. I need a better webcam so I can feel like it's for real! So I set to research the topic.
+The problem is that I can't just start doing something. I can't just buy a dishwashing machine  — I need to read up on what are the current features and select the one I like. It's the same here  — I can't stream with my Macbook's cam even though I'm going to sit in a little sector of a video. I need a better webcam so I can feel like it's for real! So I set to research the topic.
 
 
 ## Camera
 
-And it turns out [you can't buy a good webcam](https://vsevolod.net/good-webcams/). They are all shit — even if you pay $200+. If you want a good picture quality the only way right now is to buy a photo camera with an HDMI capture card. You can argue that all major brands have released drivers to connect cameras via USB. They (the drivers) all suck though: USB2 can support compressed 1080p60, but those drivers only support (crappy) 576p30. What is this madness I don't know.
+And it turns out [you can't buy a good webcam](https://vsevolod.net/good-webcams/). They are all shit — even if you pay $200+. If you want a good picture quality the only way right now is to buy a photo camera with an HDMI capture card. You can argue that all major brands have released drivers to connect cameras via USB. They (the drivers) all suck though: USB2 can support compressed 1080p60, but those drivers only support 576p30. What is this madness I don't know.
 
 The capture card could either be some [cheap thingie](https://aliexpress.com/item/4000917130635.html) for $15 on Aliexpress, which will work, or an [Elgato Camlink 4K](https://www.amazon.com/dp/B07K3FN5MR) for $130 (or other proper brand-name stuff for even more money). I settled on a cheap crap and it works fine for now.
 
@@ -34,7 +34,11 @@ I'd prefer to have Fuji — their colors are so much better to look at — but I
 
 ## Mount
 
-Here's the fun began. I never saw Magic Arms before, but the way they work is magical:
+Of course, you can't just put a camera on your display. Webcams can do that, haha, should've gone that way, right? Tripod is an option if you have a place to put it beside a table, but I don't. So I watched some YouTube videos to see how people mount cameras to film themselves and discovered a Magic Arm. 
+
+Aside: did I tell you I had to watch a lot of videos instead of reading text to discover everything? No? Now I did. It's a bit painful, but lots and lots of information are in video format and text articles about streaming are hard to find and incomplete. I guess including this one. :-)
+
+Back to the story. I never saw Magic Arms before, but the way they work is magical:
 
 <iframe class="mcenter" width="560" height="315" src="https://www.youtube.com/embed/yfE00pXkL8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
