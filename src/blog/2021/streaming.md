@@ -42,9 +42,9 @@ Back to the story. I never saw Magic Arms before, but the way they work is magic
 
 <iframe class="mcenter" width="560" height="315" src="https://www.youtube.com/embed/yfE00pXkL8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-It seems that Manfrotto invented that stuff (can't find reliable sources, but I recall reading somewhere it was invented in 2008), but now everyone and their grandma are making clones of that stuff. Clones are not even close in terms of quality to Manfrotto's products (or Matthews Infinity Arm, or other costly brands), but they are cheap! You can get a "decent" one along with a "crab" clamp for around 20-25$ here in Ukraine (and even cheaper on AliExpress). It's made from aluminum and will die on you if you use it a lot, but I'm not going to.
+It seems that Manfrotto invented that stuff (can't find reliable sources, but I recall reading somewhere it was invented in 2008), but now everyone and their grandma are making clones of that stuff. Clones are not even close in terms of quality to Manfrotto's products (or Matthews Infinity Arm, or other costly brands), but they are cheap! You can get a "decent" one along with a "crab" clamp for around 20-25$ here in Ukraine (and even cheaper on AliExpress). It's made from aluminum and will die on you if you use it a lot, of course, but the plan is to leave it sitting in place.
 
-So I bought a monitor stand (a cheap one, of course), and put a magic arm there, and a little $4 ball head, and — bam! — camera is looking right at me now.
+So I bought a monitor stand (it was around $30), and put a magic arm there, and a little $4 ball head, and — bam! — camera is looking right at me now.
 
 
 ## Microphone
@@ -55,15 +55,15 @@ They say that there are three important things in a video, in that order:
 2. Light
 3. Video
 
-And... did you know that camera's mic is the worst mic ever? By a weird coincidence — I tried to make a video from Fuji X-T1 few times :) — I already knew that. They pick up weird frequency profiles (to a point where I can't listen to my own voice from those mics), and they are **noisy** as hell. My MacBook's mic array is vastly superior to a camera mic, but it just won't do. It won't feel real (see above)!
+And... did you know that camera's mic is the worst mic ever? By a weird coincidence — I tried to make a video with Fuji X-T1 a few times — I already knew that. They pick up weird frequency profiles (to a point where I can't listen to my own voice from those mics), and they are **noisy** as hell. My MacBook's mic array is vastly superior to a camera mic! As you can guess to make all that feel more real I need an external microphone.
 
-I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and view — because there are heaps of information on YouTube which just don't exist in text form! — on mics and after some point stumbled upon [Neat Worker Bee](https://www.neatmic.com/bee/worker-bee-microphone/).
+I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and view some videos on mics and after some point stumbled upon [Neat Worker Bee](https://www.neatmic.com/bee/worker-bee-microphone/).
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
 <img class="mcenter" alt="worker bee image" src="https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg" height="400px">
 
-It turned out that because of Gibson's bankruptcy a CEO of Neat Microphones was able to buy it (maybe not by himself alone, but still). And that CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is one of the founders of Blue Microphones. So they bought it out and lowered prices 2x to 3x on all their equipment. Both King Bee and Worker Bee have loads of glowing reviews on YouTube, and their design... It's funny and it's different, so I went to buy one. Unfortunately, King Bees are no longer produced, so Worker Bee it is. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped.
+It turns out Neat Microphones were a subsidiary of Gibson, and made some upper-class mics: like Worker Bee for $200 and King Bee for $300. But after Gibson's bankruptcy Neat's CEO (and maybe some others, IDK) was able to buy it out. That CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is also one of the founders of Blue Microphones. So Neat Mics are independent now and decided to change their pricing strategy. Unfortunately, King Bee is not produced anymore, but Worker Bee is sold for $90, which is a steal! It has loads of glowing reviews on YouTube, and the design... it's funny, and it's different, and I just like it. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped. But I bought one anyway.
 
 Other big brands you probably know of — like Audio-Technica and Shure — are great as well. There are some other great companies I've never heard of before, like RØDE. 
 
@@ -72,15 +72,15 @@ Various tests say that your listeners won't be able to tell the difference if yo
 
 ## Light
 
-That's the hardest one, because it's much more about physical world than anything else. Like, you can compare a camera to other cameras and buy the one you decided on, you can do the same with mic, but with lightning the specs of light you buy is not going to be the main thing. The main thing is placement. Tutorials say you have to have three different light sources: a key light, a fill light and a back light.
+I just can't stop here. Like, I've had two out of three crossed, is it possible to stop? But light is the hardest one, because it's much more about physical world than anything else. It depends on your room, ability to place stuff around, and it can change anything drastically. Also you can compare a camera to other cameras and buy the one you decided on, you can do the same with mic, but with lightning the specs of light you buy is not going to be the main thing. The main thing is placement. Tutorials say you have to have three different light sources: a key light, a fill light and a back light.
 
 A *key light* is a bright source of light that should light up your face somewhat from the side so that you have some shadows. I put a Yongnuo YN300 right behind my camera. 
 
 A *fill light* should be slightly less bright, its purpose is to reduce harshness of those shadows on your face. I have a small lamp from the other side of my display which I reflect from the wall.
 
-And a *back light* is something to highlight you from a back (surprise!) to add a feeling of depth to the image. I have nothing there and image suffers a little bit because of that. I'll have to fix that.
+And a *back light* is something to highlight you from a back (surprise!) to add a feeling of depth to the image. I have nothing there and my image somewhat a little bit because of that. I'll have to fix that.
 
-There are also so-called *practical lights*, whose purpose is to add interesting points to your background so it's less dull.
+There are also so-called *practical lights*, whose purpose is to add interesting points to your background so it's less dull. This starts to feel light I'm going too far, though, I'm not a "real" video maker yet but geared up as hell already, haha.
 
 
 ## Streaming
