@@ -4,39 +4,39 @@ tags: video
 draft: true
 ----
 
-Few months ago I got a feeling that I'd enjoy live streaming some coding. I'm not an introspective kind of person, but it seems to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. It feels like after doing it for some time it could generate some platform for discussions, etc. Also, having some time-based pressure to a smaller projects could move them forward, and doing small things outside of a general job-related stuff makes me feel more alive.
+Few months ago I got a feeling that I'd enjoy live streaming some coding. I'm not an introspective kind of person, but it seems to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. Plus it feels like it could spark some interesting discussions. Maybe. Also this creates some time-based pressure to do smaller projects — because you're doing that every Wednesday (or whenever). And doing small things outside of a general job-related stuff makes me feel like a person with wider interests. Who am I kidding though, it's all programming.
 
-The problem is that I can't just start doing something. I can't just buy a dishwashing machine  — I need to read up on what are the current features and select the one I like. It's the same here  — I can't stream with my Macbook's cam even though I'm going to sit in a little sector of a video. I need a better webcam so I can feel like it's for real! So I set to research the topic.
+The issue here is that I can't just start doing something. I can't just buy a dishwashing machine  — I need to read up on what are the current features and trends and qualities and select the one I like. It's the same here  — I can't stream with my Macbook's cam even though I'm going to sit in a little sector of a video. I need a better webcam so I can feel like it's for real! So I set to research the topic.
 
 
 ## Camera
 
-And it turns out [you can't buy a good webcam](https://vsevolod.net/good-webcams/). They are all shit — even if you pay $200+. If you want a good picture quality the only way right now is to buy a photo camera with an HDMI capture card. You can argue that all major brands have released drivers to connect cameras via USB. They (the drivers) all suck though: USB2 can support compressed 1080p60, but those drivers only support 576p30. What is this madness I don't know.
+And it turns out [you can't buy a good webcam](https://vsevolod.net/good-webcams/). They are all shit — even if you pay $200+. If you want a good picture quality the only way right now is to buy a photo camera with an HDMI capture card. All major brands have released drivers to connect cameras via USB, but those drivers are unanimously bad: USB2 can support compressed 1080p60, but those drivers only support 576p30. What is this madness I don't know, so you have to use an HDMI capture card.
 
-The capture card could either be some [cheap thingie](https://aliexpress.com/item/4000917130635.html) for $15 on Aliexpress, which will work, or an [Elgato Camlink 4K](https://www.amazon.com/dp/B07K3FN5MR) for $130 (or other proper brand-name stuff for even more money). I settled on a cheap crap and it works fine for now.
+The capture card could either be some [cheap thingie](https://aliexpress.com/item/4000917130635.html) for $15 from Aliexpress, or an [Elgato Camlink 4K](https://www.amazon.com/dp/B07K3FN5MR) for $130 (or other proper brand-name stuff for even more money). I settled on a cheap crap and it works fine for now: it doesn't support 4K, and 1080p is also questionable, but the resulting video quality is miles ahead of webcams and phones.
 
-As for a camera you have two non-negotiable properties:
+For a camera you have two non-negotiable properties:
 
 1) It should be able to work from an AC adapter. Obviously, working using batteries and a charger is insanity, when it's a non-mobile working place.
-2) It should output so-called "clean HDMI". Which means that HDMI output should contain whatever camera sees but without all the technical information, which is present on a camera screen  — like shutter speed or a battery level.
+2) It should output so-called "clean HDMI". Which means that HDMI output should contain whatever camera sees but without all the technical information, which is present on a camera screen — like a shutter speed or a battery level.
 
-The second one just out-ruled my Fuji X-T1, because it outputs only recorded footage at HDMI port. It was painful to realize, but I went to [OLX](https://www.olx.ua/) (it's a local classified site) and bought used Sony a5100 for $250. 
+The second one just out-ruled my Fuji X-T1, because it outputs only recorded footage at the HDMI port. It was painful to realize, but I went to [OLX](https://www.olx.ua/) (it's a local classified site) and bought used Sony a5100 for $250. 
 
 There are a few reasons why a5100:
 
 1) Sony's autofocus is the best on the market.
-2) The sensor is good enough. I looked at [dxomark](https://www.dxomark.com/sony-a5100-sensor-review-uncompromising-performance/) results and it's almost the same as much newer a6400 and a6600 have.
-3) It has a flip-out screen which flips from the top. Excellent as a self-monitor, because it will work even if some of the components in the path fails.
+2) The sensor is good enough. I looked at [dxomark](https://www.dxomark.com/sony-a5100-sensor-review-uncompromising-performance/) results and they are almost the same as much newer a6400 and a6600 results.
+3) It has a flip-out screen which flips up 180° (sticking from the top of the camera). Excellent as a self-monitor, because it will work even if some of the components in the path fail.
 4) It's dirt cheap. It's an older model made for 6 years already.
 
-I'd prefer to have Fuji — their colors are so much better to look at — but I wanted to keep investment low just in case in two months I decide I don't need it all. And the cheapest Fuji setup would be 2x from a5100 — partially because Sony's kit lens is so cheaply made, ugh! Also, when I compared a5100 autofocus performance to my beloved X-T1 my jaw just dropped. Reviews suggest that newer Fuji cameras have improved greatly, but still are not on par with Sony.
+I'd prefer to have Fuji — their colors are so much better to look at — but I wanted to keep investment low just in case in two months time I decide I don't need it all. And the cheapest Fuji setup would be 2x from a5100 — partially because Sony's kit lens is so cheaply made, ugh! Also, when I compared a5100 autofocus performance to my beloved X-T1 my jaw just dropped. Reviews suggest that newer Fuji cameras have improved greatly, but still are not on par with Sony.
 
 
 ## Mount
 
 Of course, you can't just put a camera on your display. Webcams can do that, haha, should've gone that way, right? Tripod is an option if you have a place to put it beside a table, but I don't. So I watched some YouTube videos to see how people mount cameras to film themselves and discovered a Magic Arm. 
 
-Aside: did I tell you I had to watch a lot of videos instead of reading text to discover everything? No? Now I did. It's a bit painful, but lots and lots of information are in video format and text articles about streaming are hard to find and incomplete. I guess including this one. :-)
+> *Aside*: did I tell you I had to watch a lot of videos instead of reading text to discover everything? No? Now I did. It's a bit painful, but lots and lots of information are in video format and text articles about streaming are hard to find and incomplete. I guess including this one. :-)
 
 Back to the story. I never saw Magic Arms before, but the way they work is magical:
 
