@@ -96,7 +96,7 @@ Anyway, so we have those three things and my 22VSL can't do any of them. You can
 
 To keep it real — I found two interfaces with DSP under $500: Yamaha AG03 (and AG06) for $170 and Steinberg UR22C (UR24C etc) for $250, which is also Yamaha. 
 
-[Yamaha AG03](https://usa.yamaha.com/products/music_production/interfaces/ag_series/ag03.html) has 4-line equalizer and compressor, but no de-noise, which is a shame. I guess there is a reason why eq is only 4-line and not like 30-line, but this really feels underwhelming. :( [Steinberg](https://new.steinberg.net/audio-interfaces/ur22c/) looks like a more conventional interface, and has a few amplifiers emulation built-in (for guitars), but just a 3-line equalizer (what). Reviews on their audio quality are not glowing, and some reviews on Steinberg complain that it's not working with X470/X570, so it's not all bells and whistles.
+[Yamaha AG03](https://usa.yamaha.com/products/music_production/interfaces/ag_series/ag03.html) has 4-line equalizer and compressor, but no de-noise, which is a shame. I guess there is a reason why eq is only 4-line and not like 30-line, but this really feels underwhelming. :( [Steinberg](https://new.steinberg.net/audio-interfaces/ur22c/) looks like a more conventional interface, and has a few amplifiers emulation built-in (for guitars), but just a 3-line equalizer (what). Reviews on their audio quality are not glowing, and some reviews on Steinberg complain that it's not working with X470/X570, so it's not all sunshine and rainbows.
 
 Alternatives from other manufacturers include [Behringer XR12](https://www.behringer.com/product.html?modelCode=P0BI6) and [Motu UltraLite mk4](https://motu.com/products/proaudio/ultralite-mk4), which are more professional-grade devices and their size doesn't let me splurge on that.
 
@@ -104,7 +104,7 @@ There is UAD Apollo Solo for $700, and it's small, but 700?! Is it that hard?!
 
 <img class="image" alt="rodecaster pro image" src="https://cdn.rode.com/website/images/rodecasterpro/R%C3%98DE_R%C3%98DECaster_Pro_3_QUARTER_700x468+1.png">
 
-There is also a *highly* popular [TC Helicon GoXLR](https://www.tc-helicon.com/product.html?modelCode=P0CQK), which does all processing in software and doesn't work under Macos. And [RØDECaster Pro](https://www.rode.com/rodecasterpro) for $600 and 4 mic inputs, which has DSP and equalization presets but no way to customize them.
+There is also a *highly* popular [TC Helicon GoXLR](https://www.tc-helicon.com/product.html?modelCode=P0CQK), which does all processing in software and doesn't work under macOS. And [RØDECaster Pro](https://www.rode.com/rodecasterpro) for $600 and 4 mic inputs, which has DSP and equalization presets but no way to customize them.
 
 As you can guess I'm totally unsure what to do about audio interface so I'm still using trusty 22VSL. If you can help me choose a solution I'm all ears!
 
@@ -112,7 +112,7 @@ USB mics are not better. Elgato released a new line of mics called Wave, which c
 
 <img class="image" alt="voicemeeter image" src="https://vb-audio.com/Voicemeeter/VoicemeeterBananaMixer.jpg">
 
-Also, I think this is the right place to complain about software as well! There is an app for Windows called [VoiceMeeter Banana](https://vb-audio.com/Voicemeeter/banana.htm), which replaces system mixer and allows you to do all the things you want. And then silently sits in tray. Nothing like that exists for Macos! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live. All of them are pretty expensive, eat a lot of memory, have highly cryptic interfaces and are not resident apps. Each and every one of them thinks it's the *main* app of your life. Ugh. GIVE ME BANANA!
+Also, I think this is the right place to complain about software as well! There is an app for Windows called [VoiceMeeter Banana](https://vb-audio.com/Voicemeeter/banana.htm), which replaces system mixer and allows you to do all the things you want. And then silently sits in tray. Nothing like that exists for macOS! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live. All of them are pretty expensive, eat a lot of memory, have highly cryptic interfaces and are not resident apps. Each and every one of them thinks it's the *main* app of your life. Ugh. GIVE ME BANANA!
 
 
 ## Light
