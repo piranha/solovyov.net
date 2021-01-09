@@ -4,9 +4,9 @@ tags: video
 draft: true
 ----
 
-A few months ago I got a feeling that I'd enjoy live streaming some coding. I'm not an introspective kind of person, but it seems to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. Plus it feels like it could spark some interesting discussions. Maybe. Also, this creates some time-based pressure to do smaller projects — because you're doing that every Wednesday (or whenever). And doing small things outside of general job-related stuff makes me feel like a person with wider interests. Who am I kidding though, it's all programming.
+A few months ago I got a feeling that I'd enjoy live streaming some coding. Not sure exactly, but it seemed to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. Plus it felt like it could spark some interesting discussions. Maybe. Also, this creates some time-based pressure to do smaller projects — because you're doing that every Wednesday (or whenever). And doing small things outside of general job-related stuff makes me feel like a person with wider interests. Who am I kidding though, it's all programming.
 
-The issue here is that I can't just start doing something. I can't just buy a dishwashing machine  — I need to read up on what are the current features and trends and qualities and select the one I like. It's the same here  — I can't stream with my Macbook's cam even though I'm going to sit in a little sector of a video. I need a better webcam so I can feel like it's for real! So I set to research the topic.
+The issue here is that I can't just start doing something suddenly. I can't just buy a dishwashing machine  — I need to read up on what are the current features and trends and qualities and select the one I like. It's the same with streaming  — I can't stream using Macbook cam even though I'm going to sit in a little sector of a video. I need a better webcam so I can feel like it's for real! So I set to research the topic.
 
 
 ## Camera
@@ -17,7 +17,7 @@ The capture card could either be some [cheap thingie](https://aliexpress.com/ite
 
 For a camera you have two non-negotiable properties:
 
-1) It should be able to work from an AC adapter. Working using batteries and a charger is insanity when it's a non-mobile working place.
+1) It should be able to work on AC power. Working on batteries and a charger is insanity when it's a non-mobile working place.
 2) It should output the so-called "clean HDMI". This means that HDMI output should contain whatever the camera sees but without all the technical information, which is present on a camera screen — like a shutter speed or a battery level.
 
 The second one just out-ruled my otherwise excellent Fuji X-T1, because it outputs only recorded footage at the HDMI port. It was painful to realize, but I went to a local classified site and bought a used Sony a5100 for $250. 
@@ -44,7 +44,7 @@ Of course, you can't just put a camera on your display. Webcams can do that, hah
 
 Back to the story. I never saw Magic Arms before, but the way they work is magical.
 
-It seems that Manfrotto invented that stuff (can't find reliable sources, but I recall reading somewhere it was invented in 2008), but now everyone and their grandma are making clones of that stuff. Clones are not even close in terms of quality to Manfrotto's products (or Matthews Infinity Arm, or other costly brands), but they are cheap! You can get a "decent" one along with a "crab" clamp for around 20-25$ here in Ukraine (and even cheaper on AliExpress). It's made from aluminum and will die on you if you use it a lot, of course, but the plan is to leave it sitting in place.
+It seems that Manfrotto invented that stuff (can't find reliable sources, but I recall reading somewhere it was invented in 2008), but now everyone and their grandma are making clones of it. Clones are not even close in terms of quality to Manfrotto's products (or Matthews Infinity Arm, or other costly brands), but they are cheap! You can get a "decent" one along with a "crab" clamp for around 20-25$ here in Ukraine (and even cheaper on AliExpress). It's made from aluminum and will die on you if you use it a lot, of course, but the plan is to leave it sitting in place.
 
 So I bought a monitor stand (it was around $30) and put a magic arm there, and a little $4 ball head, and — bam! — camera is looking right at me now.
 
@@ -90,11 +90,17 @@ Compression is a really interesting way to improve voice signal: make quiet soun
 
 Equalizers are used for two purposes. First is altering the perception of recorded voice — add lows to make it sound fuller, remove them if it sounds "muddy"; add highs to make it airier, remove if it cuts your ears; alter mids for better understanding; you know, usual equalizer stuff. Another one is that mics are not perfect and the recorded voice could have some irritating frequencies. Go see [Curtis' video](https://www.youtube.com/watch?v=Jn6iB1SNvRQ) on that — it's pretty interesting, but it's a bit too hard. I tried looking at my recordings but it feels like it needs someone with a trained ear. :)
 
-Anyway, so we have those three things and my 22VSL can't do any of them. You can do them on your computer, of course, but it uses some CPU (~10% of a single core) and, more importantly, adds latency to the sound channel. Doing that inside some hardware DSP would be vastly superior: no latency, no CPU load, and you will not forget to run that freaking app!
+There are two ways how to do those things: either you're doing that on your computer or it's done in a DSP of your audio interface. DSP is vastly superior, of course: it does not add latency, there is no additional load on your CPU, and last, but not least, all your audio receiving apps will receive same processed sound, be it OBS, Zoom, browser or anything else. But, of course, 22VSL has no DSP — it's just an audio interface! So I have to do all that in software.
+
+<img class="image" alt="voicemeeter image" src="https://vb-audio.com/Voicemeeter/VoicemeeterBananaMixer.jpg">
+
+For software let's look at Windows side first. There is an app for Windows called [VoiceMeeter Banana](https://vb-audio.com/Voicemeeter/banana.htm), which replaces the system mixer and allows you to do all the things you want — compressor, eq, even some de-noising. And then silently sits in the tray. Nothing like that exists for macOS! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live or Reaper. All of them are pretty expensive (Reaper is cheapest from 60$), eat a lot of memory, have highly cryptic interfaces, and are not resident apps. Each and every one of them thinks it's the *main* app of your life, eating like 10% of a core just to sit there. Ugh. GIVE ME BANANA!
+
+### Hardware way
 
 <img class="image" alt="yamaha ag03 image" src="https://usa.yamaha.com/files/3723ECB0493643A4A223EA68E569A046_12073_990x990_c1f536d33591de0431d896a13451fe11.jpg">
 
-To keep it real — I found two interfaces with DSP under $500: Yamaha AG03 (and AG06) for $170 and Steinberg UR22C (UR24C etc) for $250, which is also Yamaha. 
+I found two interfaces with DSP under $500: Yamaha AG03 (and AG06) for $170 and Steinberg (which is also Yamaha) UR22C (UR24C etc) for $250.
 
 [Yamaha AG03](https://usa.yamaha.com/products/music_production/interfaces/ag_series/ag03.html) has a 4-line equalizer and a compressor, but no de-noise, which is a shame. I guess there is a reason why eq is only 4-line and not like 30-line, but this feels underwhelming. Reviews say that pre-amp could be better there... [Steinberg](https://new.steinberg.net/audio-interfaces/ur22c/) looks like a more conventional interface, and has a few amplifiers emulation built-in (for guitars), but just a 3-line equalizer (what). Reviews on their audio quality are also not glowing, and some reviews on Steinberg complain that it's not working with top AMD chipsets (X470/X570), so it's not all sunshine and rainbows.
 
@@ -104,17 +110,11 @@ There is UAD Apollo Solo for $700, and it's small, but 700?! Is it that hard?!
 
 <img class="image" alt="rodecaster pro image" src="https://cdn.rode.com/website/images/rodecasterpro/R%C3%98DE_R%C3%98DECaster_Pro_3_QUARTER_700x468+1.png">
 
-[RØDECaster Pro](https://www.rode.com/rodecasterpro) for $600 is highly popular among professional streamers. It gives you 4 XLR inputs and Bluetooth connectivity so you can get someone on the phone into your stream. There are DSP and equalization presets — but no way to customize them, which is a shame.
+[RØDECaster Pro](https://www.rode.com/rodecasterpro) for $600 is widespread among professional streamers. It gives you 4 XLR inputs and Bluetooth connectivity so you can get someone on the phone into your stream. There are DSP and equalization presets — but no way to customize them, which is a shame.
 
-There is also a *highly* popular [TC Helicon GoXLR](https://www.tc-helicon.com/product.html?modelCode=P0CQK), which does all processing in software. It's not useless though: you can assign apps on your PC to faders and have hardware control of their volume. So you can regulate your voice, music, game sounds, etc. But it doesn't work under macOS!
+There is also a *highly* popular [TC Helicon GoXLR](https://www.tc-helicon.com/product.html?modelCode=P0CQK), which does all processing in software. It's not useless though: you can assign apps on your PC to faders and have hardware control of their volume. So you can regulate your voice, music, game sounds, etc — very effective to manage what your viewers hear, right on your desk with a nice tactile feedback. But it doesn't work under macOS!
 
 As you can guess I'm unsure what to do about the audio interface so I'm still using trusty 22VSL. If you can help me choose a solution I'm all ears!
-
-USB mics are not better. Elgato released a new line of mics called Wave, which comes with a great (judging from reviews) driver, but it's doing all the compression/equalization stuff inside the driver. Also, reviews on the hardware side are not as glowing.
-
-<img class="image" alt="voicemeeter image" src="https://vb-audio.com/Voicemeeter/VoicemeeterBananaMixer.jpg">
-
-Also, I think this is the right place to complain about software as well! There is an app for Windows called [VoiceMeeter Banana](https://vb-audio.com/Voicemeeter/banana.htm), which replaces the system mixer and allows you to do all the things you want. And then silently sits in the tray. Nothing like that exists for macOS! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live. All of them are pretty expensive, eat a lot of memory, have highly cryptic interfaces, and are not resident apps. Each and every one of them thinks it's the *main* app of your life. Ugh. GIVE ME BANANA!
 
 
 ## Light
