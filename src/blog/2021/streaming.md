@@ -146,6 +146,8 @@ I also feel like I need to link a few channels I liked (that talk about streamin
 
 ## Streaming
 
+<img class="image" alt="my desk with streaming gear" src="/media/streaming-desk.jpg">
+
 Now that I told you the gist of what I learned over a few weeks (I'll try to add more information, it's hard to extract knowledge from a human brain), let's get to the point of all that — streaming.
 
 I did [some](https://www.youtube.com/playlist?list=PL7gxcNpwRVlp1Xepntn5EiUFo0YjtT8ok). It doesn't feel satisfying though. I know that to get some audience you have to persist, but the content should be interesting as well. 5 viewers suggest it's not yet.
