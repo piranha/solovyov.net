@@ -1,4 +1,5 @@
-title: Streaming
+title: Code streaming: hundred ounces of nuances
+slug: streaming
 date: 2021-01-11
 tags: video
 ----
@@ -142,6 +143,17 @@ The same Elgato has an interesting [mount system](https://www.elgato.com/en/mult
 Those Elgato people seem to be the most successful company oriented on the streaming market. Their Key Lights are also good, plus the software is excellent — you can control them from your phone.
 
 I also feel like I need to link a few channels I liked (that talk about streaming) - [EposVox](https://www.youtube.com/c/EposVox), [Alpha Gaming](https://www.youtube.com/c/AlphaGamingHouse) and [Tom Buck](https://www.youtube.com/c/TomBuck). I'm sure there are other sensible channels, but those are that I stayed with.
+
+
+## Software
+
+Default app for streaming is [OBS](https://obsproject.com/). It's an open source software, so it's free and full of capabilities, but, traditionally for open source, interface leaves much to be desired. So I decided to try out [Ecamm Live](https://www.ecamm.com/mac/ecammlive/), which costs money (subscription!), but is much nicer to use. 
+
+Particularly around multi-person presentations! We did [an online meetup](https://www.youtube.com/watch?v=9fJXu_Htong) using Ecamm Interview: you start the app, it gives you a link to share and other people (up to 4 of them) can open that link and appear in the app as sources. Controls for configuring how you are displayed (side to side, picture-in-picture, only somebody) is excellent! 
+
+The way you can do that in OBS is to install [obs-ndi](https://github.com/Palakis/obs-ndi) plugin, then configure Skype to stream there (because Skype supports streaming over [NDI](https://en.wikipedia.org/wiki/Network_Device_Interface)), and then spend eternity resizing sources on your screen.
+
+Of course, I have a few complaints for Ecamm Live. I mean, that's the curse of computers — even if you try to do something in a best way possible, there will be someone to complain. The first one is that there is no support for VST/AU plugins. OBS allows you to process your sound, Ecamm wants you to use external software. That would be OK if there were something good available but ARGH. :) Another one is price, but that's because I wanted Live Interview — and the it costs 40$/month. And the fact that you can setup multiple scenes (like just you, or just somebody, or two people together, or an intro screen), but you can't switch between them without activating Ecamm. No global hotkeys, no AppleScript support... this looks like an oversight, really. :\
 
 
 ## Streaming
