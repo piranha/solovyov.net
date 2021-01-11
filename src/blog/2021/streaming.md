@@ -1,7 +1,6 @@
 title: Streaming
-date: 2021-01-05
+date: 2021-01-11
 tags: video
-draft: true
 ----
 
 A few months ago I got a feeling that I'd enjoy live streaming some coding. Not sure exactly, but it seemed to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. Plus it felt like it could spark some interesting discussions. Maybe. Also, this creates some time-based pressure to do smaller projects — because you're doing that every Wednesday (or whenever). And doing small things outside of general job-related stuff makes me feel like a person with wider interests. Who am I kidding though, it's all programming.
@@ -114,7 +113,7 @@ There is UAD Apollo Solo for $700, and it's small, but 700?! Is it that hard?!
 
 There is also a *highly* popular [TC Helicon GoXLR](https://www.tc-helicon.com/product.html?modelCode=P0CQK), which does all processing in software. It's not useless though: you can assign apps on your PC to faders and have hardware control of their volume. So you can regulate your voice, music, game sounds, etc — very effective to manage what your viewers hear, right on your desk with a nice tactile feedback. But it doesn't work under macOS!
 
-As you can guess I'm unsure what to do about the audio interface so I'm still using trusty 22VSL. If you can help me choose a solution I'm all ears!
+I guess you can see I'm in search of a solution, so if you have any suggestions please let me know — I even made a Discourse for comments (see after the post).
 
 
 ## Light
