@@ -22,8 +22,6 @@ For a camera you have two non-negotiable properties:
 
 The second one just out-ruled my otherwise excellent Fuji X-T1, because it outputs only recorded footage at the HDMI port. It was painful to realize, but I went to a local classified site and bought a used Sony a5100 for $250. 
 
-<img class="image" alt="sony a5100 image" src="http://images.ephotozine.com/articles/26004/xlg_A5100_wSELP1650_kiseki_blackTM.jpg">
-
 There are a few reasons why a5100:
 
 1) Sony's autofocus is the best on the market.
