@@ -1,6 +1,6 @@
 title: New Job!
 date: 2019-03-18
-tags: life
+tags: life, kasta
 ----
 
 Я в [Касте](https://kasta.ua) уже 4 года Chief Technical Officer. Они ни в коем
