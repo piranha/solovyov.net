@@ -38,7 +38,7 @@ Of course, you can't just put a camera on your display. Webcams can do that, hah
 
 > *Aside*: did I tell you I had to watch a lot of videos instead of reading text to discover everything? No? Now I did. It's a bit painful, but lots and lots of information are in video format only, and text articles about streaming are hard to find and incomplete. I guess including this one. :-)
 
-<iframe class="image" width="400px" height="225px" src="https://www.youtube.com/embed/yfE00pXkL8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="400px" height="225px" src="https://www.youtube.com/embed/yfE00pXkL8U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Back to the story. I never saw Magic Arms before, but the way they work is magical.
 
@@ -61,7 +61,7 @@ I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti bec
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
-<img class="image" alt="worker bee image" height="300px" src="https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg">
+<img alt="worker bee image" height="300px" src="https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg">
 
 It turns out Neat Microphones were a subsidiary of Gibson and made some upper-class mics: like Worker Bee for $200 and King Bee for $300. But after Gibson's bankruptcy Neat's CEO (and maybe some others, IDK) was able to buy it out. That CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is also one of the founders of Blue Microphones. So Neat Mics are independent now and decided to change their pricing strategy. Unfortunately, King Bee is not produced anymore, but Worker Bee is sold for $90, which is a steal! It has loads of glowing reviews on YouTube and the design... it's funny, and it's different, and I just like it. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped. But I bought one anyway.
 
@@ -72,7 +72,7 @@ Various tests say that your listeners won't be able to tell the difference if yo
 
 ## Sound processing
 
-<img class="image" alt="presonus audiobox 22vsl image" src="https://pae-web.presonusmusic.com/uploads/products/media/images/AudioBox_22VSL-02.png">
+![presonus audiobox 22vsl image](https://pae-web.presonusmusic.com/uploads/products/media/images/AudioBox_22VSL-02.png)
 
 I mentioned that I already have an XLR interface to drive the mic — it's [Presonus AudioBox 22VSL](https://www.presonus.com/products/AudioBox-22VSL). It's a good interface with reasonably good pre-amplifiers. Can I complain? You bet! I'm an expert complainer[^2]!
 
@@ -90,13 +90,13 @@ Equalizers are used for two purposes. First is altering the perception of record
 
 There are two ways how to do those things: either you're doing that on your computer or it's done in a DSP of your audio interface. DSP is vastly superior, of course: it does not add latency, there is no additional load on your CPU, and last, but not least, all your audio receiving apps will receive same processed sound, be it OBS, Zoom, browser or anything else. But, of course, 22VSL has no DSP — it's just an audio interface! So I have to do all that in software.
 
-<img class="image" alt="voicemeeter image" src="https://vb-audio.com/Voicemeeter/VoicemeeterBananaMixer.jpg">
+![voicemeeter image](https://vb-audio.com/Voicemeeter/VoicemeeterBananaMixer.jpg)
 
 For software let's look at Windows side first. There is an app for Windows called [VoiceMeeter Banana](https://vb-audio.com/Voicemeeter/banana.htm), which replaces the system mixer and allows you to do all the things you want — compressor, eq, even some de-noising. And then silently sits in the tray. Nothing like that exists for macOS! Every article on the web tells you "get a DAW and put a sound through there". DAW is something like SoundForge or Cubase or Ableton Live or Reaper. All of them are pretty expensive (Reaper is cheapest from 60$), eat a lot of memory, have highly cryptic interfaces, and are not resident apps. Each and every one of them thinks it's the *main* app of your life, eating like 10% of a core just to sit there. Ugh. GIVE ME BANANA!
 
 ### Hardware way
 
-<img class="image" alt="yamaha ag03 image" src="https://usa.yamaha.com/files/3723ECB0493643A4A223EA68E569A046_12073_990x990_c1f536d33591de0431d896a13451fe11.jpg">
+![yamaha ag03 image](https://usa.yamaha.com/files/3723ECB0493643A4A223EA68E569A046_12073_990x990_c1f536d33591de0431d896a13451fe11.jpg)
 
 I found two interfaces with DSP under $500: Yamaha AG03 (and AG06) for $170 and Steinberg (which is also Yamaha) UR22C (UR24C etc) for $250.
 
@@ -106,7 +106,7 @@ Alternatives from other manufacturers include [Behringer XR12](https://www.behri
 
 There is UAD Apollo Solo for $700, and it's small, but 700?! Is it that hard?!
 
-<img class="image" alt="rodecaster pro image" src="https://cdn.rode.com/website/images/rodecasterpro/R%C3%98DE_R%C3%98DECaster_Pro_3_QUARTER_700x468+1.png">
+![rodecaster pro image](https://cdn.rode.com/website/images/rodecasterpro/R%C3%98DE_R%C3%98DECaster_Pro_3_QUARTER_700x468+1.png)
 
 [RØDECaster Pro](https://www.rode.com/rodecasterpro) for $600 is widespread among professional streamers. It gives you 4 XLR inputs and Bluetooth connectivity so you can get someone on the phone into your stream. There are DSP and equalization presets — but no way to customize them, which is a shame.
 
@@ -119,7 +119,7 @@ I guess you can see I'm in search of a solution, so if you have any suggestions 
 
 I just can't stop here. Like, I've had two points out of three crossed, is it possible to stop? But light is the hardest one because it's much more about the physical world than anything else. It depends on your room, ability to place stuff around, and it can change anything drastically. Also, you can compare a camera to other cameras and buy the one you decided on, you can do the same with a mic, but with lightning, the specs of light you buy is not going to be the main thing. The main thing is placement. Tutorials say you have to have three different light sources: a key light, a fill light, and a back light.
 
-<img class="image" alt="rodecaster pro image" src="https://d2r5da613aq50s.cloudfront.net/wp-content/uploads/321891.image0.jpg">
+![rodecaster pro image](https://d2r5da613aq50s.cloudfront.net/wp-content/uploads/321891.image0.jpg)
 
 A *key light* is a bright source of light that should light up your face somewhat from the side so that you have some shadows. I put a Yongnuo YN300 right behind my camera. 
 
@@ -132,7 +132,7 @@ There are also so-called *practical lights*, whose purpose is to add interesting
 
 ## Various
 
-<img class="image" alt="stream deck image" src="https://theawesomer.com/photos/2017/05/elgato_stream_deck_4.jpg">
+![stream deck image](https://theawesomer.com/photos/2017/05/elgato_stream_deck_4.jpg)
 
 There is also some streamer-oriented hardware I'm not very excited about, like [Elgato Stream Deck](https://www.elgato.com/en/gaming/stream-deck). It's a keyboard with LCD screens under each key, where you can put various actions and sequences of actions ("macros"). So it's like [Hammerspoon](https://www.hammerspoon.org/) + [Optimus Maximus](https://en.wikipedia.org/wiki/Optimus_Maximus_keyboard). The only reason I'm mentioning it here is to tell a story of how [Ecamm Live](https://www.ecamm.com/mac/ecammlive/) can switch screen configuration presets either from the app interface or by installing a plugin to Stream Deck. No AppleScript, no global hotkeys... it's like someone has a blind eye on power users? Anyway, good for Elgato, its product seems to be really popular.
 
@@ -156,7 +156,7 @@ Of course, I have a few complaints for Ecamm Live. I mean, that's the curse of c
 
 ## Streaming
 
-<img class="image" alt="my desk with streaming gear" src="/media/streaming-desk.jpg">
+![my desk with streaming gear](/media/streaming-desk.jpg)
 
 Now that I told you the gist of what I learned over a few weeks (I'll try to add more information, it's hard to extract knowledge from a human brain), let's get to the point of all that — streaming.
 

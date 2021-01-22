@@ -129,12 +129,12 @@ h1 a:hover {
 .self-target::before { content: " "; }
 h1:hover .self-target, h2:hover .self-target, h3:hover .self-target { display: inline; }
 
-.image {
+#post img, #post iframe {
     margin: 0 auto;
 }
 
 @media (min-width: 640px) {
-    .image {
+    #post img, #post iframe {
         margin-left: 1rem;
         float: right;
         max-width: 400px;
