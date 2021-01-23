@@ -4,6 +4,8 @@ date: 2021-01-11
 tags: video
 ----
 
+![my desk with streaming gear](/media/streaming-desk.jpg)
+
 A few months ago I got a feeling that I'd enjoy live streaming some coding. Not sure exactly, but it seemed to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. Plus it felt like it could spark some interesting discussions. Maybe. Also, this creates some time-based pressure to do smaller projects — because you're doing that every Wednesday (or whenever). And doing small things outside of general job-related stuff makes me feel like a person with wider interests. Who am I kidding though, it's all programming.
 
 The issue here is that I can't just start doing something suddenly. I can't just buy a dishwashing machine  — I need to read up on what are the current features and trends and qualities and select the one I like. It's the same with streaming  — I can't stream using Macbook cam even though I'm going to sit in a little sector of a video. I need a better webcam so I can feel like it's for real! So I set to research the topic.
@@ -61,7 +63,7 @@ I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti bec
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
-<img alt="worker bee image" height="300px" src="https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg">
+![worker bee image](https://images-na.ssl-images-amazon.com/images/I/81iDWBewlfL._AC_SL1500_.jpg)
 
 It turns out Neat Microphones were a subsidiary of Gibson and made some upper-class mics: like Worker Bee for $200 and King Bee for $300. But after Gibson's bankruptcy Neat's CEO (and maybe some others, IDK) was able to buy it out. That CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is also one of the founders of Blue Microphones. So Neat Mics are independent now and decided to change their pricing strategy. Unfortunately, King Bee is not produced anymore, but Worker Bee is sold for $90, which is a steal! It has loads of glowing reviews on YouTube and the design... it's funny, and it's different, and I just like it. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped. But I bought one anyway.
 
@@ -155,8 +157,6 @@ Of course, I have a few complaints for Ecamm Live. I mean, that's the curse of c
 
 
 ## Streaming
-
-![my desk with streaming gear](/media/streaming-desk.jpg)
 
 Now that I told you the gist of what I learned over a few weeks (I'll try to add more information, it's hard to extract knowledge from a human brain), let's get to the point of all that — streaming.
 

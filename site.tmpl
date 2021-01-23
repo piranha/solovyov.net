@@ -84,7 +84,7 @@
 
 {{ define "post" }}
 <article>
-  <header>
+  <header class="{{ if matches "^(<p><img |<img )" .Content }}cover{{ end }}">
     <h1>
       {{- .Title -}}
       {{- if .Other.Draft }} <span class="grey">(draft)</span>{{ end -}}
