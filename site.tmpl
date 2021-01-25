@@ -86,10 +86,13 @@
 
 {{ define "post" }}
 <article>
-  <header class="{{ if .Content | matches "^<p><img " }}cover{{ end }}"
-    data-cover="{{ .Content | refind "^<p><img .*?src=\"(.+?)\".*?></p>" }}"
+  <header
+    {{ with $cover := .Content | refind "^<p><img .*?src=\"(.+?)\".*?></p>" -}}
+    class="cover"
     style="background-image: linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.5)),
-                             url({{ .Content | refind "^<p><img .*?src=\"(.+?)\".*?></p>" }})">
+                             url({{ $cover }})"
+    data-cover="{{ $cover }}"
+    {{- end }}>
     <h1>
       {{- .Title -}}
       {{- if .Other.Draft }} <span class="grey">(draft)</span>{{ end -}}
