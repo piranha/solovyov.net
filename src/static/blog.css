@@ -146,10 +146,7 @@ h1:hover .self-target, h2:hover .self-target, h3:hover .self-target { display: i
 
 /* cover */
 
-#post > img:first-child, #post > p:first-child > img:first-child {
-  margin: 0;
-  float: none;
-
+header.cover {
   position: relative;
   left: -15px; /* body padding */
   width: 100vw;
@@ -157,20 +154,26 @@ h1:hover .self-target, h2:hover .self-target, h3:hover .self-target { display: i
   height: 50vh;
   max-height: 50vh;
 
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(0.5);
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+
+header.cover > * {
+  padding-left: 15px;
 }
 
 @media (min-width: 50rem) {
-  #post > img:first-child, #post > p:first-child > img:first-child {
+  header.cover {
     left: calc((-100vw + 50rem) / 2 - 15px);
   }
-}
-
-header.cover {
-  position: absolute;
-  bottom: calc(50vh - 60px); /* 60px is header height + margin */
+  header.cover > * {
+    padding-left: calc((100vw - 50rem) / 2 + 15px);
+  }
 }
 
 header.cover, header.cover .grey, header.cover a {

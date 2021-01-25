@@ -30,6 +30,8 @@
   {{- end }}">
   {{ if .Other.Img -}}
   <meta property="og:image" content="{{ .Site.Other.Url }}{{ .Other.Img }}">
+  {{- else if matches "data-cover=" .Content -}}
+  <meta property="og:image" content="{{ .Site.Other.Url }}{{ refind "data-cover=\"(.*?)\"" .Content }}">
   {{- else -}}
   <meta property="og:image" content="{{ .Site.Other.Url }}{{ version . "static/logo.png" | replace "../" "" }}">
   <meta property="og:image:width" content="490">
@@ -84,7 +86,10 @@
 
 {{ define "post" }}
 <article>
-  <header class="{{ if matches "^(<p><img |<img )" .Content }}cover{{ end }}">
+  <header class="{{ if .Content | matches "^<p><img " }}cover{{ end }}"
+    data-cover="{{ .Content | refind "^<p><img .*?src=\"(.+?)\".*?></p>" }}"
+    style="background-image: linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.5)),
+                             url({{ .Content | refind "^<p><img .*?src=\"(.+?)\".*?></p>" }})">
     <h1>
       {{- .Title -}}
       {{- if .Other.Draft }} <span class="grey">(draft)</span>{{ end -}}
@@ -101,7 +106,7 @@
     </div>
   </header>
 
-  <div id="post">{{ .Content }}</div>
+  <div id="post">{{ .Content | replacere "<p><img.+?></p>" "" }}</div>
 
   <div class="right">
     {{ template "date" .Date }}

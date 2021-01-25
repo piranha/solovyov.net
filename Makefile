@@ -1,5 +1,5 @@
 CACHE_DIR ?= ~/bin
-GOSTATIC ?= ./gostatic-wrap $(CACHE_DIR)/gostatic 2.24 -p 1234
+GOSTATIC ?= ./gostatic-wrap $(CACHE_DIR)/gostatic 2.25 -p 1234
 
 compile:
 	$(GOSTATIC) config
