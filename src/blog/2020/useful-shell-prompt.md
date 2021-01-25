@@ -3,6 +3,8 @@ date: 2020-10-28
 tags: shell
 ----
 
+![](/media/console-screen.jpg)
+
 There are only a few apps I use every day and shell — ZSH — is one of the most used. It's been that way since the beginning of the '00s and back then I spent a lot of time configuring my prompt to be a good balance between compact/readable and useful. I found that I dislike fancy two-line prompts, information on a right-hand side (because of its awkward behavior), and stuff like that. So the result looks like that:
 
 ```shell
@@ -38,10 +40,10 @@ p_path='%F{blue}%~%f'
 Those are easy to understand, just refer to [documentation][2] — `%m` is a hostname before the first dot, `%~` is a path where `$HOME` is abbreviated to `~`.
 
 ```sh
-p_pr='%(?.%F{blue}.%F{red})>%f'
+p_pr='%(?.%F{blue}.%F{red})x%f'
 ```
 
-This is a new part. `?` means "True if exit status of the last command was 0". So if a command exited nicely (with a status code 0), then it's going to be blue <span class="blue">`>`</span>, in other case it's going to be red <span class="red">`>`</span>. Voila! :-)
+This is a new part. `?` means "True if exit status of the last command was 0". So if a command exited nicely (with a status code 0), then it's going to be blue <span class="blue">`>`</span>, in other case it's going to be red <span class="red">`x`</span>. Voila! :-)
 
 End result looks like this:
 
@@ -49,7 +51,7 @@ End result looks like this:
 p_at='%(!.%F{red}%B#%b%f.@)'
 p_host='%F{blue}%m%f'
 p_path='%F{blue}%~%f'
-p_pr='%(?.%F{blue}.%F{red})>%f'
+p_pr='%(?.%F{blue}.%F{red})x%f'
 
 PS1="$p_at$p_host $p_path$p_pr "
 unset p_at p_host p_path p_pr
