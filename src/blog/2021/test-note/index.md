@@ -1,4 +1,3 @@
-
 ---
 title: Test note
 draft: true
