@@ -9,4 +9,4 @@ That's just a test note for my blog with a cover image inside. For real, I’m j
 
 Honestly, the worst part is adding configuration, that Drafts.app scripting is just amazing. If only author added some support for images I would not need to spend all that time on a Bear/Telegram/Github integration. :)
 
-Anyway, isn't it pretty? :-)n
+Anyway, isn't it pretty? :-)
