@@ -109,7 +109,7 @@
     </div>
   </header>
 
-  <div id="post">{{ .Content | replacere "<p><img.+?></p>" "" }}</div>
+  <div id="post">{{ .Content | replacere "^<p><img.+?></p>" "" }}</div>
 
   <div class="right">
     {{ template "date" .Date }}
