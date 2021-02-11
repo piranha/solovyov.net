@@ -109,14 +109,24 @@
     </div>
   </header>
 
-  <div id="post">{{ .Content | replacere "^<p><img.+?></p>" "" }}</div>
+  <div id="post" class="clearfix">{{ .Content | replacere "^<p><img.+?></p>" "" }}</div>
+
+  <div>
+    If you like what you read — subscribe to my
+    <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
+    <a href="https://twitter.com/asolovyov">Twitter</a>,
+    I always post links to new posts there. Or, in case you're an old
+    school person longing for an ancient technology, put a link to my
+    <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
+    <a href="https://solovyov.net/blog.atom">RSS feed</a>
+    in your feed reader (it's actually Atom feed, but who cares).
+  </div>
 
   <div class="right">
     {{ template "date" .Date }}
   </div>
-</article>
 
-<hr class="mt mb">
+</article>
 
 <div id="discourse-comments"></div>
 
@@ -133,22 +143,18 @@
   })();
 </script>
 
-<div>
-<div>
-  <a href="https://solovyov.net/blog.atom" title="RSS">
-    <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
-  </a>
-  See also
-</div>
+<div class="mt">
 
-{{ range (((.Site.Pages.Children "blog/").WhereNot "Draft" "true").Slice 0 5) }}
-{{ if ne . $ }}
-<section class="mb5">
-  {{ template "date" .Date }}
-  <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
-</section>
-{{ end }}
-{{ end }}
+  <h4>Other recent posts</h4>
+
+  {{ range (((.Site.Pages.Children "blog/").WhereNot "Draft" "true").Slice 0 5) }}
+  {{ if ne . $ }}
+  <section class="mb5">
+    {{ template "date" .Date }}
+    <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
+  </section>
+  {{ end }}
+  {{ end }}
 </div>
 
 <script>

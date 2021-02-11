@@ -209,6 +209,13 @@ header.cover, header.cover .grey, header.cover a {
   .float-left { float: left; }
   .float-right { float: right; }
 }
+.clear { clear: both; }
+.clearfix::after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+}
 
 
 /* editor.js comments */
