@@ -50,17 +50,17 @@
   <header>
     <h2 id="title"><a href="/">solovyov.net</a></h2>
     <ul class="top-icons">
-      <li><a href="https://twitter.com/asolovyov" class="icon" title="Twitter">
-        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
+      <li><a href="https://twitter.com/asolovyov" class="group" title="Twitter">
+        <svg class="icon opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
       </a></li>
-      <li><a href="https://github.com/piranha" class="icon" title="Github">
-        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#github"/></svg>
+      <li><a href="https://github.com/piranha" class="group" title="Github">
+        <svg class="icon opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#github"/></svg>
       </a></li>
-      <li><a href="https://www.youtube.com/c/asolovyov" class="icon" title="Youtube">
-        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#youtube"/></svg>
+      <li><a href="https://www.youtube.com/c/asolovyov" class="group" title="Youtube">
+        <svg class="icon opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#youtube"/></svg>
       </a></li>
-      <li><a href="https://solovyov.net/blog.atom" class="icon" title="RSS">
-        <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
+      <li><a href="https://solovyov.net/blog.atom" class="group" title="RSS">
+        <svg class="icon opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
       </a></li>
     </ul>
   </header>
@@ -113,12 +113,16 @@
 
   <div>
     If you like what you read — subscribe to my
-    <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
-    <a href="https://twitter.com/asolovyov">Twitter</a>,
+    <a href="https://twitter.com/asolovyov" class="group">
+      <svg class="small-icon opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
+      Twitter
+    </a>,
     I always post links to new posts there. Or, in case you're an old
     school person longing for an ancient technology, put a link to my
-    <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
-    <a href="https://solovyov.net/blog.atom">RSS feed</a>
+    <a href="https://solovyov.net/blog.atom" class="group">
+      <svg class="small-icon opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
+      RSS feed
+    </a>
     in your feed reader (it's actually Atom feed, but who cares).
   </div>
 
