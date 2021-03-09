@@ -45,6 +45,8 @@ pre {
   border: 1px solid #f2f2f2;
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0,0,0,.125);
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 img, canvas, iframe, video, svg, select, textarea {
