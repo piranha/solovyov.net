@@ -88,7 +88,7 @@ export default handleActions({
 }, {});
 ```
 
-Additionally, this reducer in being included in all reducers, and store is passed through higher-order component called `Provider`, and this `connect` call at the end of `LoginScreen.js` passes the store to `createStructuredSelector` and `bindActionCreators`.
+Additionally, this reducer is being included in all reducers, and store is passed through higher-order component called `Provider`, and this `connect` call at the end of `LoginScreen.js` passes the store to `createStructuredSelector` and `bindActionCreators`.
 
 The amount of indirection here is staggering. Another problem is that code locality here is so bad that after some time away from apps written in this way you can't find anything. The work of changing state is happening in reducers and component never imports or touches them, making the whole architecture very **surprising**. I don't like surprises, give me old-fashioned direct function calls over grepping whole codebase please.
 
