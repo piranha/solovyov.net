@@ -38,7 +38,7 @@ Hammerspoon has also replaced my previous god of window layouts, SizeUp, I just 
 
 ## New Way
 
-I discovered that Karabiner has no excellent way to switch inputs directly, without needing Hammerspoon! So now you can go to where [complex modifications][cm] are shared and just install it in your Karabiner. Easy-peasy.
+I discovered that Karabiner has an excellent way to switch inputs directly, without needing Hammerspoon! So now you can go to where [complex modifications][cm] are shared and just install it in your Karabiner. Easy-peasy.
 
 [cm]: https://ke-complex-modifications.pqrs.org/?q=cmd-opt-en-ru-uk#cmd-opt-en-ru-uk
 
