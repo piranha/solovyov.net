@@ -4,7 +4,7 @@ tags: software, macos
 favorite: true
 ----
 
-Life has blessed me with being born in Ukraine; this complicates life a bit when dealing with computers. For example, you can't just use a single layout like all those peoples in the USA or elsewhere where they have this luxury. That makes living in Ukraine similar to living in Russia or elsewhere where they have the same problem. So it's like a layout for Latin letters (for writing text in English and programming) and layout for Cyrillic letters.
+Life has blessed me with being born in Ukraine; this complicates life a bit though when dealing with computers. For example, you can't just use a single layout like all those peoples in the USA or elsewhere where they have this luxury. That makes living in Ukraine similar to living in Russia or elsewhere where they have the same problem. So it's like a layout for Latin letters (for writing text in English and programming) and layout for Cyrillic letters.
 
 But, you see, here comes a problem. After hundreds of years of Russian rule, we got a situation where the Russian language is widespread along with Ukrainian. And keyboard layouts for those two are a little bit different. Different enough to make a single unified layout (where you have all letters for both alphabets) so annoying that I will not speak of it.
 
@@ -13,6 +13,8 @@ So you have three keyboard layouts and a single keyboard. What do you do? Well, 
 Either way, it sucks: you have to know where you are right now (be it Latin or one of Cyrillic layouts) to get where you need. This makes layout juggling mentally taxing: you have to think about it all the time. So how do you solve that? Easy! With those hands (shake your hands in the air)!
 
 Enter [Karabiner-Elements](https://pqrs.org/osx/karabiner/) - a powerful keyboard customizer. It makes you able to change any key to any other key. While this sounds boring, there is an exceptional feature: it can make a key behave like one when clicked and another when pressed and held. That is a game-changer! There is a lot of modifier keys for us to use!
+
+## Old Way
 
 So what I did is I mapped my left Command key to F16, right Command to F17 and right Option to F18. This doesn't sound as useful until you learn about [Hammerspoon](https://www.hammerspoon.org/), another exceptional software!
 
@@ -32,9 +34,17 @@ hs.hotkey.bind({}, "F18", function()
 end)
 ```
 
-How do you like that? When I press the left Command key, my keyboard switches to English no matter what state it was in. Even if it was in English. It took me a week to train my muscle memory and it's been years now since I thought about what layout is currently enabled.
-
 Hammerspoon has also replaced my previous god of window layouts, SizeUp, I just configured shortcuts the same. And it triples its usefulness as an application launcher.
+
+## New Way
+
+I discovered that Karabiner has no excellent way to switch inputs directly, without needing Hammerspoon! So now you can go to where [complex modifications][cm] are shared and just install it in your Karabiner. Easy-peasy.
+
+[cm]: https://ke-complex-modifications.pqrs.org/?q=cmd-opt-en-ru-uk#cmd-opt-en-ru-uk
+
+## Continue
+
+How do you like that? When I press the left Command key, my keyboard switches to English no matter what state it was in. Even if it was in English. It took me a week to train my muscle memory and it's been years now since I thought about what layout is currently enabled.
 
 Almost forgot! Since I got escapeless Macbook Pro, I configured my fn key to work as an Escape key when clicked. And it's been so comfortable that I use that on my escapefull Macbook Air even though there is a real Escape key.
 
