@@ -23,7 +23,7 @@
   <link href="{{ .Site.Other.Url }}{{ .Url }}"></link>
   <content type="html"><![CDATA[
     {{/* call .Process here for when only feed has changed */}}
-    {{ cut "<section[^>]*>" "</section>" .Process.Content }}
+    {{ cut "<div id=\"post\"[^>]*>" "</div>" .Process.Content }}
   ]]></content>
 </entry>
 {{ end }}
