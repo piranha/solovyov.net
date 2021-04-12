@@ -1,7 +1,6 @@
 ---
 title: History snapshotting in TwinSpark.js
 date: 2021-04-12
-draft: true
 tags: programming, javascript, kasta
 ---
 
