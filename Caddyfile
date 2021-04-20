@@ -9,18 +9,17 @@ solovyov.net {
 
   @static {
     file
-    path /favicon.ico
-    path /static/*
-    path /media/*
-    path *.jpg
-    path *.png
+    path /favicon.ico /static/* /media/* *.jpg *.png
   }
-  header @static Cache-Control max-age=31536000
 
   @exists {
     file
   }
-  header @exists Cache-Control max-age=3600
+
+  route @exists {
+    header Cache-Control max-age=3600
+    header @static Cache-Control max-age=31536000
+  }
 
   redir /q /q/
   handle /q/* {
