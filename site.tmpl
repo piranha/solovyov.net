@@ -85,18 +85,20 @@
 
 
 {{ define "post" }}
-<article>
+<article itemscope itemtype="http://schema.org/BlogPosting">
   <header
     {{ with $cover := .Content | refind "^<p><img .*?src=\"(.+?)\".*?></p>" -}}
     class="cover"
     style="background-image: linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.5)),
                              url({{ $cover }})"
     data-cover="{{ $cover }}"
+    itemprop="image"
+    content="{{ $cover }}"
     {{- end }}>
     <h1>
-      {{- .Title -}}
+      <span itemprop="name">{{- .Title -}}</span>
       {{- if .Other.Draft }} <span class="grey">(draft)</span>{{ end -}}
-      <a href="/{{ .Url }}" class="u-url self-target">#</a>
+      <a href="/{{ .Url }}" class="self-target" itemprop="url">#</a>
     </h1>
 
     <div class="grey">
@@ -109,7 +111,9 @@
     </div>
   </header>
 
-  <div id="post" class="clearfix">{{ .Content | replacere "^<p><img.+?></p>" "" }}</div>
+  <div id="post" class="clearfix" itemprop="articleBody">
+    {{- .Content | replacere "^<p><img.+?></p>" "" -}}
+  </div>
 
   <div>
     If you like what you read — subscribe to my
@@ -126,9 +130,7 @@
     in your feed reader (it's actually Atom feed, but who cares).
   </div>
 
-  <div class="right">
-    {{ template "date" .Date }}
-  </div>
+  <div class="right">{{ template "microdate" .Date }}</div>
 
 </article>
 
@@ -171,11 +173,22 @@ if (location.search.match(/\beditor=/)) {
 {{end}}
 
 
+{{define "microdate"}}
+<time class="cg mono dt-published"
+      datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}"
+      itemprop="datePublished"
+      content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ .Format "Jan 2006" }}
+</time>
+{{end}}
+
+
 {{define "date"}}
 <time class="cg mono dt-published" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Format "Jan 2006" }}
 </time>
 {{end}}
+
 
 {{define "shortdate"}}
 <time class="cg mono" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
