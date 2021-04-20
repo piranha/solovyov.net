@@ -16,6 +16,8 @@ solovyov.net {
     file
   }
 
+  # why this instead of just two global headers:
+  # https://caddy.community/t/cant-get-simple-alias-to-work/7911/10
   route @exists {
     header Cache-Control max-age=3600
     header @static Cache-Control max-age=31536000
