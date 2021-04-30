@@ -3,7 +3,7 @@ date: 2020-10-28
 tags: shell
 ----
 
-![](/media/console-screen.jpg)
+![](console-screen.jpg)
 
 There are only a few apps I use every day and shell — ZSH — is one of the most used. It's been that way since the beginning of the '00s and back then I spent a lot of time configuring my prompt to be a good balance between compact/readable and useful. I found that I dislike fancy two-line prompts, information on a right-hand side (because of its awkward behavior), and stuff like that. So the result looks like that:
 
@@ -15,7 +15,7 @@ where `█` is a cursor. It shows username, `@` to separate it from hostname - o
 
 But a week ago a saw a [tweet](https://twitter.com/thingskatedid/status/1316081732467081217) with an idea to change prompt's prompt (the `>` thingie) to a red color when previous command exited with an error status. This motivated me to cleanup and update my prompt to a newer conventions. This is a result:
 
-<p><img alt="prompt screenshot" src="/media/prompt.jpg" height="60px" width="127px"></p>
+<p><img alt="prompt screenshot" src="prompt.jpg" height="60px" width="127px"></p>
 
 You can see I removed my username since it really gives me no information, no reason to spend space on that. I also really like white background, but if you don't, changing colors is easy — I'll explain how everything works.
 

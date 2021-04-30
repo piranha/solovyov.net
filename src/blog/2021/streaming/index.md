@@ -4,7 +4,7 @@ date: 2021-01-11
 tags: video
 ----
 
-![my desk with streaming gear](/media/streaming-desk.jpg)
+![my desk with streaming gear](streaming-desk.jpg)
 
 A few months ago I got a feeling that I'd enjoy live streaming some coding. Not sure exactly, but it seemed to be somewhere along the lines of "sitting at home," "not enough people around to complain to" and things like that. Plus it felt like it could spark some interesting discussions. Maybe. Also, this creates some time-based pressure to do smaller projects — because you're doing that every Wednesday (or whenever). And doing small things outside of general job-related stuff makes me feel like a person with wider interests. Who am I kidding though, it's all programming.
 
