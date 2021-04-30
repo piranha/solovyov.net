@@ -55,7 +55,7 @@ description: Blog of Alexander Solovyov
 </h1>
 
 
-{{ range ((.Site.Pages.Children "blog/").WhereNot "Draft" "true") }}
+{{ range (((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true") }}
 <section class="mb5">
   {{ template "date" .Date }}
   <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
