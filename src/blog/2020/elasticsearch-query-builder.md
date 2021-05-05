@@ -1,6 +1,7 @@
 title:  ElasticSearch query builder
 date: 2020-10-01
 tags: programming, clojure, db
+keywords: elasticsearch, query
 ----
 
 This post strives to be useful to anyone who uses ElasticSearch, but all examples are going to be in Clojure since it's what we use. 
