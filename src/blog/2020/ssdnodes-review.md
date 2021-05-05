@@ -1,9 +1,10 @@
 title: SSDNodes review
 date: 2020-06-15
 tags: hosting
+keywords: ssdnodes, ssdnodes.com, review, linode, hetzner, hosting, vps
 ----
 
-A while ago when reading [yellow site](https://news.ycombinator.com) I stumbled upon [a comment](https://news.ycombinator.com/item?id=22651472) from XERQ, who is a founder of [SSDNodes](https://www.ssdnodes.com/). The company's value proposition is to pay them for a year and get **a massive** discount on price compared to [Linode](https://linode.com) (which is what I'm using right now) or others: thousands of dollars a year!
+A while ago when reading [yellow site](https://news.ycombinator.com) I stumbled upon [a comment](https://news.ycombinator.com/item?id=22651472) from XERQ, who is a founder of [SSDNodes](https://www.ssdnodes.com/). The company's value proposition is to pay them for a year and get **a massive** discount on price compared to [Linode](https://linode.com) (which is what I was using at the time) or others: thousands of dollars a year!
 
 Honestly saying, I almost rented a server that day, since SSDNodes homepage was boasting a sale which will end in around 18 or something hours. When I went to checkout it turned out that advertised price of $89 per year for a high-performance 16 GB VPS (with NVMe!) is valid when you pay for three years, not for a year. It'll be $139 if I pay for a year and I decided not to rush. :)
 
@@ -56,7 +57,7 @@ It's a 4 years old CPU. Should be okay I guess if it's not overloaded, shame I d
 
 Okay, so what's next? Fortunately enough they guarantee 14 days money back. It's through a ticket and not an automated button. They asked me why and after being provided with hdparm output proposed to "recreate the server in another location that will provide better performance". I declined and received a notification that my refund is processed. Money had arrived quickly, so that's a plus.
 
-I'm little bit unhappy that I didn't search for `ssdnodes review` before doing anything, I think finding [this post](https://www.blogtipstricks.com/ssdnodes-review/) would help me with not giving them my money. :) He's writing they did not refund his credit, that is awful. :( It was a bit better for me, but fortunately I discovered I don't want to be hosted there in a single day.
+I'm little bit unhappy that I didn't search for `ssdnodes review` before doing anything, I think finding [this post](https://www.blogtipstricks.com/ssdnodes-review/) would have helped me with not giving them my money. :) He's writing they did not refund his credit, that is awful. :( It was a bit better for me, but fortunately I discovered I don't want to be hosted there in a single day.
 
 ## Conclusion
 
