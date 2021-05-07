@@ -1,12 +1,11 @@
 title: Blog
-
+description: Blog of Alexander Solovyov
 ----
 
 <h1>Blog</h1>
 
 <div class="post-list">
-{{ range .Site.Pages.Children .Url }}
-{{ if (not .Other.Draft) }}
+{{ range (((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true") }}
 
   {{ if .Date.Year | changed "year" }}
   <div id="{{ .Date.Year }}" class="center">
@@ -14,15 +13,13 @@ title: Blog
   </div>
   {{ end }}
 
-  <div class="mb {{ if .Other.Favorite }}favorite{{ else }}normal{{ end }}">
+  <div class="mb">
     {{ template "shortdate" .Date }}
     <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
-    {{ if .Other.Favorite }}{{ template "star" . }}{{ end }}
     <blockquote>
-      {{ with .Process.Content | cut "<section[^>]*>" "</section>" }}{{ excerpt . 50 | strip_html }}{{ end }}
+      {{ with cut "<div id=\"post\".*?>" "</div>" .Process.Content }}{{ excerpt . 50 | trim | strip_html }}{{ end }}
     </blockquote>
   </div>
 
-{{ end }}
 {{ end }}
 </div>

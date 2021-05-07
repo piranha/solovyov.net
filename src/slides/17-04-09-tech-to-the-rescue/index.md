@@ -1,7 +1,7 @@
 class: middle, center, invert
 
-# <img src="campaign_active.svg" style="height: 100px" />
 # Technology to the Rescue
+# <img src="campaign_active.svg" style="height: 100px" />
 
 .meta[Alexander Solovyov, CTO modnaKasta]
 

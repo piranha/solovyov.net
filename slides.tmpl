@@ -148,18 +148,19 @@
     }
   }
   </style>
-  <title>{{ with .Content | cut "\ntitle: *" "\n" }}{{ . }}{{ else }}{{ .Content | cut "\n# " "\n" }}{{ end }}</title>
+   <title>{{ with .Content | cut "\ntitle: *" "\n" }}{{ . }}{{ else }}{{ .Content | cut "\n# " "\n" }}{{ end }}</title>
   <meta name="author" content="Alexander Solovyov">
-  <meta name="keywords" content="alexander solovyov, piranha, kasta, clojure, python, emacs, blog">
-  <meta name="description" content="{{ .Content | cut "\ndescription: " "\n" }}">
+  <meta name="keywords" content="alexander solovyov, piranha, kasta, clojure, python, emacs, blog, slides">
+  <meta name="description" content="{{ with .Content | cut "\ndescription: " "\n" -}}
+                                      {{ . }}
+                                    {{- else -}}
+                                      Slides for a talk by Alexander Solovyov
+                                    {{- end }}">
   {{ .Content | cut "<!--head" "-->" }}
 </head>
 <body>
-  <textarea id="source">
+  <textarea id="source">{{ .Content }}</textarea>
 
-{{ .Content }}
-
-</textarea>
   {{ .Content | cut "<!--body" "-->" }}
 </body>
 </html>
