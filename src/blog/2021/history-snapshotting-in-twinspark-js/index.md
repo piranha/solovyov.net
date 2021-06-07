@@ -6,7 +6,7 @@ tags: programming, javascript, kasta
 
 ![](Photo%207%20Mar%202021%2C%20170558.jpg)
 
-[TwinSpark](https://kasta-ua.github.io/twinspark/) is a library we use to write Kasta frontend now. You can see examples of basic behavior by opening a link, but a cornerstone of TwinSpark is HTML-replacement functionality, which is what concerns us now. 
+[TwinSpark](https://kasta-ua.github.io/twinspark-js/) is a library we use to write Kasta frontend now. You can see examples of basic behavior by opening a link, but a cornerstone of TwinSpark is HTML-replacement functionality, which is what concerns us now. 
 
 You see, controlling app behavior can be done in various ways, but the major one is updating what user sees with a new markup from the server. And that potentially can change URL: like when user selects a filter in a product catalogue, this filter gets appended to a query string.
 

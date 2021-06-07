@@ -77,7 +77,7 @@ showkr/index.html:
 	:cat
 
 *.html: static/blog.scss
-	config
+	configf
 	directorify
 	inner-template
 	template page
