@@ -15,7 +15,7 @@ The issue here is that I can't just start doing something suddenly. I can't just
 
 And it turns out [you can't buy a good webcam](https://vsevolod.net/good-webcams/). They are all shit — even if you pay $200+. If you want good picture quality the only way right now is to buy a photo camera with an HDMI capture card. All major brands have released drivers to connect cameras via USB, but those drivers are unanimously bad: USB2 can support compressed 1080p60, but those drivers only support 576p30. What is this madness I don't know, so you have to use an HDMI capture card.
 
-The capture card could either be some [cheap thingie](https://aliexpress.com/item/4000917130635.html) for $15 from Aliexpress, or an [Elgato Camlink 4K](https://www.amazon.com/dp/B07K3FN5MR) for $130 (or other proper brand-name stuff for even more money). I settled on a cheap crap and it works fine for now: it doesn't support 4K, and 1080p is also questionable, but the resulting video quality is miles ahead of webcams and phones.
+The capture card could either be some [cheap thingie](https://aliexpress.com/item/4000917130635.html) for $15 from Aliexpress, or an [Elgato Camlink 4K](https://www.amazon.com/dp/B07K3FN5MR) for $130 (or other proper brand-name stuff for even more money). Initially I settled on a cheap crap and it works fine for now: it doesn't support 4K, and 1080p is also questionable, but the resulting video quality is miles ahead of webcams and phones. After some time I realized that it oversaturates image a lot, so I have to turn down colors in camera and end up with almost a grey-scale picture - and bought Camlink 4K, and result is just great.
 
 For a camera you have two non-negotiable properties:
 
@@ -32,6 +32,10 @@ There are a few reasons why a5100:
 4) It's dirt cheap. It's an older model made for 6 years already.
 
 I'd prefer to have Fuji — their colors are so much better to look at — but I wanted to keep investment low just in case in two months I decide I don't need it all. And the cheapest Fuji setup would be 2x from a5100 — partially because Sony's kit lens is so cheaply made, ugh! Also, when I compared a5100 autofocus performance to my beloved X-T1 my jaw just dropped. Reviews suggest that newer Fuji cameras have improved greatly, but still are not on par with Sony.
+
+![fujifilm x-s10](https://images-na.ssl-images-amazon.com/images/I/81HWDUTDpvL._AC_SL1500_.jpg)
+
+**UPDATE**. After being unhappy with the fact I sold my Fuji (despite not touching it for years) I decided that if I'm so stuck with my gear obsession, it's better to satisfy it than struggle with it. So I've bought Fujifilm X-S10 and Viltrox 23/1.4, and I couldn't be happier! First, image quality is much better with more detail. Then, colors are excellent. It's a Fuji's strength and I just love them even without color-grading. Plus instead of a dummy battery I just plug USB-C cable in! So I put it on a quick release Arca plate, and within 10 seconds I can have a great camera in my hands. It takes same 10 seconds to put it back on, so that's really low bar to make a better photo. Also, autofocus is good enough for me, reviews left me with impression that it'll be much worse. :)
 
 
 ## Mount
@@ -67,9 +71,13 @@ I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti bec
 
 It turns out Neat Microphones were a subsidiary of Gibson and made some upper-class mics: like Worker Bee for $200 and King Bee for $300. But after Gibson's bankruptcy Neat's CEO (and maybe some others, IDK) was able to buy it out. That CEO  — [Skipper Wise](https://en.wikipedia.org/wiki/Skipper_Wise) — is also one of the founders of Blue Microphones. So Neat Mics are independent now and decided to change their pricing strategy. Unfortunately, King Bee is not produced anymore, but Worker Bee is sold for $90, which is a steal! It has loads of glowing reviews on YouTube and the design... it's funny, and it's different, and I just like it. Too bad that it's mostly black from the back (especially sitting in a cradle), so it's a bit less interesting in a captured video than I hoped. But I bought one anyway.
 
-Other big brands you probably know of — like Audio-Technica and Shure — are great as well. There are some other great companies I've never heard of before, like RØDE. 
+Other big brands you probably know of — like Audio-Technica and Shure — are great as well. There are some other great companies I've never heard of before, like RØDE.
 
 Various tests say that your listeners won't be able to tell the difference if you have any mic costing from about $100. Do whatever you want with that information.
+
+![rode podmic](http://cdn2.rode.com/images/products/podmic/gallery/5.jpg)
+
+**UPDATE**. I really liked Worker Bee, both it looks and sound, but an appartment with small children is an unsuitable location for a condenser microphone: it picks up too much of background noise. Dynamic microphones are much better at that, so I switched to RØDE PodMic. I like sound of Worker Bee more, but I'm yet to learn how to equalize plus it's an acceptable payment for the peace of my mind. Also, while not as intriguing as Worker Bee, it certainly doesn't look dull. Along with a yellow cable on a stand I think it provides nice direction to my face in a video composition-wise.
 
 
 ## Sound processing
