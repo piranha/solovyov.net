@@ -75,7 +75,7 @@ Other big brands you probably know of — like Audio-Technica and Shure — are 
 
 Various tests say that your listeners won't be able to tell the difference if you have any mic costing from about $100. Do whatever you want with that information.
 
-![rode podmic](http://cdn2.rode.com/images/products/podmic/gallery/5.jpg)
+![rode podmic](https://cdn2.rode.com/images/products/podmic/gallery/5.jpg)
 
 **UPDATE**. I really liked Worker Bee, both it looks and sound, but an appartment with small children is an unsuitable location for a condenser microphone: it picks up too much of background noise. Dynamic microphones are much better at that, so I switched to RØDE PodMic. I like sound of Worker Bee more, but I'm yet to learn how to equalize plus it's an acceptable payment for the peace of my mind. Also, while not as intriguing as Worker Bee, it certainly doesn't look dull. Along with a yellow cable on a stand I think it provides nice direction to my face in a video composition-wise.
 
