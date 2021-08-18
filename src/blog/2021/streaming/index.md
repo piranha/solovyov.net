@@ -106,7 +106,7 @@ For software let's look at Windows side first. There is an app for Windows calle
 
 ### Hardware way
 
-![yamaha ag03 image](https://usa.yamaha.com/files/3723ECB0493643A4A223EA68E569A046_12073_990x990_c1f536d33591de0431d896a13451fe11.jpg)
+![yamaha ag03 image](https://m.media-amazon.com/images/I/61S5wsiSHjL._AC_SL1000_.jpg)
 
 I found two interfaces with DSP under $500: Yamaha AG03 (and AG06) for $170 and Steinberg (which is also Yamaha) UR22C (UR24C etc) for $250.
 
@@ -129,7 +129,7 @@ I guess you can see I'm in search of a solution, so if you have any suggestions 
 
 I just can't stop here. Like, I've had two points out of three crossed, is it possible to stop? But light is the hardest one because it's much more about the physical world than anything else. It depends on your room, ability to place stuff around, and it can change anything drastically. Also, you can compare a camera to other cameras and buy the one you decided on, you can do the same with a mic, but with lightning, the specs of light you buy is not going to be the main thing. The main thing is placement. Tutorials say you have to have three different light sources: a key light, a fill light, and a back light.
 
-![rodecaster pro image](https://d2r5da613aq50s.cloudfront.net/wp-content/uploads/321891.image0.jpg)
+![lightning setup](lightning-setup.jpg)
 
 A *key light* is a bright source of light that should light up your face somewhat from the side so that you have some shadows. I put a Yongnuo YN300 right behind my camera. 
 
