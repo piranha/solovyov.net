@@ -96,7 +96,7 @@
     itemprop="image"
     content="{{ $cover }}"
     {{- end }}>
-    <h1>
+    <h1 id="post-title">
       <span itemprop="name headline">{{- .Title -}}</span>
       {{- if .Other.Draft }} <span class="grey">(draft)</span>{{ end -}}
       <a href="/{{ .Url }}" class="self-target" itemprop="url">#</a>
