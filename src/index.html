@@ -2,16 +2,12 @@ title: Alexander Solovyov
 description: Blog of Alexander Solovyov
 ----
 
-<article itemscope itemtype="http://schema.org/Person" class="h-card">
-  <img itemprop="image" class="u-photo" style="float: right"
-       width="200px" height="250px"
+<article>
+  <img style="float: right" width="200px" height="250px"
        src="{{ version . "static/asolovyov.jpg" }}"
        srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov400.jpg" }} 2x">
-  <p class="lead">Hi! I'm <span itemprop="name" class="p-name">Alexander Solovyov</span> and that's <a class="u-uid u-url" href="https://solovyov.net/">my site</a>.</p>
-  <p class="p-note">I'm a <span itemprop="jobTitle" class="p-job-title">CTO</span>
-    at <span itemprop="memberOf" itemscope itemtype="http://schema.org/Organization"><a itemprop="url" href="https://kasta.ua/"><span itemprop="brand">Kasta</span></a></span>,
-    - we're focused on building slick one-stop ecommerce platform for both consumers and producers.</p>
-  <p>If you want to contact me, use my email: <script type="text/javascript">document.write("<n uers=\"znvygb:nyrknaqre\100fbybilbi\056arg\">nyrknaqre\100fbybilbi\056arg<\057n>".replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script></p>
+  <p class="lead">Hi! I'm Alexander Solovyov and that's my site.</p>
+  <p>Read <a href="/about">about</a> page if you want to know more. Use email if you want to contact me: <script type="text/javascript">document.write("<n uers=\"znvygb:nyrknaqre\100fbybilbi\056arg\">nyrknaqre\100fbybilbi\056arg<\057n>".replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script></p>
 </article>
 
 <ul class>
@@ -56,7 +52,7 @@ description: Blog of Alexander Solovyov
 
 
 {{ range (((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true") }}
-<section class="mb5">
+<section class="mb5 {{ if .Date.Year | changed "year" }}mt{{ end }}">
   {{ template "date" .Date }}
   <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
 </section>
