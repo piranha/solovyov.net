@@ -10,113 +10,139 @@
   <script src="https://remarkjs.com/downloads/remark-0.15.0.min.js" type="text/javascript"></script>
   <link href="https://highlightjs.org/static/demo/styles/github.css"  rel="stylesheet">
   <style type="text/css">
-  .hljs-github .hljs { background: inherit; }
+    .hljs-github .hljs { background: inherit; }
 
 
-  /* slides styles (c) Alexander Solovyov <alexander@solovyov.net> */
+    /* slides styles (c) Alexander Solovyov <alexander@solovyov.net> */
 
-  body {
+    body {
       font-family: Open Sans, sans-serif;
-  }
+    }
 
-  h1, h2, h3 {
+    h1, h2, h3 {
       color: #333;
       font-family: Oswald;
-  }
+    }
 
-  code {
+    code {
       font-family: Monaco, Open Sans;
-  }
+    }
 
-  h1 {
+    h1 {
       font-size: 1.8em;
       text-align: center;
       -webkit-margin-before: 0;
-  }
+    }
 
-  code { position: relative; text-align: left; }
-  code .function {color: #900;}
+    code { position: relative; text-align: left; }
+    code .function {color: #900;}
 
-  a, a:visited {
+    a, a:visited {
       color: #00E;
-  }
+    }
 
-  .meta {
+    .meta {
       font-size: 0.7em;
-  }
+    }
 
-  .footer {
+    .footer {
       font-size: 0.7em;
       position: absolute;
       bottom: 1em;
       right: 1em;
       opacity: 0.5;
-  }
+    }
 
-  li { margin-bottom: 15px; }
-  ul { margin-top: 10px; }
+    li { margin-bottom: 15px; }
+    ul { margin-top: 10px; }
 
-  .remark-slide-content {
+    .remark-slide-content {
       padding: 0 1.5em 1em 1.5em;
       font-size: 26pt;
       background-size: 100%;
-  }
+    }
 
-  .mk-logo {
+    .mk-logo {
       background-image: url("small-mk.svg");
       background-position: left 20px bottom 20px;
       background-size: 50px;
-  }
+    }
 
-  .full-height {
-    background-size: auto 100%;
-  }
-  .full-width {
-    background-size: 100% auto;
-  }
+    .full-height {
+      background-size: auto 100%;
+    }
+    .full-width {
+      background-size: 100% auto;
+    }
 
-  .remark-code { font-size: 24pt; }
+    .remark-code { font-size: 24pt; }
 
-  .full img {
+    .full img {
       width: 110%;
       height: 110%;
       margin-left: -1em;
-  }
+    }
 
-  s {
+    s {
       text-decoration: none;
       position: relative;
-  }
-  s::after {
+    }
+    s::after {
       content: '';
       border-bottom: 4px solid red;
       position: absolute;
       left: 0;
       top: 50%;
       width: 100%;
-  }
+    }
 
-  .transparent {
+    .transparent {
       opacity: 0.5;
-  }
+    }
 
-  .highlight {
+    .highlight {
       color: red;
       text-shadow: 2px 2px #fff, -2px -2px #fff, 2px -2px #fff, -2px 2px #fff;
-  }
+    }
 
-  .invert {
-    background-color: black;
-    color: white;
-  }
-  .invert h1 {
-    color: white;
-  }
+    /* hero slides */
+    .invert { background-color: black; }
+    .orange { background-color: #ff7a16; }
+    .green { background-color: #63b132; }
+    .invert, .orange, .green { color: white; }
+    .invert h1, .orange h1, .green h1 { color: white; }
 
+    .em2 { font-size: 2em; }
+    .em3 { font-size: 3em; }
+
+    /* remove page margins for printing */
+    @media print {
+      .remark-slide-scaler {
+        width: 100% !important;
+        height: 100% !important;
+        transform: scale(1) !important;
+        top: 0 !important;
+        left: 0 !important;
+      }
+    }
   </style>
   <script type="text/javascript">
-    setTimeout(function() {
-    var slideshow = remark.create({
+    var REMARK_STYLE = null;
+    function initRemark() {
+      var remarkStyle = Array.prototype.filter.call(document.styleSheets, x => x.title == 'remark')[0];
+      if (!REMARK_STYLE) {
+        REMARK_STYLE = remarkStyle;
+      }
+      if (!remarkStyle) {
+        var el = document.createElement('style');
+        el.type = 'text/css';
+        el.title = 'remark';
+        el.innerHTML = Array.prototype.map.call(REMARK_STYLE.cssRules, r => r.cssText).join('\n');
+        // should be inserted early so that custom css overrides it
+        document.head.insertAdjacentElement('afterbegin', el);
+      }
+
+      var slideshow = remark.create({
         highlightLanguage: 'clojure',
         highlightStyle: 'github',
         highlightLines: true,
@@ -125,30 +151,23 @@
         slideNumberFormat: (current, total) => {
           return current > 1 ? current + ' / ' + total : ''
         }
-    });
+      });
+    }
 
-    // dynamically set correct page size for printing
-    var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-    if (!r) return;
-    s.type = "text/css";
-    s.innerHTML = "@page { size: " + r.style.width + "px " + r.style.height +"px; }";
-    d.head.appendChild(s);
-    }, 1);
+    setTimeout(initRemark, 5);
+    window.addEventListener('hotreload', initRemark);
+
+    /* setTimeout(function() {
+     *   // dynamically set correct page size for printing
+     *   var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+     *   if (!r) return;
+     *   s.type = "text/css";
+     *   s.innerHTML = "@page { size: " + r.style.width + "px " + r.style.height +"px; }";
+     *   d.head.appendChild(s);
+     * }, 1); */
 
   </script>
-  <style type="text/css">
-  /* remove page margins for printing */
-  @media print {
-    .remark-slide-scaler {
-      width: 100% !important;
-      height: 100% !important;
-      transform: scale(1) !important;
-      top: 0 !important;
-      left: 0 !important;
-    }
-  }
-  </style>
-   <title>{{ with .Content | cut "\ntitle: *" "\n" }}{{ . }}{{ else }}{{ .Content | cut "\n# " "\n" }}{{ end }}</title>
+  <title>{{ with .Content | cut "(^|\n)title: " "\n" }}{{ . }}{{ else }}{{ .Content | cut "\n# " "\n" }}{{ end }}</title>
   <meta name="author" content="Alexander Solovyov">
   <meta name="keywords" content="alexander solovyov, piranha, kasta, clojure, python, emacs, blog, slides">
   <meta name="description" content="{{ with .Content | cut "\ndescription: " "\n" -}}
