@@ -6,6 +6,8 @@ title: Slides
 
 Here are slides from talks I've given.
 
+* [А ви любите Кафку?](21-09-23-kafka), [стрім](https://www.youtube.com/watch?v=UXnTzxGhnXc) у вересні 2021
+* [Викинь ти той React](21-04-01-throw-away-react), [стрім](https://www.youtube.com/watch?v=uNF7QmFiQaw) у квітні 2021
 * [Throwing ReactJS away](20-09-26-throwing-reactjs), JavaScript fwdays'20
 * [Clojure makes ElasticSearch bearable](19-12-07-clojure-es), ClojureDay Dec 2019
 * [REPL](19-03-16-repl), JavaScript fwdays'19
