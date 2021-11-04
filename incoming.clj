@@ -32,7 +32,7 @@
               (json/parse-string keyword)))
 (def TYPE (if (= (:status POST) "published") :pub :draft))
 
-(println "Post ----------------")
+(println "Post ---------------- " TYPE)
 (clojure.pprint/pprint POST)
 
 
@@ -52,16 +52,14 @@
                  (.replace "<p>" "")
                  (.replace "</p>" "\n")
                  (str/replace #"\n\n+" "\n\n"))]
-    (if (:feature_image post)
-      (str
-        (format "<a href=\"%s\">&#8205;</a>\n" (:feature_image post))
-        html)
-      html)))
+    (cond->> html
+      (:feature_image post)
+      (str (format "<a href=\"%s\">&#8205;</a>\n" (:feature_image post))))))
 
 
 (defn tg-req [post]
   (let [id     (get-id (:slug post))
-        form   {:chat_id                  (if (= type :pub) PUB DRAFT)
+        form   {:chat_id                  (if (= TYPE :pub) PUB DRAFT)
                 :message_id               id
                 :parse_mode               "HTML"
                 :text                     (make-tg-html post)
@@ -76,7 +74,8 @@
 
 ;;; Action
 
-(let [res  @(http/request (tg-req POST))
+(let [req  (tg-req POST)
+      res  @(http/request req)
       data (-> res :body (json/parse-string keyword))]
   (println "Telegram response --------------")
   (clojure.pprint/pprint data)
