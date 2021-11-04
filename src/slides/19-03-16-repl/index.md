@@ -175,7 +175,7 @@ class: center
 # Дополнение
 
 <video width="80%" autoplay loop muted>
-  <source src="demo/1-completion.mp4" type="video/mp4" />
+  <source src="https://cdn.solovyov.net/repl-videos/1-completion.mp4" type="video/mp4" />
 </video>
 
 ---
@@ -185,7 +185,7 @@ class: center
 # Документация
 
 <video width="80%" autoplay loop muted>
-  <source src="demo/2-docs.mp4" type="video/mp4" />
+  <source src="https://cdn.solovyov.net/repl-videos/2-docs.mp4" type="video/mp4" />
 </video>
 
 ---
@@ -195,7 +195,7 @@ class: center
 # Исходный код
 
 <video width="80%" autoplay loop muted>
-  <source src="demo/3-source.mp4" type="video/mp4" />
+  <source src="https://cdn.solovyov.net/repl-videos/3-source.mp4" type="video/mp4" />
 </video>
 
 ---
@@ -221,7 +221,7 @@ class: center
 # Возможность исполнить отдельное выражение
 
 <video width="80%" autoplay loop muted>
-  <source src="demo/4-expression.mp4" type="video/mp4" />
+  <source src="https://cdn.solovyov.net/repl-videos/4-expression.mp4" type="video/mp4" />
 </video>
 
 ---
@@ -231,7 +231,7 @@ class: center
 # Редактор, подключенный к реплу
 
 <video width="80%" autoplay loop muted>
-  <source src="demo/5-editor.mp4" type="video/mp4" />
+  <source src="https://cdn.solovyov.net/repl-videos/5-editor.mp4" type="video/mp4" />
 </video>
 
 ---
@@ -241,7 +241,7 @@ class: center
 # Репл, подключенный к программе
 
 <video width="80%" autoplay loop muted>
-  <source src="demo/6-app.mp4" type="video/mp4" />
+  <source src="https://cdn.solovyov.net/repl-videos/6-app.mp4" type="video/mp4" />
 </video>
 
 ---
@@ -251,7 +251,7 @@ class: center
 # Изменения программы на лету
 
 <video width="80%" autoplay loop muted>
-  <source src="demo/7-change.mp4" type="video/mp4" />
+  <source src="https://cdn.solovyov.net/repl-videos/7-change.mp4" type="video/mp4" />
 </video>
 
 ---
@@ -267,7 +267,7 @@ class: center
 # Результаты экспериментов переносятся в тесты
 
 <video width="80%" autoplay loop muted>
-  <source src="demo/8-test.mp4" type="video/mp4" />
+  <source src="https://cdn.solovyov.net/repl-videos/8-test.mp4" type="video/mp4" />
 </video>
 
 ---
