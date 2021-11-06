@@ -17,7 +17,7 @@ jobs:
       - name: Update incoming post
         env:
           TGTOKEN: ${{ secrets.TGTOKEN }}
-        run: ./bb incoming.clj "${{ github.event.client_payload.url }}"
+        run: ./bb bin/incoming.clj "${{ github.event.client_payload.url }}"
       - name: commit and push if changed
-        run: ./commit-if-changed.sh
+        run: bin/commit-if-changed.sh
     
