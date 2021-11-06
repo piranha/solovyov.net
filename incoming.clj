@@ -47,17 +47,32 @@
   (get-in @MSGIDS [TYPE slug]))
 
 
-(defn make-tg-html [post]
-  (let [html (-> (:html post)
-                 (.replace "<p>" "")
-                 (.replace "</p>" "\n")
-                 (str/replace #"\n\n+" "\n\n"))]
-    (cond->> html
-      (:title post)
-      (str (format "<b>%s</b>\n\n" (:title post)))
+(defn sanitize-html [html]
+  (-> html
+      (str/replace #"<ul>(.*?)</ul>"
+        (fn [[_ m]]
+          (-> m
+              (str/replace "<li>" " • ")
+              (str/replace "</li>" "\n"))))
+      (str/replace #"<ol>(.*?)</ol>"
+        (fn [[_ m]]
+          (let [*i (atom 0)]
+            (-> m
+                (str/replace #"<li>" (fn [_]
+                                       (str (swap! *i inc) ". ")))
+                (str/replace "</li>" "\n")))))
+      (str/replace "<p>" "")
+      (str/replace "</p>" "\n")
+      (str/replace #"\n\n+" "\n\n")))
 
-      (:feature_image post)
-      (str (format "<a href=\"%s\">&#8205;</a>\n" (:feature_image post))))))
+
+(defn make-tg-post [post]
+  (cond->> (sanitize-html (:html post))
+    (:title post)
+    (str (format "<b>%s</b>\n\n" (:title post)))
+
+    (:feature_image post)
+    (str (format "<a href=\"%s\">&#8205;</a>\n" (:feature_image post)))))
 
 
 (defn tg-req [post]
@@ -65,7 +80,7 @@
         form   {:chat_id                  (if (= TYPE :pub) PUB DRAFT)
                 :message_id               id
                 :parse_mode               "HTML"
-                :text                     (make-tg-html post)
+                :text                     (make-tg-post post)
                 :disable_web_page_preview false}
         method (if id
                  "/editMessageText"
