@@ -12,12 +12,14 @@ jobs:
         uses: actions/checkout@v2
       - name: Download babashka
         run: |
+          which bb && exit 0
           curl -sLO https://github.com/babashka/babashka/releases/download/v0.6.4/babashka-0.6.4-linux-amd64-static.tar.gz
           tar xf babashka-0.6.4-linux-amd64-static.tar.gz
       - name: Update incoming post
         env:
           TGTOKEN: ${{ secrets.TGTOKEN }}
-        run: ./bb bin/incoming.clj "${{ github.event.client_payload.url }}"
+          PATH: ${{ env.PATH }}:/usr/local/bin:.
+        run: bb bin/incoming.clj "${{ github.event.client_payload.url }}"
       - name: commit and push if changed
         run: bin/commit-if-changed.sh
     
