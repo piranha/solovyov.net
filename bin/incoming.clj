@@ -20,9 +20,10 @@
 (def PUB "@bitethebyte")
 (def MSGIDS (atom (edn/read-string (slurp "msgids.edn"))))
 
-(when (empty? TOKEN)
-  (println "Define $TGTOKEN environment variable!")
-  (System/exit 1))
+
+;; (when (empty? TOKEN)
+;;   (println "Define $TGTOKEN environment variable!")
+;;   (System/exit 1))
 
 
 ;;; Getting data
@@ -49,18 +50,18 @@
 
 (defn sanitize-html [html]
   (-> html
-      (str/replace #"<ul>(.*?)</ul>"
+      (str/replace #"(?s)<ul>(.*?)</ul>"
         (fn [[_ m]]
           (-> m
               (str/replace "<li>" " • ")
-              (str/replace "</li>" "\n"))))
-      (str/replace #"<ol>(.*?)</ol>"
+              (str/replace #"\n*</li>\n?" "\n"))))
+      (str/replace #"(?s)<ol>(.*?)</ol>"
         (fn [[_ m]]
           (let [*i (atom 0)]
             (-> m
                 (str/replace #"<li>" (fn [_]
                                        (str (swap! *i inc) ". ")))
-                (str/replace "</li>" "\n")))))
+                (str/replace #"\n*</li>\n?" "\n")))))
       (str/replace "<p>" "")
       (str/replace "</p>" "\n")
       (str/replace #"\n\n+" "\n\n")))
