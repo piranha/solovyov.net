@@ -83,7 +83,7 @@
                 :parse_mode               "HTML"
                 :text                     (make-tg-post post)
                 ;; only show preview when I've supplied an image
-                :disable_web_page_preview (some? (:feature_image post))}
+                :disable_web_page_preview (nil? (:feature_image post))}
         method (if id
                  "/editMessageText"
                  "/sendMessage")]
