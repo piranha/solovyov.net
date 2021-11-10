@@ -1,0 +1,7 @@
+Make It Work. Fast.
+
+Any project passes “we need more features” and “omg why everything fails” phases
+during its life. They intertwine, they are not always pronounced, but they are
+there. Kasta is one of the biggest marketplaces in Ukraine and is experiencing
+growing pains often enough to generate some interesting stories. Come listen to
+tales of fails and how we won every time.
