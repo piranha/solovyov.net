@@ -28,7 +28,15 @@
 
 ;;; Getting data
 
+(defn throw-not200 [res]
+  (when (not= (:status res) 200)
+    (throw (ex-info "Error getting data" {:status   (:status res)
+                                          :response res})))
+  res)
+
+
 (def POST (-> @(http/get URL)
+              throw-not200
               :body
               (json/parse-string keyword)))
 (def TYPE (if (= (:status POST) "published") :pub :draft))
