@@ -21,7 +21,7 @@ AUTHOR = Alexander Solovyov
 	directorify
 	inner-template
 	tags tags/*.tag
-	markdown
+	markdown chroma=emacs
 	template page
 
 # Blog
@@ -31,7 +31,7 @@ blog/**/*.md: static/blog.css
 	ext .html
 	directorify
 	tags tags/*.tag
-	markdown
+	markdown chroma=emacs
 	template post
 	template page
 
@@ -82,12 +82,6 @@ showkr/index.html:
 	directorify
 	inner-template
 	template page
-
-static/blog.css:
-	:cat - src/static/highlight-github.css
-
-static/*.css:
-	ignore
 
 static/stuff.js:
 	:google-closure-compiler

@@ -17,7 +17,7 @@ But then I remembered that *actually* site is hosted in Docker image with its ow
 
 I opened `/home/dokku/solovyov.net/nginx.conf` on the server and added those lines to my `server`:
 
-```
+```nginx
 listen      443 ssl http2;
 http2_push_preload on;
 ```
@@ -28,21 +28,21 @@ Then I went to sources of my site and did [that](https://github.com/piranha/solo
 
 1) Created `src/_nginx_push.conf`, which upon rendering will generate `Link` headers with necessary paths:
 
-```
+```nginx
 add_header Link "<{{ "static/main.css" | version . | cut "^." "$" }}>; as=style; rel=preload";
 add_header Link "<{{ "static/stuff.js" | version . | cut "^." "$" }}>; as=script; rel=preload";
 ```
 
 2) Told gostatic to render that file as a template, by editing `config`:
 
-```
+```makefile
 _nginx_push.conf:
 	inner-template
 ```
 
 3) Told inside-the-Docker Nginx to add those headers to all responses of `.html` files (or directories):
 
-```
+```nginx
 location ~* (/|\.html)$ {
     include /app/www/_nginx_push.conf;
 }
@@ -52,8 +52,8 @@ location ~* (/|\.html)$ {
 
 That was it! That stuff works! We can look at push paths:
 
-```
-> curl https://solovyov.net/_nginx_push.conf
+```nginx
+> curl https://solovyov.net/_nginx_push.conf
 add_header Link "</static/main.css?v=b1d2e227>; as=style; rel=preload";
 add_header Link "</static/stuff.js?v=7d54ee41>; as=script; rel=preload";
 add_header Link "</favicon.ico?v=5d1117ac>; as=image; rel=preload";

@@ -276,7 +276,7 @@ core.async козëл. Зажëвывает ошибки и репортит х�
 
 Вышел совсем маленький сервер, у которого есть всего три урла:
 
-```
+```clojure
 (defroutes routes
   (GET "/webhook" [challenge] challenge)
   (POST "/webhook" {:keys [body]} (process-webhook body))

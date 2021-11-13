@@ -7,14 +7,14 @@ Returning all results for a given query could be a challenge for an API, especia
 
 The usual way to paginate is an offset or a page number. So you make a request like that:
 
-```
+```bash
 GET /api/products?page=10
 {"items": [...100 products]}
 ```
 
 and to continue you make a request like that:
 
-```
+```bash
 GET /api/products?page=11
 {"items": [...another 100 products]}
 ```
@@ -27,7 +27,7 @@ What do you do then? We could look at what databases do! They have this concept,
 
 An example:
 
-```
+```bash
 GET /api/products
 {"items": [...100 products],
  "cursor": "qWe"}
@@ -35,7 +35,7 @@ GET /api/products
 
 API returns an (opaque) string, which you can use then to retrieve the next page:
 
-```
+```bash
 GET /api/products?cursor=qWe
 {"items": [...100 products],
  "cursor": "qWr"}
@@ -45,9 +45,9 @@ Implementation-wise there are many options. Generally, you have some ordering cr
 
 Just a little performance comparison, look at how offsets work:
 
-```
+```sql
 =# explain analyze select id from product offset 10000 limit 100;
-                                                           QUERY PLAN                                                            
+                                                           QUERY PLAN
 ---------------------------------------------------------------------------------------------------------------------------------
  Limit  (cost=1114.26..1125.40 rows=100 width=4) (actual time=39.431..39.561 rows=100 loops=1)
    ->  Seq Scan on product  (cost=0.00..1274406.22 rows=11437243 width=4) (actual time=0.015..39.123 rows=10100 loops=1)
@@ -57,9 +57,9 @@ Just a little performance comparison, look at how offsets work:
 
 And how where works:
 
-```
+```sql
 =# explain analyze select id from product where id > 10000 limit 100;
-                                                          QUERY PLAN                                                          
+                                                          QUERY PLAN
 ------------------------------------------------------------------------------------------------------------------------------
  Limit  (cost=0.00..11.40 rows=100 width=4) (actual time=0.016..0.067 rows=100 loops=1)
    ->  Seq Scan on product  (cost=0.00..1302999.32 rows=11429082 width=4) (actual time=0.015..0.052 rows=100 loops=1)

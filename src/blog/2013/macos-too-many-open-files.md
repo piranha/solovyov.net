@@ -19,7 +19,7 @@ again (and maybe it'll help somebody else as well).
 So, solution. I never looked carefully enough at `ulimit -n`, because it always
 said `unlimited`. It seems like a wishful thinking though, and the actual limit is pretty low. So:
 
-```
+```bash
 ulimit -S -n 4096
 ```
 

@@ -41,7 +41,7 @@ Rephrased like this it makes the task almost a walk in the park. A long-long wal
 
 Some time ago I stumbled upon a great article about working with ES, and one of its parts [describes a data model](https://project-a.github.io/on-site-search-design-patterns-for-e-commerce/#generic-faceted-search) they have used. It proposes that instead of a map like `{:brand "wow" :color "red"}` you use a following structure:
 
-```
+```clojure
 {:facets [{:name "brand"
            :value "wow"}
           {:name "color"
@@ -113,7 +113,7 @@ What is a facet aggregation is described in [data format](#data-format) section.
 
 Every loop then delegates to `make-agg` multimethod, which builds its piece of the query. Here is an example of a filter for colors - it's one of the simplest aggregations, just generates a list of colors available for selected products.
 
-```
+```clojure
 (def NESTED-AGG :_nest)
 
 (defn agg-filter [agg filter-data]
@@ -125,7 +125,6 @@ Every loop then delegates to `make-agg` multimethod, which builds its piece of t
    (-> {:terms {:field "color_group"
                 :size  (:max-buckets options)}}
        (agg-filter (filters/make filters)))])
-
 ```
 
 `filters` are filters for the given query except for the one for the given aggregation, so that you'll receive all possible values for the current aggregation in a given context. So we apply them with an `agg-filter` function.

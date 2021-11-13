@@ -16,7 +16,7 @@ Fortunately, there is an API to change URL without reloading the page: `history.
 
 What’s the solution? Well, `pushState` (and `replaceState`) accepts an argument called `state`. And TwinSpark diligently before every `pushState` did a `replaceState` for current URL storing current HTML in that storage:
 
-```
+```js
 history.replaceState({html: document.body.innerHTML})
 ```
 
@@ -32,7 +32,7 @@ It gets worse: what if you changed interface without changing URL and then user 
 
 This is a problem of planetary proportions, and there is no storage like `pushState` to store HTML. One of the solutions could be loading full HTML for the URL you're opening from a server, but that would be **slooooow**. Another is slapping some caching in `localStorage` and calling it a day:
 
-```
+```js
 window.addEventListener('beforeunload', function() {
   storeCache(location.href, document.body.innerHTML);
 });

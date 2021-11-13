@@ -47,7 +47,7 @@ Another example I'd like to show is a famous library called Redux. It handles st
 
 `login/actions.js`:
 
-```
+```js
 export const login = apiActionCreator('login/api', {
     url: 'auth/login',
     method: 'post'
@@ -55,7 +55,8 @@ export const login = apiActionCreator('login/api', {
 ```
 
 `login/LoginScreen.js`:
-```
+
+```js
 import {connect} from 'react-redux';
 import {login as loginAction} from "./actions";
 
@@ -78,7 +79,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
 
 `login/reducer.js`:
 
-```
+```js
 import {login, logout} from './actions';
 
 export default handleActions({

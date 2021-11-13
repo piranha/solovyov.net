@@ -54,7 +54,7 @@ tags: software, programming
 Сделал я себе на машине полный сетап, с приложением, риманом, инфлюксом и
 приложением на синатре для дебага того, что шлет риман в инфлюкс:
 
-```
+```ruby
 ruby -r sinatra -e "post('/write') { puts headers.inspect; puts request.body.read }"
 ```
 
@@ -101,14 +101,14 @@ protocol buffer менее строгий, чем джавный? Не знаю.
 
 После этого я в события, уходящие из кложуры, добавил время в наносекундах:
 
-```
+```clj
 :nanotime (+ (* (System/currentTimeMillis) 1000000)
              (mod (System/nanoTime) 1000000))
 ```
 
 А после в римане начал его использовать:
 
-```
+```clj
 (defn assoc-nanotime [event]
   (if (:nanotime event)
     (-> event
@@ -124,7 +124,7 @@ protocol buffer менее строгий, чем джавный? Не знаю.
 
 Ну и все типа заработало, кроме одного прикольного момента:
 
-```
+```bash
 > wrk -c 5 -d 5 http://mk.dev:8080/ | grep requests
   5585 requests in 5.02s, 273.90MB read
 
@@ -135,7 +135,7 @@ protocol buffer менее строгий, чем джавный? Не знаю.
 Куда делось еще 500 запросов? Из римана все ушло (десяток-полтора дополнительных
 запросов в апи, пока не закешировались, присутствует, доводя сумму до 5597):
 
-```
+```logs
 INFO riemann.config - count 4
 INFO riemann.config - count 968
 INFO riemann.config - count 1271

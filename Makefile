@@ -1,5 +1,5 @@
 CACHE_DIR ?= ~/bin
-GOSTATIC ?= bin/gostatic-wrap $(CACHE_DIR)/gostatic 2.30 -p 1234
+GOSTATIC ?= bin/gostatic-wrap $(CACHE_DIR)/gostatic 2.31 -p 1234
 
 compile:
 	$(GOSTATIC) config
@@ -22,3 +22,6 @@ open: compile
 
 hook:
 	cd .git/hooks && ln -s ../../bin/post-receive
+
+clean:
+	rm -rf www

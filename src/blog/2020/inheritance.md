@@ -12,7 +12,7 @@ Some ten years ago I wrote [a library](https://github.com/piranha/nomad/) to han
 
 Three years ago I looked at one of the places and couldn't figure out where does `self.connection` come from:
 
-```
+```py
 class SAEngine(BaseEngine):
     def query(self, statement, *args, **kwargs):
         statement = self.prepare(statement, kwargs.pop('escape', False))
@@ -24,7 +24,7 @@ class SAEngine(BaseEngine):
 
 There is nothing about `self.connection = ...` or anything in that class. Of course, I go to base class (which is in another file) and it says:
 
-```
+```py
 class BaseEngine:
     @property
     def connection(self):
@@ -35,7 +35,7 @@ class BaseEngine:
 
 Okaaaay... what's `self.connect` doing? Ah, it raises `NotImplementedError`. Makes sense, back to `SAEngine`:
 
-```
+```py
 class SAEngine(BaseEngine):
     def connect(self):
         return create_engine(self.url)

@@ -37,7 +37,7 @@ nginx, на который главный всë проксирует. :) С д�
 Сильно помог [nsenter](https://github.com/jpetazzo/nsenter), узнаëшь id
 контейнера из `docker ps`, а потом:
 
-```
+```bash
 nsenter --target $(docker inspect --format {{.State.Pid}} bddaf1804e59) --mount --uts --ipc --net --pid bash
 ```
 

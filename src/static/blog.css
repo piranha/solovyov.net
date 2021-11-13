@@ -35,16 +35,12 @@ pre, code, .mono {
 }
 
 pre, code {
-  background-color: #fafafa;
   font-size: 0.8rem;
 }
 
 pre {
   padding: .5rem;
   overflow-x: auto;
-  border: 1px solid #f2f2f2;
-  border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.125);
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
 }
