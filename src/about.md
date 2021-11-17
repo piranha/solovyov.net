@@ -1,9 +1,9 @@
 title: about
 ----
 
-<img style="float: right" width="200px" height="250px"
+<img style="float: right" width="256px" height="256px"
      src="{{ version . "static/asolovyov.jpg" }}"
-     srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov400.jpg" }} 2x">
+     srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov512.jpg" }} 2x">
 
 Hey, my name is Alexander Solovyov and I'm an experienced software developer. I
 enjoy efficient and simple solutions, solving real-world problems and balancing
