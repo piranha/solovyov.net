@@ -42,11 +42,6 @@ slides/*/*.md:
 	directorify
 	template slides
 
-# Config
-
-_nginx_push.conf:
-	inner-template
-
 # Indexes
 
 blog/index.html: blog/*/*.md static/blog.css

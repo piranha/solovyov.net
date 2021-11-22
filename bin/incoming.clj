@@ -70,7 +70,9 @@
                 (str/replace #"<li>" (fn [_]
                                        (str (swap! *i inc) ". ")))
                 (str/replace #"\n*</li>\n?" "\n")))))
-      (str/replace "<p>" "")
+      (str/replace #"<blockquote>\n*" "&gt; ")
+      (str/replace "</blockquote>" "\n")
+      (str/replace #"<p>\n*" "")
       (str/replace "</p>" "\n")
       (str/replace #"\n\n+" "\n\n")))
 
