@@ -83,7 +83,7 @@
     (str (format "<b>%s</b>\n\n" (:title post)))
 
     (:feature_image post)
-    (str (format "<a href=\"%s\">&#8205;</a>\n" (:feature_image post)))))
+    (str (format "<a href=\"%s\">&#8205;</a>" (:feature_image post)))))
 
 
 (defn tg-req [post]
