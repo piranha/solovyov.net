@@ -1,0 +1,15 @@
+name = "publish"
+type = "javascript"
+
+account_id = "fed428150db4de3301e5528cae417070"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2021-11-23"
+
+kv_namespaces = [
+  { binding = "MSGIDS", preview_id = "603483488dc849e0a84aa4e604dd9dda", id = "ae946909141c4eb2887d11b7233cb002" }
+]
+
+# [secrets]
+# TGTOKEN
