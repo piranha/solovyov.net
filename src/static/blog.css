@@ -175,6 +175,7 @@ header.cover, header.cover .grey, header.cover a {
 /* Utility */
 
 .mt { margin-top: 1rem; }
+.mt15 { margin-top: 1.5rem; }
 .mb { margin-bottom: 1rem; }
 .mb5 { margin-bottom: .5rem; }
 .ml { margin-left: 1rem; }
