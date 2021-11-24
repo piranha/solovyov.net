@@ -22,6 +22,8 @@ async function getPost(url) {
 
 function sanitizeHtml(html) {
   return (html
+          .replaceAll(/<figcaption>(.*?)<\/figcaption>/g, '')
+          .replaceAll(/<figure><img src="(.*?)"\/><\/figure>/g, "<a href=\"$1\">&#8205;</a>")
           .replaceAll(/<ul>(.*?)<\/ul>/sg, (_, m) => {
             return (m
                     .replaceAll('<li>', " • ")
@@ -56,13 +58,13 @@ function makeTghtml(post) {
 
 function getId(post) {
   var type = post.status == 'draft' ? 'draft' : 'pub';
-  return MSGIDS.get(type + ':' + post.slug);
+  return MSGIDS.get(type + ':' + post.uuid);
 }
 
 
 function saveId(post, id) {
   var type = post.status == 'draft' ? 'draft' : 'pub';
-  return MSGIDS.put(type + ':' + post.slug, id);
+  return MSGIDS.put(type + ':' + post.uuid, id);
 }
 
 
@@ -78,7 +80,8 @@ async function makeTgreq(post) {
               parse_mode: 'HTML',
               text: html,
               // only show preview when I've supplied an image
-              disable_web_page_preview: !post.feature_image};
+              disable_web_page_preview: !~html.indexOf('&#8205;')
+             };
   var method = msgid ? '/editMessageText' : '/sendMessage';
   var url = TGBASE + method;
 
