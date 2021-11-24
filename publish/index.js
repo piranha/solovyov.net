@@ -2,33 +2,20 @@ addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
 
-async function handleRequest(request) {
-  console.log(request.method);
-  if (request.method == 'POST') {
-    var data = JSON.parse(request.data);
-    var postUrl = data.client_payload.url;
-  } else {
-    var url = new URL(request.url);
-    var postUrl = url.searchParams.get('url');
-  }
-
-  if (!postUrl) {
-    return new Response('Supply url plz', {
-      headers: {'content-type': 'text/plain'}
-    });
-  }
-
-  return await sendTelegram(postUrl);
-}
-
 
 async function getPost(url) {
   var res = await fetch(url);
   if (!res.ok) {
     throw new Error(`Error ${res.status} getting post ${url}`, res);
   }
-  var post = await res.json();
-  post.status = 'draft';
+  var text = await res.text();
+  try {
+    var post = JSON.parse(text);
+  } catch (e) {
+    console.log('could not parse post json', text);
+    throw e;
+  }
+  //post.status = 'draft';
   return post;
 }
 
@@ -104,26 +91,93 @@ async function makeTgreq(post) {
 }
 
 
-async function sendTelegram(url) {
-  var post = await getPost(url);
-  console.log('got post', JSON.stringify(post));
-
+async function sendTelegram(post) {
   var tgreq = await makeTgreq(post);
   var res = await fetch(tgreq);
   var data = await res.json();
   console.log('telegram response', JSON.stringify(data));
 
   if (!data.ok) {
+    return data;
+  }
+
+  await saveId(post, data.result.message_id);
+
+  return data;
+}
+
+
+/// Github
+
+async function ghreq(ghauth, method, url, body) {
+  var res = await fetch(new Request('https://api.github.com' + url, {
+    method: method,
+    headers: {'User-Agent': 'Cloudflare Worker JS',
+              'Accept': 'application/vnd.github.v3+json',
+              'Authorization': ghauth},
+    body: body && JSON.stringify(body)
+  }));
+  if (res.status != 200) {
+    var text = await res.text();
+    throw new Error('Github error: ' + text);
+  }
+  return await res.json();
+}
+
+async function notifyGithub(ghauth, post, msgid) {
+  return await ghreq(ghauth, 'POST', '/repos/piranha/solovyov.net/dispatches', {
+    event_type: "xapicms",
+    client_payload: {url: post.url,
+                     msgid: msgid,
+                     draft: post.status == 'draft'}
+  });
+}
+
+
+/// Main
+
+async function handleRequest(request) {
+  if (request.method != 'POST') {
+    return new Response('Sorry but no', {
+      status: 405,
+      headers: {'content-type': 'text/plain'}
+    });
+
+    var url = new URL(request.url);
+    var postUrl = url.searchParams.get('url');
+  } else {
+    var data = await request.json();
+    var postUrl = data.client_payload.url;
+  }
+
+  var ghauth = request.headers.get('Authorization');
+  var info = await ghreq(ghauth, 'GET', '/user');
+  if (info.login != 'piranha') {
+    return new Response('wow are you sneaky little bastard or what', {
+      status: 400
+    });
+  }
+
+  if (!postUrl) {
+    return new Response('Supply url plz', {
+      headers: {'content-type': 'text/plain'}
+    });
+  }
+
+  var post = await getPost(postUrl);
+  console.log('got post', JSON.stringify(post));
+  var tg = await sendTelegram(post);
+
+  if (!tg.ok) {
     return new Response(JSON.stringify(data, 2), {
       status: 500,
       headers: {'content-type': 'application/json; charset=utf-8'},
     })
   }
 
-  await saveId(post, data.result.message_id);
+  //var res = await notifyGithub(ghauth, post, tg.result.message_id);
 
-  return new Response(JSON.stringify(data, 2), {
+  return new Response(JSON.stringify(tg, 2), {
     headers: {'content-type': 'application/json; charset=utf-8'},
   })
 }
-
