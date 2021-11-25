@@ -35,7 +35,7 @@ I'd prefer to have Fuji — their colors are so much better to look at — but I
 
 ![fujifilm x-s10](https://images-na.ssl-images-amazon.com/images/I/81HWDUTDpvL._AC_SL1500_.jpg)
 
-**UPDATE**. After being unhappy with the fact I sold my Fuji (despite not touching it for years) I decided that if I'm so stuck with my gear obsession, it's better to satisfy it than struggle with it. So I've bought Fujifilm X-S10 and Viltrox 23/1.4, and I couldn't be happier! First, image quality is much better with more detail. Then, colors are excellent. It's a Fuji's strength and I just love them even without color-grading. Plus instead of a dummy battery I just plug USB-C cable in! So I put it on a quick release Arca plate, and within 10 seconds I can have a great camera in my hands. It takes same 10 seconds to put it back on, so that's really low bar to make a better photo. Also, autofocus is good enough for me, reviews left me with impression that it'll be much worse. :)
+**UPDATE**. After being unhappy with the fact I sold my Fuji (despite not touching it for years) I decided that if I'm so stuck with my gear obsession, it's better to satisfy it than suffer with it. So I've bought Fujifilm X-S10 and Viltrox 23/1.4, and I couldn't be happier! First, image quality is much better with more detail. Then, colors are excellent. It's a Fuji's strength and I just love them even without color-grading. Plus instead of a dummy battery I just plug USB-C cable in! So I put it on a quick release Arca plate, and within 10 seconds I can have a great camera in my hands. It takes same 10 seconds to put it back on, so that's really low bar to make a better photo. Also, autofocus is good enough for me, reviews left me with impression that it'll be much worse. :)
 
 
 ## Mount
@@ -63,7 +63,7 @@ They say that there are three important things in a video, in that order:
 
 And... did you know that camera's mic is the worst mic ever? By a weird coincidence — I tried to make a video with Fuji X-T1 a few times — I already knew that. They pick up weird frequency profiles (to a point where I can't listen to my voice from those mics), and they are *noisy as hell*. My MacBook's mic array is vastly superior to a camera mic! As you can guess to make all that feel more real I need an external microphone.
 
-I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman's choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and watch some videos on mics and after some point stumbled upon [Neat Worker Bee](https://www.neatmic.com/bee/worker-bee-microphone/) — see [review](https://www.youtube.com/watch?v=ScI1U3ey9ZY&t=630s) at Podcastage (which is one of two channels I liked about audio, the other being [Curtis Judd](https://www.youtube.com/user/curtisjudd)).
+I knew next to nothing about mics, and I didn't just want to buy a Blue Yeti because it's a layman's choice. Plus I had an audio interface with XLR input and a 48V phantom power[^1]. So I went to read and watch some videos on mics and after some point stumbled upon [Neat Worker Bee](https://www.neatmic.com/bee/worker-bee-microphone/) — see [review](https://www.youtube.com/watch?v=ScI1U3ey9ZY&t=630s) at Podcastage (which is the one of two channels I liked about audio, the other being [Curtis Judd](https://www.youtube.com/user/curtisjudd)).
 
 [^1]: "next to nothing" is on the ternary scale, of course; phantom power is a current sent along XLR cable from a pre-amplifier to a condenser mic to drive it — it's like PoE!
 
@@ -77,7 +77,7 @@ Various tests say that your listeners won't be able to tell the difference if yo
 
 ![rode podmic](https://cdn2.rode.com/images/products/podmic/gallery/5.jpg)
 
-**UPDATE**. I really liked Worker Bee, both it looks and sound, but an appartment with small children is an unsuitable location for a condenser microphone: it picks up too much of background noise. Dynamic microphones are much better at that, so I switched to RØDE PodMic. I like sound of Worker Bee more, but I'm yet to learn how to equalize plus it's an acceptable payment for the peace of my mind. Also, while not as intriguing as Worker Bee, it certainly doesn't look dull. Along with a yellow cable on a stand I think it provides nice direction to my face in a video composition-wise.
+**UPDATE**. I really liked Worker Bee, both it looks and sound, but an appartment with small children is an unsuitable location for a condenser microphone: it picks up too much of a background noise. Dynamic microphones are much better at that, so I switched to RØDE PodMic. I like the sound of Worker Bee more, but slightly worse sound quality is an acceptable payment for the peace of my mind. Also, while not as intriguing as Worker Bee, it certainly doesn't look dull. Along with a yellow cable on a stand I think it provides nice direction to my face composition-wise.
 
 
 ## Sound processing
@@ -172,4 +172,4 @@ I did [some](https://www.youtube.com/playlist?list=PL7gxcNpwRVlp1Xepntn5EiUFo0Yj
 
 I still feel the itch to produce some video content, but I guess it shouldn't be live coding. It's not exciting to watch some guy trying to figure out what the hell is going on with that SHA1 calculation for 10 minutes. Maybe diving deep in some bigger project would be more interesting, but I'm not involved in a big open source right now, and showing innards of Kasta is something I'm wary of. 
 
-Now my idea is to do a few (shorter) videos on various technical/programming topics, like why PostgreSQL is the best DB, or what do I think about Hotwire, etc. Topics aren't set in stone and I'm open to suggestions! Stay tuned, [subscribe](https://www.youtube.com/c/asolovyov) to my channel to get notifications, etc.
+Now my idea is to do a few (shorter) videos on various technical/programming topics. Stay tuned, [subscribe](https://www.youtube.com/c/asolovyov) to my channel to get notifications, etc.
