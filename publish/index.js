@@ -180,7 +180,7 @@ async function handleRequest(request) {
     })
   }
 
-  //var res = await notifyGithub(ghauth, post, tg.result.message_id);
+  var res = await notifyGithub(ghauth, post, tg.result.message_id);
 
   return new Response(JSON.stringify(tg, 2), {
     headers: {'content-type': 'application/json; charset=utf-8'},
