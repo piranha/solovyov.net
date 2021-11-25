@@ -35,6 +35,14 @@ blog/**/*.md: static/blog.css
 	template post
 	template page
 
+channel/**/*.md: static/blog.css
+	config
+	ext .html
+	directorify
+	markdown chroma=emacs
+	template channel
+	template page
+
 # Slides
 
 slides/*/*.md:

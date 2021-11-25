@@ -53,7 +53,7 @@ description: Blog of Alexander Solovyov
 
 {{ range (((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true") }}
 <section class="mb5 {{ if .Date.Year | changed "year" }}mt15{{ end }}">
-  {{ template "date" .Date }}
+  {{ template "monthyear" .Date }}
   <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
 </section>
 {{ end }}

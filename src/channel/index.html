@@ -1,0 +1,22 @@
+title: Bite the Byte
+description: Архів телеграм-каналу Bite the Byte
+----
+
+<h1>{{ .Title }}</h1>
+
+<blockquote class="small">
+  Це - архів телеграм-каналу <a href="https://t.me/bitethebyte">Bite the Byte</a>.
+  Мене нервують всілякі "закриті" платформи, тож ось все те, що я встиг
+  написати, відкрите для людей і пошуковиків. Якщо вам цікаво, то підпишіться на
+  сам канал, будь ласка, мені буде приємно. :)
+</blockquote>
+
+{{ range (((.Site.Pages.Children "channel/").Where "Url" "/$").WhereNot "Draft" "true") }}
+
+<article>
+{{ cut "<article.*?>" "</article>" .Process.Content }}
+</article>
+
+<hr>
+
+{{ end }}

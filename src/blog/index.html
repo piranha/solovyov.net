@@ -14,7 +14,7 @@ description: Blog of Alexander Solovyov
   {{ end }}
 
   <div class="mb">
-    {{ template "shortdate" .Date }}
+    {{ template "month" .Date }}
     <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
     <blockquote>
       {{ with cut "<div id=\"post\".*?>" "</div>" .Process.Content }}{{ excerpt . 50 | trim | strip_html }}{{ end }}

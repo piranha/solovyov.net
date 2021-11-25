@@ -85,7 +85,7 @@
 {{ template "footer" . }}{{ end }}
 
 
-{{ define "post" }}
+{{ define "post" -}}
 <article itemscope itemtype="http://schema.org/BlogPosting">
   <header
     {{ with $cover := .Content | refind "^<p><img .*?src=\"(.+?)\".*?></p>" -}}
@@ -140,7 +140,7 @@
   {{ range (((.Site.Pages.Children "blog/").WhereNot "Draft" "true").Slice 0 5) }}
   {{ if ne . $ }}
   <section class="mb5">
-    {{ template "date" .Date }}
+    {{ template "monthyear" .Date }}
     <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
   </section>
   {{ end }}
@@ -155,7 +155,27 @@ if (location.search.match(/\beditor=/)) {
   document.body.appendChild(js);
 }
 </script>
-{{ end }}
+{{- end }}
+
+
+{{ define "channel" -}}
+<article itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    <h1 id="post-title">
+      <span itemprop="name headline">{{- .Title -}}</span>
+      {{- if .Other.Draft }} <span class="grey">(draft)</span>{{ end -}}
+    </h1>
+  </header>
+
+  <div id="post" class="clearfix" itemprop="articleBody">
+    {{- .Content -}}
+  </div>
+  <div class="right">
+  <a href="/{{ .Url }}">{{ template "date" .Date }}</a>
+  (<a href="https://t.me/bitethebyte/{{ .Other.Tgid }}">@ tg</a>)
+  </div>
+</article>
+{{- end }}
 
 
 {{ define "tag" -}}
@@ -163,7 +183,7 @@ if (location.search.match(/\beditor=/)) {
 
 {{ range .Site.Pages.WithTag .Title }}
 <div class="mb5">
-  {{ template "date" .Date }}
+  {{ template "monthyear" .Date }}
   <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
 </div>
 {{ end }}
@@ -180,16 +200,22 @@ if (location.search.match(/\beditor=/)) {
 {{end}}
 
 
-{{define "date"}}
+{{define "monthyear"}}
 <time class="cg mono dt-published" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Format "Jan 2006" }}
 </time>
 {{end}}
 
 
-{{define "shortdate"}}
+{{define "month"}}
 <time class="cg mono" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Format "Jan" }}
+</time>
+{{end}}
+
+{{define "date"}}
+<time class="cg mono" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+  {{ .Format "02 Jan 06" }}
 </time>
 {{end}}
 
