@@ -19,7 +19,7 @@ jobs:
         env:
           TGTOKEN: ${{ secrets.TGTOKEN }}
           PATH: ${{ env.PATH }}:/usr/local/bin:.
-        run: bb bin/incoming.clj "${{ github.event.client_payload.url }}"
+        run: bb bin/incoming.clj "${{ github.event.client_payload.url }}" "${{ github.event.client_payload.msgid }}"
       - name: commit and push if changed
         run: bin/commit-if-changed.sh
     

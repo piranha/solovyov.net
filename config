@@ -43,6 +43,12 @@ channel/**/*.md: static/blog.css
 	template channel
 	template page
 
+channel/*.html: static/blog.css
+	config
+	directorify
+	template channel
+	template page
+
 # Slides
 
 slides/*/*.md:

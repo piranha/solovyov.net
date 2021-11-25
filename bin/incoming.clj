@@ -1,9 +1,14 @@
 #!/usr/bin/env bb
 
+(import
+  'java.time.format.DateTimeFormatter
+  'java.time.OffsetDateTime
+  'java.time.ZoneId)
+
 (require
   '[clojure.pprint]
   '[clojure.string :as str]
-  '[clojure.edn :as edn]
+  '[clojure.java.io :as io]
   '[cheshire.core :as json]
   '[org.httpkit.client :as http])
 
@@ -14,16 +19,7 @@
 
 
 (def URL (first *command-line-args*))
-(def TOKEN (System/getenv "TGTOKEN"))
-(def TGBASE (str "https://api.telegram.org/bot" TOKEN))
-(def DRAFT "-1001224071964")
-(def PUB "@bitethebyte")
-(def MSGIDS (atom (edn/read-string (slurp "msgids.edn"))))
-
-
-;; (when (empty? TOKEN)
-;;   (println "Define $TGTOKEN environment variable!")
-;;   (System/exit 1))
+(def TGID (second *command-line-args*))
 
 
 ;;; Getting data
@@ -38,77 +34,44 @@
 (def POST (-> @(http/get URL)
               throw-not200
               :body
-              (json/parse-string keyword)))
-(def TYPE (if (= (:status POST) "published") :pub :draft))
+              (json/parse-string keyword)
+              (assoc :tgid TGID)))
 
-(println "Post ---------------- " TYPE)
+(println "Post ---------------- " (:status POST))
 (clojure.pprint/pprint POST)
 
 
 ;;; Funs
 
-(defn save-id [slug id]
-  (swap! MSGIDS assoc-in [TYPE slug] id)
-  (spit "msgids.edn" (pr-str @MSGIDS)))
+(def date-fmt (DateTimeFormatter/ofPattern "yyyy-MM-dd HH:mm:ss"))
+
+(defn format-date [date]
+  (let [date       (OffsetDateTime/parse date)
+        local-date (.atZoneSameInstant date (ZoneId/of "Europe/Kiev"))]
+    ;; rework to add 2 hours
+    (-> (.format local-date date-fmt)
+        (str/replace "T" " ")
+        (str/replace "Z" ""))))
 
 
-(defn get-id [slug]
-  (get-in @MSGIDS [TYPE slug]))
+(defn make-header [post]
+  (->> [(when (:title post) (str "title: " (:title post)))
+        (str "date: " (format-date (or (:published_at post)
+                                       (:created_at post))))
+        (when (:tgid post) (str "tgid: " (:tgid post)))
+        "----\n\n"]
+       (filter identity)
+       (str/join "\n")))
 
 
-(defn sanitize-html [html]
-  (-> html
-      (str/replace #"(?s)<ul>(.*?)</ul>"
-        (fn [[_ m]]
-          (-> m
-              (str/replace "<li>" " • ")
-              (str/replace #"\n*</li>\n?" "\n"))))
-      (str/replace #"(?s)<ol>(.*?)</ol>"
-        (fn [[_ m]]
-          (let [*i (atom 0)]
-            (-> m
-                (str/replace #"<li>" (fn [_]
-                                       (str (swap! *i inc) ". ")))
-                (str/replace #"\n*</li>\n?" "\n")))))
-      (str/replace #"<blockquote>\n*" "&gt; ")
-      (str/replace "</blockquote>" "\n")
-      (str/replace #"<p>\n*" "")
-      (str/replace "</p>" "\n")
-      (str/replace #"\n\n+" "\n\n")))
-
-
-(defn make-tg-post [post]
-  (cond->> (sanitize-html (:html post))
-    (:title post)
-    (str (format "<b>%s</b>\n\n" (:title post)))
-
-    (:feature_image post)
-    (str (format "<a href=\"%s\">&#8205;</a>" (:feature_image post)))))
-
-
-(defn tg-req [post]
-  (let [id     (get-id (:slug post))
-        form   {:chat_id                  (if (= TYPE :pub) PUB DRAFT)
-                :message_id               id
-                :parse_mode               "HTML"
-                :text                     (make-tg-post post)
-                ;; only show preview when I've supplied an image
-                :disable_web_page_preview (nil? (:feature_image post))}
-        method (if id
-                 "/editMessageText"
-                 "/sendMessage")]
-    {:method      :post
-     :url         (str TGBASE method)
-     :form-params form}))
+(defn store-post!  [post]
+  (let [path (str "src/channel/" (:uuid post) ".html")
+        text (str (make-header post)
+               (:html post))]
+    (spit (io/file path) text)
+    path))
 
 
 ;;; Action
 
-(let [req  (tg-req POST)
-      res  @(http/request req)
-      data (-> res :body (json/parse-string keyword))]
-  (println "Telegram response --------------")
-  (clojure.pprint/pprint data)
-  (when-not (:ok data)
-    (System/exit 1))
-  (save-id (:slug POST) (-> data :result :message_id)))
+(println (store-post! POST))
