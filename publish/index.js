@@ -21,9 +21,10 @@ async function getPost(url) {
 
 
 function sanitizeHtml(html) {
-  return (html
-          .replaceAll(/<figcaption>(.*?)<\/figcaption>/g, '')
-          .replaceAll(/<figure><img src="(.*?)"\/><\/figure>/g, "<a href=\"$1\">&#8205;</a>")
+  var images = [...html.matchAll(/<img src="(.*?)"\/>/g)].map(m => m[1]);
+  return [images,
+          (html
+          .replaceAll(/<figure>(.*?)<\/figure>/g, "")
           .replaceAll(/<ul>(.*?)<\/ul>/sg, (_, m) => {
             return (m
                     .replaceAll('<li>', " • ")
@@ -40,17 +41,18 @@ function sanitizeHtml(html) {
           .replaceAll(/<p>\n*/g, '')
           .replaceAll('</p>', '\n')
           .replaceAll(/\n\n+/g, '\n\n')
-         );
+         )];
 }
 
 
 function makeTghtml(post) {
-  var html = sanitizeHtml(post.html);
+  var [images, html] = sanitizeHtml(post.html);
+  var image = post.feature_image || images[0];
   if (post.title) {
     html = `<b>${post.title}</b>\n\n` + html;
   }
-  if (post.feature_image) {
-    html = `<a href="${post.feature_image}">&#8205;</a>` + html;
+  if (image) {
+    html = `<a href="${image}">&#8205;</a>` + html;
   }
   return html;
 }
