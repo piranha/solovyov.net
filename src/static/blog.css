@@ -118,6 +118,7 @@ body > header {
 
 .top-icons li {
   margin-left: 0.5rem;
+  list-style-type: none;
 }
 
 .icon {
