@@ -114,6 +114,7 @@ body > header {
 
 .top-icons {
   display: inline-flex;
+  margin: 0;
 }
 
 .top-icons li {
