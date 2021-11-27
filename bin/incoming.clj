@@ -10,7 +10,8 @@
   '[clojure.string :as str]
   '[clojure.java.io :as io]
   '[cheshire.core :as json]
-  '[org.httpkit.client :as http])
+  '[org.httpkit.client :as http]
+  '[babashka.process :as p])
 
 
 (when (empty? *command-line-args*)
@@ -74,4 +75,9 @@
 
 ;;; Action
 
-(println (store-post! POST))
+(println "\nSaved ---------------")
+(def SAVED (store-post! POST))
+(println SAVED)
+
+(let [res @(p/process ["git" "add" SAVED] {:out :inherit})]
+  (System/exit (:exit res)))

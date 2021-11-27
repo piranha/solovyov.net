@@ -68,7 +68,7 @@ en/index.html: en/*/*.md static/blog.css
 	inner-template
 	template page
 
-links/index.html: links/*/*.md static/blog.css
+channel/index.html: channel/**/*.md channel/**/*.html static/blog.css
 	config
 	inner-template
 	template page
