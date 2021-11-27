@@ -3,53 +3,56 @@ description: Blog of Alexander Solovyov
 ----
 
 <article>
-  <img style="float: right" width="256px" height="256px"
+  <img class="float-right"
+       style="height: 256px; width: 256px; margin: 0 auto;"
        src="{{ version . "static/asolovyov.jpg" }}"
        srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov512.jpg" }} 2x">
   <p class="lead">Hi! I'm Alexander Solovyov and that's my site.</p>
   <p>Read <a href="/about/">about</a> page if you want to know more. Use email if you want to contact me: <script type="text/javascript">document.write("<n uers=\"znvygb:nyrknaqre\100fbybilbi\056arg\">nyrknaqre\100fbybilbi\056arg<\057n>".replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script></p>
 </article>
 
-<ul class>
+<ul>
   <li>
     <a href="https://twitter.com/asolovyov" title="Twitter">
-      <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
+      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
       Twitter
     </a>
   </li>
   <li>
-    <a href="https://t.me/bitethebyte" title="Telegram">
-      <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#telegram"/></svg>
-      Telegram (in Ukrainian)
-    </a>
-  </li>
-  <li>
     <a href="https://youtube.com/c/asolovyov" title="YouTube">
-      <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#youtube"/></svg>
+      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#youtube"/></svg>
       YouTube
     </a>
   </li>
   <li>
     <a href="https://github.com/piranha" title="Github">
-      <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#github"/></svg>
+      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#github"/></svg>
       Github
     </a>
   </li>
   <li>
     <a href="slides/">
-      <svg class="small-icon"><use xlink:href="{{ version . "static/icons.svg" }}#slideshow"/></svg>
+      <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#slideshow"/></svg>
       Slides from my talks
     </a>
   </li>
 </ul>
 
-<h1 id="blog" class="mt">
+<div class="tabs group clear">
+<h1 class="selected">
   <a href="https://solovyov.net/blog.atom" title="RSS">
-    <svg class="icon"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
+    <svg class="icon15"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
   </a>
-  Blog
+  Blog (en)
 </h1>
 
+<h1 class="opacity-75">
+  <a href="https://t.me/bitethebyte" title="Telegram channel">
+    <svg class="icon15"><use xlink:href="{{ version . "static/icons.svg" }}#telegram"/></svg>
+  </a>
+  <a href="/channel/">Bite the Byte (uk)</a>
+</h1>
+</div>
 
 {{ range (((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true") }}
 <section class="mb5 {{ if .Date.Year | changed "year" }}mt15{{ end }}">
