@@ -129,12 +129,10 @@ async function ghreq(ghauth, method, url, body) {
   return await res.json();
 }
 
-async function notifyGithub(ghauth, post, msgid) {
+async function notifyGithub(ghauth, postUrl, msgid) {
   return await ghreq(ghauth, 'POST', '/repos/piranha/solovyov.net/dispatches', {
     event_type: "xapicms",
-    client_payload: {url: post.url,
-                     msgid: msgid,
-                     draft: post.status == 'draft'}
+    client_payload: {url: postUrl, msgid: msgid}
   });
 }
 
@@ -180,7 +178,7 @@ async function handleRequest(request) {
     })
   }
 
-  var res = await notifyGithub(ghauth, post, tg.result.message_id);
+  var res = await notifyGithub(ghauth, postUrl, tg.result.message_id);
 
   return new Response(JSON.stringify(tg, 2), {
     headers: {'content-type': 'application/json; charset=utf-8'},
