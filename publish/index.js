@@ -24,7 +24,7 @@ function sanitizeHtml(html) {
   var images = [...html.matchAll(/<img src="(.*?)"\/>/g)].map(m => m[1]);
   return [images,
           (html
-          .replaceAll(/<figure>(.*?)<\/figure>/g, "")
+          .replaceAll(/<figure>(.*?)<\/figure>\n*/g, "")
           .replaceAll(/<ul>(.*?)<\/ul>/sg, (_, m) => {
             return (m
                     .replaceAll('<li>', " • ")
