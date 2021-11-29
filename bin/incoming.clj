@@ -43,21 +43,20 @@
 
 ;;; Funs
 
-(def date-fmt (DateTimeFormatter/ofPattern "yyyy-MM-dd HH:mm:ss"))
+(def date-fmt (DateTimeFormatter/ofPattern "yyyyMMdd"))
+(def datetime-fmt (DateTimeFormatter/ofPattern "yyyy-MM-dd HH:mm:ss"))
 
-(defn format-date [date]
+(defn format-date [fmt date]
   (let [date       (OffsetDateTime/parse date)
         local-date (.atZoneSameInstant date (ZoneId/of "Europe/Kiev"))]
-    ;; rework to add 2 hours
-    (-> (.format local-date date-fmt)
-        (str/replace "T" " ")
-        (str/replace "Z" ""))))
+    (.format local-date fmt)))
 
 
 (defn make-header [post]
   (->> [(when (:title post) (str "title: " (:title post)))
-        (str "date: " (format-date (or (:published_at post)
-                                       (:created_at post))))
+        (str "date: " (format-date datetime-fmt
+                        (or (:published_at post)
+                            (:created_at post))))
         (when (:tgid post) (str "tgid: " (:tgid post)))
         "----\n\n"]
        (filter identity)
@@ -65,7 +64,10 @@
 
 
 (defn store-post!  [post]
-  (let [path (str "src/channel/" (:uuid post) ".html")
+  (let [path (format "src/channel/%s.%s.html"
+               (format-date date-fmt (or (:published_at post)
+                                         (:created_at post)))
+               (:uuid post))
         text (str (make-header post)
                (:html post))]
     (spit (io/file path) text)
