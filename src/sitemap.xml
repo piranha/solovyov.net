@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {{- range .Site.Pages }}
-{{- if not (or (matches "^(static|showkr|photo|tags)/" .Url) (eq .Url "keybase.txt") (matches "\\.(css|js|jpg|png|gif|ico|txt|conf|xml|mp4)$" .Url)) }}
+{{- if not (or (matches "^(static|showkr|photo|tags|slides)/" .Url) (eq .Url "keybase.txt") (matches "\\.(css|js|jpg|png|gif|ico|txt|conf|xml|mp4)$" .Url)) }}
   <url>
     <loc>{{ .Site.Other.Url }}{{ .Url }}</loc>
     {{- if not .Date.IsZero }}
