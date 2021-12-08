@@ -1,3 +1,4 @@
+/* -*- css-indent-offset: 2 -*- */
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -88,11 +89,15 @@ footer {
 }
 
 .tabs {
-  display: flex;
-  column-gap: 0.5rem;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
-.tabs > h1 { font-size: 1.5rem; }
+.tabs > h1 {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
 
 /* Custom styles */
 
