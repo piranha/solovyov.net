@@ -24,24 +24,24 @@ function sanitizeHtml(html) {
   var images = [...html.matchAll(/<img src="(.*?)"\/>/g)].map(m => m[1]);
   return [images,
           (html
-          .replaceAll(/<figure>(.*?)<\/figure>\n*/g, "")
-          .replaceAll(/<ul>(.*?)<\/ul>/sg, (_, m) => {
-            return (m
-                    .replaceAll('<li>', " • ")
-                    .replaceAll(/\n*<\/li>\n*/g, '\n'));
-          })
-          .replaceAll(/<ol>(.*?)<\/ol>/sg, (_, m) => {
-            var i = 0;
-            return (m
-                    .replaceAll('<li>', () => { return i++ + '. '; })
-                    .replaceAll(/\n*<\/li>\n*/g, '\n'));
-          })
-          .replaceAll(/<blockquote>\n*/g, '&gt; ')
-          .replaceAll('</blockquote>', '\n')
-          .replaceAll(/<p>\n*/g, '')
-          .replaceAll('</p>', '\n')
-          .replaceAll(/\n\n+/g, '\n\n')
-         )];
+           .replaceAll(/<figure>(.*?)<\/figure>\n*/g, "")
+           .replaceAll(/<ul>(.*?)<\/ul>/sg, (_, m) => {
+             return (m
+                     .replaceAll('<li>', " • ")
+                     .replaceAll(/\n*<\/li>\n*/g, '\n'));
+           })
+           .replaceAll(/<ol>(.*?)<\/ol>/sg, (_, m) => {
+             var i = 0;
+             return (m
+                     .replaceAll('<li>', () => { return i++ + '. '; })
+                     .replaceAll(/\n*<\/li>\n*/g, '\n'));
+           })
+           .replaceAll(/<blockquote>\n*/g, '&gt; ')
+           .replaceAll('</blockquote>', '\n')
+           .replaceAll(/<p>\n*/g, '')
+           .replaceAll('</p>', '\n')
+           .replaceAll(/\n\n+/g, '\n\n')
+          )];
 }
 
 
@@ -59,34 +59,17 @@ function makeTghtml(post) {
 
 
 function getId(post) {
-  var type = post.status == 'draft' ? 'draft' : 'pub';
+  var type = post.status == 'published' ? 'pub' : 'draft';
   return MSGIDS.get(type + ':' + post.uuid);
 }
 
 
 function saveId(post, id) {
-  var type = post.status == 'draft' ? 'draft' : 'pub';
+  var type = post.status == 'published' ? 'pub' : 'draft';
   return MSGIDS.put(type + ':' + post.uuid, id);
 }
 
-
-async function makeTgreq(post) {
-  var TGBASE = "https://api.telegram.org/bot" + TGTOKEN;
-
-  var msgid = await getId(post);
-  var html = makeTghtml(post);
-
-  var draft = post.status == 'draft';
-  var body = {chat_id: draft ? "-1001224071964" : "@bitethebyte",
-              message_id: msgid,
-              parse_mode: 'HTML',
-              text: html,
-              // only show preview when I've supplied an image
-              disable_web_page_preview: !~html.indexOf('&#8205;')
-             };
-  var method = msgid ? '/editMessageText' : '/sendMessage';
-  var url = TGBASE + method;
-
+function makeTgreq(url, body) {
   return new Request(url, {
     method: 'POST',
     headers: {'accept': 'application/json',
@@ -96,8 +79,30 @@ async function makeTgreq(post) {
 }
 
 
+async function buildTgreq(post) {
+  var TGBASE = "https://api.telegram.org/bot" + TGTOKEN;
+
+  var msgid = await getId(post);
+  var html = makeTghtml(post);
+
+  var draft = post.status != 'published';
+  var body = {chat_id: draft ? "-1001224071964" : "@bitethebyte",
+              message_id: msgid,
+              parse_mode: 'HTML',
+              text: html,
+              // only show preview when I've supplied an image
+              disable_web_page_preview: (!~html.indexOf('&#8205;') &&
+                                         !~post.tags.indexOf('preview'))
+             };
+  var method = msgid ? '/editMessageText' : '/sendMessage';
+  var url = TGBASE + method;
+
+  return makeTghtml(url, body);
+}
+
+
 async function sendTelegram(post) {
-  var tgreq = await makeTgreq(post);
+  var tgreq = await buildTgreq(post);
   var res = await fetch(tgreq);
   var data = await res.json();
   console.log('telegram response', JSON.stringify(data));
@@ -109,6 +114,13 @@ async function sendTelegram(post) {
   await saveId(post, data.result.message_id);
 
   return data;
+}
+
+async function sendWarning(text) {
+  var url = "https://api.telegram.org/bot" + TGTOKEN + "/sendMessage";
+  var body = {chat_id: 1106338, text: text};
+  var tgreq = makeTgreq(url, body);
+  return await fetch(tgreq);
 }
 
 
@@ -169,16 +181,27 @@ async function handleRequest(request) {
 
   var post = await getPost(postUrl);
   console.log('got post', JSON.stringify(post));
-  var tg = await sendTelegram(post);
+  var message_id;
 
-  if (!tg.ok) {
-    return new Response(JSON.stringify(data, 2), {
-      status: 500,
-      headers: {'content-type': 'application/json; charset=utf-8'},
-    })
+  if (!!~post.tags.indexOf('channel')) {
+    var tg = await sendTelegram(post);
+
+    if (!tg.ok) {
+      return new Response(JSON.stringify(data, 2), {
+        status: 500,
+        headers: {'content-type': 'application/json; charset=utf-8'},
+      })
+    }
+
+    message_id = tg.result.message_id;
   }
 
-  var res = await notifyGithub(ghauth, postUrl, tg.result.message_id);
+  if (!~post.tags.indexOf('channel') &&
+      !~post.tags.indexOf('blog')) {
+    await sendWarning('This post is not for a blog or a channel: ' + postUrl);
+  }
+
+  var res = await notifyGithub(ghauth, postUrl, message_id);
 
   return new Response(JSON.stringify(tg, 2), {
     headers: {'content-type': 'application/json; charset=utf-8'},
