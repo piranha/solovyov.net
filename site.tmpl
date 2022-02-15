@@ -45,7 +45,7 @@
   <link rel="stylesheet" type="text/css" href="{{ version . "static/blog.css" }}">
   <link rel="icon" href="{{ "static/favicon.svg" | version (.Site.Pages.ByPath "index.html") | cut "^." "$" }}" type="image/svg+xml" />
   {{/* <script async src="{{ version . "static/stuff.js" }}"></script> */}}
-  <script data-goatcounter="https://sn.goatcounter.com/count" src="//gc.zgo.at/count.js" async></script>
+  <script data-goatcounter="https://sn.goatcounter.com/count" src="//gc.zgo.at/count.js" defer></script>
 </head>
 <body>
   <header>
