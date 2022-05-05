@@ -35,6 +35,13 @@ blog/**/*.md: static/blog.css
 	template post
 	template page
 
+blog/**/*.html: static/blog.css
+	config
+	directorify
+	tags tags/*.tag
+	template post
+	template page
+
 channel/**/*.md: static/blog.css
 	config
 	ext .html

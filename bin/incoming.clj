@@ -54,15 +54,17 @@
 
 
 (defn make-header [post]
-  (->> [(when (:title post) (str "title: " (:title post)))
-        (str "date: " (format-date datetime-fmt
-                        (or (:published_at post)
-                            (:created_at post))))
-        (when (:uuid post) (str "uuid: " (:uuid post)))
-        (when (:tgid post) (str "tgid: " (:tgid post)))
-        "----\n\n"]
-       (filter identity)
-       (str/join "\n")))
+  (let [tags (remove #{"blog"} (:tags post))]
+    (->> [(when (:title post) (str "title: " (:title post)))
+          (str "date: " (format-date datetime-fmt
+                          (or (:published_at post)
+                              (:created_at post))))
+          (when (seq (:uuid post)) (str "uuid: " (:uuid post)))
+          (when (seq (:tgid post)) (str "tgid: " (:tgid post)))
+          (when (seq tags) (str "tags: " (str/join ", " tags)))
+          "----\n\n"]
+         (filter identity)
+         (str/join "\n"))))
 
 
 (defn store-post!  [post]

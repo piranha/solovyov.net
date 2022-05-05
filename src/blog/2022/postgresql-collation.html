@@ -1,7 +1,7 @@
 title: PostgreSQL collation
 date: 2022-05-05 14:07:49
 uuid: 2490b688-38b3-4b45-868d-cfc9f246a815
-tgid: 
+tags: postgresql
 ----
 
 <p>I&#39;ve got into a situation with PG I&#39;ve never been into before. There is a financial reports table, containing some description of a transaction, with columns like <code>date</code>, <code>amount</code> and <code>comment</code>. And this <code>comment</code> field is often used to search for something case-insensitively. This is done best using <code>where lower(comment) like &#39;%some words%&#39;</code> using trigram index:</p>
