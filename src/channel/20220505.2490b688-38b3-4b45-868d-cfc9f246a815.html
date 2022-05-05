@@ -1,0 +1,77 @@
+title: PostgreSQL collation
+date: 2022-05-05 14:07:49
+tgid: 
+----
+
+<p>I&#39;ve got into a situation with PG I&#39;ve never been into before. There is a financial reports table, containing some description of a transaction, with columns like <code>date</code>, <code>amount</code> and <code>comment</code>. And this <code>comment</code> field is often used to search for something case-insensitively. This is done best using <code>where lower(comment) like &#39;%some words%&#39;</code> using trigram index:</p>
+
+<pre><code class="language-sql">create index report_comment_lower_trgm on report 
+  using gin (lower(comment) gin_trgm_ops);
+</code></pre>
+
+<p>But I&#39;ve been looking for one concrete thing and couldn&#39;t find, even though I knew it&#39;s there:</p>
+
+<pre><code class="language-sql">finreport=# select count(*) from report where lower(comment) like &#39;%кредиторськ%&#39;;
+ count 
+-------
+     0
+</code></pre>
+
+<p>Yet, it turns out that just looking for a case-sensitive version works just fine:</p>
+
+<pre><code class="language-sql">finreport=# select count(*) from report where comment like &#39;%Кредиторськ%&#39;;
+ count 
+-------
+    40
+</code></pre>
+
+<p>What is even going on? After reading some articles, it seems like the main reason for this is an incorrect collation, so I went to check:</p>
+
+<pre><code class="language-sql">finreport=# select datcollate, datctype from pg_database where datname = &#39;asd&#39;;
+ datcollate | datctype 
+------------+----------
+ C          | C
+</code></pre>
+
+<p>Wow, well, obviously <code>C</code> is not very correct when I&#39;m looking at Ukrainian. Okay, is there a way to update collation? Some answers on Stack Overflow propose to just update <code>pg_database</code>, which is immediately did. Any guesses what happens next?</p>
+
+<pre><code class="language-sql">finreport=# select count(*) from report where lower(comment) like &#39;%кредиторська%&#39;;
+ count 
+-------
+    11
+
+finreport=# select count(*) from report where lower(comment) like &#39;%кредиторська%&#39;;
+ count 
+-------
+     3
+
+finreport=# select count(*) from report where lower(comment) like &#39;%кредиторська%&#39;;
+ count 
+-------
+     7
+</code></pre>
+
+<p>I had not expected <strong>this</strong>! Well, I did all the things you do when things are going wrong: re-created index, analyzed table, restarted the database — and the last one finally changed something! It started giving me 0 rows back again. :)</p>
+
+<h2>Solution</h2>
+
+<p>Recreate database anew, so just dump and restore:</p>
+
+<pre><code class="language-bash"># stop all the things which can change db here
+$ pg_dump finreport &gt; finreport.dump
+# Postgres complained about &quot;template&quot; having other collation
+# and proposed using &quot;template0&quot;. I have no idea what&#39;s the
+# difference, but it worked.
+$ createdb -l uk_UA.UTF-8 -E utf-8 --template=template0 qwe
+$ psql qwe -f finreport.dump
+
+# renaming databases
+$ psql postgres -c &quot;select pg_terminate_backend(pid) from pg_stat_activity where datname = &#39;finreport&#39;&quot;
+$ psql postgres -c &quot;alter database finreport rename to asd&quot;
+$ psql postgres -c &quot;alter database qwe rename to finreport&quot;
+# don&#39;t forget to start all the stuff here and drop asd
+</code></pre>
+
+<p>This obviously resets everything, and it now works as intended.</p>
+
+<p>I&#39;m uncertain if various UTF-8 collations will be different. I hope not because in other case I have no idea how to deal with multiple languages in a single Postgres db.</p>
