@@ -58,12 +58,7 @@ slides/*/*.md:
 
 # Indexes
 
-blog/index.html: blog/*/*.md static/blog.css
-	config
-	inner-template
-	template page
-
-en/index.html: en/*/*.md static/blog.css
+blog/index.html: blog/*/*.md blog/*/*.html static/blog.css
 	config
 	inner-template
 	template page
@@ -78,7 +73,7 @@ tags/index.html: tags/*.tag
 	inner-template
 	template page
 
-index.html: blog/index.html en/index.html links/index.html static/blog.css
+index.html: blog/index.html blog/*/*.md blog/*/*.html static/blog.css
 	config
 	inner-template
 	template page
