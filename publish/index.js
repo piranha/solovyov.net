@@ -3,17 +3,28 @@ addEventListener('fetch', event => {
 })
 
 
+/// Utils
+
+function jsonres(data, status) {
+  return new Response(JSON.stringify(data, 2), {
+    status:  status || 200,
+    headers: {'content-type': 'application/json; charset=utf-8'},
+  })
+}
+
+
+/// Posts
+
 async function getPost(url) {
   var res = await fetch(url);
   if (!res.ok) {
-    throw new Error(`Error ${res.status} getting post ${url}`, res);
+    throw new Error(`Error ${res.status} getting post ${url}`);
   }
   var text = await res.text();
   try {
     var post = JSON.parse(text);
   } catch (e) {
-    console.log('could not parse post json', text);
-    throw e;
+    throw new Error('could not parse post json', {cause: e});
   }
   //post.status = 'draft';
   return post;
@@ -97,7 +108,7 @@ async function buildTgreq(post) {
   var method = msgid ? '/editMessageText' : '/sendMessage';
   var url = TGBASE + method;
 
-  return makeTghtml(url, body);
+  return makeTgreq(url, body);
 }
 
 
@@ -151,7 +162,7 @@ async function notifyGithub(ghauth, postUrl, msgid) {
 
 /// Main
 
-async function handleRequest(request) {
+async function main(request) {
   if (request.method != 'POST') {
     return new Response('Sorry but no', {
       status: 405,
@@ -181,19 +192,8 @@ async function handleRequest(request) {
 
   var post = await getPost(postUrl);
   console.log('got post', JSON.stringify(post));
-  var message_id;
-
-  if (!!~post.tags.indexOf('channel')) {
-    var tg = await sendTelegram(post);
-
-    if (!tg.ok) {
-      return new Response(JSON.stringify(data, 2), {
-        status: 500,
-        headers: {'content-type': 'application/json; charset=utf-8'},
-      })
-    }
-
-    message_id = tg.result.message_id;
+  if (!post.tags) {
+    post.tags = [];
   }
 
   if (!~post.tags.indexOf('channel') &&
@@ -201,9 +201,28 @@ async function handleRequest(request) {
     await sendWarning('This post is not for a blog or a channel: ' + postUrl);
   }
 
-  var res = await notifyGithub(ghauth, postUrl, message_id);
+  var message_id;
+  if (!!~post.tags.indexOf('channel')) {
+    var tg = await sendTelegram(post);
 
-  return new Response(JSON.stringify(tg, 2), {
-    headers: {'content-type': 'application/json; charset=utf-8'},
-  })
+    if (!tg.ok) {
+      return jsonres({error: 'Could not send notification to Telegram',
+                      data: tg},
+                     500);
+    }
+
+    message_id = tg.result.message_id;
+  }
+
+  var res = await notifyGithub(ghauth, postUrl, message_id);
+  return jsonres(tg);
+}
+
+async function handleRequest(request) {
+  try {
+    return await main(request);
+  } catch(e) {
+    console.error(e.message);
+    return jsonres({error: e.message}, 500);
+  }
 }

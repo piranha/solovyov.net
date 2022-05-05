@@ -43,6 +43,7 @@
 
 ;;; Funs
 
+(def year-fmt (DateTimeFormatter/ofPattern "yyyy"))
 (def date-fmt (DateTimeFormatter/ofPattern "yyyyMMdd"))
 (def datetime-fmt (DateTimeFormatter/ofPattern "yyyy-MM-dd HH:mm:ss"))
 
@@ -57,6 +58,7 @@
         (str "date: " (format-date datetime-fmt
                         (or (:published_at post)
                             (:created_at post))))
+        (when (:uuid post) (str "uuid: " (:uuid post)))
         (when (:tgid post) (str "tgid: " (:tgid post)))
         "----\n\n"]
        (filter identity)
@@ -64,10 +66,20 @@
 
 
 (defn store-post!  [post]
-  (let [path (format "src/channel/%s.%s.html"
-               (format-date date-fmt (or (:published_at post)
-                                         (:created_at post)))
-               (:uuid post))
+  (let [mode (cond
+               (some #{"channel"} (:tags post)) :channel
+               (some #{"blog"} (:tags post))    :blog
+               :else                            (System/exit 1))
+        path (case mode
+               :channel (format "src/channel/%s.%s.html"
+                          (format-date date-fmt (or (:published_at post)
+                                                    (:created_at post)))
+                          (:uuid post))
+               :blog    (format "src/blog/%s/%s.html"
+                          (format-date year-fmt (or (:published_at post)
+                                                    (:created_at post)))
+                          (or (:slug post)
+                              (:uuid post))))
         text (str (make-header post)
                (:html post))]
     (spit (io/file path) text)
