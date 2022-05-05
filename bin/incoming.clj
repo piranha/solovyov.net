@@ -82,7 +82,8 @@
                               (:uuid post))))
         text (str (make-header post)
                (:html post))]
-    (spit (io/file path) text)
+    (io/make-parents path)
+    (spit path text)
     path))
 
 
