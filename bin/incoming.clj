@@ -61,10 +61,15 @@
                               (:created_at post))))
           (when (seq (:uuid post)) (str "uuid: " (:uuid post)))
           (when (seq (:tgid post)) (str "tgid: " (:tgid post)))
-          (when (seq tags) (str "tags: " (str/join ", " tags)))
-          "----\n\n"]
+          (when (seq tags) (str "tags: " (str/join ", " tags)))]
          (filter identity)
          (str/join "\n"))))
+
+
+(defn post->gostatic [post]
+  (str (make-header post)
+    "----\n\n"
+    (:html post)))
 
 
 (defn store-post!  [post]
@@ -82,8 +87,7 @@
                                                     (:created_at post)))
                           (or (:slug post)
                               (:uuid post))))
-        text (str (make-header post)
-               (:html post))]
+        text (post->gostatic post)]
     (io/make-parents path)
     (spit path text)
     path))

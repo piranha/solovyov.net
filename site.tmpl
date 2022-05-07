@@ -88,7 +88,7 @@
 {{ define "post" -}}
 <article itemscope itemtype="http://schema.org/BlogPosting">
   <header
-    {{ with $cover := .Content | refind "^<p><img .*?src=\"(.+?)\".*?></p>" -}}
+    {{ with $cover := .Content | trim | refind "^<(?:p|figure)><img .*?src=\"(.+?)\".*?>" -}}
     class="cover"
     style="background-image: linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.5)),
                              url({{ $cover }})"
@@ -113,7 +113,7 @@
   </header>
 
   <div id="post" class="clearfix" itemprop="articleBody">
-    {{- .Content | replacere "^<p><img.+?></p>" "" -}}
+    {{- .Content | trim | replacere "^<(p|figure)><img.+?</(p|figure)>" "" -}}
   </div>
 
   <div>
