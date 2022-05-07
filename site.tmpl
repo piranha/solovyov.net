@@ -30,9 +30,9 @@
     {{ with cut "<div id=\"post\".*?>" "</div>" .Content }}{{ excerpt . 30 | trim | strip_html }}{{ end }}
   {{- end }}">
   {{ if .Other.Img -}}
-  <meta property="og:image" content="{{ .Site.Other.Url }}{{ .Other.Img }}">
+  <meta property="og:image" content="{{ absurl .Site.Other.Url .Other.Img }}">
   {{- else if matches "data-cover=" .Content -}}
-  <meta property="og:image" content="{{ .Site.Other.Url }}{{ .Url }}{{ refind "data-cover=\"(.*?)\"" .Content }}">
+  <meta property="og:image" content="{{ refind "data-cover=\"(.*?)\"" .Content | absurl (absurl .Site.Other.Url .Url ) }}">
   {{- else -}}
   <meta property="og:image" content="{{ .Site.Other.Url }}{{ version . "static/logo.png" | replace "../" "" }}">
   <meta property="og:image:width" content="490">
