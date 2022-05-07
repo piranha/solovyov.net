@@ -1,0 +1,131 @@
+title: ngrok for the wicked
+date: 2022-05-07 22:26:41
+uuid: 4862dd2c-6063-4871-9d94-0fb9cf386d0d
+tags: programming
+----
+
+<p>I&#39;ve started using ngrok a lot lately (I know, I know, late to the party). But then last week, Homebrew has updated it to a version where it wants some 15$ to supply custom domain names. I mean, I could pay that, but I&#39;m paying Hetzner like 8 or 9$ for a server, and then I&#39;m paying for my domain and… it&#39;s still cheaper?</p>
+
+<p>I understand that hosting is more commoditized compared to tunnels — I guess the market is wider — but still, it felt like I could spend a few hours and get something similar working. Why do I need custom domains? Because lost logins make me unhappy, and cookies want the same domain. Plus, testing OAuth is really painful since everybody wants to bind redirect URL.</p>
+
+<p>There are many open source alternatives, but the one I really liked is called <a href="https://github.com/anderspitman/SirTunnel">SirTunnel</a>. It&#39;s a small script which uses <a href="https://caddyserver.com/">Caddy</a>&#39;s JSON API to add and remove domains. I did not use it, though, since it got me thinking: why do I have to add and remove domains if what I basically need to serve some local processes on the internet? So if I started a process of that particular site, it should just work, no other movements necessary.</p>
+
+<h2>The Plan</h2>
+
+<p>It&#39;s simple! I create a wildcard domain (something like <code>*.xxx.solovyov.net</code>, d for development), and then reverse-proxy everything through an SSH tunnel locally.</p>
+
+<p>I&#39;m still going to use Caddy because it&#39;s ability to generate certificates automatically and laconic config appeal to me. 👍</p>
+
+<pre><code class="language-bash">Caddy on Server -&gt; SSH Tunnel -&gt; Caddy on Laptop -&gt; Local Processes
+</code></pre>
+
+<p>Why do I need a local Caddy? Because SSH can proxy only single port and local processes occur on different ports. Why Caddy and not nginx? <em>You&#39;ll see</em>.</p>
+
+<h2>Execution</h2>
+
+<p>So, I&#39;ve got a local Caddy working with many domains mapped to various ports. My plan is to run every project on a separate port, so when I start a process, it&#39;s immediately available to the world. Feels a bit exhibitionist, but very convenient. ☺️</p>
+
+<p>Next was permanent SSH tunnel. I could&#39;ve done that myself, but I just found <a href="https://tyler.io/creating-a-permanent-ssh-tunnel-back-to-your-mac-at-home/">a recipe</a>.</p>
+
+<p>The first problem was that I tried to configure wildcard-handling domain in Server-Caddy — this causes it to ask for a wildcard certificate, which requires a DNS plugin for my provider. I moved my domain to Cloudflare (which is one of the supported providers), added plugin, created new API token and… it did not work! Argh. Okay, really, I&#39;m not starting new projects every week, so I&#39;ll just list them all in config.</p>
+
+<p>Next problem was that it all worked. I could not believe my eyes! But the story does not end here.</p>
+
+<p>You know what is irritating about ngrok? It&#39;s that latency. Especially when you&#39;re on a bad connection. I mean my site is right here on my laptop but those roundtrips just to test OAuth and what not… Argh. I did not invent anything better than just writing that development domain in <code>/etc/hosts</code>. And. It. <strong>Worked</strong>! Too bad <code>/etc/hosts</code> does not support wildcards and I dislike additional processes like DNS servers on my laptop.</p>
+
+<h2>Tutorial</h2>
+
+<p>You&#39;ll need a domain name you own and control (really, control matters more than ownership here 😜) and a VPS somewhere in the world. Please do not copy and paste stuff blindly, you&#39;ll have to change at least the domain name for this to work. :)</p>
+
+<h3>Domain</h3>
+
+<p>Add <code>*.xxx</code> entry of type <code>A</code> to your domain pointing at your VPS.</p>
+
+<h3>Local Caddy</h3>
+
+<p><code>brew install caddy</code> — correct for your package manager — and start with this <code>Caddyfile</code>:</p>
+
+<pre><code>{
+	auto_https disable_redirects # so remote caddy is happy
+	email your@real.email # so you can debug problems with certs
+}
+
+(local) {
+	{args.0}.xxx.solovyov.net {
+		encode zstd gzip
+		reverse_proxy localhost:{args.1}
+
+		log {
+			level DEBUG
+			output file /opt/homebrew/var/log/caddy/{args.0}.log
+		}
+	}
+}
+
+import local test 5000
+
+</code></pre>
+
+<p>This <code>(local)</code> thingie is called <a href="https://caddyserver.com/docs/caddyfile/concepts#snippets">a snippet</a>. Now I can just copy this <code>import</code> line as many times as I want, not having to repeat those lines.</p>
+
+<p>Automatic HTTPS redirects should be disabled because remote Caddy wants to see response on a single port and one layer of encryption (through SSH tunnel) is enough. Plus, it makes for a simpler debugging experience in case of weird problems. Why not turn it off completely? If somebody looks at your site externally and sends an HTTPS link, it will work.</p>
+
+<p><code>brew services start caddy</code> or equivalent to make Caddy start after run. Or run after start?</p>
+
+<h3>Persistent SSH Tunnel</h3>
+
+<p>Just follow <a href="https://tyler.io/creating-a-permanent-ssh-tunnel-back-to-your-mac-at-home/">a tutorial from Tyler</a>, should be simple enough. Your /.ssh/config entry should look like this:</p>
+
+<pre><code>Host sshtun
+	HostName your.remote.server
+	RemoteForward 6800 127.0.0.1:80
+</code></pre>
+
+<p>What Tyler doesn&#39;t tell is that you have <code>launchctl load -w Library/LaunchAgents/your.plist.name.plist</code>, this little <code>-w</code> marks it enabled so <code>launchctl</code> will start it after restart (sounds like a common theme ain&#39;t it?).</p>
+
+<h3>Remote Caddy</h3>
+
+<p>No need to disable automatic redirects, so minimal version will look like this:</p>
+
+<pre><code>{
+    email alexander@solovyov.net
+}
+
+(sshtun) {
+    {args.0}.xxx.solovyov.net {
+        encode zstd gzip
+        reverse_proxy localhost:6800
+
+        log {
+            output file /var/log/caddy/d.log
+        }
+    }
+}
+
+import sshtun test
+</code></pre>
+
+<p>You can see I&#39;m using snippets here as well, but the port is the same every time, since this is our SSH tunnel. I&#39;d be glad to switch to wildcard domain, maybe I&#39;ll try again later to remove a need to edit this file.</p>
+
+<h3>/etc/hosts</h3>
+
+<p>If you want the same glorious setup, add this to <code>/etc/hosts</code>:</p>
+
+<pre><code>127.0.0.1 test.xxx.solovyov.net
+</code></pre>
+
+<p>but do not forget to use your actual DNS address. :)</p>
+
+<h3>Adding a new domain</h3>
+
+<p>There are three edit points:</p>
+
+<ul>
+	<li>Local <code>Caddyfile</code> — to map name to port (again, I give different projects different ports so that I can start a few of them simultaneously)</li>
+	<li>Remote <code>Caddyfile</code> — since I couldn&#39;t get wildcard certificate</li>
+	<li><code>/etc/hosts</code> — to short-circuit browser</li>
+</ul>
+
+<h2>The End</h2>
+
+<p>And you know what? No need to start many ngrok processes occupying your terminal when you want a few of sites running! <strong>Epic</strong>.</p>
