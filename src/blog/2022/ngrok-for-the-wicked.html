@@ -1,10 +1,9 @@
 title: ngrok for the wicked
 date: 2022-05-07 22:26:41
 uuid: 4862dd2c-6063-4871-9d94-0fb9cf386d0d
-tags: programming
-----
+tags: programming----
 
-<figure><img src="https://xapicms.com/images/r/2022/5/1967570011.bay_news_newssomethingw10172008_z.c4842ed199da4.jpg"/><figcaption></figcaption></figure>
+<figure><img src="__uploaded__images__/Layer.tiff"/><figcaption></figcaption></figure>
 <p>I&#39;ve started using ngrok a lot lately (I know, I know, late to the party). But then last week, Homebrew has updated it to a version where it wants some 15$ to supply custom domain names. I mean, I could pay that, but I&#39;m paying Hetzner like 8 or 9$ for a server, and then I&#39;m paying for my domain and… it&#39;s still cheaper?</p>
 
 <p>I understand that hosting is more commoditized compared to tunnels — I guess the market is wider — but still, it felt like I could spend a few hours and get something similar working. Why do I need custom domains? Because lost logins make me unhappy, and cookies want the same domain. Plus, testing OAuth is really painful since everybody wants to bind redirect URL.</p>
@@ -52,7 +51,7 @@ tags: programming
 }
 
 (local) {
-	{args.0}.xxx.solovyov.net {
+	{args.0}.xxx.solovyov.net {args.0}.xxx.solovyov.net:80 {
 		encode zstd gzip
 		reverse_proxy localhost:{args.1}
 
@@ -69,7 +68,7 @@ import local test 5000
 
 <p>This <code>(local)</code> thingie is called <a href="https://caddyserver.com/docs/caddyfile/concepts#snippets">a snippet</a>. Now I can just copy this <code>import</code> line as many times as I want, not having to repeat those lines.</p>
 
-<p>Automatic HTTPS redirects should be disabled because remote Caddy wants to see response on a single port and one layer of encryption (through SSH tunnel) is enough. Plus, it makes for a simpler debugging experience in case of weird problems. Why not turn it off completely? If somebody looks at your site externally and sends an HTTPS link, it will work.</p>
+<p>We instruct Caddy to listen to port <code>80</code> so that basic HTTP works. This is convenient for debugging plus our SSH tunnel is targeting this port. But HTTPS is still useful to have since then external and internal setup is more similar.</p>
 
 <p><code>brew services start caddy</code> or equivalent to make Caddy start after run. Or run after start?</p>
 
