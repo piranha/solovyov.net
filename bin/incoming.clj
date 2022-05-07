@@ -68,7 +68,7 @@
 
 (defn post->gostatic [post]
   (str (make-header post)
-    "----\n\n"
+    "\n----\n\n"
     (:html post)))
 
 
