@@ -17,9 +17,7 @@ tags: programming
 
 <p>I&#39;m still going to use Caddy because it&#39;s ability to generate certificates automatically and laconic config appeal to me. 👍</p>
 
-<pre><code class="language-bash">Caddy on Server -&gt; SSH Tunnel -&gt; Caddy on Laptop -&gt; Local Processes
-</code></pre>
-
+<figure><img src="https://xapicms.com/images/r/2022/5/1017268926.mermaid-diagram-20220508142410.png"/><figcaption></figcaption></figure>
 <p>Why do I need a local Caddy? Because SSH can proxy only single port and local processes occur on different ports. Why Caddy and not nginx? <em>You&#39;ll see</em>.</p>
 
 <h2>Execution</h2>
@@ -28,11 +26,13 @@ tags: programming
 
 <p>Next was permanent SSH tunnel. I could&#39;ve done that myself, but I just found <a href="https://tyler.io/creating-a-permanent-ssh-tunnel-back-to-your-mac-at-home/">a recipe</a>.</p>
 
-<p>The first problem was that I tried to configure wildcard-handling domain in Server-Caddy — this causes it to ask for a wildcard certificate, which requires a DNS plugin for my provider. I moved my domain to Cloudflare (which is one of the supported providers), added plugin, created new API token and… it did not work! Argh. Okay, really, I&#39;m not starting new projects every week, so I&#39;ll just list them all in config.</p>
+<p>The first problem is that handling <code>*.xxx.solovyov.net</code> in Server-Caddy makes Caddy request a wildcard certificate. And this requires integration of Caddy with DNS provider, which is limited to a few big providers. So I opted to just repeating site definitions. :)</p>
 
-<p>Next problem was that it all worked. I could not believe my eyes! But the story does not end here.</p>
+<p>Next problem was... that it all worked! I could not believe my eyes. 🤣</p>
 
-<p>You know what is irritating about ngrok? It&#39;s that latency. Especially when you&#39;re on a bad connection. I mean my site is right here on my laptop but those roundtrips just to test OAuth and what not… Argh. I did not invent anything better than just writing that development domain in <code>/etc/hosts</code>. And. It. <strong>Worked</strong>! Too bad <code>/etc/hosts</code> does not support wildcards and I dislike additional processes like DNS servers on my laptop.</p>
+<p>But the story does not end here. You know what is irritating about ngrok? Latency. Especially when you&#39;re on a bad connection. </p>
+
+<p>I mean my site is right here on my laptop but those roundtrips just to test OAuth and what not… Argh. I did not invent anything better than just writing that development domain in <code>/etc/hosts</code>. And. It. <strong>Worked</strong>! Too bad <code>/etc/hosts</code> does not support wildcards so I&#39;ll have to repeat domains there too.</p>
 
 <h2>Tutorial</h2>
 
@@ -114,11 +114,36 @@ import local test 5000
 import sshtun test
 </code></pre>
 
-<p>You can see I&#39;m using snippets here as well, but the port is the same every time, since this is our SSH tunnel. I&#39;d be glad to switch to wildcard domain, maybe I&#39;ll try again later to remove a need to edit this file.</p>
+<p>You can see I&#39;m using snippets here as well, but the port is the same every time, since this is our SSH tunnel.</p>
+
+<h3>Remote Caddy Wildcard</h3>
+
+<p>So I went through and moved my domain to Cloudflare, since this is one of providers supported by Caddy, downloaded <a href="https://caddyserver.com/download?package=github.com%2Fcaddy-dns%2Fcloudflare">custom Caddy build</a>, added a <a href="https://caddyserver.com/docs/build#package-support-files-for-custom-builds-for-debianubunturaspbian">diversion</a> so that regular package is in place (though I&#39;ll have to upgrade to new versions manually) and changed config to this:</p>
+
+<pre><code>{
+    email alexander@solovyov.net
+}
+
+*.xxx.solovyov.net {
+	encode zstd gzip
+	reverse_proxy localhost:5900
+	handle_errors {
+		respond &quot;Server: {http.error.status_code} {http.error.status_text}&quot;
+	}
+	tls {
+		dns cloudflare &lt;API TOKEN HERE&gt;
+	}
+	log {
+		output file /var/log/caddy/d.log
+	}
+}
+</code></pre>
+
+<p>You can get Cloudflare API token <a href="https://dash.cloudflare.com/profile/api-tokens">here</a>. And it worked! I got wildcard certificate so no need to edit this config anymore!</p>
 
 <h3>/etc/hosts</h3>
 
-<p>If you want the same glorious setup, add this to <code>/etc/hosts</code>:</p>
+<p>This is optional, but if you want the same glorious setup, add this to <code>/etc/hosts</code>:</p>
 
 <pre><code>127.0.0.1 test.xxx.solovyov.net
 </code></pre>
@@ -127,12 +152,12 @@ import sshtun test
 
 <h3>Adding a new domain</h3>
 
-<p>There are three edit points:</p>
+<p>There are a few edit points:</p>
 
 <ul>
-	<li>Local <code>Caddyfile</code> — to map name to port (again, I give different projects different ports so that I can start a few of them simultaneously)</li>
-	<li>Remote <code>Caddyfile</code> — since I couldn&#39;t get wildcard certificate</li>
-	<li><code>/etc/hosts</code> — to short-circuit browser</li>
+	<li>Local <code>Caddyfile</code> — this is non-optional to map name to port (again, I give different projects different ports so that I can start a few of them simultaneously)</li>
+	<li>Remote <code>Caddyfile</code> — when there is no wildcard certificate</li>
+	<li><code>/etc/hosts</code> — optional, to short-circuit browser</li>
 </ul>
 
 <h2>The End</h2>
