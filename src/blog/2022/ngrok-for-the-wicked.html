@@ -13,11 +13,11 @@ tags: programming
 
 <h2>The Plan</h2>
 
+<figure><img src="https://xapicms.com/images/r/2022/5/1017268926.mermaid-diagram-20220508142410.png"/><figcaption></figcaption></figure>
 <p>It&#39;s simple! I create a wildcard domain (something like <code>*.xxx.solovyov.net</code>, d for development), and then reverse-proxy everything through an SSH tunnel locally.</p>
 
 <p>I&#39;m still going to use Caddy because it&#39;s ability to generate certificates automatically and laconic config appeal to me. 👍</p>
 
-<figure><img src="https://xapicms.com/images/r/2022/5/1017268926.mermaid-diagram-20220508142410.png"/><figcaption></figcaption></figure>
 <p>Why do I need a local Caddy? Because SSH can proxy only single port and local processes occur on different ports. Why Caddy and not nginx? <em>You&#39;ll see</em>.</p>
 
 <h2>Execution</h2>
