@@ -39,6 +39,7 @@ blog/**/*.html: static/blog.css
 	config
 	directorify
 	tags tags/*.tag
+	chroma emacs
 	template post
 	template page
 
