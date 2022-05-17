@@ -29,6 +29,7 @@ solovyov.net {
     root * /mnt/share
     file_server browse
     header X-Robots-Tag noindex
+    header Access-Control-Allow-Origin *
   }
 
   @webhook {
