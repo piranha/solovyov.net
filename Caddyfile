@@ -38,6 +38,11 @@ solovyov.net {
   }
   reverse_proxy @webhook localhost:5002
 
+  handle /donate/* {
+    uri strip_prefix /donate
+    reverse_proxy 127.0.0.1:1301
+  }
+
   redir /blog/feed/ /blog.atom permanent
   redir /feeds/.* /blog.atom permanent
   redir /blog/feed.atom /blog.atom permanent
