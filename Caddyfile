@@ -4,6 +4,7 @@
 solovyov.net {
   encode zstd gzip
   root * /opt/solovyov.net/www
+  import /etc/caddy/snet-*.caddy
 
   file_server
 
@@ -37,11 +38,6 @@ solovyov.net {
     path /webhook
   }
   reverse_proxy @webhook localhost:5002
-
-  handle /donate/* {
-    uri strip_prefix /donate
-    reverse_proxy 127.0.0.1:1301
-  }
 
   redir /blog/feed/ /blog.atom permanent
   redir /feeds/.* /blog.atom permanent
