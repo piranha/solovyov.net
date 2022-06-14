@@ -1,24 +1,24 @@
-title: ngrok for the wicked
+title: ngrok for the wicked, or expose your ports comfortably
 date: 2022-05-07 22:26:41
 uuid: 4862dd2c-6063-4871-9d94-0fb9cf386d0d
 tags: programming
 ----
 
 <figure><img src="https://xapicms.com/images/r/2022/5/849509395.Untitled.jpg"/><figcaption></figcaption></figure>
-<p>I&#39;ve started using ngrok a lot lately (I know, I know, late to the party). But then last week, Homebrew has updated it to a version where it wants some 15$ to supply custom domain names. I mean, I could pay that, but I&#39;m paying Hetzner like 8 or 9$ for a server, and then I&#39;m paying for my domain and… it&#39;s still cheaper?</p>
+<p>I&#39;ve started using <a href="https://ngrok.com">ngrok</a> a lot lately (I know, I know, late to the party). But then last week, Homebrew has updated it to a version where it wants some $25 to supply custom domain names. I mean, I could pay that, but I&#39;m paying Hetzner like $8 or $9 for a server, and then I&#39;m paying for my domain and… it&#39;s still cheaper?</p>
 
-<p>I understand that hosting is more commoditized compared to tunnels — I guess the market is wider — but still, it felt like I could spend a few hours and get something similar working. Why do I need custom domains? Because lost logins make me unhappy, and cookies want the same domain. Plus, testing OAuth is really painful since everybody wants to bind redirect URL.</p>
+<p>I understand that hosting is more commoditized than tunnels — I guess the market is wider — but still, it felt like I could spend a few hours and get something similar working. Why do I need custom domains? Because losing cookies makes me unhappy, and cookies require domain not to change. Plus, testing OAuth is really painful without custom domain since everybody wants to pin redirect URL to a stable domain.</p>
 
-<p>There are many open source alternatives, but the one I really liked is called <a href="https://github.com/anderspitman/SirTunnel">SirTunnel</a>. It&#39;s a small script which uses <a href="https://caddyserver.com/">Caddy</a>&#39;s JSON API to add and remove domains. I did not use it, though, since it got me thinking: why do I have to add and remove domains if what I basically need to serve some local processes on the internet? So if I started a process of that particular site, it should just work, no other movements necessary.</p>
+<p>There are many open source alternatives, but the one I really liked is called <a href="https://github.com/anderspitman/SirTunnel">SirTunnel</a>. It&#39;s a small script which uses <a href="https://caddyserver.com/">Caddy</a>&#39;s JSON API to add and remove domains. But it got me thinking: why add and remove domains when I can just give another domain for some site forever? So if I started that site&#39;s process, it&#39;s working, and when not — well, you&#39;ll get <code>502 Gateway Timeout</code> on that particular domain, no big deal.</p>
 
 <h2>The Plan</h2>
 
 <figure><img src="https://xapicms.com/images/r/2022/5/1017268926.mermaid-diagram-20220508142410.png"/><figcaption></figcaption></figure>
-<p>It&#39;s simple! I create a wildcard domain (something like <code>*.xxx.solovyov.net</code>, d for development), and then reverse-proxy everything through an SSH tunnel locally.</p>
+<p>It&#39;s simple! I create a wildcard domain (something like <code>*.xxx.solovyov.net</code>, <code>xxx</code> is for &quot;real domain is none of your business&quot; 😁), and then reverse-proxy everything through an SSH tunnel from a server to my laptop.</p>
 
-<p>I&#39;m still going to use Caddy because it&#39;s ability to generate certificates automatically and laconic config appeal to me. 👍</p>
+<p>I&#39;m still going to use Caddy since automatic HTTPS and laconic config appeals to me. 👍</p>
 
-<p>Why do I need a local Caddy? Because SSH can proxy only single port and local processes occur on different ports.</p>
+<p>Why do I need a local Caddy? Because SSH can proxy only single port and local processes occur on different ports. You can ignore that part if you don&#39;t need an ability to run multiple sites simultaneously. You know what, this case makes everything easier, since you require only one external domain for that rather than my wildcard setup.</p>
 
 <h2>Execution</h2>
 
@@ -26,13 +26,13 @@ tags: programming
 
 <p>Next was permanent SSH tunnel. I could&#39;ve done that myself, but I just found <a href="https://tyler.io/creating-a-permanent-ssh-tunnel-back-to-your-mac-at-home/">a recipe</a>.</p>
 
-<p>The first problem is that handling <code>*.xxx.solovyov.net</code> in Server-Caddy makes Caddy request a wildcard certificate. And this requires integration of Caddy with DNS provider, which is limited to a few big providers. So I opted to just repeating site definitions. :)</p>
+<p>The first problem is that handling <code>*.xxx.solovyov.net</code> in Server-Caddy makes Caddy request a wildcard certificate. And this requires integration of Caddy with DNS provider, which is limited to a few big providers. So, I opted to just repeating site definitions. :)</p>
 
-<p>Next problem was... that it all worked! I could not believe my eyes. 🤣</p>
+<p>Next problem was… that it all worked! I could not believe my eyes. 🤣</p>
 
 <p>But the story does not end here. You know what is irritating about ngrok? Latency. Especially when you&#39;re on a bad connection. </p>
 
-<p>I mean my site is right here on my laptop but those roundtrips just to test OAuth and what not… Argh. I did not invent anything better than just writing that development domain in <code>/etc/hosts</code>. And. It. <strong>Worked</strong>! Too bad <code>/etc/hosts</code> does not support wildcards so I&#39;ll have to repeat domains there too.</p>
+<p>I mean my site is right here on my laptop but those roundtrips just to test OAuth and what not… Argh. I did not invent anything better than just writing that development domain in <code>/etc/hosts</code>. And. It. <strong>Worked</strong>! Too bad <code>/etc/hosts</code> does not support wildcards, so I&#39;ll have to repeat domains there too.</p>
 
 <h2>Tutorial</h2>
 
@@ -67,15 +67,17 @@ tags: programming
 	}
 }
 
-import local test 5000
+import local dev 5000
+import local experiment 5001
+import local blog 5002
 
 </code></pre>
 
 <p>This <code>(local)</code> thingie is called <a href="https://caddyserver.com/docs/caddyfile/concepts#snippets">a snippet</a>. Now I can just copy this <code>import</code> line as many times as I want, not having to repeat those lines.</p>
 
-<p>We instruct Caddy to listen to port <code>80</code> so that basic HTTP works. This is convenient for debugging plus our SSH tunnel is targeting this port. But HTTPS is still useful to have since then external and internal setup is more similar.</p>
+<p>We instruct Caddy to listen to port <code>80</code> so that basic HTTP works. We need HTTP since our SSH tunnel targets this port. But HTTPS (domain without <code>:80</code>) is also nice to have — it makes external and internal setup more similar.</p>
 
-<p><code>brew services start caddy</code> or equivalent to make Caddy start after run. Or run after start?</p>
+<p><code>brew services start caddy</code> or equivalent to make Caddy run after system startup.</p>
 
 <h3>Persistent SSH Tunnel</h3>
 
@@ -84,9 +86,12 @@ import local test 5000
 <pre><code>Host sshtun
 	HostName your.remote.server
 	RemoteForward 6800 127.0.0.1:80
+    ServerAliveInterval 60
 </code></pre>
 
 <p>What Tyler doesn&#39;t tell is that you have <code>launchctl load -w Library/LaunchAgents/your.plist.name.plist</code>, this little <code>-w</code> marks it enabled so <code>launchctl</code> will start it after restart (sounds like a common theme ain&#39;t it?).</p>
+
+<p>In case you&#39;re not on macOS, use your system&#39;s process manager or look at <a href="https://www.harding.motd.ca/autossh/">autossh</a>.</p>
 
 <h3>Remote Caddy</h3>
 
@@ -112,13 +117,15 @@ import local test 5000
 }
 
 import sshtun test
+import sshtun experiment
+import sshtun blog
 </code></pre>
 
 <p>You can see I&#39;m using snippets here as well, but the port is the same every time, since this is our SSH tunnel.</p>
 
 <h3>Remote Caddy Wildcard</h3>
 
-<p>So I went through and moved my domain to Cloudflare, since this is one of providers supported by Caddy, downloaded <a href="https://caddyserver.com/download?package=github.com%2Fcaddy-dns%2Fcloudflare">custom Caddy build</a>, added a <a href="https://caddyserver.com/docs/build#package-support-files-for-custom-builds-for-debianubunturaspbian">diversion</a> so that regular package is in place (though I&#39;ll have to upgrade to new versions manually) and changed config to this:</p>
+<p>After some thinking, I decided to try out wildcard setup anyway. I moved my domain to Cloudflare, since this is one of the providers supported by Caddy (filter by <code>caddy-dns</code> <a href="https://caddyserver.com/download">here</a> to see others), downloaded <a href="https://caddyserver.com/download?package=github.com%2Fcaddy-dns%2Fcloudflare">a custom Caddy build</a>, added a <a href="https://caddyserver.com/docs/build#package-support-files-for-custom-builds-for-debianubunturaspbian">diversion</a> (Debian/Ubuntu-specific) so that the regular package is in place (though I&#39;ll have to upgrade to new versions manually) and changed config to this:</p>
 
 <pre><code>{
     email alexander@solovyov.net
@@ -139,7 +146,7 @@ import sshtun test
 }
 </code></pre>
 
-<p>You can get Cloudflare API token <a href="https://dash.cloudflare.com/profile/api-tokens">here</a>. And it worked! I got wildcard certificate so no need to edit this config anymore!</p>
+<p>You can get Cloudflare API token <a href="https://dash.cloudflare.com/profile/api-tokens">here</a>. And it worked! I got wildcard certificate so no need to edit this config any more!</p>
 
 <h3>/etc/hosts</h3>
 
@@ -160,6 +167,14 @@ import sshtun test
 	<li><code>/etc/hosts</code> — optional, to short-circuit browser</li>
 </ul>
 
+<p>In case something is not working, you will get different errors: </p>
+
+<ul>
+	<li><code>Server: ...</code> if there is no connection from your server Caddy to laptop&#39;s Caddy. Maybe your ssh tunnel is down, if everything is in place, <code>kill $(pgrep -f sshtun)</code> helps to force reconnect.</li>
+	<li><code>Local: ...</code> if there is no connection from local Caddy to your process. Perhaps it&#39;s time to start your site? :)</li>
+	<li>Other stuff should come straight from your process, so you know what to do.</li>
+</ul>
+
 <h2>The End</h2>
 
-<p>And you know what? No need to start many ngrok processes occupying your terminal when you want a few of sites running! <strong>Epic</strong>.</p>
+<p>And you know what? No need to start many ngrok processes occupying your terminal when you want a few of your sites running! <strong>Epic</strong>.</p>
