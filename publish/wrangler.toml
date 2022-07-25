@@ -1,10 +1,8 @@
 name = "publish"
-type = "javascript"
 
+main = "index.js"
 account_id = "fed428150db4de3301e5528cae417070"
 workers_dev = true
-route = ""
-zone_id = ""
 compatibility_date = "2021-11-23"
 
 kv_namespaces = [

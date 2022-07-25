@@ -37,7 +37,7 @@
               (json/parse-string keyword)
               (assoc :tgid TGID)))
 
-(println "Post ---------------- " (:status POST))
+(println "---------------- Post " (:status POST))
 (clojure.pprint/pprint POST)
 
 
@@ -69,6 +69,8 @@
 (defn post->gostatic [post]
   (str (make-header post)
     "\n----\n\n"
+    (when (:feature_image post)
+      (format "<img src=\"%s\">\n\n" (:feature_image post)))
     (:html post)))
 
 
@@ -95,5 +97,5 @@
 
 ;;; Action
 
-(println "\nSaved ---------------")
+(println "\n--------------- Saved")
 (println (store-post! POST))

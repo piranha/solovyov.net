@@ -145,9 +145,9 @@ async function ghreq(ghauth, method, url, body) {
               'Authorization': ghauth},
     body: body && JSON.stringify(body)
   }));
-  if (res.status != 200) {
+  if (res.status > 299) {
     var text = await res.text();
-    throw new Error('Github error: ' + text);
+    throw new Error('Github error: ' + res.status + ' ' + text);
   }
   return await res.json();
 }
