@@ -13,8 +13,8 @@ jobs:
       - name: Download babashka
         run: |
           which bb && exit 0
-          curl -sLO https://github.com/babashka/babashka/releases/download/v0.6.4/babashka-0.6.4-linux-amd64-static.tar.gz
-          tar xf babashka-0.6.4-linux-amd64-static.tar.gz
+          curl -sLO https://github.com/babashka/babashka/releases/download/v0.10.163/babashka-0.10.163-linux-amd64-static.tar.gz
+          tar xf babashka-0.10.163-linux-amd64-static.tar.gz
       - name: Update incoming post
         env:
           TGTOKEN: ${{ secrets.TGTOKEN }}
