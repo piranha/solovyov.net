@@ -60,7 +60,7 @@ It also has:
 
 Honestly speaking, the main reasons are [batching](https://kasta-ua.github.io/twinspark-js/#batch) and [no inheritance](https://solovyov.net/blog/2020/inheritance/). Inheritance is particularly painful here. In Intercooler, if you declared `ic-target` on the body, all tags inside will think it's their target too. So you include a component somewhere in HTML tree and an attribute higher on tree changes this component behavior. I mean this is a freaking dynamic scope, I want none of that! :)
 
-Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's author announced that he's doing a jQuery-less modern version: [htmx](https://htmx.org/). :) It has really good extensions points, so maybe it's possible to add batching... but inheritance is still there. :-(
+Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's author announced that he's doing a jQuery-less modern version: [htmx](https://htmx.org/). :) It has really good extensions points, so maybe it's possible to add batching... but inheritance is still there. :-( This is partially why I contintued developing TwinSpark, and it was already working anyways. :)
 
 ## Why is that a good idea
 
@@ -70,12 +70,18 @@ TwinSpark approach is much better in most cases for the user: less JavaScript, l
 
 Now it's 40KB of minified non-gzipped JS (TwinSpark, analytics, some behavior, IntersectionObserver polyfill) and 350KB of HTML. Two orders of magnitude difference and even HTML is smaller! This is just like Christmas in childhood!
 
-On the developer side, I think React is better still, but code locality is great, composability is much better (since you are forced in a limited world of working in a simplistic model) than with jQuery. Plus there are a lot of ways to improve it. 
+On the developer side, I think React is better still, but code locality is great, and composability is so much better than with jQuery. This is because you have a limited model of how all those attributes behave, so you don't write code in a lots of different ways. And while there are some chances to mark up some HTML in a way that it'll conflict with other HTML, it's much easier to discover errors. It does not force you to have exhaustive rendering process like with React, but it's not bad at all.
 
-The good news is that the development process did not change that much! We're still writing components that query necessary data from site-wide memory store (and make a call to API when needed), but they are executed only on the server. We effectively piggy-backend on our previous architecture, and this gives us the perfect ability to render "partial" HTML - since components do not wait for some "controller" to give them all necessary data. This is what allowed us to have both React and non-React versions to co-exist and make an A/B test without writing the markup twice.
+The good news is that the development process did not change that much! We're still writing components that query necessary data from site-wide memory store (and make a call to API when needed), but as components are rendered on the server, those queries are also executed only on the server. We effectively piggy-backed on our previous architecture, and this gives us the perfect ability to render "partial" HTML - since components quite independent of each other and do not have to wait for some "controller" to give them all the necessary data. This is what allowed us to have both React and non-React versions to co-exist and make an A/B test without writing the markup twice.
 
 ## Results
 
 It took us four months since the first experiments to release. Not exactly the amount of time I imagined when we started ("should take two to three weeks at most!"), heh, but we were not exclusively doing that. It still took a lot of time and energy to remove React-isms from the code and wrangle our app to be a server-side citizen. It still could use some polishing, but we decided to release it despite that just to cut it short. And A/B test showed that we were right — especially for Android phones.
 
 Google gives our catalogue 75/100 now instead of 5/100. Hurray, I guess? :)
+
+## UPD from 2022
+
+All those changes were a critical success for us. Our site became much faster, we saw increase in cheap devices and older browsers in our analytics, and SEO traffic has been boosted massively. On development side I listened to complains from developers with much attention and not even once I've heard "I wish I did this with React". Although there were some places where you'd wish for a fatter client, but it wasn't that painful, and overall speed of changes in places without React has increased since there were less work for usual scenarios.
+
+We still did not manage to switch basket and checkout to TwinSpark from React, but maybe that's for the future. :)
