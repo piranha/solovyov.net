@@ -116,7 +116,9 @@
     {{- .Content | trim | replacere "^<(p|figure)><img.+?</(p|figure)>" "" -}}
   </div>
 
-  <div>
+  <div class="right">{{ template "microdate" .Date }}</div>
+
+  <div class="mt">
     If you like what you read — subscribe to my
     <a href="https://twitter.com/asolovyov" class="group">
       <svg class="icon opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
@@ -128,8 +130,6 @@
       RSS feed</a>
     in your feed reader (it's actually Atom feed, but who cares).
   </div>
-
-  <div class="right">{{ template "microdate" .Date }}</div>
 
 </article>
 
