@@ -60,7 +60,9 @@ It also has:
 
 Honestly speaking, the main reasons are [batching](https://kasta-ua.github.io/twinspark-js/#batch) and [no inheritance](https://solovyov.net/blog/2020/inheritance/). Inheritance is particularly painful here. In Intercooler, if you declared `ic-target` on the body, all tags inside will think it's their target too. So you include a component somewhere in HTML tree and an attribute higher on tree changes this component behavior. I mean this is a freaking dynamic scope, I want none of that! :)
 
-Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's author announced that he's doing a jQuery-less modern version: [htmx](https://htmx.org/). :) It has really good extensions points, so maybe it's possible to add batching... but inheritance is still there. :-( This is partially why I contintued developing TwinSpark, and it was already working anyways. :)
+Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's author announced that he's doing a jQuery-less modern version: [htmx](https://htmx.org/). :) It has really good extensions points, so maybe it's possible to add batching... but inheritance is still there. :-( This is partially why I continued developing TwinSpark, and it was already working anyways. :)
+
+**UPD 2022** After two years of development, fixing bugs, adding features of various size (like [dealing with browser history](https://solovyov.net/blog/2021/history-snapshotting-in-twinspark-js/)) whole codebase of TwinSpark is still a bit over a thousand lines of code. Which is manageable for a team of any size in any scenario - fixing a bug you encounter in a "framework" of that size isn't hard, unlike with tens-of-thousands lines of code stuff frontend is peppered with right now.
 
 ## Why is that a good idea
 
