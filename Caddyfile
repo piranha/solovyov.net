@@ -24,15 +24,6 @@ solovyov.net {
     header @static Cache-Control max-age=31536000
   }
 
-  redir /q /q/
-  handle /q/* {
-    uri strip_prefix /q
-    root * /mnt/share
-    file_server browse
-    header X-Robots-Tag noindex
-    header Access-Control-Allow-Origin *
-  }
-
   @webhook {
     remote_ip 192.30.252.0/22 185.199.108.0/22 140.82.112.0/20
     path /webhook
