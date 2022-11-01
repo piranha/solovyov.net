@@ -8,7 +8,7 @@ Many years ago I was a Python developer. That is, the only language I knew well 
 
 ### Pain-oriented coding
 
-Some ten years ago I wrote [a library](https://github.com/piranha/nomad/) to handle db migrations. It was an automation of a process we had at a company I worked at the time. I wrote it in my evenings - it is not an example of code written in haste. I knew pretty well the use case, had an image of what I wanted in my head and nobody was behind my shoulder telling to speed up. It's an open source application written to be a good code. 
+Some ten years ago I wrote [a library](https://github.com/piranha/nomad/) to handle db migrations. It was an automation of a process we had at a company I worked at the time. I wrote it in my evenings - it is not an example of code written in haste. Use case was quite familiar to me, I had an image of what I wanted in my head and nobody was behind my shoulder telling to speed up. It's an open source application written to be a good code. 
 
 Three years ago I looked at one of the places and couldn't figure out where does `self.connection` come from:
 
