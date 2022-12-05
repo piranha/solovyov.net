@@ -147,9 +147,10 @@ h1 a:hover {
   text-decoration: none;
 }
 
-.self-target { display: none; user-select: none; }
-.self-target::before { content: " "; }
-h1:hover .self-target, h2:hover .self-target, h3:hover .self-target { display: inline; }
+.hover-target { display: none; user-select: none; }
+.hover-target::before { content: " "; }
+h1:hover .hover-target, h2:hover .hover-target, h3:hover .hover-target { display: inline; }
+
 
 #post img, #post iframe {
   margin: 0 auto;
@@ -164,6 +165,13 @@ h1:hover .self-target, h2:hover .self-target, h3:hover .self-target { display: i
   }
 }
 
+article > header {
+  padding-bottom: 1rem;
+}
+
+article > header > h1 {
+  margin-bottom: 0;
+}
 
 /* cover */
 
@@ -181,7 +189,6 @@ header.cover {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-bottom: 1rem;
 }
 
 header.cover > * {

@@ -99,10 +99,10 @@
     <h1 id="post-title">
       <span itemprop="name headline">{{- .Title -}}</span>
       {{- if .Other.Draft }} <span class="grey">(draft)</span>{{ end -}}
-      <a href="/{{ .Url }}" class="self-target" itemprop="url">#</a>
+      <a href="/{{ .Url }}" class="hover-target" itemprop="url">#</a>
     </h1>
 
-    <div class="grey">
+    <div class="meta grey">
       {{ .Content | reading_time }} min read
 
       &middot;
