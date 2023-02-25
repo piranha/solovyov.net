@@ -95,8 +95,8 @@ showkr/index.html:
 	inner-template
 	template page
 
-static/stuff.js:
-	:google-closure-compiler
+# static/stuff.js:
+# 	:google-closure-compiler
 
 \#*:
 	ignore
