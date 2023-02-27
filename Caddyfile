@@ -10,7 +10,7 @@ solovyov.net {
 
   @static {
     file
-    path /favicon.ico /static/* /media/* *.jpg *.png
+    path /static/* /media/* *.jpg *.png
   }
 
   @exists {
