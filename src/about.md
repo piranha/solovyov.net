@@ -1,7 +1,9 @@
 title: about
 ----
 
-<img style="float: right; margin-left: 1rem" width="256px" height="256px"
+<img class="float-right"
+     style="margin-left: 1rem" width="256px" height="256px"
+     role="presentation"
      src="{{ version . "static/asolovyov.jpg" }}"
      srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov512.jpg" }} 2x">
 
