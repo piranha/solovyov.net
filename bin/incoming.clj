@@ -40,12 +40,13 @@
             "xapicms" (assoc _POST :tgid TGID)
             "nounry"  (merge _POST
                         {:tags         ["channel"]
-                         :tgid         (->> (:pubs _POST)
+                         :tgid         (->> (:publications _POST)
                                             (filter #(= "telegram" (:service %)))
                                             first
                                             :data
-                                            :message_id)
-                         :published_at (-> (:pubs _POST) first :created_at)})))
+                                            :message_id
+                                            str)
+                         :published_at (-> (:publications _POST) first :created_at)})))
 
 (println "---------------- Post " (:status POST))
 (clojure.pprint/pprint POST)
@@ -82,7 +83,8 @@
     "\n----\n\n"
     (when (:feature_image post)
       (format "<img src=\"%s\">\n\n" (:feature_image post)))
-    (:html post)))
+    (or (:html post)
+        (:text post))))
 
 
 (defn store-post!  [post]
