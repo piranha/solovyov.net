@@ -1,8 +1,10 @@
 # https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event
+# NOTE: {event_type: ""} will be `github.event.action` in context
 on:
   repository_dispatch:
     types:
       - xapicms
+      - nounry
 
 jobs:
   build:
@@ -19,7 +21,7 @@ jobs:
         env:
           TGTOKEN: ${{ secrets.TGTOKEN }}
           PATH: ${{ env.PATH }}:/usr/local/bin:.
-        run: bb bin/incoming.clj "${{ github.event.client_payload.url }}" "${{ github.event.client_payload.msgid }}"
+        run: bb bin/incoming.clj "${{ github.event.action }}" "${{ github.event.client_payload.url }}" "${{ github.event.client_payload.msgid }}"
       - name: commit and push if changed
         run: bin/commit-if-changed.sh
     

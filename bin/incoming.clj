@@ -14,12 +14,13 @@
 
 
 (when (empty? *command-line-args*)
-  (println "Supply url to post as a first argument")
+  (println "Supply type and url to post as arguments")
   (System/exit 1))
 
 
-(def URL (first *command-line-args*))
-(def TGID (second *command-line-args*))
+(def TYPE (first *command-line-args*))
+(def URL (second *command-line-args*))
+(def TGID (second (next *command-line-args*)))
 
 
 ;;; Getting data
@@ -31,11 +32,20 @@
   res)
 
 
-(def POST (-> @(http/get URL)
+(def _POST (-> @(http/get URL)
               throw-not200
               :body
-              (json/parse-string keyword)
-              (assoc :tgid TGID)))
+              (json/parse-string keyword)))
+(def POST (case TYPE
+            "xapicms" (assoc _POST :tgid TGID)
+            "nounry"  (merge _POST
+                        {:tags         ["channel"]
+                         :tgid         (->> (:pubs _POST)
+                                            (filter #(= "telegram" (:service %)))
+                                            first
+                                            :data
+                                            :message_id)
+                         :published_at (-> (:pubs _POST) first :created_at)})))
 
 (println "---------------- Post " (:status POST))
 (clojure.pprint/pprint POST)
@@ -46,6 +56,7 @@
 (def year-fmt (DateTimeFormatter/ofPattern "yyyy"))
 (def date-fmt (DateTimeFormatter/ofPattern "yyyyMMdd"))
 (def datetime-fmt (DateTimeFormatter/ofPattern "yyyy-MM-dd HH:mm:ss"))
+
 
 (defn format-date [fmt date]
   (let [date       (OffsetDateTime/parse date)
