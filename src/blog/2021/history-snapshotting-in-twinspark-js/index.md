@@ -1,12 +1,12 @@
 ---
-title: History snapshotting in TwinSpark.js
+title: History Snapshotting in TwinSpark
 date: 2021-04-12
 tags: programming, javascript, kasta
 ---
 
 ![](Photo%207%20Mar%202021%2C%20170558.jpg)
 
-[TwinSpark](https://kasta-ua.github.io/twinspark-js/) is a library we use to write Kasta frontend now. You can see examples of basic behavior by opening a link, but a cornerstone of TwinSpark is HTML-replacement functionality, which is what concerns us now. 
+[TwinSpark](https://piranha.github.io/twinspark-js/) is a library we use to write [Kasta](https://kasta.ua/) frontend now. You can see examples of basic behavior by opening a link, but a cornerstone of TwinSpark is HTML-replacement functionality, which is what concerns us now.
 
 You see, controlling app behavior can be done in various ways, but the major one is updating what user sees with a new markup from the server. And that potentially can change URL: like when user selects a filter in a product catalogue, this filter gets appended to a query string.
 
@@ -14,17 +14,17 @@ You see, controlling app behavior can be done in various ways, but the major one
 
 Fortunately, there is an API to change URL without reloading the page: `history.pushState`. User sees an updated URL and all is well. What happens if said user presses back button? He or she expects to see interface from before URL change. Not so fast! URL will change back, but HTML will stay!
 
-What’s the solution? Well, `pushState` (and `replaceState`) accepts an argument called `state`. And TwinSpark diligently before every `pushState` did a `replaceState` for current URL storing current HTML in that storage:
+What’s the solution? Well, `pushState` (and `replaceState`) accepts an argument called `state`. And before every `pushState` TwinSpark diligently did a `replaceState` for current URL placing current HTML in that storage:
 
 ```js
 history.replaceState({html: document.body.innerHTML})
 ```
 
-And when user presses back button, browser raises `popstate` event, indicating that user wants to go back in history.  So you can listen to that event and then replace your current HTML with what's inside of `e.state.html`.
+And when user presses back button, browser raises `popstate` event, indicating that user wants to go back in history. So you can listen to that event and then replace your current HTML with what's inside of `e.state.html`.
 
-Sounds like it should work nicely, eh? Except for a little problem: Firefox has a limit of 640Kb for a single entry here (Chrome and Safari limits are much higher and of no concern here). And we have endless scroll on product lists. Do you feel where this is going? Our Sentry is full of errors of Firefox users who have scrolled enough. And if they ever go back the behavior (restoring of correct HTML) is broken.
+Sounds like it should work nicely, eh? Except for a little problem: Firefox has a limit of 640Kb for a single entry here (Chrome and Safari limits are much higher, so of no concern here). And we have endless scroll on product lists. Do you feel where this is going? Our Sentry is full of errors of Firefox users who have scrolled enough. And if they ever go back the behavior (restoring of correct HTML) is broken.
 
-*Aside*: we A/B-tested endless scroll relentlessly because every SEO expert says we should switch to separate pages because Google is really dumb. Not sure about Google being dumb, but endless scroll gives much better conversion rates than pagination. Because humans hate excessive interaction more than Google hates us.
+*Aside*: we A/B-tested endless scroll relentlessly because every SEO expert says we should switch to separate pages because Google is really dumb. Not sure about Google being dumb, but endless scroll gives much better conversion rates than pagination. It seems humans hate excessive interaction more than Google hates us.
 
 ## Real "go back"
 

@@ -45,7 +45,7 @@ So why wait?
 
 I liked Intercooler's coherent approach to working around AJAX, so I decided to name the library after some automotive stuff as well, and TwinSpark seems like an appropriate name. So what's the deal?
 
-[TwinSpark](https://github.com/kasta-ua/twinspark-js) is a framework for declarative HTML enhancement: you put additional attributes on your element and TwinSpark does something with them. Like makes an AJAX call and replaces target with a response, or adds a class, or... well, see [examples](https://kasta-ua.github.io/twinspark-js/), shall you?
+[TwinSpark](https://github.com/piranha/twinspark-js) is a framework for declarative HTML enhancement: you put additional attributes on your element and TwinSpark does something with them. Like makes an AJAX call and replaces target with a response, or adds a class, or... well, see [docs](https://piranha.github.io/twinspark-js/), shall you?
 
 There are some differences with Intercooler, of course, because why would it exist? The most noticeable one is that there is no dependency on jQuery. It supports only modern browsers (not IE or Opera Mini) but drops that 88kb monster. 
 
@@ -58,7 +58,7 @@ It also has:
 - much smaller payload (thanks to no jQuery!)
 - should be faster (thanks to no jQuery again)
 
-Honestly speaking, the main reasons are [batching](https://kasta-ua.github.io/twinspark-js/#batch) and [no inheritance](https://solovyov.net/blog/2020/inheritance/). Inheritance is particularly painful here. In Intercooler, if you declared `ic-target` on the body, all tags inside will think it's their target too. So you include a component somewhere in HTML tree and an attribute higher on tree changes this component behavior. I mean this is a freaking dynamic scope, I want none of that! :)
+Honestly speaking, the main reasons are [batching](https://piranha.github.io/twinspark-js/api/ts-req-batch/) and [no inheritance](https://solovyov.net/blog/2020/inheritance/). Inheritance is particularly painful here. In Intercooler, if you declared `ic-target` on the body, all tags inside will think it's their target too. So you include a component somewhere in HTML tree and an attribute higher on tree changes this component behavior. I mean this is a freaking dynamic scope, I want none of that! :)
 
 Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's author announced that he's doing a jQuery-less modern version: [htmx](https://htmx.org/). :) It has really good extensions points, so maybe it's possible to add batching... but inheritance is still there. :-( This is partially why I continued developing TwinSpark, and it was already working anyways. :)
 
