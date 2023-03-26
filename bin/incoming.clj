@@ -36,20 +36,25 @@
               throw-not200
               :body
               (json/parse-string keyword)))
+(def TG (->> (:publications _POST)
+             (filter #(and (= "telegram" (:service %))
+                           (= "Bite the Byte" (:description %))))
+             first
+             :data))
 (def POST (case TYPE
             "xapicms" (assoc _POST :tgid TGID)
             "nounry"  (merge _POST
                         {:tags         ["channel"]
-                         :tgid         (->> (:publications _POST)
-                                            (filter #(= "telegram" (:service %)))
-                                            first
-                                            :data
-                                            :message_id
-                                            str)
+                         :tgid         (-> TG :message_id str)
                          :published_at (-> (:publications _POST) first :created_at)})))
 
 (println "---------------- Post " (:status POST))
 (clojure.pprint/pprint POST)
+
+(when (and (some #{"channel"} (:tags POST))
+           (not (:tgid POST)))
+  (println "Error: there is no Telegram message id")
+  (System/exit 1))
 
 
 ;;; Funs
