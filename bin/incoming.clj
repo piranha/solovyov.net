@@ -39,17 +39,18 @@
 (def TG (->> (:publications _POST)
              (filter #(and (= "telegram" (:service %))
                            (= "Bite the Byte" (:description %))))
-             first
-             :data))
+             first))
 (def POST (case TYPE
             "xapicms" (assoc _POST :tgid TGID)
             "nounry"  (merge _POST
                         {:tags         ["channel"]
-                         :tgid         (-> TG :message_id str)
-                         :published_at (-> (:publications _POST) first :created_at)})))
+                         :tgid         (-> TG :data :message_id str)
+                         :published_at (-> TG :created_at)})))
 
 (println "---------------- Post " (:status POST))
 (clojure.pprint/pprint POST)
+(println "---------------- Telegram data")
+(clojure.pprint/pprint TG)
 
 (when (and (some #{"channel"} (:tags POST))
            (not (:tgid POST)))
