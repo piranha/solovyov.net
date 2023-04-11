@@ -19,7 +19,7 @@ release), and then converted a whole company to Clojure (for efficiency - and it
 paid off and continues to do so).
 
 I've been an active member of Ukrainian's Python, JavaScript and Clojure
-communities. One reason I've become known to a wider audience was a talk
+communities. One reason I've became known to a wider audience was a talk
 I gave about FRP, JavaScript and ClojureScript called [Coding UI
 painlessly](https://www.youtube.com/watch?v=l4mmMsAVjzk). My frustrations with
 building UIs in Backbone.js led me to search for a greener pasture. Weirdly
