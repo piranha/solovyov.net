@@ -321,4 +321,4 @@ nginx. Никаких преобразований сервер не делае�
 голосование только с помощью Твиттера. И спасибо, что дочитали до конца. :)
 
 [m]: https://movyv.com/
-[ab]: http://adambard.movyv.com/hello-competitor.-i-am-trying-your-app./
+[ab]: https://web.archive.org/web/20141003095655/http://adambard.movyv.com/hello-competitor.-i-am-trying-your-app./
