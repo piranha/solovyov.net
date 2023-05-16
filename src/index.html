@@ -2,46 +2,74 @@ title: Alexander Solovyov
 description: Blog of Alexander Solovyov
 ----
 
-<article>
-  <img class="float-right"
-       style="height: 256px; width: 256px; margin: 0 auto;"
-       role="presentation"
-       src="{{ version . "static/asolovyov.jpg" }}"
-       srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov512.jpg" }} 2x">
-  <p class="lead">Hi! I'm Alexander Solovyov and that's my site.</p>
-  <p>Read <a href="/about/">about</a> page if you want to know more. Use email if you want to contact me: <script type="text/javascript">document.write("<n uers=\"znvygb:nyrknaqre\100fbybilbi\056arg\">nyrknaqre\100fbybilbi\056arg<\057n>".replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script></p>
-</article>
+<div class="chat greyback">
+  <div class="messages">
+    <img class="avatar" style="flex: 0 0 64px; width: 64px" src="{{ version . "static/asolovyov.jpg" }}">
 
-<ul class="nobullets">
+    <div class="left mine">
+      <div class="message">
+        Hi! 🙂 I'm Alexander Solovyov
+      </div>
+      <div class="message">
+        I'm providing technical consulting on various matters - like performance,
+        team organization and so on
+      </div>
+      <div class="message">
+        <a href="/consult/">👉 Read more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h1>Blog</h1>
+
+<div class="mosaic">
+{{ range $i, $post := ((((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true").Slice 0 6) }}
+<article class="relative">
+  <header class="cover p5 h100 gradient{{ $i }}"
+          {{ with $cover := .Process.Content | refind "data-cover=\"(.*?)\"" }}
+          style="--cover: url('{{ $cover | absurl $post.Url }}')"
+          {{end}}
+  >
+    <a href="{{ $.Rel .Url }}">
+      {{ .Title }}
+      <span class="inset"></span>
+    </a>
+    <span class="small grey">{{ template "monthyear" .Date }}</span>
+  </header>
+</article>
+{{ end }}
+</div>
+<section class="mt"><a class="button" href="/blog/">more articles &raquo;</a></section>
+
+
+<h1>Other activity</h1>
+
+<ul class="nobullets pl0">
+  <li>
+    <a href="https://t.me/bitethebyte" title="Telegram">
+      <svg class="icon"><use href="{{ version . "static/icons.svg" }}#telegram"/></svg>
+      Telegram</a>
+    <span style="opacity: 50%">(in Ukrainian, archive <a href="/channel/">here</a>)</span>
+  </li>
   <li>
     <a href="https://twitter.com/asolovyov" title="Twitter">
       <svg class="icon"><use href="{{ version . "static/icons.svg" }}#twitter"/></svg>
       Twitter</a>
-    (mostly English)
-  </li>
-  <li>
-    <a rel="me" href="https://mastodon.social/@asolovyov">
-      <svg class="icon"><use href="{{ version . "static/icons.svg" }}#mastodon"/></svg>
-      Mastodon</a>
-    (mostly English)
+    <span style="opacity: 50%">(mostly English)</span>
   </li>
   <li>
     <a href="https://youtube.com/c/asolovyov" title="YouTube">
       <svg class="icon"><use href="{{ version . "static/icons.svg" }}#youtube"/></svg>
       YouTube</a>
-    (in Ukrainian)
-  </li>
-  <li>
-    <a href="https://t.me/bitethebyte" title="Telegram">
-      <svg class="icon"><use href="{{ version . "static/icons.svg" }}#telegram"/></svg>
-      Telegram</a>
-    (in Ukrainian)
+    <span style="opacity: 50%">(in Ukrainian)</span>
   </li>
   <li>
     <a href="https://github.com/piranha" title="Github">
       <svg class="icon"><use href="{{ version . "static/icons.svg" }}#github"/></svg>
       Github</a>
-    (many languages 😀)
+    <span style="opacity: 50%">(many languages 😀)</span>
   </li>
   <li>
     <a href="slides/">
@@ -50,26 +78,3 @@ description: Blog of Alexander Solovyov
     </a>
   </li>
 </ul>
-
-<div class="tabs group clear">
-<h1 class="selected">
-  <a href="https://solovyov.net/blog.atom" title="RSS">
-    <svg class="icon15"><use href="{{ version . "static/icons.svg" }}#rss"/></svg>
-  </a>
-  Blog (en)
-</h1>
-
-<h1 class="opacity-75">
-  <a href="https://t.me/bitethebyte" title="Telegram channel">
-    <svg class="icon15"><use href="{{ version . "static/icons.svg" }}#telegram"/></svg>
-  </a>
-  <a href="/channel/">Bite the Byte (uk)</a>
-</h1>
-</div>
-
-{{ range (((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true") }}
-<section class="mb5 {{ if .Date.Year | changed "year" }}mt15{{ end }}">
-  {{ template "monthyear" .Date }}
-  <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
-</section>
-{{ end }}

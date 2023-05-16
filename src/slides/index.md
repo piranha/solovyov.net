@@ -6,7 +6,8 @@ title: Slides
 
 Here are slides from talks I've given.
 
-* [Make It Work. Fast.](21-11-12-make-it-work-fast), PyGrunn 2021
+* [Embrace the Change](23-05-16-embrace-the-change), How to become a great CTO, May 2023
+* [Make It Work. Fast.](21-11-12-make-it-work-fast), PyGrunn, Nov 2021
 * [А ви любите Кафку?](21-09-23-kafka), [стрім](https://www.youtube.com/watch?v=UXnTzxGhnXc) у вересні 2021
 * [Викинь ти той React](21-04-01-throw-away-react), [стрім](https://www.youtube.com/watch?v=uNF7QmFiQaw) у квітні 2021
 * [Throwing ReactJS away](20-09-26-throwing-reactjs), JavaScript fwdays'20

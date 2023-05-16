@@ -2,7 +2,7 @@ title: Blog
 description: Blog of Alexander Solovyov
 ----
 
-<h1>Blog</h1>
+<h1 class="center">Blog</h1>
 
 <div class="post-list">
 {{ range (((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true") }}
@@ -13,13 +13,17 @@ description: Blog of Alexander Solovyov
   </div>
   {{ end }}
 
-  <div class="mb">
-    {{ template "month" .Date }}
-    <a href="{{ $.Rel .Url }}">{{ .Title }}</a>
-    <blockquote>
-      {{ with cut "<div id=\"post\".*?>" "</div>" .Process.Content }}{{ excerpt . 50 | trim | strip_html }}{{ end }}
-    </blockquote>
-  </div>
-
+  <section class="mb article-grid">
+    <div class="nowrap o80">{{ template "date" .Date }}</div>
+    <div class="relative">
+      <a class="semibold" href="{{ $.Rel .Url }}">
+        {{ .Title }}
+        <span class="inset"></span>
+      </a>
+      <p class="mt5">
+        {{ with cut "<div id=\"post\".*?>" "</div>" .Process.Content }}{{ excerpt . 40 | trim | strip_html }}{{ end }}
+      </p>
+    </div>
+  </section>
 {{ end }}
 </div>

@@ -46,33 +46,21 @@
   <script data-goatcounter="https://sn.goatcounter.com/count" src="//gc.zgo.at/count.js" defer></script>
 </head>
 <body>
-  <header>
+  <header class="greyback">
     <h2 id="title"><a href="/">solovyov.net</a></h2>
-    <ul class="top-icons nobullets">
-      <li><a href="https://twitter.com/asolovyov" class="group" title="Twitter">
-        <svg class="icon2 opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#twitter"/></svg>
-      </a></li>
-      <li><a href="https://www.youtube.com/c/asolovyov" class="group" title="Youtube">
-        <svg class="icon2 opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#youtube"/></svg>
-      </a></li>
-      <li><a href="https://t.me/bitethebyte" class="group" title="Telegram">
-        <svg class="icon2 opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#telegram"/></svg>
-      </a></li>
-      <li><a href="https://solovyov.net/blog.atom" class="group" title="RSS">
-        <svg class="icon2 opacity-75"><use xlink:href="{{ version . "static/icons.svg" }}#rss"/></svg>
-      </a></li>
+    <ul class="nobullets flex-row gap15 m-auto-0">
+      <li><a href="/consult/">Consulting</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/about/">About</a></li>
     </ul>
   </header>
 
 {{ end }}
 
-
 {{ define "footer" }}
-  <footer class="text-center">
-    &#169; 2006&ndash;2023 <a href="{{ .Rel "/" }}">{{ .Site.Other.Author }}</a>.
-    {{ if eq .Url "" }}Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a>.{{ end }}
+  <footer>
+    &#169; 2006&ndash;2023 <a href="{{ .Rel "/" }}">{{ .Site.Other.Author }}</a>
   </footer>
-
 </body>
 </html>
 {{ end }}
@@ -87,9 +75,8 @@
 <article itemscope itemtype="http://schema.org/BlogPosting">
   <header
     {{ with $cover := .Content | trim | refind "^<(?:p|figure)><img .*?src=\"(.+?)\".*?>" -}}
-    class="cover"
-    style="background-image: linear-gradient(rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.5)),
-                             url({{ $cover }})"
+    class="cover fullwidth"
+    style="--cover: url('{{ $cover | absurl $.Url }}')"
     data-cover="{{ $cover }}"
     itemprop="image"
     content="{{ $cover }}"
@@ -100,7 +87,7 @@
       <a href="/{{ .Url }}" class="hover-target" itemprop="url">#</a>
     </h1>
 
-    <div class="meta grey">
+    <div class="small grey">
       {{ .Content | reading_time }} min read
 
       &middot;
@@ -189,7 +176,7 @@ if (location.search.match(/\beditor=/)) {
 
 
 {{define "microdate"}}
-<time class="cg mono dt-published"
+<time class="cg dt-published"
       datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}"
       itemprop="datePublished"
       content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
@@ -199,20 +186,20 @@ if (location.search.match(/\beditor=/)) {
 
 
 {{define "monthyear"}}
-<time class="cg mono dt-published" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+<time class="cg dt-published" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Format "Jan 2006" }}
 </time>
 {{end}}
 
 
 {{define "month"}}
-<time class="cg mono" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+<time class="cg" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Format "Jan" }}
 </time>
 {{end}}
 
 {{define "date"}}
-<time class="cg mono" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
+<time class="cg" datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">
   {{ .Format "02 Jan 06" }}
 </time>
 {{end}}
