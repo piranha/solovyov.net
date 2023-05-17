@@ -177,26 +177,17 @@ footer {
 }
 
 
-@media (min-width: 768px) {
-  .mosaic {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .mosaic > * {
-    flex: 1 1 45%;
-    aspect-ratio: 16/9;
-  }
+.mosaic { display: flex; flex-wrap: wrap; gap: 1rem; }
+.mosaic > * {
+  flex-basis: 100%;
+  aspect-ratio: 2/1;
 }
 
-.mosaic { gap: 1rem; }
-
-.mosaic > * {
-  aspect-ratio: 2/1;
-  box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px,
-              rgba(17, 24, 39, 0.05) 0px 0px 0px 1px,
-              rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
-              rgba(0, 0, 0, 0.1) 0px 4px 6px -4px;
+@media (min-width: 768px) {
+  .mosaic > * {
+    flex-basis: calc(50% - 1rem);
+    aspect-ratio: 16/9;
+  }
 }
 
 
@@ -228,6 +219,7 @@ header.cover {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-bottom: 1rem;
 }
 
 header.cover[style] {
@@ -427,6 +419,9 @@ header.cover, header.cover .grey, header.cover a {
   flex-direction: column;
 }
 
+.chat > :first-child { margin-top: 5rem; }
+.chat > :last-child  { margin-bottom: 5rem; }
+
 .messages {
   margin-bottom: 30px;
   display: flex;
@@ -444,28 +439,22 @@ header.cover, header.cover .grey, header.cover a {
   margin-top: 5px;
   margin-bottom: 5px;
   display: inline-block;
-}
-
-.messages .mine .message, .messages .mine .message:last-of-type:before  {
-  color: white !important;
-  background: rgb(0, 120, 254) !important;
-}
-.messages .mine a {
-  color: white;
-  text-decoration: underline;
-}
-
-.messages .left {
-  align-items: flex-start;
-}
-
-.messages .left .message {
   margin-right: 25%;
   background-color: #EEE;
   position: relative;
 }
 
-.messages .left .message:last-of-type:before {
+.messages.mine .message,
+.messages.mine .message:last-of-type:before  {
+  color: white !important;
+  background: rgb(0, 120, 254) !important;
+}
+.messages.mine a {
+  color: white;
+  text-decoration: underline;
+}
+
+.messages .message:last-of-type:before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -476,7 +465,7 @@ header.cover, header.cover .grey, header.cover a {
   background: #EEE;
   border-bottom-right-radius: 15px;
 }
-.messages .left .message:last-of-type:after {
+.messages .message:last-of-type:after {
   content: "";
   position: absolute;
   z-index: 1;
@@ -488,47 +477,12 @@ header.cover, header.cover .grey, header.cover a {
   border-bottom-right-radius: 10px;
 }
 
-.messages .right {
-  background: #EEE;
-  align-items: flex-end;
-}
-
-.messages .right .message {
-  margin-left: 25%;
-  background: #EEE;
-  position: relative;
-}
-
-.messages .right .message:last-of-type:before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  bottom: 0;
-  right: -8px;
-  height: 20px;
-  width: 20px;
-  background: #EEE;
-  border-bottom-left-radius: 15px;
-}
-
-.messages .right .message:last-of-type:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  right: -10px;
-  width: 10px;
-  height: 20px;
-  background: #f5f5f7;
-  border-bottom-left-radius: 10px;
-}
-
 @keyframes slidein {
-  from { display: block; }
-  to { transform: translateY(40px); opacity: 0;}
+  from { transform: scale(0); opacity: 0; }
+  80%  { transform: scale(1.15); opacity: 1; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
-.hide {
-  animation: slideaway 200ms;
-  display: none;
+.inserting {
+  animation: slidein 200ms ease-in-out;
 }

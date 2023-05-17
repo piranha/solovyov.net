@@ -3,26 +3,45 @@ description: Blog of Alexander Solovyov
 ----
 
 <div class="chat greyback">
-  <div class="messages">
-    <img class="avatar" style="flex: 0 0 64px; width: 64px" src="{{ version . "static/asolovyov.jpg" }}">
-
-    <div class="left mine">
+  <div class="messages mine">
+      <template data-after="500">
+        <img class="avatar" style="flex: 0 0 64px; width: 64px" src="{{ version . "static/asolovyov.jpg" }}">
+      </template>
+    <div>
+      <template data-after="500">
       <div class="message">
         Hi! 🙂 I'm Alexander Solovyov
       </div>
-      <div class="message">
-        I'm providing technical consulting on various matters - like performance,
-        team organization and so on
-      </div>
-      <div class="message">
-        <a href="/consult/">👉 Read more</a>
-      </div>
+      </template>
+      <template data-after="1500">
+        <div class="message">
+          I'm providing technical consulting on various matters - like performance,
+          team organization and so on
+        </div>
+      </template>
+      <template data-after="2500">
+        <div class="message">
+          👉 <a href="/consult/">Read more</a>
+        </div>
+      </template>
     </div>
   </div>
 </div>
 
+<script>
+  document.querySelectorAll('template[data-after]').forEach(t => {
+    let ms = parseInt(t.dataset.after, 10);
+    setTimeout(_ => {
+      let el = t.content.firstElementChild.cloneNode(true);
+      el.classList.add('inserting');
+      t.parentElement.insertBefore(el, t);
+    }, ms);
+  });
+</script>
+
 
 <h1>Blog</h1>
+
 
 <div class="mosaic">
 {{ range $i, $post := ((((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true").Slice 0 6) }}
@@ -30,8 +49,7 @@ description: Blog of Alexander Solovyov
   <header class="cover p5 h100 gradient{{ $i }}"
           {{ with $cover := .Process.Content | refind "data-cover=\"(.*?)\"" }}
           style="--cover: url('{{ $cover | absurl $post.Url }}')"
-          {{end}}
-  >
+          {{end}}>
     <a href="{{ $.Rel .Url }}">
       {{ .Title }}
       <span class="inset"></span>

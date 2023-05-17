@@ -40,3 +40,33 @@ Those are not the only areas I'm expert in, contact me if in doubt.
 ## Contact
 
 <p>Contact me via email <script type="text/javascript">document.write("<n uers=\"znvygb:nyrknaqre\100fbybilbi\056arg\">nyrknaqre\100fbybilbi\056arg<\057n>".replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script> and we will work out your needs and if there is a way for me to help you.</p>
+
+
+## Testimonials
+
+<div class="testimonials mt15">
+
+  <div>
+    <img src="https://pwa-api.eva.ua/img/origin/0/0/source/logo/default/logo_14_1.svg"
+         style="height: 2rem; margin: 0 auto;">
+    <figure>
+      <blockquote>
+        <p>
+          Alexander played a crucial role in advancing
+          <a href="https://eva.ua">Eva.ua</a> technical capabilities. He
+          conducted a thorough technical audit of the system and provided
+          valuable recommendations. This helped us address several long-standing
+          issues: we finally hired an in-house CTO, managed to kill overselling,
+          cleaned up our database schema, improved site performance, greatly
+          reduced deployment risk and time.
+        </p>
+        <p>
+          His participation in technical strategy session enabled us to adopt a
+          modern architecture, and led us to improve our processes and team
+          engagement.
+        </p>
+      </blockquote>
+      <figcaption class=right>Elena Annenko<br>Chief Ecommerce Officer <a href="https://eva.ua">Eva.ua</a></figcaption>
+    </figure>
+  </div>
+</div>

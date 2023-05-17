@@ -5,7 +5,7 @@ description: Все знают, что много джаваскрипта - э�
 
 <!--body
 <script src="https://cdn.jsdelivr.net/npm/xhr-mock@2.5.1/dist/xhr-mock.js"></script>
-<script src="https://kasta-ua.github.io/twinspark-js/twinspark.js"></script>
+<script src="https://twinspark.js.org/static/twinspark.js"></script>
 
 <script>
   setTimeout(function() { twinspark.activate(document.body) }, 100);
