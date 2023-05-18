@@ -3,7 +3,7 @@ description: Consulting
 ----
 
 <img class="float-right p1 pr0"
-     style="width: 256px"
+     style="height:256px; width: 256px"
      role="presentation"
      src="{{ version . "static/asolovyov.jpg" }}"
      srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov512.jpg" }} 2x">
