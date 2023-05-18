@@ -2,7 +2,7 @@ title: Consulting
 description: Consulting
 ----
 
-<img class="float-right p1 pr0"
+<img class="float-right ml mt mb"
      style="height:256px; width: 256px"
      role="presentation"
      src="{{ version . "static/asolovyov.jpg" }}"
