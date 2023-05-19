@@ -3,14 +3,15 @@ description: Consulting
 ----
 
 <img class="float-right ml mt mb"
-     style="height:256px; width: 256px"
+     width="256px" height="256px"
      role="presentation"
      src="{{ version . "static/asolovyov.jpg" }}"
      srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov512.jpg" }} 2x">
 
 
-Hey, I'm Alexander and for more than 20 years I'm working in IT on various
-roles. Previous 8 years I've worked as a CTO for [Kasta](https://kasta.ua).
+Hey, my name is Alexander and I've been working in IT for over 20 years in
+various roles. For the last 8 years I've served as a CTO for
+[Kasta](https://kasta.ua).
 
 During my tenure I successfully grew a team of 40 people and led them to become
 the best technical team in our industry. We were able to pioneer new approaches
@@ -18,8 +19,9 @@ and technologies, and successfully rewrote our entire system from scratch,
 migrating it to a new, modern architecture. Our team’s dedication and hard work
 allowed us to achieve great success, and I am proud to have been a part of it.
 
-I feel like many companies can benefit from my knowledge and experience, so I
-decided to take on consulting. My speaking languages are English and Ukrainian.
+Now that I'm not employed full-time, I believe that providing my knowledge and
+experience to other companies could benefit them. So I have decided to start
+consulting. My speaking languages are English and Ukrainian.
 
 
 ## Services
@@ -31,10 +33,12 @@ I can help you. Main directions I'm focused on:
 - Technical audit
 - Technical strategy
 - Team orgchart and development processes
-- Immediate technical problems (which no one knows how to solve)
+- Couching developers
+- Immediate technical problems (which no apparent solution)
 - Overall system's performance
 
-Those are not the only areas I'm expert in, contact me if in doubt.
+Those are not the only areas I'm willing to help you out in, contact me if
+you're interested.
 
 
 ## Contact

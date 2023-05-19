@@ -30,14 +30,17 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* Styles */
 
+html {
+  overflow-x: hidden;
+}
+
 body {
-  margin: auto;
-  max-width: 50rem;
-  padding: 0 15px 15px;
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
   font-size: 1.1rem;
   color: #333;
-  overflow-x: hidden;
+  margin: auto;
+  max-width: 50rem;
+  padding: 0 15px 15px;
 }
 
 @media (min-width: 50rem) {
@@ -45,7 +48,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  margin: 1.414rem 0 .5rem;
+  margin: 1.414rem auto .5rem;
 }
 
 small {
@@ -102,7 +105,8 @@ blockquote {
 /* Custom styles */
 
 body > header {
-  padding: 0.5rem auto 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
 }
@@ -270,8 +274,10 @@ header.cover, header.cover .grey, header.cover a {
   background-color: #f5f5f7;
   position: absolute;
   height: 100%;
-  width: 200vw;
-  left: -100vw;
+  width: 100vw;
+  /* that depends a lot on `body` styling */
+  left: calc(25rem - max(25rem + 15px, 50vw + 15px));
+  top: 0;
   z-index: -1;
 }
 
@@ -285,7 +291,7 @@ header.cover, header.cover .grey, header.cover a {
 }
 
 .testimonials > div {
-  flex: 1 0 30ch;
+  flex: 1 0 25ch;
   padding: 1.5rem;
   border-radius: 1rem;
   box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px,
@@ -417,10 +423,8 @@ header.cover, header.cover .grey, header.cover a {
 .chat {
   display: flex;
   flex-direction: column;
+  padding: 3rem 0;
 }
-
-.chat > :first-child { margin-top: 5rem; }
-.chat > :last-child  { margin-bottom: 5rem; }
 
 .messages {
   margin-bottom: 30px;

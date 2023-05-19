@@ -1,8 +1,8 @@
 title: about
 ----
 
-<img class="float-right"
-     style="margin-left: 1rem" width="256px" height="256px"
+<img class="float-right ml mt mb"
+     width="256px" height="256px"
      role="presentation"
      src="{{ version . "static/asolovyov.jpg" }}"
      srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov512.jpg" }} 2x">
@@ -33,4 +33,4 @@ a [Youtube channel](https://youtube.com/@asolovyov).
 Outside of work, I'm a father to a son and a daughter, and they are a constant
 source of delight and frustration alike. :)
 
-If you want to contact me, use my email, it's `alexander@<this-domain>`.
+<p>If you want to contact me, use my email: <script type="text/javascript">document.write("<n uers=\"znvygb:nyrknaqre\100fbybilbi\056arg\">nyrknaqre\100fbybilbi\056arg<\057n>".replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));</script></p>

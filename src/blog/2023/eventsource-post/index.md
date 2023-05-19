@@ -6,7 +6,7 @@ tags: js, programming
 ![less is more](less-is-more.jpg)
 
 I really like [Server-Sent Events][1]: the protocol is quite simple and
-effective, and using it is from a browser is easy. Listen for a `message` event
+effective, and using it from a browser is easy. Listen for a `message` event
 on `EventSource`, and it just works. [gostatic][] hot reload functionality is
 [built using SSE][2], and it works very well and takes just a pinch of code.
 
@@ -48,7 +48,7 @@ One option is to reject that promise by myself, but all that stuff sounds
 dirty. So I reached to an old friend `XMLHttpRequest` and that guy is reliable
 as ever! Behold the mighty:
 
-```
+```js
 function sseevent(message) {
   let type = 'message', start = 0;
   if (message.startsWith('event: ')) {
