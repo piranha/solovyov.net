@@ -6,6 +6,7 @@ title: Slides
 
 Here are slides from talks I've given.
 
+* [Frontend for Backenders](23-05-26-frontend-for-backenders), Frontend for Backenders, May 2023
 * [Embrace the Change](23-05-16-embrace-the-change), How to become a great CTO, May 2023
 * [Make It Work. Fast.](21-11-12-make-it-work-fast), PyGrunn, Nov 2021
 * [А ви любите Кафку?](21-09-23-kafka), [стрім](https://www.youtube.com/watch?v=UXnTzxGhnXc) у вересні 2021
