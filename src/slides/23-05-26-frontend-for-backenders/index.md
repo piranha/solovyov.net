@@ -1,9 +1,11 @@
 class: center, middle, full-width, invert
-background-image: url("https://images.unsplash.com/photo-1560964645-5296b5099677?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80")
+background-image: url("img/bridge-hand.jpg")
 
 <!--body
-<script src="https://cdn.jsdelivr.net/npm/xhr-mock@2.5.1/dist/xhr-mock.js"></script>
-<script src="https://twinspark.js.org/static/twinspark.js"></script>
+<script src1="https://cdn.jsdelivr.net/npm/xhr-mock@2.5.1/dist/xhr-mock.js"></script>
+<script src1="https://twinspark.js.org/static/twinspark.js"></script>
+<script src="http://localhost:8000/vendor/xhr-mock.js?v=0856f976"></script>
+<script src="http://localhost:8000/static/twinspark.js?v=c7bdfff0"></script>
 <script>
   XHRMock.setup();
   window.addEventListener('remark-init', () => {

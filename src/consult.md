@@ -33,9 +33,9 @@ I can help you. Main directions I'm focused on:
 - Technical audit
 - Technical strategy
 - Team orgchart and development processes
-- Couching developers
+- Couching developers and developer experience (including CI/CD)
 - Immediate technical problems (which no apparent solution)
-- Overall system's performance
+- Overall system's performance and web performance
 
 Those are not the only areas I'm willing to help you out in, contact me if
 you're interested.
@@ -73,4 +73,5 @@ you're interested.
       <figcaption class=right>Elena Annenko<br>Chief Ecommerce Officer <a href="https://eva.ua">Eva.ua</a></figcaption>
     </figure>
   </div>
+
 </div>

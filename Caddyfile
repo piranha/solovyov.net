@@ -1,5 +1,4 @@
-# -*- mode: conf -*-
-
+# -*- mode: conf; indent-tabs-mode: t -*-
 
 solovyov.net {
   encode zstd gzip
