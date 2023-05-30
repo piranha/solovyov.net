@@ -9,35 +9,35 @@ description: Consulting
      srcset="{{ version . "static/asolovyov.jpg" }} 1x, {{ version . "static/asolovyov512.jpg" }} 2x">
 
 
-Hey, my name is Alexander and I've been working in IT for over 20 years in
+Hey, my name is Alexander, and I've been working in IT for over 20 years in
 various roles. For the last 8 years I've served as a CTO for
 [Kasta](https://kasta.ua).
 
-During my tenure I successfully grew a team of 40 people and led them to become
+During my tenure, I successfully grew a team of 40 people and led them to become
 the best technical team in our industry. We were able to pioneer new approaches
 and technologies, and successfully rewrote our entire system from scratch,
 migrating it to a new, modern architecture. Our team’s dedication and hard work
 allowed us to achieve great success, and I am proud to have been a part of it.
 
-Now that I'm not employed full-time, I believe that providing my knowledge and
-experience to other companies could benefit them. So I have decided to start
-consulting. My speaking languages are English and Ukrainian.
+Now that I'm not employed full-time, I believe that sharing my knowledge and
+experience with other companies could benefit them. So I have decided to start
+consulting.
 
 
 ## Services
 
-If you're in ecommerce and you feel like your site could work better, or your
+If you're in ecommerce, and you feel like your site could work better, or your
 development could be faster, or features get lost on the way to implementation -
 I can help you. Main directions I'm focused on:
 
 - Technical audit
 - Technical strategy
-- Team orgchart and development processes
-- Couching developers and developer experience (including CI/CD)
-- Immediate technical problems (which no apparent solution)
+- Team org chart and development processes
+- Coaching developers and developer experience (including CI/CD)
+- Immediate technical problems (with no apparent solution)
 - Overall system's performance and web performance
 
-Those are not the only areas I'm willing to help you out in, contact me if
+These are not the only areas I'm willing to help you out in, contact me if
 you're interested.
 
 
