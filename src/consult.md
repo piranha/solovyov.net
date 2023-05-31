@@ -74,4 +74,21 @@ you're interested.
     </figure>
   </div>
 
+  <div>
+    <img src="https://djinni.co/static/images/logo_djinni.svg"
+         style="height: 2rem; margin: 0 auto">
+    <figure>
+      <blockquote>
+      <p>Alex is a superpower.</p>
+      <p>
+        He’s the most knowledgeable person I know, understands technology and
+        business, and is humble and willing to listen. It’s a rare combo. He
+        helped to identify where we stuck in our development process and
+        collaborated to design a course of action to solve them.
+      </p>
+      <p>You can’t go wrong with Alex.</p>
+      </blockquote>
+      <figcaption class="right">Max Ischenko<br>Founder and CEO <a href="https://djinni.co">Djinni</a></figcaption>
+    </figure>
+  </div>
 </div>
