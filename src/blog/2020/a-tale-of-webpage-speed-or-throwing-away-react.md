@@ -62,7 +62,7 @@ Honestly speaking, the main reasons are [batching](https://piranha.github.io/twi
 
 Funnily enough, after about a month of dabbling with TwinSpark, Intercooler's author announced that he's doing a jQuery-less modern version: [htmx](https://htmx.org/). :) It has really good extensions points, so maybe it's possible to add batching... but inheritance is still there. :-( This is partially why I continued developing TwinSpark, and it was already working anyways. :)
 
-**UPD 2022** After two years of development, fixing bugs, adding features of various size (like [dealing with browser history](https://solovyov.net/blog/2021/history-snapshotting-in-twinspark-js/)) whole codebase of TwinSpark is still a bit over a thousand lines of code. Which is manageable for a team of any size in any scenario - fixing a bug you encounter in a "framework" of that size isn't hard, unlike with tens-of-thousands lines of code stuff frontend is peppered with right now.
+**UPD 2022** After two years of development, fixing bugs, adding features of various size (like [dealing with browser history](https://solovyov.net/blog/2021/history-snapshotting-in-twinspark-js/)) TwinSpark is barely over a thousand lines of code. Which is manageable for a team of any size in any scenario - fixing a bug you encounter in a "framework" of that size isn't hard, unlike with tens-of-thousands lines of code stuff frontend is peppered with right now.
 
 ## Why is that a good idea
 
@@ -80,7 +80,7 @@ The good news is that the development process did not change that much! We're st
 
 It took us four months since the first experiments to release. Not exactly the amount of time I imagined when we started ("should take two to three weeks at most!"), heh, but we were not exclusively doing that. It still took a lot of time and energy to remove React-isms from the code and wrangle our app to be a server-side citizen. It still could use some polishing, but we decided to release it despite that just to cut it short. And A/B test showed that we were right — especially for Android phones.
 
-Google gives our catalogue 75/100 now instead of 5/100. Hurray, I guess? :)
+Google gives our catalogue 75/100 now instead of 5/100, which is incredible! Also, to reiterate: JS size down 60x, HTML size down 2x, all [Core Web Vitals are really good](https://treo.sh/sitespeed/kasta.ua) now.
 
 ## UPD from 2022
 
