@@ -4,40 +4,21 @@ description: Blog of Alexander Solovyov
 
 <div class="chat greyback">
   <div class="messages mine">
-    <template data-after="500">
-      <img class="avatar" style="flex: 0 0 64px" height="64" width="64" src="{{ version . "static/asolovyov.jpg" }}">
-    </template>
+    <img class="avatar" style="flex: 0 0 64px" height="64" width="64" src="{{ version . "static/asolovyov.jpg" }}">
     <div>
-      <template data-after="500">
-        <div class="message">
-          Hi! 🙂 I'm Alexander Solovyov
-        </div>
-      </template>
-      <template data-after="1500">
-        <div class="message">
-          I'm providing technical consulting on various matters - like performance,
-          team organization and so on
-        </div>
-      </template>
-      <template data-after="2500">
-        <div class="message">
-          👉 <a href="/consult/">Read more</a>
-        </div>
-      </template>
+      <div class="message">
+        Hi! 🙂 I'm Alexander Solovyov
+      </div>
+      <div class="message">
+        I'm providing technical consulting on various matters - like performance,
+        team organization and so on
+      </div>
+      <div class="message">
+        👉 <a href="/consult/">Read more</a>
+      </div>
     </div>
   </div>
 </div>
-
-<script>
-  document.querySelectorAll('template[data-after]').forEach(t => {
-    let ms = parseInt(t.dataset.after, 10);
-    setTimeout(_ => {
-      let el = t.content.firstElementChild.cloneNode(true);
-      el.classList.add('inserting');
-      t.parentElement.insertBefore(el, t);
-    }, ms);
-  });
-</script>
 
 
 <h1>Blog</h1>
