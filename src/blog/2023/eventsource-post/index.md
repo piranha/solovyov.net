@@ -7,10 +7,11 @@ tags: js, programming
 
 I really like [Server-Sent Events][1]: the protocol is quite simple and
 effective, and using it from a browser is easy. Listen for a `message` event
-on `EventSource`, and it just works. [gostatic][] hot reload functionality is
+on an [`EventSource`], and it just works. [gostatic][] hot reload functionality is
 [built using SSE][2], and it works very well and takes just a pinch of code.
 
 [1]: http://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events
+[`EventSource`]: https://developer.mozilla.org/en-US/docs/Web/API/EventSource
 [gostatic]: https://github.com/piranha/gostatic/
 [2]: https://github.com/piranha/gostatic/blob/master/hotreload/assets/hotreload.js#L5-L10
 
@@ -26,27 +27,28 @@ use WebSockets here. It's a totally different beast, and why would I reach for
 something that different if I have an almost perfect tool for that job?
 
 So I searched the internets a bit and found [an implementation of SSE using
-fetch][3]. I had to upgrade it a little bit - there is no protocol parsing, but
-it's a few lines of code and now it works perfectly.
+fetch][3]. I had to upgrade it a little bit — there was no protocol parsing, but
+it's just a few lines of code and it works beautifully.
 
 [3]: https://rob-blackbourn.medium.com/beyond-eventsource-streaming-fetch-with-readablestream-5765c7de21a1
 
-Except later on I decided to make that "abort" button. How do you abort a
+_Except_ later on I decided to make that "abort" button. How do you abort a
 `fetch` request? You create an [`AbortController`][], then pass it as
 `fetch(url, {signal: controller.signal})`, and then call an `.abort()`
 method. Awkward? Very much so. But at least it's working? Not at all!
 
-[AbortController]: http://developer.mozilla.org/en-US/docs/Web/API/AbortController
+[`AbortController`]: http://developer.mozilla.org/en-US/docs/Web/API/AbortController
 
-I mean, yeah, request is aborted. But your promise (the one `fetch` returned) is
-never rejected (nor resolved, of course). And in Firefox' devtools console you
-get an error on the line with `controller.abort()` call. You can't catch it with
-a `try/catch`. Chrome is even better: it reports an error on the first line of
-your HTML. _Wooohooo momma I'm a web developer help me before I killed a man._
+I mean, yeah, request is aborted. But your promise (the one that `fetch`
+returned) is never rejected (nor resolved, of course). And in Firefox' devtools
+console you get an error pointing to the line with `controller.abort()`
+call. You can't catch it with a `try/catch`. _Of course!_ Chrome is even better:
+it reports an error on the first line of your HTML. _Wooohooo momma I'm a web
+developer help me before I killed a man._
 
-One option is to reject that promise by myself, but all that stuff sounds
-dirty. So I reached to an old friend `XMLHttpRequest` and that guy is reliable
-as ever! Behold the mighty:
+One option is to reject that promise by myself, it sounds dirty and does not get
+rid of the weird errors in devtools. So I reached to an old friend
+`XMLHttpRequest` and that guy is reliable as ever! Behold the mighty:
 
 ```js
 function sseevent(message) {
@@ -116,8 +118,8 @@ export function XhrSource(url, opts) {
 }
 ```
 
-That's the full implementation of `EventSource` (at least for my use case), even
-the method to close connection is called `close()`, just as in real
+That's the full implementation of an `EventSource` (at least for my use case),
+even the method to close connection is called `close()`, just as in real
 `EventSource`.
 
 One interesting thing to note here is that `loadstart` event is sent

@@ -68,11 +68,17 @@ p, blockquote, table, hr, dl, ul, ol, pre, address, figure {
 }
 
 pre, code, .mono {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family: Monaco, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-pre, code {
-  font-size: 0.8rem;
+pre, code, .mono {
+  font-size: 0.8333rem;
+}
+
+p code {
+  background-color: #f2f1f1;
+  padding: .125rem .25rem;
+  border-radius: .25rem;
 }
 
 pre {
