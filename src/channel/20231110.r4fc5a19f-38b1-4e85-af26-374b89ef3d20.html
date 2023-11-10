@@ -1,0 +1,8 @@
+date: 2023-11-10 21:36:33
+uuid: r4fc5a19f-38b1-4e85-af26-374b89ef3d20
+tgid: 324
+tags: channel
+----
+
+<p>Епл у новій макосі зробила абсолютно гнуснючий малесенький індикатор перемикання розкладок, який показувався у курсора кожен раз, як ти перемикаєш розкладку — такий, як на картинці. А я це роблю прям ну дуже часто (бо це <a target="_blank" rel="noopener noreferrer nofollow" href="https://t.me/bitethebyte/34">всього одна кнопка</a>) — і індикатор бісить неймовірно. Але <a target="_blank" rel="noopener noreferrer nofollow" href="https://stackoverflow.com/questions/77248249/disable-macos-sonoma-text-insertion-point-cursor-caps-lock-indicator">тепер є фікс</a>, ура! Отакий:</p><pre class="hljs"><code>sudo mkdir -p /Library/Preferences/FeatureFlags/Domain
+sudo /usr/libexec/PlistBuddy -c "Add 'redesigned_text_cursor:Enabled' bool false" /Library/Preferences/FeatureFlags/Domain/UIKit.plist</code></pre><p>І перезавантажитися. І все, нічого нема на екрані. Кааайф. Дякую, пане Євгене, за лінку. :)</p><p><img src="https://pbs.twimg.com/media/F7CbDOTXAAATxMG?format=jpg&amp;name=small" alt="Зображення"></p>
