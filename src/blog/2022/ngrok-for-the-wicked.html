@@ -4,7 +4,7 @@ uuid: 4862dd2c-6063-4871-9d94-0fb9cf386d0d
 tags: programming
 ----
 
-<figure><img src="https://xapicms.com/images/r/2022/5/849509395.Untitled.jpg"/><figcaption></figcaption></figure>
+<figure><img src="https://images.solovyov.net/r/2022/5/849509395.Untitled.jpg"/><figcaption></figcaption></figure>
 <p>I&#39;ve started using <a href="https://ngrok.com">ngrok</a> a lot lately (I know, I know, late to the party). But then last week, Homebrew has updated it to a version where it wants some $25 to supply custom domain names. I mean, I could pay that, but I&#39;m paying Hetzner like $8 or $9 for a server, and then I&#39;m paying for my domain and… it&#39;s still cheaper?</p>
 
 <p>I understand that hosting is more commoditized than tunnels — I guess the market is wider — but still, it felt like I could spend a few hours and get something similar working. Why do I need custom domains? Because losing cookies makes me unhappy, and cookies require domain not to change. Plus, testing OAuth is really painful without custom domain since everybody wants to pin redirect URL to a stable domain.</p>
@@ -13,7 +13,7 @@ tags: programming
 
 <h2>The Plan</h2>
 
-<figure><img src="https://xapicms.com/images/r/2022/5/1017268926.mermaid-diagram-20220508142410.png"/><figcaption></figcaption></figure>
+<figure><img src="https://images.solovyov.net/r/2022/5/1017268926.mermaid-diagram-20220508142410.png"/><figcaption></figcaption></figure>
 <p>It&#39;s simple! I create a wildcard domain (something like <code>*.xxx.solovyov.net</code>, <code>xxx</code> is for &quot;real domain is none of your business&quot; 😁), and then reverse-proxy everything through an SSH tunnel from a server to my laptop.</p>
 
 <p>I&#39;m still going to use Caddy since automatic HTTPS and laconic config appeals to me. 👍</p>
