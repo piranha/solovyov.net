@@ -11,7 +11,6 @@
         title="{{ .Site.Other.Title }}" href="{{ .Site.Other.Url }}blog.atom">
   {{ if .Other.Alternate }}{{ .Other.Alternate }}{{ end }}
   {{ if .Other.Meta }}{{ .Other.Meta }}{{ end }}
-
   <title>{{ some .Title .Site.Other.Title }}</title>
   <meta name="author" content="{{ .Site.Other.Author }}">
   <meta name="keywords" content="alexander solovyov, piranha, kasta, clojure, python, emacs, blog
@@ -21,7 +20,6 @@
   {{- else -}}
     {{ with cut "<div id=\"post\".*?>" "</div>" .Content }}{{ excerpt . 30 | trim | strip_html }}{{ end }}
   {{- end }}">
-
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Site.Other.Url }}{{ .Url }}">
   <meta property="og:title" content="{{ some .Title .Site.Other.Title }}">

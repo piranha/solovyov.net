@@ -1,6 +1,7 @@
 title: Server-Sent Events, but with POST
 date: 2023-05-17
 tags: js, programming
+keywords: sse, sse post, server-sent events, eventsource, eventsource post, sse body, javascript
 ----
 
 ![less is more](less-is-more.jpg)
@@ -21,7 +22,7 @@ long wait for a full response. Plus you can abort that response in-flight if you
 see it going awry.
 
 Which means I need to send context to a server, right? And the only way to
-convey anything to a server using `EventSource` object is through an URL. There
+convey anything to a server using `EventSource` object is through the URL. There
 is no way I can pass enough context through an URL, and I really don't want to
 use WebSockets here. It's a totally different beast, and why would I reach for
 something that different if I have an almost perfect tool for that job?
@@ -35,7 +36,7 @@ it's just a few lines of code and it works beautifully.
 _Except_ later on I decided to make that "abort" button. How do you abort a
 `fetch` request? You create an [`AbortController`][], then pass it as
 `fetch(url, {signal: controller.signal})`, and then call an `.abort()`
-method. Awkward? Very much so. But at least it's working? Not at all!
+method. Awkward? Very much so. But at the very least it's working? Not at all!
 
 [`AbortController`]: http://developer.mozilla.org/en-US/docs/Web/API/AbortController
 
@@ -120,15 +121,37 @@ export function XhrSource(url, opts) {
 
 That's the full implementation of an `EventSource` (at least for my use case),
 even the method to close connection is called `close()`, just as in real
-`EventSource`.
+`EventSource`. So you would use it like that (just an example, tune for your own
+needs):
+
+```js
+const xs = XhrSource('/your/api/url/', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({some: data})
+});
+
+xs.addEventListener('error', e => {
+  outputEl.textContent += 'ERROR: ' + e.reason;
+});
+
+xs.addEventListener('close', e => {
+  outputEl.textContent += '\nDONE';
+});
+
+xs.addEventListener('message', e => {
+  const msg = JSON.parse(e.data);
+  outputEl.textContent += msg.content;
+});
+```
 
 One interesting thing to note here is that `loadstart` event is sent
-synchronously with the `xhr.send(opts.body)` call. This feels weird to me, since
-no listeners are ready when it's send... But if I put `xhr.send` in
-`setTimeout`, then data starts arriving _visibly_ later. I have no idea why,
-profiling and looking at network panel did not give me any insights, so if you
-know what's up or get other results or anything - hit me up, I'd love to
-understand what is going on.
+synchronously with the `xhr.send(opts.body)` call - before the `return`
+happens. This feels weird to me, since no listeners are ready by the time... But
+if I put `xhr.send` in `setTimeout`, then data starts arriving _visibly_
+later. I have no idea why, profiling and looking at network panel did not give
+me any insights, so if you know what's up or get other results or anything -
+[hit me up](/about/), I'd love to understand what is going on.
 
 All in all it feels like this post took more time to write than the code - and
 it's much simpler than DecodablePipe stuff from Rob's post. Works well for me,
