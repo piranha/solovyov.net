@@ -51,7 +51,7 @@ you're interested.
 <div class="testimonials mt15">
 
   <div>
-    <img src="https://pwa-api.eva.ua/img/origin/0/0/source/logo/default/logo_14_1.svg"
+    <img src="{{ version . "static/other/eva.svg" }}"
          style="height: 2rem; margin: 0 auto;">
     <figure>
       <blockquote>
