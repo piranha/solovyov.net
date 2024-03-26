@@ -35,21 +35,21 @@ solovyov.net {
   redir /en/feed.atom /blog.atom permanent
   redir /blog/sz/* /sz/ permanent
 
-  # drop date
-  @date {
-    path_regexp date ^/(blog|en)/(\d{4})/\d\d/\d\d/(.*)$
-  }
+  # accumulated old and error patterns
+  @date path_regexp date ^/(blog|en)/(\d{4})/\d\d/\d\d/(.*)$
   redir @date /{http.regexp.date.1}/{http.regexp.date.2}/{http.regexp.date.3} permanent
 
-  @amp {
-    path_regexp amp ^/(.*)/amp/$
-  }
+  @amp path_regexp amp ^/(.*)/amp/$
   redir @amp /{http.regexp.amp.1}/ permanent
 
-  @weirdone {
-    path_regexp one ^/(.*)/1$
-  }
+  @weirdone path_regexp one ^/(.*)/1$
   redir @weirdone /{http.regexp.one.1}/ permanent
+
+  # wtf is those two
+  redir /blog// /blog/ permanent
+
+  @doubleblog path_regexp dblog ^/blog/blog/(.*)$
+  redir @doubleblog /blog/{http.regexp.dblog.1} permanent
 
   # en migration
   redir /en/ /blog/ permanent
