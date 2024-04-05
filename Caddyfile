@@ -52,6 +52,7 @@ solovyov.net {
   redir @doubleblog /blog/{http.regexp.dblog.1} permanent
 
   # en migration
+  redir /en  /blog/ permanent
   redir /en/ /blog/ permanent
   redir /en.atom /blog.atom permanent
   redir /en/2007/django-performance-apache-vs-nginx* /blog/2007/django-performance-apache-vs-nginx-en/ permanent
