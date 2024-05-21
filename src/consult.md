@@ -19,9 +19,9 @@ and technologies, and successfully rewrote our entire system from scratch,
 migrating it to a new, modern architecture. Our team’s dedication and hard work
 allowed us to achieve great success, and I am proud to have been a part of it.
 
-Now that I'm not employed full-time, I believe that sharing my knowledge and
-experience with other companies could benefit them. So I have decided to start
-consulting.
+It feels inappropriate to hold on that knowledge, and I believe sharing my
+knowledge experience with other companies could benefit them. So I'm consulting
+now.
 
 
 ## Services

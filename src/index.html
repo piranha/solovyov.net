@@ -2,6 +2,7 @@ title: Alexander Solovyov
 description: Blog of Alexander Solovyov
 ----
 
+<!--
 <div class="chat greyback">
   <div class="messages mine">
     <img class="avatar" style="flex: 0 0 64px" height="64" width="64" src="{{ version . "static/asolovyov.jpg" }}">
@@ -19,10 +20,10 @@ description: Blog of Alexander Solovyov
     </div>
   </div>
 </div>
+-->
 
 
 <h1>Blog</h1>
-
 
 <div class="mosaic">
 {{ range $i, $post := ((((.Site.Pages.Children "blog/").Where "Url" "/$").WhereNot "Draft" "true").Slice 0 6) }}
@@ -50,25 +51,25 @@ description: Blog of Alexander Solovyov
     <a href="https://t.me/bitethebyte" title="Telegram">
       <svg class="icon"><use href="{{ version . "static/icons.svg" }}#telegram"/></svg>
       Telegram</a>
-    <span style="opacity: 50%">(in Ukrainian, archive <a href="/channel/">here</a>)</span>
+    <span style="opacity: 90%">(in Ukrainian, archive <a href="/channel/">here</a>)</span>
   </li>
   <li>
     <a href="https://twitter.com/asolovyov" title="Twitter">
       <svg class="icon"><use href="{{ version . "static/icons.svg" }}#twitter"/></svg>
       Twitter</a>
-    <span style="opacity: 50%">(mostly English)</span>
+    <span style="opacity: 90%">(mostly English)</span>
   </li>
   <li>
     <a href="https://youtube.com/c/asolovyov" title="YouTube">
       <svg class="icon"><use href="{{ version . "static/icons.svg" }}#youtube"/></svg>
       YouTube</a>
-    <span style="opacity: 50%">(in Ukrainian)</span>
+    <span style="opacity: 90%">(in Ukrainian)</span>
   </li>
   <li>
     <a href="https://github.com/piranha" title="Github">
       <svg class="icon"><use href="{{ version . "static/icons.svg" }}#github"/></svg>
       Github</a>
-    <span style="opacity: 50%">(many languages 😀)</span>
+    <span style="opacity: 90%">(many languages 😀)</span>
   </li>
   <li>
     <a href="slides/">
