@@ -1,4 +1,4 @@
-title: Server-Sent Events, but with POST
+title: Server-Sent Events (SSE), but with POST
 date: 2023-05-17
 tags: js, programming
 keywords: sse, sse post, server-sent events, eventsource, eventsource post, sse body, javascript
@@ -33,10 +33,10 @@ it's just a few lines of code and it works beautifully.
 
 [3]: https://rob-blackbourn.medium.com/beyond-eventsource-streaming-fetch-with-readablestream-5765c7de21a1
 
-_Except_ later on I decided to make that "abort" button. How do you abort a
+**Except** later on I decided to make that "abort" button. How do you abort a
 `fetch` request? You create an [`AbortController`][], then pass it as
 `fetch(url, {signal: controller.signal})`, and then call an `.abort()`
-method. Awkward? Very much so. But at the very least it's working? Not at all!
+method. Awkward? Very much so. But at the very least is it working? Not at all!
 
 [`AbortController`]: http://developer.mozilla.org/en-US/docs/Web/API/AbortController
 
@@ -44,11 +44,11 @@ I mean, yeah, request is aborted. But your promise (the one that `fetch`
 returned) is never rejected (nor resolved, of course). And in Firefox' devtools
 console you get an error pointing to the line with `controller.abort()`
 call. You can't catch it with a `try/catch`. _Of course!_ Chrome is even better:
-it reports an error on the first line of your HTML. _Wooohooo momma I'm a web
+it reports an error on the first line of your HTML. _OooOoOoo momma I'm a web
 developer help me before I killed a man._
 
-One option is to reject that promise by myself, it sounds dirty and does not get
-rid of the weird errors in devtools. So I reached to an old friend
+One option is to reject that promise by myself, but it sounds dirty and does not
+get rid of the weird errors in devtools. So I reached to an old friend
 `XMLHttpRequest` and that guy is reliable as ever! Behold the mighty:
 
 ```js
